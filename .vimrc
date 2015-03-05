@@ -28,6 +28,8 @@ Plugin 'vim-scripts/tasklist.vim'
 "Plugin 'rkulla/pydiction'
 " Ultisnips
 Plugin 'SirVer/Ultisnips'
+" Even better error highlighting 
+Plugin 'scrooloose/syntastic'
 " Python error highlighting
 Plugin 'kevinw/pyflakes-vim'
 
@@ -125,6 +127,17 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
 
 
+" Syntastic syntax check 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_signs = 1
+
+
 " UltiSnips plugin for snippet support
 " remapping trigger key (originally TAB) to solve conflict with YCM
 function! g:UltiSnips_Complete()
@@ -190,7 +203,7 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 " make vim's regex machine smarter at searching, refer to :h magic
-nnoremap / /\v 
+nnoremap / /\v
 
 
 " enter paste mode when pasting
