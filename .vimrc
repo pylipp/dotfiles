@@ -55,6 +55,7 @@ filetype plugin indent on    " required
 "
 set autoindent  "indent if previous line is indented
 set number      "set line numbering
+set ls=2        "always show the status line
 set ruler       "show cursor position in status bar
 set background=dark "better readability
 set ignorecase  "search options
@@ -73,6 +74,7 @@ set backspace=2   "stop weird backspace behavior
 set cursorline    "highlight current line 
 set textwidth=79  "automatic line break after 79 chars
 set nowrap        "don't wrap long line
+set colorcolumn=81 "Show end of long line
 
 set hidden      " allows making buffers hidden even without unsaved changes 
 set history=1000 "remember more commands and search history 
@@ -105,6 +107,10 @@ let g:xml_syntax_folding = 1
 au BufNewFile,BufRead *.xml,*.imf setf xml
 
 
+"set wrap options 
+autocmd FileType html,xml,text,README,tex set wrap linebreak
+
+
 if &term!="xterm"
    set t_Co=256            " use 265 colors in vim
    let g:solarized_termcolors=256
@@ -117,18 +123,9 @@ map <F2> :NERDTreeToggle<CR>
 
 
 " short cut for running/compiling code
-autocmd filetype python nnoremap <F5> :w <bar> exec '!python '.shellescape('%')<CR>
-autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ -Wall -g  -std=c++11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
 
 " comment/uncomment line
-autocmd filetype python noremap <C-s> I#<Esc>
-autocmd filetype python inoremap <C-s> <Esc>I#<Esc>
-autocmd filetype python noremap <C-q> ^x
-autocmd filetype python inoremap <C-q> <Esc>^x
-autocmd filetype cpp noremap <C-s> I//<Esc>
-autocmd filetype cpp noremap <C-q> ^xx
 autocmd filetype vim noremap <C-s> I"<Esc>
 autocmd filetype vim noremap <C-q> ^x
 autocmd filetype glsl noremap <C-s> I//<Esc>
@@ -158,6 +155,8 @@ let g:tagbar_show_linenumbers = 1 "show linenumbers
 " https://github.com/Valloric/YouCompleteMe/blob/master/doc/youcompleteme.txt
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_error_symbol = '⚡︎ '
+let g:ycm_warning_symbol = '⚠︎ '
 let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_complete_in_comments = 1
@@ -233,9 +232,6 @@ imap <C-b> <Esc><C-b>i
 noremap <C-Space> <C-u>
 " save all current files 
 noremap <leader>w :wa<CR>
-" insert python debugger line 
-map <leader>D Iimport pdb; pdb.set_trace()<Esc>
-map <leader>Q Iimport pdb; QtCore.pyqtRemoveInputHook(); pdb.set_trace()<Esc>
 map Y y$
 map ß $
 noremap , ;
@@ -277,22 +273,6 @@ noremap <leader>n :cn<CR>
 noremap <leader>p :cp<CR>
 noremap <leader>cl :cclose<CR>
 noremap <leader>co :copen<CR>
-
-
-" toggle between source and header file (C++)
-set path=.,,..,../..,./*,./*/*,../*,~/,~/**,/usr/include/*
-function! Mosh_Flip_Ext()
-  " Switch editing between .c* and .h* files (and more).
-  "   " Since .h file can be in a different dir, call find.
-  if match(expand("%"),'\.c') > 0
-    let s:flipname = substitute(expand("%"),'\.c\(.*\)','.h\1',"")
-    exe ":find " s:flipname
-  elseif match(expand("%"),"\\.h") > 0
-	let s:flipname = substitute(expand("%"),'\.h\(.*\)','.c\1',"")
-	exe ":e " s:flipname
-  endif
-endfun
-map <F4> :call Mosh_Flip_Ext()<CR>
 
 
 " open .vimrc in new tab
