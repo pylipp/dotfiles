@@ -27,9 +27,9 @@ Plugin 'vim-scripts/tasklist.vim'
 " Python code completion
 "Plugin 'rkulla/pydiction'
 " Ultisnips
-Plugin 'SirVer/Ultisnips'
+"Plugin 'SirVer/Ultisnips'
 " Even better error highlighting 
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 " Python error highlighting
 Plugin 'kevinw/pyflakes-vim'
 
@@ -74,9 +74,35 @@ set cursorline    "highlight current line
 set textwidth=79  "automatic line break after 79 chars
 set nowrap        "don't wrap long line
 
+set hidden      " allows making buffers hidden even without unsaved changes 
+set history=1000 "remember more commands and search history 
+set autoread    "autoread when a file is changed from the outside 
+set mouse=a     "enables the mouse in all modes 
 
 let mapleader=" "
+"trying out this remapping of the Esc key
+nnoremap üü <Esc>
+inoremap üü <Esc>
+vnoremap üü <Esc>gV
+onoremap üü <Esc>
+
 syntax on       "enable syntax highlighting
+set t_Co=256            " use 265 colors in vim
+let g:solarized_termcolors=256
+colorscheme solarized " an appropriate color scheme
+
+if &term!="xterm"
+   set t_Co=256            " use 265 colors in vim
+   let g:solarized_termcolors=256
+   colorscheme solarized " an appropriate color scheme
+endif
+
+
+"GL syntax hightlighting 
+au BufNewFile,BufRead *.gl,*.frag,*.vert,*.fp,*.vp,*.glsl setf glsl 
+"xml syntax highlighting 
+let g:xml_syntax_folding = 1
+au BufNewFile,BufRead *.xml,*.imf setf xml
 
 
 " NERDTree - plugin to view the current directory
@@ -85,7 +111,7 @@ map <F2> :NERDTreeToggle<CR>
 
 " short cut for running/compiling code
 autocmd filetype python nnoremap <F5> :w <bar> exec '!python '.shellescape('%')<CR>
-autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ -Wall -g  -std=c++11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
 
@@ -98,6 +124,9 @@ autocmd filetype cpp noremap <C-s> I//<Esc>
 autocmd filetype cpp noremap <C-q> ^xx
 autocmd filetype vim noremap <C-s> I"<Esc>
 autocmd filetype vim noremap <C-q> ^x
+autocmd filetype glsl noremap <C-s> I//<Esc>
+autocmd filetype glsl noremap <C-q> ^xx
+"noremap <C-s> I#<Esc>
 
 
 "Exuberant ctags - tag generation for language objects
@@ -121,45 +150,52 @@ let g:tagbar_show_linenumbers = 1 "show linenumbers
 " YouCompleteMe code completion engine
 " https://github.com/Valloric/YouCompleteMe/blob/master/doc/youcompleteme.txt
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
 
 
+"vim-latex-suite 
+"filetype plugin on
+"set grepprg=grep\ -nH\ $*
+"let g:tex_flavor='latex'
+
+
 " Syntastic syntax check 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs = 1
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_enable_signs = 1
 
 
 " UltiSnips plugin for snippet support
 " remapping trigger key (originally TAB) to solve conflict with YCM
-function! g:UltiSnips_Complete()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips#JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
-endfunction
-
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-"let g:UltiSnipsExpandTrigger="<tab>" "done by default
-let g:UltiSnipsJumpForwardTrigger="<C-m>"
-"let g:UltiSnipsListSnippets="<C-n>"
-let g:UltiSnipsJumpBackwardTrigger="<C-S-m>"
+"function! g:UltiSnips_Complete()
+"    call UltiSnips#ExpandSnippet()
+"    if g:ulti_expand_res == 0
+"        if pumvisible()
+"            return "\<C-n>"
+"        else
+"            call UltiSnips#JumpForwards()
+"            if g:ulti_jump_forwards_res == 0
+"               return "\<TAB>"
+"            endif
+"        endif
+"    endif
+"    return ""
+"endfunction
+"
+"au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+""let g:UltiSnipsExpandTrigger="<tab>" "done by default
+"let g:UltiSnipsJumpForwardTrigger="<C-m>"
+""let g:UltiSnipsListSnippets="<C-n>"
+"let g:UltiSnipsJumpBackwardTrigger="<C-S-m>"
 
 
 " TaskList plugin for managing TODOs, FIXMEs and XXXs
