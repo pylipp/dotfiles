@@ -57,7 +57,6 @@ set autoindent  "indent if previous line is indented
 set number      "set line numbering
 set ruler       "show cursor position in status bar
 set background=dark "better readability
-"colorscheme base16-default
 set ignorecase  "search options
 set smartcase   "ignore case if search pattern is all lc, case-sensitive otherwise
 set incsearch
@@ -105,11 +104,13 @@ au BufNewFile,BufRead *.gl,*.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 let g:xml_syntax_folding = 1
 au BufNewFile,BufRead *.xml,*.imf setf xml
 
+
 if &term!="xterm"
    set t_Co=256            " use 265 colors in vim
    let g:solarized_termcolors=256
    colorscheme solarized " an appropriate color scheme
 endif
+
 
 " NERDTree - plugin to view the current directory
 map <F2> :NERDTreeToggle<CR>
@@ -256,6 +257,8 @@ nnoremap <leader><Space> :noh<CR><Esc>
 
 " Pyflakes
 let g:pyflakes_use_quickfix = 0 "solves conflict with Quickfix
+map <F6> :cc<CR>
+noremap cn :cn<CR>
 
 
 "search for pattern 
