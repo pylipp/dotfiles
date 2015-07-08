@@ -57,6 +57,7 @@ set autoindent  "indent if previous line is indented
 set number      "set line numbering
 set ruler       "show cursor position in status bar
 set background=dark "better readability
+"colorscheme base16-default
 set ignorecase  "search options
 set smartcase   "ignore case if search pattern is all lc, case-sensitive otherwise
 set incsearch
@@ -104,6 +105,11 @@ au BufNewFile,BufRead *.gl,*.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 let g:xml_syntax_folding = 1
 au BufNewFile,BufRead *.xml,*.imf setf xml
 
+if &term!="xterm"
+   set t_Co=256            " use 265 colors in vim
+   let g:solarized_termcolors=256
+   colorscheme solarized " an appropriate color scheme
+endif
 
 " NERDTree - plugin to view the current directory
 map <F2> :NERDTreeToggle<CR>
@@ -246,9 +252,28 @@ nnoremap / /\v
 set pastetoggle=<F12>
 " clear search hightlighting
 nnoremap <leader><Space> :noh<CR><Esc>
-" jump to error in code, uses pyflakes, actually Quickfix
-map <F6> :cc<CR>
-noremap cn :cn<CR>
+
+
+" Pyflakes
+let g:pyflakes_use_quickfix = 0 "solves conflict with Quickfix
+
+
+"search for pattern 
+com -nargs=1 Pyfilesearch call Pyfilesearch(<f-args>)
+com -nargs=1 Filesearch call Filesearch(<f-args>)
+function! Pyfilesearch(pattern)
+    exe "noautocmd silent grep " a:pattern "**/*.py"
+    exe ":copen" 
+endfunction 
+function! Filesearch(pattern)
+    exe "noautocmd silent grep -R" a:pattern "."
+    exe ":copen" 
+endfunction 
+noremap <leader>c :cc<CR>
+noremap <leader>n :cn<CR>
+noremap <leader>p :cp<CR>
+noremap <leader>cl :cclose<CR>
+noremap <leader>co :copen<CR>
 
 
 " toggle between source and header file (C++)
