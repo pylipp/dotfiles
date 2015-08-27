@@ -156,11 +156,6 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
 
 
-"vim-latex-suite 
-"filetype plugin on
-"set grepprg=grep\ -nH\ $*
-"let g:tex_flavor='latex'
-
 
 " Syntastic syntax check 
 "set statusline+=%#warningmsg#
