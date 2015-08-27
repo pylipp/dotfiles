@@ -243,6 +243,9 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 " make vim's regex machine smarter at searching, refer to :h magic
 nnoremap / /\v
+" add closing brackets 
+"inoremap { {}<Esc>i 
+"inoremap [ []<Esc>i
 
 
 " enter paste mode when pasting
