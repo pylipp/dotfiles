@@ -100,13 +100,6 @@ if &term!="xterm"
 endif
 
 
-"GL syntax hightlighting 
-au BufNewFile,BufRead *.gl,*.frag,*.vert,*.fp,*.vp,*.glsl setf glsl 
-"xml syntax highlighting 
-let g:xml_syntax_folding = 1
-au BufNewFile,BufRead *.xml,*.imf setf xml
-
-
 "set wrap options 
 autocmd FileType html,xml,text,README,tex set wrap linebreak
 
