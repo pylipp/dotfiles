@@ -14,3 +14,5 @@
 [cola]
 	savewindowsettings = true
 	browserdockable = true
+[color]
+	ui = true
