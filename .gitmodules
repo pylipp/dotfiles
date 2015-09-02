@@ -1,0 +1,3 @@
+[submodule "tagbar"]
+    path = .vim/bundle/tagbar
+    url = git@github.com:majutsushi/tagbar.git
