@@ -11,14 +11,14 @@
         "recentfiledialog": {
             "y": 72, 
             "x": 0, 
-            "height": 420, 
+            "maximized": false, 
             "width": 1920, 
-            "maximized": false
+            "height": 420
         }, 
         "mainview": {
             "lock_layout": true, 
             "height": 1152, 
-            "windowstate": "AAAA/wAAAAL9AAAAAwAAAAAAAAO/AAAEZ/wCAAAAAvsAAAAMAEMAbwBtAG0AaQB0AQAAABkAAADQAAAAPgD////7AAAACABEAGkAZgBmAQAAAOwAAAOUAAAAHgD///8AAAABAAADvgAABGf8AgAAAAP7AAAADABTAHQAYQB0AHUAcwEAAAAZAAAAzAAAAGYA////+wAAAA4AQgByAG8AdwBzAGUAcgEAAADoAAACJQAAAGYA////+wAAAA4AQwBvAG4AcwBvAGwAZQEAAAMQAAABcAAAABYA////AAAAAwAAB4AAAAI2/AEAAAAB+wAAAA4AQQBjAHQAaQBvAG4AcwAAAAAAAAAHgAAAAGMA////AAAAAAAABGcAAAAEAAAABAAAAAgAAAAI/AAAAAA=", 
+            "windowstate": "AAAA/wAAAAL9AAAAAwAAAAAAAAO/AAAEZ/wCAAAAAvsAAAAMAEMAbwBtAG0AaQB0AQAAABkAAADQAAAAPgD////7AAAACABEAGkAZgBmAQAAAOwAAAOUAAAAHgD///8AAAABAAADvgAABGf8AgAAAAP7AAAADABTAHQAYQB0AHUAcwEAAAAZAAAAzAAAAGYA////+wAAAA4AQgByAG8AdwBzAGUAcgEAAADoAAABqAAAAGYA////+wAAAA4AQwBvAG4AcwBvAGwAZQEAAAKTAAAB7QAAABYA////AAAAAwAAB4AAAAI2/AEAAAAB+wAAAA4AQQBjAHQAaQBvAG4AcwAAAAAAAAAHgAAAAGMA////AAAAAAAABGcAAAAEAAAABAAAAAgAAAAI/AAAAAA=", 
             "width": 1920, 
             "maximized": true, 
             "y": 0, 
@@ -27,16 +27,16 @@
         "preferencesview": {
             "y": 0, 
             "x": 660, 
-            "height": 430, 
+            "maximized": false, 
             "width": 600, 
-            "maximized": false
+            "height": 430
         }, 
         "push": {
             "y": 0, 
             "x": 627, 
-            "maximized": false, 
+            "height": 420, 
             "width": 666, 
-            "height": 420
+            "maximized": false
         }, 
         "dagview": {
             "count": 1000, 
@@ -51,9 +51,9 @@
         "browser": {
             "y": 0, 
             "x": 0, 
-            "height": 420, 
+            "maximized": false, 
             "width": 720, 
-            "maximized": false
+            "height": 420
         }
     }, 
     "bookmarks": [], 
