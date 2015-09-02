@@ -1,0 +1,87 @@
+Some notes on how to install OpenCL on Ubuntu.
+
+# AMD # 
+This mostly follows http://streamcomputing.eu/blog/2011-06-24/install-opencl-on-debianubuntu-orderly/
+
+1.  Get OpenCL header files and put them in /usr/include/CL .
+    Either download from Khronos webpage or do
+        sudo apt-get install opencl-headers
+2.  Get libraries and place them in a shared location. 
+    Download SDK from http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/ 
+        tar xjfv ... 
+    Then execute the install script as su. 
+    Move the AMDAPPSDK-<version>/lib directory. 
+        mkdir -p /usr/lib64/OpenCL/vendors/amd/
+        mv lib/x86_64/* /usr/lib64/OpenCL/vendors/amd/
+    For 32bit systems:
+        mkdir -p /usr/lib/OpenCL/vendors/amd/
+        mv lib/x86/* /usr/lib/OpenCL/vendors/amd/
+    Add them to ld-config using root privileges.
+        sudo -i
+        echo "/usr/lib64/OpenCL/vendors/amd" > /etc/ld.so.conf.d/opencl-vendor-amd.conf
+    For 32bit:
+        echo "/usr/lib/OpenCL/vendors/amd" > /etc/ld.so.conf.d/opencl-vendor-amd.conf
+    Run 
+        ldconfig
+
+3.  Create link to LibOpenCL.so 
+    (The following section was not tested. I think it applies for any vendor.)
+    Get “OpenCL 1.2 Installable Client Driver (ICD) Loader” from http://www.khronos.org/registry/cl/
+    Run 
+        cmake; make
+    Copy 
+        sudo cp bin/libOpenCL.so.1.2 /usr/lib
+    Create links 
+        sudo ln -s /usr/lib64/libOpenCL.so /usr/lib64/libOpenCL.so.1.2
+        sudo ln -s /usr/lib/libOpenCL.so /usr/lib/libOpenCL.so.1.2
+
+    (This section was tested.)
+    Copy and rename the file 
+        sudo cp icd/bin/libOpenCL.so.1.2 /usr/lib64/OpenCL/vendors/amd/libOpenCL.so
+    Actual files in 
+    [   /usr/lib/OpenCL/vendors/amd/libOpenCL.so
+    and ]
+        /usr/lib64/OpenCL/vendors/amd/libOpenCL.so 
+    Links (TARGET LINKNAME) in
+    [   sudo ln -s /usr/lib/OpenCL/vendors/amd/libOpenCL.so /usr/lib/libOpenCL.so.1.2
+    and ]
+        sudo ln -s /usr/lib64/OpenCL/vendors/amd/libOpenCL.so /usr/lib64/libOpenCL.so.1.2
+            
+
+
+
+
+# NVIDIA #
+
+Following http://www.prinmath.com/csci5229/misc/install-gpu.html.
+More references:
+    https://www.darktable.org/usermanual/ch09s02s04.html.php
+    https://cran.r-project.org/web/packages/OpenCL/INSTALL
+1.  Get vendor package. 
+    sudo apt-get install nvidia-cuda-toolkit
+    (not tested: nvidia-opencl-dev)
+
+
+############
+# PYOPENCL #
+############
+1. Get package from https://pypi.python.org/pypi/pyopencl. 
+2. Kinda follow http://wiki.tiker.net/PyOpenCL/Installation/Linux
+3. For configuring, this is clearer: http://wiki.tiker.net/PyOpenCL/Installation/Linux/Ubuntu
+4. Basically runs down to 
+    tar xfz pyopencl-VERSION.tar.gz
+    sudo pip install mako
+    sudo apt-get install python-numpy python-setuptools
+    cd pyopencl-VERSION 
+    # add this to siteconfig.py: LDFLAGS = ["-L/usr/lib64/OpenCL/vendors/amd"]
+    # this will set the flags: g++ -L -lOpenCL <foo>.cpp -o <foo>
+    python configure.py --lots-of-options 
+    make 
+    sudo make install
+5. Trouble with six package 
+    sudo pip uninstall six 
+    sudo rm /usr/lib/python2.7/dist-packages/six*
+    sudo pip install six
+
+6. Set environment variable for context creation 
+    PYOPENCL_CTX="0:0"
