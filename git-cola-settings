@@ -1,0 +1,65 @@
+{
+    "gui_state": {
+        "pull": {
+            "rebase": false, 
+            "height": 420, 
+            "width": 666, 
+            "maximized": false, 
+            "y": 0, 
+            "x": 627
+        }, 
+        "recentfiledialog": {
+            "y": 72, 
+            "x": 0, 
+            "height": 420, 
+            "width": 1920, 
+            "maximized": false
+        }, 
+        "mainview": {
+            "lock_layout": true, 
+            "height": 1152, 
+            "windowstate": "AAAA/wAAAAL9AAAAAwAAAAAAAAO/AAAEZ/wCAAAAAvsAAAAMAEMAbwBtAG0AaQB0AQAAABkAAADQAAAAPgD////7AAAACABEAGkAZgBmAQAAAOwAAAOUAAAAHgD///8AAAABAAADvgAABGf8AgAAAAP7AAAADABTAHQAYQB0AHUAcwEAAAAZAAAAzAAAAGYA////+wAAAA4AQgByAG8AdwBzAGUAcgEAAADoAAACJQAAAGYA////+wAAAA4AQwBvAG4AcwBvAGwAZQEAAAMQAAABcAAAABYA////AAAAAwAAB4AAAAI2/AEAAAAB+wAAAA4AQQBjAHQAaQBvAG4AcwAAAAAAAAAHgAAAAGMA////AAAAAAAABGcAAAAEAAAABAAAAAgAAAAI/AAAAAA=", 
+            "width": 1920, 
+            "maximized": true, 
+            "y": 0, 
+            "x": 0
+        }, 
+        "preferencesview": {
+            "y": 0, 
+            "x": 660, 
+            "height": 430, 
+            "width": 600, 
+            "maximized": false
+        }, 
+        "push": {
+            "y": 0, 
+            "x": 627, 
+            "maximized": false, 
+            "width": 666, 
+            "height": 420
+        }, 
+        "dagview": {
+            "count": 1000, 
+            "lock_layout": true, 
+            "height": 1152, 
+            "windowstate": "AAAA/wAAAAH9AAAAAQAAAAMAAAeAAAAEZ/wBAAAAA/sAAAAKAEcAcgBhAHAAaAEAAAAAAAACDAAAAKUA////+wAAAAYATABvAGcBAAACDwAAAcsAAACqAP////sAAAAIAEQAaQBmAGYBAAAD3QAAA6MAAAGHAP///wAAB4AAAAAAAAAABAAAAAQAAAAIAAAACPwAAAAA", 
+            "width": 1920, 
+            "maximized": true, 
+            "y": 0, 
+            "x": 0
+        }, 
+        "browser": {
+            "y": 0, 
+            "x": 0, 
+            "height": 420, 
+            "width": 720, 
+            "maximized": false
+        }
+    }, 
+    "bookmarks": [], 
+    "recent": [
+        "/home/metzner/Documents/dotfiles", 
+        "/run/user/1000/gvfs/smb-share:server=192.168.4.2,share=imfusion/Transfer/PhilippThesis/latex", 
+        "/home/metzner/Documents/simpleSIR"
+    ]
+}
