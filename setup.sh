@@ -1,6 +1,11 @@
 #/usr/bin/zsh 
 
+DOTFLS="~/Documents/dotfiles/"
+
 cd ~
-ln -s Documents/dotfiles/.vimrc .vimrc
-ln -s Documents/dotfiles/.vim .vim
-ln -s Documents/dotfiles/.ycm_conf_extra.py .ycm_conf_extra.py
+ln -s "$DOTFLS".vimrc .vimrc
+ln -s "$DOTFLS".vim .vim
+ln -s "$DOTFLS".ycm_conf_extra.py .ycm_conf_extra.py
+
+mkdir -p ~/.config/git-cola/
+ln "$DOTFLS".git-cola-settings ~/.config/git-cola/settings
