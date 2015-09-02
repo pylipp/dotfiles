@@ -1,0 +1,16 @@
+[core]
+	editor = /usr/bin/vim
+	excludesfile = ~/.gitignore_global
+[user]
+	name = pylipp
+	email = philipp.metzner@tum.de
+[push]
+	default = simple
+[gui]
+	editor = gvim -geometry 100x500
+	historybrowser = gitk
+[diff]
+	tool = gvimdiff -geometry 500x200
+[cola]
+	savewindowsettings = true
+	browserdockable = true
