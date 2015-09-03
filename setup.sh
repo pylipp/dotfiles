@@ -14,4 +14,5 @@ ln -s "$DOTFLS".gitconfig .gitconfig
 ln -s "$DOTFLS".gitignore_global .gitignore_global
 
 mkdir -p ~/.config/git-cola/
-ln "$DOTFLS".git-cola-settings ~/.config/git-cola/settings
+cd ~/.config/git-cola 
+ln -s "$DOTFLS"git-cola-settings settings
