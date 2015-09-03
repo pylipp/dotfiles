@@ -3,12 +3,12 @@
 from subprocess import call
 import os
 
-HOME = "/home/metzner/"
-repos = ["Documents/dotfiles",
-        "Documents/thesis/latex"] 
+repos = ["~/Documents/dotfiles",
+        "~/Documents/thesis/latex"
+        ] 
 
 for repo in repos:
-    path = HOME + repo
+    path = os.path.expanduser(repo)
     print(path)
     os.chdir(path)
     call(["git", "status", "-bs"])
