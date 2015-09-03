@@ -12,6 +12,7 @@ ln -s "$DOTFLS".vim .vim
 ln -s "$DOTFLS".ycm_conf_extra.py .ycm_conf_extra.py
 ln -s "$DOTFLS".gitconfig .gitconfig
 ln -s "$DOTFLS".gitignore_global .gitignore_global
+ln -s "$DOTFLS"gitstatus.py gitstatus.py
 
 mkdir -p ~/.config/git-cola/
 cd ~/.config/git-cola 
