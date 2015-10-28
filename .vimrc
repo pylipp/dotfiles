@@ -24,6 +24,10 @@ Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 " TaskList
 Plugin 'vim-scripts/tasklist.vim'
+" Correct python indentation according to PEP8 from https://github.com/vim-scripts/indentpython.vim
+"Plugin 'vim-scripts/indentpython.vim'
+" Git integration https://github.com/tpope/vim-fugitive
+"Plugin 'tpope/vim-fugitive'
 " Python code completion
 "Plugin 'rkulla/pydiction'
 " Ultisnips
@@ -31,7 +35,7 @@ Plugin 'vim-scripts/tasklist.vim'
 " Even better error highlighting 
 "Plugin 'scrooloose/syntastic'
 " Python error highlighting
-Plugin 'kevinw/pyflakes-vim'
+Plugin 'kevinw/pyflakes-vim' "or rather 'nvie/vim-flake8' ?
 
 
 " All of your Plugins must be added before the following line
@@ -73,6 +77,8 @@ set shiftwidth=4  "autoindent width
 set backspace=2   "stop weird backspace behavior
 set cursorline    "highlight current line 
 set textwidth=79  "automatic line break after 79 chars
+set fileformat=unix "avoid conversion issues
+set encoding=utf-8  "set encoding, useful for python3
 set nowrap        "don't wrap long line
 set colorcolumn=81 "Show end of long line
 
@@ -81,12 +87,22 @@ set history=1000 "remember more commands and search history
 set autoread    "autoread when a file is changed from the outside 
 set mouse=a     "enables the mouse in all modes 
 
+"Enable folding, from
+"https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/#.Vi9-CN7uzXY.reddit
+set foldmethod=indent 
+set foldlevel=99
+"nnoremap <space> za 
+"Plugin 'tmhedberg/SimplyFold'
+"let g:SimplyFold_docstring_preview=1
+
 let mapleader=" "
 "trying out this remapping of the Esc key
 nnoremap üü <Esc>
 inoremap üü <Esc>
 vnoremap üü <Esc>gV
 onoremap üü <Esc>
+
+let python_highlight_all=1
 
 syntax on       "enable syntax highlighting
 set t_Co=256            " use 265 colors in vim
@@ -154,6 +170,7 @@ let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
+"map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 
