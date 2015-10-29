@@ -5,6 +5,7 @@ import os
 import sys
 
 repos = {}
+errors = []
 
 def main(repolist):
     _readInRepos()
@@ -16,17 +17,24 @@ def main(repolist):
         seq = repos.keys()
     for name in seq:
         _printGitStatus(name)
+    if len(errors):
+        print("---ERRORS---")
+        for e in errors:
+            print(e)
 
 def _printGitStatus(name):
     path = repos.get(name)
     if path is None:
-        print("Git repo '{name}' not specified.".format(name=name))
+        errors.append("Git repo '{name}' not specified.".format(name=name))
         return
     path = os.path.expanduser(path)
-    print(name.upper())
-    os.chdir(path)
-    call(["git", "status", "-bs"])
-    print()
+    try:
+        os.chdir(path)
+        print(name.upper())
+        call(["git", "status", "-bs"])
+        print()
+    except (OSError) as e:
+        errors.append(e)
 
 def _readInRepos():
     with open("personalrepos", 'r') as repoFile:
@@ -40,7 +48,7 @@ def _readInRepos():
                     else:
                         raise ValueError("name or path are incorrectly specified.")
                 except (ValueError) as e:
-                    print("Error while parsing line {}: {}".format(i,e))
+                    errors.append("Error while parsing line {}: {}".format(i,e))
                     continue
 
 
