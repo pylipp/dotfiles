@@ -5,12 +5,9 @@ import os
 import sys
 
 repos = {}
-repos["dotfiles"] = "~/Dokumente/dotfiles"
-repos["mscthesis"] = "~/Dokumente/Documents/master project/thesis/mscthesis"
-repos["pythir"] = "~/Dropbox/code/pythir"
-repos["financeager"] = "~/Dropbox/code/financeager"
 
 def main(repolist):
+    _readInRepos()
     # Display status of repos specified as command line arguments.
     if len(repolist):
         seq = repolist 
@@ -18,9 +15,9 @@ def main(repolist):
     else:
         seq = repos.keys()
     for name in seq:
-        printGitStatus(name)
+        _printGitStatus(name)
 
-def printGitStatus(name):
+def _printGitStatus(name):
     path = repos.get(name)
     if path is None:
         print("Git repo '{name}' not specified.".format(name=name))
@@ -30,5 +27,21 @@ def printGitStatus(name):
     os.chdir(path)
     call(["git", "status", "-bs"])
     print()
+
+def _readInRepos():
+    with open("personalrepos", 'r') as repoFile:
+        for i, line in enumerate(repoFile):
+            # Skip comments and empty lines
+            if not line.startswith('#') and len(line.strip()):
+                try:
+                    name, path = line.split(';')
+                    if isinstance(name, str) and isinstance(path, str):
+                        repos[name.strip()] = path.strip()
+                    else:
+                        raise ValueError("name or path are incorrectly specified.")
+                except (ValueError) as e:
+                    print("Error while parsing line {}: {}".format(i,e))
+                    continue
+
 
 main(sys.argv[1:])
