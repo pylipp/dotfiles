@@ -4,6 +4,7 @@ from subprocess import call
 import os 
 import sys
 
+PERSONAL_REPO_PATH = os.path.expanduser("~/Documents/dotfiles/personalrepos")
 repos = {}
 errors = []
 
@@ -41,7 +42,7 @@ def _printGitStatus(name):
 def _readInRepos():
     """ Returns true if 'personalrepos' file exists. """
     try:
-        with open("personalrepos", 'r') as repoFile:
+        with open(PERSONAL_REPO_PATH, 'r') as repoFile:
             for i, line in enumerate(repoFile):
                 # Skip comments and empty lines
                 if not line.startswith('#') and len(line.strip()):
