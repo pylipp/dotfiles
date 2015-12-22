@@ -25,14 +25,14 @@ def main(repolist):
 
 def _printGitStatus(name):
     """ Queries and prints status of the git repo 'name'. """
-    path = repos.get(name)
+    path = repos.get(name.strip().upper())
     if path is None:
         errors.append("Git repo '{name}' not specified.".format(name=name))
         return
-    path = os.path.expanduser(path)
+    fullpath = os.path.expanduser(path)
     try:
-        os.chdir(path)
-        print(name.upper())
+        os.chdir(fullpath)
+        print("{} at {}".format(name.upper(), path))
         call(["git", "status", "-bs"])
         #TODO: Raise error if path is not under source control
         print()
@@ -49,7 +49,7 @@ def _readInRepos():
                     try:
                         name, path = line.split(';')
                         if isinstance(name, str) and isinstance(path, str):
-                            repos[name.strip()] = path.strip()
+                            repos[name.strip().upper()] = path.strip()
                         else:
                             raise ValueError("name or path are incorrectly specified.")
                     except (ValueError) as e:
