@@ -10,7 +10,7 @@
 	editor = gvim -geometry 100x500
 	historybrowser = gitk
 [diff]
-	tool = gvimdiff -geometry 500x200
+	tool = meld
 [cola]
 	savewindowsettings = true
 	browserdockable = true
@@ -22,3 +22,6 @@
     st = status 
     br = branch 
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    do = diff --name-status master origin/master
+[merge]
+	tool = kdiff3
