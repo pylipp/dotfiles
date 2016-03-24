@@ -7,10 +7,14 @@
 [push]
 	default = simple
 [gui]
-	editor = gvim -geometry 100x500
+	editor = gvim
 	historybrowser = gitk
 [diff]
 	tool = meld
+[difftool "meld"]
+    cmd = meld \"$LOCAL\" \"$REMOTE\"
+[difftool]
+    prompt = false
 [cola]
 	savewindowsettings = true
 	browserdockable = true
