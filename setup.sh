@@ -20,7 +20,3 @@ vim +PluginInstall +qall
 
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
-
-mkdir -p ~/.config/git-cola/
-cd ~/.config/git-cola 
-ln -s "$DOTFLS"git-cola-settings settings
