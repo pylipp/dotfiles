@@ -35,7 +35,7 @@ Plugin 'vim-scripts/tasklist.vim'
 " Even better error highlighting 
 "Plugin 'scrooloose/syntastic'
 " Python error highlighting
-Plugin 'kevinw/pyflakes-vim' "or rather 'nvie/vim-flake8' ?
+"Plugin 'kevinw/pyflakes-vim' "or rather 'nvie/vim-flake8' ?
 
 
 " All of your Plugins must be added before the following line
@@ -117,7 +117,7 @@ endif
 
 
 "set wrap options 
-autocmd FileType html,xml,text,README,tex set wrap linebreak
+autocmd FileType html,xml,text,README,tex set wrap linebreak textwidth=99 colorcolumn=100
 
 
 if &term!="xterm"
