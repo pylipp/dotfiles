@@ -33,7 +33,7 @@ Plugin 'vim-scripts/tasklist.vim'
 " Ultisnips
 "Plugin 'SirVer/Ultisnips'
 " Even better error highlighting 
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 " Python error highlighting
 "Plugin 'kevinw/pyflakes-vim' "or rather 'nvie/vim-flake8' ?
 
@@ -117,7 +117,7 @@ endif
 
 
 "set wrap options 
-autocmd FileType html,xml,text,README,tex set wrap linebreak textwidth=99 colorcolumn=100
+autocmd FileType html,xml,text,README,tex set wrap linebreak textwidth=124 colorcolumn=125
 
 
 if &term!="xterm"
@@ -175,14 +175,15 @@ let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
 
 
 " Syntastic syntax check 
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_enable_signs = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_signs = 1
+let g:syntastic_python_checker_args = '--ignore=E225 --ignore=W291 --ignore=E231 --ignore=E702'
 
 
 " UltiSnips plugin for snippet support
