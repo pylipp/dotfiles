@@ -1,5 +1,5 @@
 "
-"SETTINGS 
+"SETTINGS
 "
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -32,7 +32,7 @@ Plugin 'vim-scripts/tasklist.vim'
 "Plugin 'rkulla/pydiction'
 " Ultisnips
 "Plugin 'SirVer/Ultisnips'
-" Even better error highlighting 
+" Even better error highlighting
 Plugin 'scrooloose/syntastic'
 " Python error highlighting
 "Plugin 'kevinw/pyflakes-vim' "or rather 'nvie/vim-flake8' ?
@@ -70,28 +70,28 @@ set hlsearch    "highlight search patterns; escape with ...
 set showcmd     " show incomplete cmds at the bottom
 set showmode    " show current mode at the bottom
 
-set tabstop=4     
+set tabstop=4
 set expandtab     "convert tabs to whitespace
 set softtabstop=4 "tab key indent
 set shiftwidth=4  "autoindent width
 set backspace=2   "stop weird backspace behavior
-set cursorline    "highlight current line 
+set cursorline    "highlight current line
 set textwidth=79  "automatic line break after 79 chars
 set fileformat=unix "avoid conversion issues
 set encoding=utf-8  "set encoding, useful for python3
 set nowrap        "don't wrap long line
 set colorcolumn=81 "Show end of long line
 
-set hidden      " allows making buffers hidden even without unsaved changes 
-set history=1000 "remember more commands and search history 
-set autoread    "autoread when a file is changed from the outside 
-set mouse=a     "enables the mouse in all modes 
+set hidden      " allows making buffers hidden even without unsaved changes
+set history=1000 "remember more commands and search history
+set autoread    "autoread when a file is changed from the outside
+set mouse=a     "enables the mouse in all modes
 
 "Enable folding, from
 "https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/#.Vi9-CN7uzXY.reddit
-set foldmethod=indent 
+set foldmethod=indent
 set foldlevel=99
-"nnoremap <space> za 
+"nnoremap <space> za
 "Plugin 'tmhedberg/SimplyFold'
 "let g:SimplyFold_docstring_preview=1
 
@@ -116,7 +116,7 @@ if &term!="xterm"
 endif
 
 
-"set wrap options 
+"set wrap options
 autocmd FileType html,xml,text,README,tex set wrap linebreak textwidth=124 colorcolumn=125
 
 
@@ -125,6 +125,16 @@ if &term!="xterm"
    let g:solarized_termcolors=256
    colorscheme solarized " an appropriate color scheme
 endif
+
+
+" Strip trailing whitespace at save.
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 
 " NERDTree - plugin to view the current directory
@@ -157,7 +167,7 @@ map <silent> <F7> :w <bar> :!.update-ctags.sh<CR><CR>
 nmap <F3> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1 "jump to Tagbar when requested
 let g:tagbar_autoclose = 1 "close Tagbar after tag selection
-let g:tagbar_show_linenumbers = 1 "show linenumbers 
+let g:tagbar_show_linenumbers = 1 "show linenumbers
 
 
 " YouCompleteMe code completion engine
@@ -174,7 +184,7 @@ let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
 
 
 
-" Syntastic syntax check 
+" Syntastic syntax check
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -184,6 +194,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_signs = 1
 let g:syntastic_python_checker_args = '--ignore=E225 --ignore=W291 --ignore=E231 --ignore=E702'
+let g:syntastic_tex_checkers = []
 
 
 " UltiSnips plugin for snippet support
@@ -236,7 +247,7 @@ imap <C-b> <Esc><C-b>i
 "nmap <CR> o<Esc>
 "map <Space> <C-d> "deprecated, Space used as leader key
 noremap <C-Space> <C-u>
-" save all current files 
+" save all current files
 noremap <leader>w :wa<CR>
 map Y y$
 map ß $
@@ -249,8 +260,8 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 " make vim's regex machine smarter at searching, refer to :h magic
 nnoremap / /\v
-" add closing brackets 
-"inoremap { {}<Esc>i 
+" add closing brackets
+"inoremap { {}<Esc>i
 "inoremap [ []<Esc>i
 
 
@@ -266,17 +277,17 @@ map <F6> :cc<CR>
 noremap cn :cn<CR>
 
 
-"search for pattern 
+"search for pattern
 com -nargs=1 Pyfilesearch call Pyfilesearch(<f-args>)
 com -nargs=1 Filesearch call Filesearch(<f-args>)
 function! Pyfilesearch(pattern)
     exe "noautocmd silent grep " a:pattern "**/*.py"
-    exe ":copen" 
-endfunction 
+    exe ":copen"
+endfunction
 function! Filesearch(pattern)
     exe "noautocmd silent grep -R" a:pattern "."
-    exe ":copen" 
-endfunction 
+    exe ":copen"
+endfunction
 noremap <leader>c :cc<CR>
 noremap <leader>n :cn<CR>
 noremap <leader>p :cp<CR>
@@ -298,7 +309,7 @@ highlight SpellBad ctermbg=7 ctermfg=1 cterm=bold
 highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
-highlight SpellLocal term=underline cterm=underline   
+highlight SpellLocal term=underline cterm=underline
 
 "
 " MY VIM KEYMAPPINGS
@@ -308,7 +319,7 @@ highlight SpellLocal term=underline cterm=underline
 " F3  c | toggle TagBar
 " F4  c | switch between .c* and .h* files
 " F5  c | execute/compile and execute
-" F6  c | jump to error 
+" F6  c | jump to error
 " F7  c | update ctags
 " F8  c | toggle TaskList
 " F9
