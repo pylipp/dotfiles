@@ -47,3 +47,11 @@ echo "Installing ycm..."
 # https://github.com/Valloric/YouCompleteMe#installation
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
+
+echo "Installing ipython..."
+# http://stackoverflow.com/questions/34851801/jupyter-cant-create-new-notebook
+sudo apt-get --purge remove ipython
+sudo pip uninstall ipython
+git clone https://github.com/ipython/ipython.git
+cd ipython
+sudo pip install -e .
