@@ -23,8 +23,8 @@
 [alias]
     co = checkout
     ci = commit
-    st = status 
-    br = branch 
+    st = status
+    br = branch
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     do = diff --name-status master origin/master
     amend = commit --amend --no-edit
