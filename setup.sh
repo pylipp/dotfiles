@@ -36,6 +36,7 @@ ln -s "$DOTFLS".ycm_conf_extra.py .ycm_conf_extra.py
 ln -s "$DOTFLS".gitconfig .gitconfig
 ln -s "$DOTFLS".gitignore_global .gitignore_global
 ln -s "$DOTFLS"gitstatus.py gitstatus.py
+ln -s "$DOTFLS"lubuntu-rc.xml ~/.config/openbox/lubuntu-rc.xml
 
 echo "Installing vim plugins..."
 # https://github.com/VundleVim/Vundle.vim

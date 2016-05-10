@@ -120,7 +120,7 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>4</number>
+    <number>5</number>
     <firstdesk>1</firstdesk>
     <names>
       <!-- set names up here if you want to, like this:
@@ -325,11 +325,11 @@
     <!-- Keybindings for window tiling -->
     <keybind key="W-h">        # HalfLeftScreen
       <action name="UnmaximizeFull"/>
-      <action name="MoveResizeTo"><x>0</x><y>0</y><height>97%</height><width>50%</width></action>
+      <action name="MoveResizeTo"><x>0</x><y>0</y><height>97%</height><width>35%</width></action>
     </keybind>
     <keybind key="W-l">        # HalfRightScreen
       <action name="UnmaximizeFull"/>
-      <action name="MoveResizeTo"><x>-0</x><y>0</y><height>97%</height><width>50%</width></action>
+      <action name="MoveResizeTo"><x>-0</x><y>0</y><height>97%</height><width>35%</width></action>
     </keybind>
     <keybind key="W-k">        # HalfUpperScreen
       <action name="UnmaximizeFull"/>
@@ -485,16 +485,18 @@
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
        switching due to hitting the edge of the screen -->
     <context name="Frame">
-      <mousebind button="A-Left" action="Press">
+        <!--http://stackoverflow.com/questions/29198864/lubuntu-disable-alt-drag-move-window-->
+        <!-- Bind to windows keys instead of Alt-->
+      <mousebind button="W-Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
       </mousebind>
-      <mousebind button="A-Left" action="Click">
+      <mousebind button="W-Left" action="Click">
         <action name="Unshade"/>
       </mousebind>
-      <mousebind button="A-Left" action="Drag">
-        <action name="Move"/>
-      </mousebind>
+      <mousebind button="W-Left" action="Drag">
+          <action name="Move"/>
+          </mousebind>
       <mousebind button="A-Right" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
@@ -861,7 +863,7 @@
   # order that they appear in this list
 
 
-    # each rule element can be left out or set to 'default' to specify to not 
+    # each rule element can be left out or set to 'default' to specify to not
     # change that attribute of the window
 
     <decor>yes</decor>
