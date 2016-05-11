@@ -117,7 +117,7 @@ endif
 
 
 "set wrap options
-autocmd FileType html,xml,text,README,tex set wrap linebreak textwidth=124 colorcolumn=125
+autocmd FileType html,xml,text,README,tex,md set wrap linebreak textwidth=114 colorcolumn=115
 
 
 if &term!="xterm"
