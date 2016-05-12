@@ -400,7 +400,6 @@
     <!-- Lock the screen on Ctrl + Alt + l-->
     <keybind key="C-A-b">
       <action name="Execute">
-        <!--command>lxsession-default lock</command -->
         <command>lxlock</command>
       </action>
     </keybind>
@@ -495,8 +494,8 @@
         <action name="Unshade"/>
       </mousebind>
       <mousebind button="W-Left" action="Drag">
-          <action name="Move"/>
-          </mousebind>
+        <action name="Move"/>
+      </mousebind>
       <mousebind button="A-Right" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
