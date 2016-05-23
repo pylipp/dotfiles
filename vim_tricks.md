@@ -17,3 +17,28 @@ Cursor positioned inside the text object.
 - Word: `diw daw` (leave/remove trailing whitespace)
 - Sentence: `dis das`
 - Paragraph: `dip dap`
+
+### Suspend vim, return to shell
+
+- :sus
+- return using by fg
+
+### Open/close fold
+
+- zo
+- zc
+
+### Move current line to
+
+- top of screen:    zt
+- center of screen: zz
+- bottom of screen: zb
+
+### Jump to last edited position
+
+- g;
+
+### Correct indentation of code block
+
+- =iB
+- =aB (includes brackets)
