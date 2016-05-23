@@ -27,7 +27,7 @@ Plugin 'vim-scripts/tasklist.vim'
 " Correct python indentation according to PEP8 from https://github.com/vim-scripts/indentpython.vim
 "Plugin 'vim-scripts/indentpython.vim'
 " Git integration https://github.com/tpope/vim-fugitive
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 " Python code completion
 "Plugin 'rkulla/pydiction'
 " Ultisnips
