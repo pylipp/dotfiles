@@ -36,6 +36,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 " Python error highlighting
 "Plugin 'kevinw/pyflakes-vim' "or rather 'nvie/vim-flake8' ?
+" Airline plging
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 
 " All of your Plugins must be added before the following line
