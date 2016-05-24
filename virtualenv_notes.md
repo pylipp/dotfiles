@@ -1,3 +1,9 @@
+# Fix matplotlib not showing figures (http://www.pyimagesearch.com/2015/08/24/resolved-matplotlib-figures-not-showing-up-or-displaying/)
+sudo apt-get install tcl-dev tk-dev python-tk python3-tk
+workon <virtualenvname>
+pip install --no-cache-dir matplotlib
+python -c "import matplotlib; matplotlib.use('TkAgg')"
+
 # http://www.simononsoftware.com/virtualenv-tutorial-part-2/
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
