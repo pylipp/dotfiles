@@ -42,3 +42,12 @@ Cursor positioned inside the text object.
 
 - =iB
 - =aB (includes brackets)
+
+### Write to protected file without reopening Vim (https://til.hashrocket.com/posts/7eac005efb-write-into-a-protected-file-without-reopening-vim)
+
+- :w !sudo tee %
+
+### Native Vim file tree view mode (https://til.hashrocket.com/posts/ddb7a2c4b9-vim-tree-view-mode)
+
+- start with `:Explore`
+- help via F1
