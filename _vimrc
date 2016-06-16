@@ -91,6 +91,8 @@ colorscheme solarized
 
 let python_highlight_all=1
 
+au BufNewFile,BufRead,BufEnter *.iws set filetype=xml
+
 map <F2> :NERDTreeToggle<CR>
 
 " key mappings for switching between multiple windows
