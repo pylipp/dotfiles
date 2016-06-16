@@ -146,17 +146,6 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 map <F2> :NERDTreeToggle<CR>
 
 
-" short cut for running/compiling code
-
-
-" comment/uncomment line
-autocmd filetype vim noremap <C-s> I"<Esc>
-autocmd filetype vim noremap <C-q> ^x
-autocmd filetype glsl noremap <C-s> I//<Esc>
-autocmd filetype glsl noremap <C-q> ^xx
-"noremap <C-s> I#<Esc>
-
-
 "Exuberant ctags - tag generation for language objects
 "look for next tags file from current path up to Home
 set tags=./tags;$HOME
@@ -350,7 +339,7 @@ highlight SpellLocal term=underline cterm=underline
 " C-p d | insert previous matching word
 " C-q d | uncomment current line
 " C-r d | redo (undo the undo)
-" C-s c | comment current line
+" C-s d | suspend vim and return to shell; return to vim with fg
 " C-t c | move back to place of function call (reverse C-z)
 " C-u d | move half-page up
 " C-v c | start visual block mode

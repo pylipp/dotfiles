@@ -6,9 +6,3 @@ set sw=2
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
 set iskeyword+=:
-
-"Comment/uncomment line
-noremap <C-s> I%<Esc>
-inoremap <C-s> <Esc>I%<Esc>
-noremap <C-q> ^x
-inoremap <C-q> <Esc>^x
