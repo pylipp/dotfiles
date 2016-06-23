@@ -64,6 +64,7 @@ filetype plugin indent on    " required
 "
 set autoindent  "indent if previous line is indented
 set number      "set line numbering
+set relativenumber "set relative line numbering
 set ls=2        "always show the status line
 set ruler       "show cursor position in status bar
 set background=dark "better readability
