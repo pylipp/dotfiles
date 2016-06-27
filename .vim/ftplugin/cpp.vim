@@ -14,10 +14,6 @@ endfun
 map <F4> :call Mosh_Flip_Ext()<CR>
 
 
-" Comment/uncomment line
-noremap <C-s> I//<Esc>
-noremap <C-q> ^xx
-
 " Compile and execute. Creates a generic main executable
 nnoremap <F5> :w <bar> exec '!g++ -Wall -g  -std=c++11 '.shellescape('%').' -o '.shellescape('main').' && ./'.shellescape('main')<CR>
 "autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
