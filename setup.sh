@@ -10,8 +10,8 @@ sudo chsh -s /usr/bin/zsh
 echo "Installing vim..."
 # https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 sudo apt-get remove vim vim-runtime gvim
-mkdir -p software
-cd software
+mkdir -p ~/software
+cd ~/software
 git clone https://github.com/vim/vim.git
 cd vim
 ./configure --with-features=huge --enable-multibyte --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config --enable-perlinterp --enable-luainterp --enable-gui=gtk2 --enable-cscope --prefix=/usr
@@ -40,6 +40,7 @@ ln -s "$DOTFLS"lubuntu-rc.xml ~/.config/openbox/lubuntu-rc.xml
 
 echo "Installing vim plugins..."
 # https://github.com/VundleVim/Vundle.vim
+cd ~
 mkdir -p .files/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
@@ -52,6 +53,7 @@ cd ~/.vim/bundle/YouCompleteMe
 echo "Installing pip..."
 # http://stackoverflow.com/questions/27711184/why-is-pip-raising-an-assertionerror-on-pip-freeze
 # https://pip.pypa.io/en/latest/installing/
+cd ~/software
 sudo apt-get --purge remove python-pip
 curl -O https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
@@ -60,6 +62,7 @@ rm get-pip.py
 
 echo "Installing ipython..."
 # http://stackoverflow.com/questions/34851801/jupyter-cant-create-new-notebook
+cd ~/software
 sudo apt-get --purge remove ipython
 sudo pip uninstall ipython
 git clone https://github.com/ipython/ipython.git
@@ -67,6 +70,7 @@ cd ipython
 sudo pip install -e .
 
 echo "Installing virtualenv..."
+cd ~
 sudo pip install virtualenv
 sudo pip install virtualenvwrapper
 cat virtualenv_notes >> .zshrc
