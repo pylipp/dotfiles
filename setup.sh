@@ -4,7 +4,7 @@ echo "Installing zsh..."
 # https://wiki.ubuntuusers.de/Zsh/
 cd ~
 sudo apt-get install zsh
-wget -O .zshrc http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
+wget -O .zshrc_original http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 sudo chsh -s /usr/bin/zsh
 
 echo "Installing vim..."
@@ -37,6 +37,8 @@ ln -s "$DOTFLS".gitconfig .gitconfig
 ln -s "$DOTFLS".gitignore_global .gitignore_global
 ln -s "$DOTFLS"gitstatus.py gitstatus.py
 ln -s "$DOTFLS"lubuntu-rc.xml ~/.config/openbox/lubuntu-rc.xml
+cat ~/.zshrc_original "$DOTFLS"zshrc_tail >> ~/.zshrc
+rm ~/.zshrc_original
 
 echo "Installing vim plugins..."
 # https://github.com/VundleVim/Vundle.vim
@@ -73,4 +75,3 @@ echo "Installing virtualenv..."
 cd ~
 sudo pip install virtualenv
 sudo pip install virtualenvwrapper
-cat virtualenv_notes >> .zshrc
