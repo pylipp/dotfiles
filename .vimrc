@@ -348,3 +348,17 @@ highlight SpellLocal term=underline cterm=underline
 " C-x c | decrement number
 " C-y d | scroll upwards, current line at the bottom
 " C-z c | go to function definition under cursor (using ctags)
+
+" https://github.com/tomtom/tcomment_vim/issues/139
+noremap <silent> gC :set opfunc=ToggleComment<CR>g@
+vnoremap <silent> gC :<C-U>call ToggleComment(visualmode())<CR>
+
+function! ToggleComment(type)
+    " motion
+    if a:type == "line" || a:type == "char" || a:type == "block"
+        silent '[,'] norm gcc
+    " visual
+    else
+        silent '<,'> norm gcc
+    endif
+endfunction
