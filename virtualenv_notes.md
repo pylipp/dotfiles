@@ -1,4 +1,5 @@
 # Fix matplotlib not showing figures (http://www.pyimagesearch.com/2015/08/24/resolved-matplotlib-figures-not-showing-up-or-displaying/)
+echo "backend: TkAgg" >> ~/.config/matplotlib/matplotlibrc
 sudo apt-get install tcl-dev tk-dev python-tk python3-tk
 workon <virtualenvname>
 pip install --no-cache-dir matplotlib
