@@ -133,16 +133,6 @@ if &term!="xterm"
 endif
 
 
-" Strip trailing whitespace at save.
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-
-
 " NERDTree - plugin to view the current directory
 map <F2> :NERDTreeToggle<CR>
 
