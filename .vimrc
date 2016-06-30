@@ -41,6 +41,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " filetype dependent commenting
 Plugin 'tomtom/tcomment_vim'
+" selection when opening files 
+Plugin 'EinfachToll/DidYouMean'
 
 
 " All of your Plugins must be added before the following line
