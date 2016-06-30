@@ -16,6 +16,7 @@
 [cola]
 	savewindowsettings = true
 	browserdockable = true
+	tabwidth = 4
 [color]
 	ui = true
 [alias]
