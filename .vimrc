@@ -69,6 +69,7 @@ set ls=2        "always show the status line
 set ruler       "show cursor position in status bar
 set background=dark "better readability
 set ignorecase  "search options
+set wildignorecase  "ignore case for filename completion on command line
 set smartcase   "ignore case if search pattern is all lc, case-sensitive otherwise
 set incsearch
 set hlsearch    "highlight search patterns; escape with ...
