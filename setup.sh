@@ -9,7 +9,7 @@ sudo chsh -s /usr/bin/zsh
 
 echo "Installing vim..."
 # https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
-sudo apt-get remove vim vim-runtime gvim
+sudo apt-get remove vim vim-runtime gvim vim-tiny vim-common
 mkdir -p ~/software
 cd ~/software
 git clone https://github.com/vim/vim.git
