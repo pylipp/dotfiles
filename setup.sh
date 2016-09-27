@@ -6,6 +6,7 @@ cd ~
 sudo apt-get install zsh
 wget -O .zshrc_original http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 sudo chsh -s /usr/bin/zsh
+sudo apt-get install xclip
 
 echo "Installing vim..."
 # https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
