@@ -90,6 +90,7 @@ set fileformat=unix "avoid conversion issues
 set encoding=utf-8  "set encoding, useful for python3
 set nowrap        "don't wrap long line
 set colorcolumn=81 "Show end of long line
+set pvh=25  " set preview window height
 
 set hidden      " allows making buffers hidden even without unsaved changes
 set history=1000 "remember more commands and search history
