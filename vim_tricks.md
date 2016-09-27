@@ -51,3 +51,8 @@ Cursor positioned inside the text object.
 
 - start with `:Explore`
 - help via F1
+
+### Open buffer in horizontal/vertical split
+
+- :sbuffer N
+- :vert sb N
