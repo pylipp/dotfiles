@@ -28,6 +28,10 @@ Cursor positioned inside the text object.
 - zo
 - zc
 
+### Open/close all folds
+- zM
+- zR
+
 ### Move current line to
 
 - top of screen:    zt
