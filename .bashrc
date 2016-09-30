@@ -141,7 +141,7 @@ alias pbcopy='xclip -i -selection c '
 alias pbpaste='xclip -o -selection c '
 
 #nvbn/thefuck
-# eval "$(thefuck --alias)"
+eval "$(thefuck --alias)"
 
 # http://www.simononsoftware.com/virtualenv-tutorial-part-2/
 export WORKON_HOME=$HOME/.virtualenvs
