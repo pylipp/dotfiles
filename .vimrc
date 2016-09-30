@@ -41,7 +41,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " filetype dependent commenting
 Plugin 'tomtom/tcomment_vim'
-" selection when opening files 
+" selection when opening files
 Plugin 'EinfachToll/DidYouMean'
 
 
@@ -117,10 +117,10 @@ set foldlevel=99
 
 let mapleader=" "
 "trying out this remapping of the Esc key
-nnoremap jk <Esc>
-inoremap jk <Esc>
-vnoremap jk <Esc>gV
-onoremap jk <Esc>
+nnoremap öö <Esc>
+inoremap öö <Esc>
+vnoremap öö <Esc>gV
+onoremap öö <Esc>
 
 let python_highlight_all=1
 
