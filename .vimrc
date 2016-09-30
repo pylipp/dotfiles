@@ -64,17 +64,22 @@ filetype plugin indent on    " required
 "
 " PERSONAL SETTINGS
 "
+set modelines=0 "prevent security exploits
 set autoindent  "indent if previous line is indented
 set number      "set line numbering
 set relativenumber "set relative line numbering
-set ls=2        "always show the status line
+set laststatus=2        "always show the status line
+set ttyfast "faster scrolling
 set ruler       "show cursor position in status bar
 set background=dark "better readability
 set ignorecase  "search options
 set wildignorecase  "ignore case for filename completion on command line
 set smartcase   "ignore case if search pattern is all lc, case-sensitive otherwise
+set gdefault "global substitutions by default
 set incsearch
+set showmatch
 set hlsearch    "highlight search patterns; escape with ...
+
 
 set showcmd     " show incomplete cmds at the bottom
 set showmode    " show current mode at the bottom
@@ -84,6 +89,7 @@ set expandtab     "convert tabs to whitespace
 set softtabstop=4 "tab key indent
 set shiftwidth=4  "autoindent width
 set backspace=2   "stop weird backspace behavior
+set visualbell
 set cursorline    "highlight current line
 set textwidth=79  "automatic line break after 79 chars
 set fileformat=unix "avoid conversion issues
@@ -91,6 +97,10 @@ set encoding=utf-8  "set encoding, useful for python3
 set nowrap        "don't wrap long line
 set colorcolumn=81 "Show end of long line
 set pvh=25  " set preview window height
+
+set wildmenu "show completion options for command line
+set wildmode=list:longest
+set undofile  "store undo actions in file
 
 set hidden      " allows making buffers hidden even without unsaved changes
 set history=1000 "remember more commands and search history
@@ -107,10 +117,10 @@ set foldlevel=99
 
 let mapleader=" "
 "trying out this remapping of the Esc key
-nnoremap üü <Esc>
-inoremap üü <Esc>
-vnoremap üü <Esc>gV
-onoremap üü <Esc>
+nnoremap jk <Esc>
+inoremap jk <Esc>
+vnoremap jk <Esc>gV
+onoremap jk <Esc>
 
 let python_highlight_all=1
 
@@ -128,13 +138,6 @@ endif
 
 "set wrap options
 autocmd FileType html,xml,text,README,tex,md set wrap linebreak textwidth=114 colorcolumn=115
-
-
-if &term!="xterm"
-   set t_Co=256            " use 265 colors in vim
-   let g:solarized_termcolors=256
-   colorscheme solarized " an appropriate color scheme
-endif
 
 
 " NERDTree - plugin to view the current directory
@@ -243,15 +246,22 @@ map ß $
 noremap , ;
 noremap ; ,
 " disable arrow keys
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+nnoremap <Up> <NOP>
+nnoremap <Down> <NOP>
+nnoremap <Left> <NOP>
+nnoremap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
 " make vim's regex machine smarter at searching, refer to :h magic
 nnoremap / /\v
+vnoremap / /\v
 " add closing brackets
 "inoremap { {}<Esc>i
 "inoremap [ []<Esc>i
+nnoremap j gj
+nnoremap k gk
 
 
 " enter paste mode when pasting
