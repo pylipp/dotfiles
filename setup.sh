@@ -8,6 +8,9 @@ wget -O .zshrc_original http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 sudo chsh -s /usr/bin/zsh
 sudo apt-get install xclip
 
+echo "Installing ack..."
+sudo apt-get install ack-grep
+
 echo "Installing vim..."
 # https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 sudo apt-get remove vim vim-runtime gvim vim-tiny vim-common
@@ -38,6 +41,7 @@ ln -s "$DOTFLS".gitconfig .gitconfig
 ln -s "$DOTFLS".gitignore_global .gitignore_global
 ln -s "$DOTFLS"gitstatus.py gitstatus.py
 ln -s "$DOTFLS"lubuntu-rc.xml ~/.config/openbox/lubuntu-rc.xml
+ln -s "$DOTFLS".ackrc .ackrc
 cat ~/.zshrc_original "$DOTFLS"zshrc_tail >> ~/.zshrc
 rm ~/.zshrc_original
 
@@ -76,3 +80,8 @@ echo "Installing virtualenv..."
 cd ~
 sudo pip install virtualenv
 sudo pip install virtualenvwrapper
+
+echo "Installing watson..."
+sudo pip install td-watson
+sudo wget -O /etc/bash_completion.d/watson https://raw.githubusercontent.com/TailorDev/Watson/master/watson.completion 
+ln -s "$DOTFLS"watson_config ~/.config/watson/config
