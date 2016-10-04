@@ -1,6 +1,9 @@
 [core]
 	editor = /usr/bin/vim
 	excludesfile = ~/.gitignore_global
+    autocrlf = true # convert newlines to system standard
+# [branch]
+#     autosetupmerge = true
 [user]
 [push]
 	default = simple
@@ -8,9 +11,9 @@
 	editor = gvim
 	historybrowser = gitk
 [diff]
-	tool = meld
-[difftool "meld"]
-    cmd = meld \"$LOCAL\" \"$REMOTE\"
+	tool = vimdiff
+# [difftool "meld"]
+#     cmd = meld \"$LOCAL\" \"$REMOTE\"
 [difftool]
     prompt = false
 [cola]
@@ -19,6 +22,19 @@
 	tabwidth = 4
 [color]
 	ui = true
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+# [color "diff"]
+#     meta = yellow bold
+#     frag = magenta bold
+#     old = red bold
+#     new = green bold
+[color "status"]
+    added = yellow
+    changed = red
+    untracked = cyan
 [alias]
     co = checkout
     ci = commit
@@ -28,5 +44,11 @@
     do = diff --name-status master origin/master
     amend = commit --amend --no-edit
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    df = diff 
+    dc = diff --cached
+    ign = ls-files -o -i --exclude-standard
 [merge]
-	tool = kdiff3
+    tool = vimdiff 
+    conflictstyle = diff3 
+[mergetool]
+    prompt = false
