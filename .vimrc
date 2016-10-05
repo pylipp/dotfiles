@@ -241,6 +241,9 @@ imap <C-b> <Esc><C-b>i
 noremap <C-Space> <C-u>
 " save all current files
 noremap <leader>w :wa<CR>
+" save file as sudo 
+cmap w!! w !sudo tee > /dev/null %
+
 map Y y$
 map ß $
 noremap , ;
