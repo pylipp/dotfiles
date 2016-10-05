@@ -44,6 +44,7 @@
     do = diff --name-status master origin/master
     amend = commit --amend --no-edit
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate --all
     df = diff 
     dc = diff --cached
     ign = ls-files -o -i --exclude-standard
