@@ -1,7 +1,7 @@
 [core]
 	editor = /usr/bin/vim
 	excludesfile = ~/.gitignore_global
-    autocrlf = true # convert newlines to system standard
+	autocrlf = input
 # [branch]
 #     autosetupmerge = true
 [user]
