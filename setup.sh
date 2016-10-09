@@ -57,7 +57,7 @@ cd ~
 ln -s ~/.files/.vim ~/.vim
 ln -s ~/.files/ycm_extra_conf.py ~/.ycm_extra_conf.py
 ln -s ~/.files/gitconfig ~/.gitconfig
-ln -s ~/.files/gitstatus.py ~/gitstatus.py
+sudo ln -s ~/.files/gitstatus.py /usr/bin/gitstatus 
 # ln -s ~/.files/lubuntu-rc.xml ~/.config/openbox/lubuntu-rc.xml
 ln -s ~/.files/ackrc ~/.ackrc
 rm ~/.bashrc
@@ -113,7 +113,7 @@ sudo pip install virtualenvwrapper
 echo "----------------------------------------------------------"
 echo "Installing watson..."
 sudo pip install td-watson
-sudo wget -O /etc/bash_completion.d/watson https://raw.githubusercontent.com/TailorDev/Watson/master/watson.completion 
+sudo wget -O /etc/bash_completion.d/watson https://raw.githubusercontent.com/TailorDev/Watson/master/watson.completion
 mkdir -p ~/.config/watson
 ln -s ~/.files/watson_config ~/.config/watson/config
 

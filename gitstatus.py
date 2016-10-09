@@ -1,64 +1,33 @@
-#!/usr/bin/env python3 
+#!/usr/bin/env python3
 
-from subprocess import call
-import os 
-import sys
-
-PERSONAL_REPO_PATH = os.path.expanduser("~/Documents/dotfiles/personalrepos")
-repos = {}
-errors = []
-
-def main(repolist):
-    if _readInRepos():
-        # Display status of repos specified as command line arguments.
-        if len(repolist):
-            seq = repolist 
-        # Display status of all repos in the repos-dictionary.
-        else:
-            seq = repos.keys()
-        for name in seq:
-            _printGitStatus(name)
-    if len(errors):
-        print("---ERRORS---")
-        for e in errors:
-            print(e)
-
-def _printGitStatus(name):
-    """ Queries and prints status of the git repo 'name'. """
-    path = repos.get(name.strip().upper())
-    if path is None:
-        errors.append("Git repo '{name}' not specified.".format(name=name))
-        return
-    fullpath = os.path.expanduser(path)
-    try:
-        os.chdir(fullpath)
-        print("{} at {}".format(name.upper(), path))
-        call(["git", "status", "-bs"])
-        #TODO: Raise error if path is not under source control
-        print()
-    except (OSError) as e:
-        errors.append(e)
-
-def _readInRepos():
-    """ Returns true if 'personalrepos' file exists. """
-    try:
-        with open(PERSONAL_REPO_PATH, 'r') as repoFile:
-            for i, line in enumerate(repoFile):
-                # Skip comments and empty lines
-                if not line.startswith('#') and len(line.strip()):
-                    try:
-                        name, path = line.split(';')
-                        if isinstance(name, str) and isinstance(path, str):
-                            repos[name.strip().upper()] = path.strip()
-                        else:
-                            raise ValueError("name or path are incorrectly specified.")
-                    except (ValueError) as e:
-                        errors.append("Error while parsing line {}: {}".format(i,e))
-                        continue
-        return True
-    except (IOError) as e:
-        errors.append(e)
-        return False
+import subprocess
+import os
 
 
-main(sys.argv[1:])
+cmd = "find {} -type d -name .git".format(os.path.expanduser("~"))
+gitfiles = subprocess.check_output(cmd.split())
+gitfiles = gitfiles.splitlines()
+repos = []
+ignored_repos = [
+        os.path.expanduser(repo) for repo in [
+            b"~/.files/.vim",
+            b"~/software/ptypy",
+            b"~/software/vim",
+            b"~/software/ipython"
+            ]
+        ]
+
+for gitfile in gitfiles:
+    repo, ext = os.path.split(gitfile)
+    if not ext.endswith(b".git"):
+        print(ext)
+        continue
+    if any([repo.startswith(ign_repo) for ign_repo in ignored_repos]):
+        continue
+    repos.append(repo)
+
+for repo in repos:
+    os.chdir(repo)
+    print(repo)
+    subprocess.call(["git", "status", "-bs"])
+    print()
