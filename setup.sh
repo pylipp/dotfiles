@@ -116,6 +116,7 @@ mkdir -p ~/.config/watson
 ln -s ~/.files/watson_config ~/.config/watson/config
 
 echo "----------------------------------------------------------"
-echo "Installing more programs (git-cola, thefuck)..."
+echo "Installing more programs (git-cola, thefuck, dropxbox)..."
 sudo apt-get install -y git-cola
 sudo apt-get install -y thefuck
+sudo apt-get install -y nautilus nautilus-dropbox
