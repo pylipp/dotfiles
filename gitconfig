@@ -1,6 +1,6 @@
 [core]
 	editor = /usr/bin/vim
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.files/gitignore_global
 	autocrlf = input
 # [branch]
 #     autosetupmerge = true

@@ -55,14 +55,13 @@ echo "----------------------------------------------------------"
 echo "Setting up symbolic links to .files..."
 cd ~
 ln -s ~/.files/.vim ~/.vim
-ln -s ~/.files/.ycm_extra_conf.py ~/.ycm_extra_conf.py
-ln -s ~/.files/.gitconfig ~/.gitconfig
-ln -s ~/.files/.gitignore_global ~/.gitignore_global
+ln -s ~/.files/ycm_extra_conf.py ~/.ycm_extra_conf.py
+ln -s ~/.files/gitconfig ~/.gitconfig
 ln -s ~/.files/gitstatus.py ~/gitstatus.py
 # ln -s ~/.files/lubuntu-rc.xml ~/.config/openbox/lubuntu-rc.xml
-ln -s ~/.files/.ackrc ~/.ackrc
+ln -s ~/.files/ackrc ~/.ackrc
 rm ~/.bashrc
-ln -s ~/.files/.bashrc ~/.bashrc
+ln -s ~/.files/bashrc ~/.bashrc
 ln -s ~/.files/zshrc ~/.zshrc
 
 echo "----------------------------------------------------------"
@@ -73,7 +72,7 @@ mkdir -p .files/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 # setup link now to avoid errors due to uninstalled plugins
-ln -s ~/.files/.vimrc ~/.vimrc
+ln -s ~/.files/vimrc ~/.vimrc
 
 echo "----------------------------------------------------------"
 echo "Installing ycm..."
