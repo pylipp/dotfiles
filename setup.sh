@@ -100,6 +100,8 @@ sudo apt-get --purge -y remove ipython
 sudo pip uninstall ipython
 git clone https://github.com/ipython/ipython.git
 cd ipython
+# version >= 6.0 requires Python 3
+git checkout 5.x
 sudo pip install -e .
 
 echo "----------------------------------------------------------"
