@@ -7,12 +7,8 @@ sudo apt-get install -y git
 echo "----------------------------------------------------------"
 echo "Installing zsh..."
 # https://wiki.ubuntuusers.de/Zsh/
-cd ~
 sudo apt-get install -y zsh
-if [[ ! -e .zshrc ]]; then
-	wget -O .zshrc http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
-	sudo chsh -s /usr/bin/zsh
-fi
+sudo chsh -s /usr/bin/zsh
 sudo apt-get install -y xclip
 
 echo "----------------------------------------------------------"
@@ -65,6 +61,9 @@ ln -s ~/.files/.gitignore_global ~/.gitignore_global
 ln -s ~/.files/gitstatus.py ~/gitstatus.py
 # ln -s ~/.files/lubuntu-rc.xml ~/.config/openbox/lubuntu-rc.xml
 ln -s ~/.files/.ackrc ~/.ackrc
+rm ~/.bashrc
+ln -s ~/.files/.bashrc ~/.bashrc
+ln -s ~/.files/zshrc ~/.zshrc
 
 echo "----------------------------------------------------------"
 echo "Installing vim plugins..."
@@ -116,3 +115,8 @@ sudo pip install td-watson
 sudo wget -O /etc/bash_completion.d/watson https://raw.githubusercontent.com/TailorDev/Watson/master/watson.completion 
 mkdir -p ~/.config/watson
 ln -s ~/.files/watson_config ~/.config/watson/config
+
+echo "----------------------------------------------------------"
+echo "Installing more programs (git-cola, thefuck)..."
+sudo apt-get install -y git-cola
+sudo apt-get install -y thefuck
