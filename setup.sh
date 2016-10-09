@@ -1,15 +1,23 @@
 #/usr/bin/zsh
 
+echo "----------------------------------------------------------"
+echo "Installing git..."
+sudo apt-get install -y git
+
+echo "----------------------------------------------------------"
 echo "Installing zsh..."
 # https://wiki.ubuntuusers.de/Zsh/
 cd ~
-sudo apt-get install zsh
-wget -O .zshrc_original http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
-sudo chsh -s /usr/bin/zsh
-sudo apt-get install xclip
+sudo apt-get install -y zsh
+if [[ ! -e .zshrc ]]; then
+	wget -O .zshrc http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
+	sudo chsh -s /usr/bin/zsh
+fi
+sudo apt-get install -y xclip
 
+echo "----------------------------------------------------------"
 echo "Installing ack..."
-sudo apt-get install ack-grep
+sudo apt-get install -y ack-grep
 
 echo "----------------------------------------------------------"
 echo "Installing vim..."
@@ -47,59 +55,64 @@ if [[ ! -e vim ]]; then
     vim --help | head -n1
 fi
 
-echo "Setting up .files..."
+echo "----------------------------------------------------------"
+echo "Setting up symbolic links to .files..."
 cd ~
-git clone git@github.com:pylipp/dotfiles.git .files
-DOTFLS="~/.files/"
-cd ~
-ln -s "$DOTFLS".vimrc .vimrc
-ln -s "$DOTFLS".vim .vim
-ln -s "$DOTFLS".ycm_conf_extra.py .ycm_conf_extra.py
-ln -s "$DOTFLS".gitconfig .gitconfig
-ln -s "$DOTFLS".gitignore_global .gitignore_global
-ln -s "$DOTFLS"gitstatus.py gitstatus.py
-ln -s "$DOTFLS"lubuntu-rc.xml ~/.config/openbox/lubuntu-rc.xml
-ln -s "$DOTFLS".ackrc .ackrc
-cat ~/.zshrc_original "$DOTFLS"zshrc_tail >> ~/.zshrc
-rm ~/.zshrc_original
+ln -s ~/.files/.vim ~/.vim
+ln -s ~/.files/.ycm_extra_conf.py ~/.ycm_extra_conf.py
+ln -s ~/.files/.gitconfig ~/.gitconfig
+ln -s ~/.files/.gitignore_global ~/.gitignore_global
+ln -s ~/.files/gitstatus.py ~/gitstatus.py
+# ln -s ~/.files/lubuntu-rc.xml ~/.config/openbox/lubuntu-rc.xml
+ln -s ~/.files/.ackrc ~/.ackrc
 
+echo "----------------------------------------------------------"
 echo "Installing vim plugins..."
 # https://github.com/VundleVim/Vundle.vim
 cd ~
 mkdir -p .files/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+# setup link now to avoid errors due to uninstalled plugins
+ln -s ~/.files/.vimrc ~/.vimrc
 
+echo "----------------------------------------------------------"
 echo "Installing ycm..."
 # https://github.com/Valloric/YouCompleteMe#installation
+sudo apt-get install -y cmake
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
+echo "----------------------------------------------------------"
 echo "Installing pip..."
 # http://stackoverflow.com/questions/27711184/why-is-pip-raising-an-assertionerror-on-pip-freeze
 # https://pip.pypa.io/en/latest/installing/
 cd ~/software
-sudo apt-get --purge remove python-pip
+sudo apt-get --purge -y remove python-pip
 curl -O https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
 hash -r
 rm get-pip.py
 
+echo "----------------------------------------------------------"
 echo "Installing ipython..."
 # http://stackoverflow.com/questions/34851801/jupyter-cant-create-new-notebook
 cd ~/software
-sudo apt-get --purge remove ipython
+sudo apt-get --purge -y remove ipython
 sudo pip uninstall ipython
 git clone https://github.com/ipython/ipython.git
 cd ipython
 sudo pip install -e .
 
+echo "----------------------------------------------------------"
 echo "Installing virtualenv..."
 cd ~
 sudo pip install virtualenv
 sudo pip install virtualenvwrapper
 
+echo "----------------------------------------------------------"
 echo "Installing watson..."
 sudo pip install td-watson
 sudo wget -O /etc/bash_completion.d/watson https://raw.githubusercontent.com/TailorDev/Watson/master/watson.completion 
-ln -s "$DOTFLS"watson_config ~/.config/watson/config
+mkdir -p ~/.config/watson
+ln -s ~/.files/watson_config ~/.config/watson/config
