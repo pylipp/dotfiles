@@ -1,0 +1,9 @@
+#makes some shortcuts available for vim instead for shell
+stty -ixon
+
+#nvbn/thefuck
+eval "$(thefuck --alias)"
+
+# http://www.simononsoftware.com/virtualenv-tutorial-part-2/
+export WORKON_HOME=$HOME/.virtualenvs
+. /usr/local/bin/virtualenvwrapper.sh

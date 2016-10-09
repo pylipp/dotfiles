@@ -117,32 +117,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# http://wiki.ros.org/kinetic/Installation/Ubuntu#kinetic.2BAC8-Installation.2BAC8-DebEnvironment.Environment_setup
-source /opt/ros/kinetic/setup.bash
-alias cks="source ~/projects/catkin_ws/devel/setup.bash"
-
-alias svn='colorsvn'
-#makes some shortcuts available for vim instead for shell
-stty -ixon
-
-export PATH=$PATH:/opt/Qt/Tools/QtCreator/bin
-export PATH=/usr/include/qt5:$PATH
-export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-
-alias ipp='ipython --pylab'
-alias gitkall='gitk --all'
-
-# http://stackoverflow.com/questions/20327621/calling-ipython-from-a-virtualenv
-alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
-
-# Copy file content to clipboard or from clipboard to commandline
-# http://superuser.com/questions/113529/how-can-i-load-a-files-contents-into-the-clipboard
-alias pbcopy='xclip -i -selection c '
-alias pbpaste='xclip -o -selection c '
-
-#nvbn/thefuck
-eval "$(thefuck --alias)"
-
-# http://www.simononsoftware.com/virtualenv-tutorial-part-2/
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+if [ -f ~/.files/extra_shrc ]; then 
+    . ~/.files/extra_shrc 
+fi
