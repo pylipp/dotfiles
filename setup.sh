@@ -66,6 +66,7 @@ ln -s ~/.files/ackrc ~/.ackrc
 rm ~/.bashrc
 ln -s ~/.files/bashrc ~/.bashrc
 ln -s ~/.files/zshrc ~/.zshrc
+ln -s ~/.files/tmux.conf ~/.tmux.conf
 
 echo "----------------------------------------------------------"
 echo "Installing vim plugins..."
