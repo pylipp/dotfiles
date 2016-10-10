@@ -123,3 +123,10 @@ sudo apt-get install -y git-cola
 sudo apt-get install -y thefuck
 sudo apt-get install -y nautilus nautilus-dropbox
 sudo apt-get install -y exuberant-ctags
+
+echo "----------------------------------------------------------"
+echo "Installing qtcreator..."
+cd ~/Downloads 
+wget http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run
+chmod 755 qt-unified-linux-x64-online.run 
+./qt-unified-linux-x64-online.run
