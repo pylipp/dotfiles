@@ -8,7 +8,10 @@ echo "----------------------------------------------------------"
 echo "Installing zsh..."
 # https://wiki.ubuntuusers.de/Zsh/
 sudo apt-get install -y zsh
-sudo chsh -s /usr/bin/zsh
+# https://github.com/robbyrussell/oh-my-zsh/issues/1224#issuecomment-31623113
+# This workaround might be required:
+# sudo sed -i 's/^auth[[:space:]]*required/#auth required/' /etc/pam.d/chsh
+sudo chsh $USER -s $(which zsh)
 sudo apt-get install -y xclip
 
 echo "----------------------------------------------------------"
