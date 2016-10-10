@@ -3704,6 +3704,10 @@ if [ -f ~/.files/bash_aliases ]; then
     . ~/.files/bash_aliases
 fi
 
+if [ -z "$SHELL" ]; then
+    export SHELL=/usr/bin/zsh
+fi
+
 if [ -f ~/.files/extra_shrc ]; then 
     . ~/.files/extra_shrc 
 fi

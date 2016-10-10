@@ -117,6 +117,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -z "$SHELL" ]; then
+    export SHELL=/bin/bash 
+fi
+
 if [ -f ~/.files/extra_shrc ]; then 
     . ~/.files/extra_shrc 
 fi
