@@ -3700,8 +3700,8 @@ zrclocal
 # mode: sh
 # End:
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.files/bash_aliases ]; then
+    . ~/.files/bash_aliases
 fi
 
 if [ -f ~/.files/extra_shrc ]; then 
