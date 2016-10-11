@@ -118,6 +118,7 @@ echo "----------------------------------------------------------"
 echo "Installing watson..."
 sudo pip install td-watson
 sudo wget -O /etc/bash_completion.d/watson https://raw.githubusercontent.com/TailorDev/Watson/master/watson.completion
+sudo wget -O /usr/local/share/zsh/site-functions/_watson https://raw.githubusercontent.com/TailorDev/Watson/master/watson.zsh-completion
 mkdir -p ~/.config/watson
 ln -s ~/.files/watson_config ~/.config/watson/config
 
