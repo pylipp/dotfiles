@@ -135,3 +135,15 @@ cd ~/Downloads
 wget http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run
 chmod 755 qt-unified-linux-x64-online.run 
 ./qt-unified-linux-x64-online.run
+
+echo "----------------------------------------------------------"
+echo "Configuring keyboard shortcuts..."
+# gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '<Control><Alt>b'
+# gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right ['<Shift><Control><Alt>l']
+# gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left ['<Shift><Control><Alt>h']
+# gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up ['<Shift><Control><Alt>k']
+# gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down ['<Shift><Control><Alt>j']
+# gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right ['<Control><Alt>l']
+# gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left ['<Control><Alt>h']
+# gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up ['<Control><Alt>k']
+# gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down ['<Control><Alt>j']
