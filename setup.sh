@@ -128,6 +128,7 @@ sudo apt-get install -y git-cola
 sudo apt-get install -y thefuck
 sudo apt-get install -y nautilus nautilus-dropbox
 sudo apt-get install -y exuberant-ctags
+sudo apt-get install -y tmux
 
 echo "----------------------------------------------------------"
 echo "Installing qtcreator..."
