@@ -125,7 +125,7 @@ ln -s ~/.files/watson_config ~/.config/watson/config
 echo "----------------------------------------------------------"
 echo "Installing more programs (git-cola, thefuck, dropbox, ctags)..."
 sudo apt-get install -y git-cola
-sudo apt-get install -y thefuck
+sudo pip install -y thefuck
 sudo apt-get install -y nautilus nautilus-dropbox
 sudo apt-get install -y exuberant-ctags
 
