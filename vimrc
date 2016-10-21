@@ -43,6 +43,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tomtom/tcomment_vim'
 " selection when opening files
 Plugin 'EinfachToll/DidYouMean'
+" mappings to handle 'surroundings'
+Plugin 'tpope/vim-surround'
 
 
 " All of your Plugins must be added before the following line
