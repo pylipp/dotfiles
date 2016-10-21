@@ -48,6 +48,8 @@
     df = diff 
     dc = diff --cached
     ign = ls-files -o -i --exclude-standard
+    # view changes in file after pull 
+    dfap = difftool master@{1} master
 [merge]
     tool = vimdiff 
     conflictstyle = diff3 
