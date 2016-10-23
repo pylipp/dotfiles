@@ -45,6 +45,8 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'EinfachToll/DidYouMean'
 " java completion 
 Plugin 'artur-shaik/vim-javacomplete2'
+" mappings to handle 'surroundings'
+Plugin 'tpope/vim-surround'
 
 
 " All of your Plugins must be added before the following line
