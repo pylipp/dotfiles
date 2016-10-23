@@ -43,10 +43,14 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tomtom/tcomment_vim'
 " selection when opening files
 Plugin 'EinfachToll/DidYouMean'
+" java completion 
+Plugin 'artur-shaik/vim-javacomplete2'
 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
+
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -138,6 +142,12 @@ endif
 
 "set wrap options
 autocmd FileType html,xml,text,README,tex,md set wrap linebreak textwidth=114 colorcolumn=115
+
+
+" for javacomplete2 plugin 
+" Solve Javavi error by running 
+" mvn -f ~/.vim/bundle/vim-javacomplete2/libs/javavi/pom.xml compile
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 
 " NERDTree - plugin to view the current directory
