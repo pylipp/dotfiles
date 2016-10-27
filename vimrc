@@ -45,6 +45,8 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'EinfachToll/DidYouMean'
 " mappings to handle 'surroundings'
 Plugin 'tpope/vim-surround'
+" correctly in/decrement dates and times 
+Plugin 'tpope/vim-speeddating'
 
 
 " All of your Plugins must be added before the following line
