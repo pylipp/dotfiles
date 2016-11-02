@@ -7,3 +7,4 @@
 *.o
 .~lock.*
 tags
+*.egg-info
