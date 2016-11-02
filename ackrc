@@ -13,3 +13,4 @@
 --color
 --follow
 --group
+--ignore-file=is:tags
