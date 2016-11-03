@@ -7,3 +7,5 @@
 *.o
 .~lock.*
 tags
+build/
+devel/
