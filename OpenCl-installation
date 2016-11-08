@@ -66,7 +66,7 @@ More references:
 
 cd ~/Downloads
 wget https://software.intel.com/sites/default/files/managed/ee/1f/intel-opencl-1.2-1.0-47971.tar.gz
-tar xzf https://software.intel.com/sites/default/files/managed/ee/1f/intel-opencl-1.2-1.0-47971.tar.gz
+tar xzf intel-opencl-1.2-1.0-47971.tar.gz
 cd intel-opencl-1.2-1.0-47971
 mkdir intel-opencl
 tar -C intel-opencl -zxf intel-opencl-1.2-1.0-47971.x86_64.tar.gz
@@ -83,6 +83,7 @@ g++ -o clDeviceQuery -I/opt/intel/opencl/include clDeviceQuery.cpp -lOpenCL
 ############
 # PYOPENCL #
 ############
+0. sudo apt install python-pyopencl # not the latest...
 1. Get package from https://pypi.python.org/pypi/pyopencl. 
 2. Kinda follow http://wiki.tiker.net/PyOpenCL/Installation/Linux
 3. For configuring, this is clearer: http://wiki.tiker.net/PyOpenCL/Installation/Linux/Ubuntu
