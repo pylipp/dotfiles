@@ -13,3 +13,6 @@ alias pbpaste='xclip -o -selection c '
 
 # repeat definition for zsh
 alias ll='ls -alF'
+
+# enable 256color support in tmux
+alias tmux='tmux -2'
