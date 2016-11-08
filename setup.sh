@@ -1,4 +1,14 @@
-#/usr/bin/zsh
+#/bin/bash 
+if [[ "$#" -ne 1 ]]; then 
+    echo "Usage: bash setup.sh home_dir"
+    exit 
+fi
+
+home=$1
+echo
+read -n 1 -p "Home directory specified: $1 OK [y/n]" reply
+echo
+if [[ "$reply" != 'y' ]]; then exit; fi
 
 echo "----------------------------------------------------------"
 echo "Installing git..."
@@ -21,8 +31,8 @@ sudo apt-get install -y ack-grep
 echo "----------------------------------------------------------"
 echo "Installing vim..."
 # https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
-mkdir -p ~/software
-cd ~/software
+mkdir -p $home/software
+cd $home/software
 if [[ ! -e vim ]]; then
     sudo apt-get remove -y vim vim-runtime gvim vim-tiny vim-common
     sudo apt-get install -y libncurses5-dev libgnome2-dev libgnomeui-dev \
@@ -56,40 +66,40 @@ fi
 
 echo "----------------------------------------------------------"
 echo "Setting up symbolic links to .files..."
-cd ~
-ln -s ~/.files/.vim ~/.vim
-ln -s ~/.files/ycm_extra_conf.py ~/.ycm_extra_conf.py
-ln -s ~/.files/gitconfig ~/.gitconfig
-sudo ln -s ~/.files/gitstatus.py /usr/bin/gitstatus 
+cd $home
+ln -s $home/.files/.vim $home/.vim
+ln -s $home/.files/ycm_extra_conf.py $home/.ycm_extra_conf.py
+ln -s $home/.files/gitconfig $home/.gitconfig
+sudo ln -s $home/.files/gitstatus.py /usr/bin/gitstatus 
 # ln -s ~/.files/lubuntu-rc.xml ~/.config/openbox/lubuntu-rc.xml
-ln -s ~/.files/ackrc ~/.ackrc
-rm ~/.bashrc
-ln -s ~/.files/bashrc ~/.bashrc
-ln -s ~/.files/zshrc ~/.zshrc
-ln -s ~/.files/tmux.conf ~/.tmux.conf
+ln -s $home/.files/ackrc $home/.ackrc
+rm $home/.bashrc
+ln -s $home/.files/bashrc $home/.bashrc
+ln -s $home/.files/zshrc $home/.zshrc
+ln -s $home/.files/tmux.conf $home/.tmux.conf
 
 echo "----------------------------------------------------------"
 echo "Installing vim plugins..."
 # https://github.com/VundleVim/Vundle.vim
-cd ~
+cd $home
 mkdir -p .files/.vim/bundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git $home/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 # setup link now to avoid errors due to uninstalled plugins
-ln -s ~/.files/vimrc ~/.vimrc
+ln -s $home/.files/vimrc $home/.vimrc
 
 echo "----------------------------------------------------------"
 echo "Installing ycm..."
 # https://github.com/Valloric/YouCompleteMe#installation
 sudo apt-get install -y cmake
-cd ~/.vim/bundle/YouCompleteMe
+cd $home/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
 echo "----------------------------------------------------------"
 echo "Installing pip..."
 # http://stackoverflow.com/questions/27711184/why-is-pip-raising-an-assertionerror-on-pip-freeze
 # https://pip.pypa.io/en/latest/installing/
-cd ~/software
+cd $home/software
 sudo apt-get --purge -y remove python-pip
 curl -O https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
@@ -99,7 +109,7 @@ rm get-pip.py
 echo "----------------------------------------------------------"
 echo "Installing ipython..."
 # http://stackoverflow.com/questions/34851801/jupyter-cant-create-new-notebook
-cd ~/software
+cd $home/software
 sudo apt-get --purge -y remove ipython
 sudo pip uninstall ipython
 git clone https://github.com/ipython/ipython.git
@@ -110,7 +120,7 @@ sudo pip install -e .
 
 echo "----------------------------------------------------------"
 echo "Installing virtualenv..."
-cd ~
+cd $home
 sudo pip install virtualenv
 sudo pip install virtualenvwrapper
 
@@ -119,8 +129,8 @@ echo "Installing watson..."
 sudo pip install td-watson
 sudo wget -O /etc/bash_completion.d/watson https://raw.githubusercontent.com/TailorDev/Watson/master/watson.completion
 sudo wget -O /usr/local/share/zsh/site-functions/_watson https://raw.githubusercontent.com/TailorDev/Watson/master/watson.zsh-completion
-mkdir -p ~/.config/watson
-ln -s ~/.files/watson_config ~/.config/watson/config
+mkdir -p $home/.config/watson
+ln -s $home/.files/watson_config $home/.config/watson/config
 
 echo "----------------------------------------------------------"
 echo "Installing more programs (git-cola, thefuck, dropbox, ctags)..."
@@ -132,7 +142,7 @@ sudo apt-get install -y tmux
 
 echo "----------------------------------------------------------"
 echo "Installing qtcreator..."
-cd ~/Downloads 
+cd $home/Downloads 
 wget http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run
 chmod 755 qt-unified-linux-x64-online.run 
 ./qt-unified-linux-x64-online.run
