@@ -43,12 +43,14 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tomtom/tcomment_vim'
 " selection when opening files
 Plugin 'EinfachToll/DidYouMean'
-" java completion 
+" java completion
 Plugin 'artur-shaik/vim-javacomplete2'
 " mappings to handle 'surroundings'
 Plugin 'tpope/vim-surround'
-" correctly in/decrement dates and times 
+" correctly in/decrement dates and times
 Plugin 'tpope/vim-speeddating'
+" enable repeating of plugin commands by .
+Plugin 'tpope/vim-repeat'
 
 
 " All of your Plugins must be added before the following line
@@ -148,8 +150,8 @@ endif
 autocmd FileType html,xml,text,README,tex,md set wrap linebreak textwidth=114 colorcolumn=115
 
 
-" for javacomplete2 plugin 
-" Solve Javavi error by running 
+" for javacomplete2 plugin
+" Solve Javavi error by running
 " mvn -f ~/.vim/bundle/vim-javacomplete2/libs/javavi/pom.xml compile
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
@@ -255,7 +257,7 @@ imap <C-b> <Esc><C-b>i
 noremap <C-Space> <C-u>
 " save all current files
 noremap <leader>w :wa<CR>
-" save file as sudo 
+" save file as sudo
 cmap w!! w !sudo tee > /dev/null %
 
 map Y y$
