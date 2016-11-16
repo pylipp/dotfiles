@@ -41,12 +41,13 @@
     st = status
     br = branch
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    do = diff --name-status master origin/master
     amend = commit --amend --no-edit
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate --all
     df = diff 
     dc = diff --cached
+    do = diff --name-status master origin/master
+    dt = difftool
     ign = ls-files -o -i --exclude-standard
     # view changes in file after pull 
     dfap = difftool master@{1} master
@@ -55,3 +56,5 @@
     conflictstyle = diff3 
 [mergetool]
     prompt = false
+[difftool "vimdiff"]
+	cmd = vim -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\"

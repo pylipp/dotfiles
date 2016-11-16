@@ -2,11 +2,13 @@
 stty -ixon
 
 #nvbn/thefuck
-eval "$(thefuck --alias)"
+command -v thefuck >/dev/null 2>&1 && eval "$(thefuck --alias)"
 
 # http://www.simononsoftware.com/virtualenv-tutorial-part-2/
-export WORKON_HOME=$HOME/.virtualenvs
-. /usr/local/bin/virtualenvwrapper.sh
+if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    . /usr/local/bin/virtualenvwrapper.sh
+fi
 
 if [ -e /opt/ros/kinetic/ ]; then
     . /opt/ros/kinetic/setup.$(basename $SHELL)
