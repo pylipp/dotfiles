@@ -4,6 +4,8 @@ stty -ixon
 #nvbn/thefuck
 command -v thefuck >/dev/null 2>&1 && eval "$(thefuck --alias)"
 
+command -v hub >/dev/null 2>&1 && eval "$(hub alias -s)"
+
 # http://www.simononsoftware.com/virtualenv-tutorial-part-2/
 if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=$HOME/.virtualenvs

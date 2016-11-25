@@ -139,6 +139,7 @@ sudo pip install -y thefuck
 sudo apt-get install -y nautilus nautilus-dropbox
 sudo apt-get install -y exuberant-ctags
 sudo apt-get install -y tmux
+sudo wget -O /usr/local/share/zsh/site-functions/_hub https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion
 
 echo "----------------------------------------------------------"
 echo "Installing qtcreator..."
