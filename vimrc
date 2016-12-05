@@ -160,7 +160,7 @@ map <F2> :NERDTreeToggle<CR>
 "look for next tags file from current path up to Home
 set tags=./tags;$HOME
 "Goes to definition of function under cursor; <C-t> will jump back
-map <C-z> <C-]>
+map <C-s> <C-]>
 "opens definition in horizontal split window
 "map <C-i> <C-w><C-]> "avoiding because it shadows <TAB>
 "refresh tags, calls bash script in /usr/bin
@@ -359,14 +359,14 @@ highlight SpellLocal term=underline cterm=underline
 " C-p d | insert previous matching word
 " C-q d | uncomment current line
 " C-r d | redo (undo the undo)
-" C-s d | suspend vim and return to shell; return to vim with fg
+" C-s c | go to function definition under cursor (using ctags)
 " C-t c | move back to place of function call (reverse C-z)
 " C-u d | move half-page up
 " C-v c | start visual block mode
 " C-w c | prefix for window switching commands
 " C-x c | decrement number
 " C-y d | scroll upwards, current line at the bottom
-" C-z c | go to function definition under cursor (using ctags)
+" C-z d | suspend vim and return to shell; return to vim with fg
 
 " https://github.com/tomtom/tcomment_vim/issues/139
 noremap <silent> gC :set opfunc=ToggleComment<CR>g@
