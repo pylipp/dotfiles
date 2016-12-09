@@ -17,6 +17,11 @@ alias ll='ls -alF'
 # enable 256color support in tmux
 alias tmux='tmux -2'
 
+# remap Mate commands to Ubuntu commands
+command -v evince >/dev/null 2>&1 || alias evince='atril'
+command -v eog >/dev/null 2>&1 || alias eog='eom'
+command -v nautilus >/dev/null 2>&1 || alias nautilus='caja'
+
 # some shortcuts for handling VMs
 # docs: https://www.virtualbox.org/manual/ch08.html
 function vmon() {
