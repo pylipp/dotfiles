@@ -124,3 +124,7 @@ fi
 if [ -f ~/.files/extra_shrc ]; then 
     . ~/.files/extra_shrc 
 fi
+
+if [ -f ~/.files/local_shrc ]; then 
+    . ~/.files/local_shrc 
+fi

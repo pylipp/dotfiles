@@ -3712,6 +3712,10 @@ if [ -f ~/.files/extra_shrc ]; then
     . ~/.files/extra_shrc 
 fi
 
+if [ -f ~/.files/local_shrc ]; then 
+    . ~/.files/local_shrc 
+fi
+
 #Fixes the prompt in a virtualenv.
 #http://bewatermyfriend.org/p/2013/003/
 # see also the documentation on GRML_theme_add_token_usage()
