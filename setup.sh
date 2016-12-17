@@ -25,8 +25,8 @@ sudo chsh $USER -s $(which zsh)
 sudo apt-get install -y xclip
 
 echo "----------------------------------------------------------"
-echo "Installing ack..."
-sudo apt-get install -y ack-grep
+echo "Installing ag..."
+sudo apt-get install -y silversearcher-ag
 
 echo "----------------------------------------------------------"
 echo "Installing vim..."

@@ -2665,7 +2665,7 @@ if [[ -r /etc/debian_version ]] ; then
     #a3# Execute \kbd{aptitude install}
     salias ati="aptitude install"
     #a3# Execute \kbd{apt-get upgrade}
-    salias ag="apt-get upgrade"
+    #salias ag="apt-get upgrade"
     #a3# Execute \kbd{apt-get update}
     salias au="apt-get update"
     #a3# Execute \kbd{aptitude update ; aptitude safe-upgrade}
