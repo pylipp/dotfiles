@@ -60,3 +60,11 @@ Cursor positioned inside the text object.
 
 - :sbuffer N
 - :vert sb N
+
+### Intelligent expression deletion (http://www.viemu.com/a-why-vi-vim.html)
+
+- c% or d%
+
+### Paste in insert mode (http://www.viemu.com/a-why-vi-vim.html)
+
+- C-r <register>
