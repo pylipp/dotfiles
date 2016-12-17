@@ -51,6 +51,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-speeddating'
 " enable repeating of plugin commands by .
 Plugin 'tpope/vim-repeat'
+" ack integration in vim
+Plugin 'mileszs/ack.vim'
 
 
 " All of your Plugins must be added before the following line
