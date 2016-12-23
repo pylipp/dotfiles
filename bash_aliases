@@ -48,10 +48,3 @@ function vmoff() {
     fi
     unsetopt KSH_ARRAYS
 }
-
-# alias python REPL if globally available, also add this to $WORKON_HOME/postactivate
-if [[ `pip freeze 2> /dev/null | grep ptpython` ]]; then
-    alias python=ptpython
-else
-    unalias python 2> /dev/null 
-fi

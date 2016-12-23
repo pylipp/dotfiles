@@ -1,0 +1,11 @@
+#!/bin/bash
+# This hook is sourced after every virtualenv is activated.
+if [[ `pip freeze 2> /dev/null | grep ptpython` ]]; then
+    if [[ `pip freeze 2> /dev/null | grep ipython` ]]; then 
+        alias python=ptipython 
+    else
+        alias python=ptpython
+    fi
+else
+    unalias python 2> /dev/null 
+fi
