@@ -107,18 +107,6 @@ hash -r
 rm get-pip.py
 
 echo "----------------------------------------------------------"
-echo "Installing ipython..."
-# http://stackoverflow.com/questions/34851801/jupyter-cant-create-new-notebook
-cd $home/software
-sudo apt-get --purge -y remove ipython
-sudo pip uninstall ipython
-git clone https://github.com/ipython/ipython.git
-cd ipython
-# version >= 6.0 requires Python 3
-git checkout 5.x
-sudo pip install -e .
-
-echo "----------------------------------------------------------"
 echo "Installing virtualenv..."
 cd $home
 sudo pip install virtualenv
