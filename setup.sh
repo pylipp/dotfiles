@@ -111,7 +111,6 @@ echo "Installing virtualenv..."
 cd $home
 sudo pip install virtualenv
 sudo pip install virtualenvwrapper
-mv .files/postactivate $WORKON_HOME
 
 echo "----------------------------------------------------------"
 echo "Installing watson..."
