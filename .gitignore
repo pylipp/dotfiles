@@ -1,3 +1,6 @@
 personalrepos
 .vim/bundle
+.vim/undo
+.vim/swp
+.vim/backup
 local_shrc

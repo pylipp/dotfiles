@@ -119,6 +119,14 @@ set history=1000 "remember more commands and search history
 set autoread    "autoread when a file is changed from the outside
 set mouse=a     "enables the mouse in all modes
 
+" put backup, swp, and undo files into central location 
+if has("unix")
+    silent !mkdir -p ~/.vim/{backup,swp,undo}/
+endif
+set backupdir=~/.vim/backup/  " in neovim (different location)
+set directory=~/.vim/swp/  " in neovim (different location)
+set undodir=~/.vim/undo/  " in neovim (different location)
+
 "Enable folding, from
 "https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/#.Vi9-CN7uzXY.reddit
 set foldmethod=indent
