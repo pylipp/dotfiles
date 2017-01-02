@@ -1591,6 +1591,10 @@ HISTFILE=${ZDOTDIR:-${HOME}}/.zsh_history
 isgrmlcd && HISTSIZE=500  || HISTSIZE=5000
 isgrmlcd && SAVEHIST=1000 || SAVEHIST=10000 # useful for setopt append_history
 
+# https://wiki.gentoo.org/wiki/Zsh/Guide#Prompts
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+
 # dirstack handling
 
 DIRSTACKSIZE=${DIRSTACKSIZE:-20}
