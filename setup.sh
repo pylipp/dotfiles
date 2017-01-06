@@ -26,7 +26,7 @@ sudo apt-get install -y xclip
 
 echo "----------------------------------------------------------"
 echo "Installing ag..."
-sudo apt-get install -y silversearcher-ag
+sudo apt-get install -y silversearcher-ag ack
 
 echo "----------------------------------------------------------"
 echo "Installing vim..."
@@ -94,20 +94,11 @@ cd $home/.vim/bundle/YouCompleteMe
 echo "----------------------------------------------------------"
 echo "Installing virtualenv..."
 cd $home
-
-echo "----------------------------------------------------------"
-echo "Installing watson..."
-sudo pip install td-watson
-sudo wget -O /etc/bash_completion.d/watson https://raw.githubusercontent.com/TailorDev/Watson/master/watson.completion
-sudo wget -O /usr/local/share/zsh/site-functions/_watson https://raw.githubusercontent.com/TailorDev/Watson/master/watson.zsh-completion
-mkdir -p $home/.config/watson
-ln -s $home/.files/watson_config $home/.config/watson/config
 sudo apt install virtualenv
 sudo apt install virtualenvwrapper
 
 echo "----------------------------------------------------------"
 echo "Installing more programs (git-cola, thefuck, dropbox, ctags)..."
-sudo apt-get install -y git-cola
 # sudo apt-get install -y thefuck
 sudo apt-get install -y nautilus nautilus-dropbox
 sudo apt-get install -y exuberant-ctags
@@ -115,14 +106,18 @@ sudo apt-get install -y tmux
 sudo wget -O /usr/local/share/zsh/site-functions/_hub https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion
 
 echo "----------------------------------------------------------"
-echo "Installing qtcreator..."
-cd $home/Downloads 
-wget http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run
-chmod 755 qt-unified-linux-x64-online.run 
-./qt-unified-linux-x64-online.run
+read -n 1 -p "Install QtCreator...?" reply
+echo
+if [[ "$reply" != 'y' ]]; then 
+    echo "Installing qtcreator..."
+    cd $home/Downloads 
+    wget http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run
+    chmod 755 qt-unified-linux-x64-online.run 
+    ./qt-unified-linux-x64-online.run
+fi
 
-echo "----------------------------------------------------------"
-echo "Configuring keyboard shortcuts..."
+# echo "----------------------------------------------------------"
+# echo "Configuring keyboard shortcuts..."
 # gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '<Control><Alt>b'
 # gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right ['<Shift><Control><Alt>l']
 # gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left ['<Shift><Control><Alt>h']
