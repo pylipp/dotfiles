@@ -4,6 +4,7 @@ if [[ "$#" -ne 1 ]]; then
     exit 
 fi
 
+# TODO remove trailing slash
 home=$1
 echo
 read -n 1 -p "Home directory specified: $1 OK [y/n]" reply
@@ -13,16 +14,16 @@ if [[ "$reply" != 'y' ]]; then exit; fi
 echo "----------------------------------------------------------"
 echo "Installing zsh..."
 # https://wiki.ubuntuusers.de/Zsh/
-sudo apt-get install -y zsh
+sudo apt-get install -y zsh > /dev/null
 # https://github.com/robbyrussell/oh-my-zsh/issues/1224#issuecomment-31623113
 # This workaround might be required:
 # sudo sed -i 's/^auth[[:space:]]*required/#auth required/' /etc/pam.d/chsh
 sudo chsh $USER -s $(which zsh)
-sudo apt-get install -y xclip
+sudo apt-get install -y xclip > /dev/null
 
 echo "----------------------------------------------------------"
 echo "Installing ag..."
-sudo apt-get install -y silversearcher-ag ack
+sudo apt-get install -y silversearcher-ag ack > /dev/null
 
 echo "----------------------------------------------------------"
 echo "Installing vim..."
@@ -30,12 +31,12 @@ echo "Installing vim..."
 mkdir -p $home/software
 cd $home/software
 if [[ ! -e vim ]]; then
-    sudo apt-get remove -y vim vim-runtime gvim vim-tiny vim-common
+    sudo apt-get remove -y vim vim-runtime gvim vim-tiny vim-common > /dev/null
     sudo apt-get install -y libncurses5-dev libgnome2-dev libgnomeui-dev \
         libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
         libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
-        python3-dev
-    git clone https://github.com/vim/vim.git
+        python3-dev > /dev/null
+    git clone https://github.com/vim/vim.git > /dev/null
     cd vim
     # TODO: specify correct python config-dir!
     ./configure --with-features=huge \
@@ -46,12 +47,14 @@ if [[ ! -e vim ]]; then
         --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
         --enable-gui=gtk2 \
         --enable-cscope \
-        --prefix=/usr
+        --prefix=/usr > /dev/null
     # obtain version info, strip quotes (http://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable)
     vim_version=`grep '#define VIM_VERSION_NODOT' src/version.h | awk '{ print $3; }' | tr -d '"'`
+    echo
     echo $vim_version
-    make VIMRUNTIMEDIR=/usr/share/vim/$vim_version
-    sudo make install
+    echo
+    make VIMRUNTIMEDIR=/usr/share/vim/$vim_version > /dev/null
+    sudo make install > /dev/null
     sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
     sudo update-alternatives --set editor /usr/bin/vim
     sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
@@ -76,30 +79,30 @@ ln -s $home/.files/tmux.conf $home/.tmux.conf
 
 echo "----------------------------------------------------------"
 echo "Installing vim plugins..."
-vim +qall
-# setup link now to avoid errors due to uninstalled plugins
 ln -s $home/.files/vimrc $home/.vimrc
+vim +qall > /dev/null
 
 echo "----------------------------------------------------------"
 echo "Installing ycm..."
 # https://github.com/Valloric/YouCompleteMe#installation
-sudo apt-get install -y cmake
+sudo apt-get install -y cmake > /dev/null
 cd $home/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
+./install.py --clang-completer > /dev/null
 
 echo "----------------------------------------------------------"
 echo "Installing virtualenv..."
 cd $home
-sudo apt install virtualenv
-sudo apt install virtualenvwrapper
+sudo apt install virtualenv > /dev/null
+sudo apt install virtualenvwrapper > /dev/null
 
 echo "----------------------------------------------------------"
 echo "Installing more programs (git-cola, thefuck, dropbox, ctags)..."
 # sudo apt-get install -y thefuck
-sudo apt-get install -y nautilus nautilus-dropbox
-sudo apt-get install -y exuberant-ctags
-sudo apt-get install -y tmux
-sudo wget -O /usr/local/share/zsh/site-functions/_hub https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion
+sudo apt-get install -y nautilus nautilus-dropbox > /dev/null
+sudo apt-get install -y exuberant-ctags > /dev/null
+sudo apt-get install -y tmux > /dev/null
+sudo wget -O /usr/local/share/zsh/site-functions/_hub \
+    https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
 
 echo "----------------------------------------------------------"
 read -n 1 -p "Install QtCreator...?" reply
@@ -107,7 +110,8 @@ echo
 if [[ "$reply" != 'y' ]]; then 
     echo "Installing qtcreator..."
     cd $home/Downloads 
-    wget http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run
+    wget
+    http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run > /dev/null
     chmod 755 qt-unified-linux-x64-online.run 
     ./qt-unified-linux-x64-online.run
 fi
