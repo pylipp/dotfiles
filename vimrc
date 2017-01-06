@@ -131,9 +131,6 @@ onoremap öö <Esc>
 let python_highlight_all=1
 
 syntax on       "enable syntax highlighting
-set t_Co=256            " use 265 colors in vim
-let g:solarized_termcolors=256
-colorscheme solarized " an appropriate color scheme
 
 if &term!="xterm"
    set t_Co=256            " use 265 colors in vim
@@ -243,10 +240,6 @@ imap <C-f> <Esc><C-f>i
 imap <C-b> <Esc><C-b>i
 
 
-" key mappings to insert a new line after current line without entering insert mode
-"nmap <CR> o<Esc>
-"map <Space> <C-d> "deprecated, Space used as leader key
-noremap <C-Space> <C-u>
 " save all current files
 noremap <leader>w :wa<CR>
 " save file as sudo
@@ -277,6 +270,7 @@ nnoremap k gk
 
 " enter paste mode when pasting
 set pastetoggle=<F12>
+
 " clear search hightlighting
 nnoremap <leader><Space> :noh<CR><Esc>
 
@@ -285,19 +279,6 @@ nnoremap <leader><Space> :noh<CR><Esc>
 let g:pyflakes_use_quickfix = 0 "solves conflict with Quickfix
 map <F6> :cc<CR>
 noremap cn :cn<CR>
-
-
-"search for pattern
-com -nargs=1 Pyfilesearch call Pyfilesearch(<f-args>)
-com -nargs=1 Filesearch call Filesearch(<f-args>)
-function! Pyfilesearch(pattern)
-    exe "noautocmd silent grep " a:pattern "**/*.py"
-    exe ":copen"
-endfunction
-function! Filesearch(pattern)
-    exe "noautocmd silent grep -R" a:pattern "."
-    exe ":copen"
-endfunction
 noremap <leader>c :cc<CR>
 noremap <leader>n :cn<CR>
 noremap <leader>p :cp<CR>

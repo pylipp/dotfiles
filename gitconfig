@@ -4,7 +4,6 @@
 	autocrlf = input
 # [branch]
 #     autosetupmerge = true
-[user]
 [push]
 	default = simple
 [gui]
@@ -12,10 +11,12 @@
 	historybrowser = gitk
 [diff]
 	tool = vimdiff
-# [difftool "meld"]
-#     cmd = meld \"$LOCAL\" \"$REMOTE\"
 [difftool]
     prompt = false
+[difftool "vimdiff"]
+	cmd = vim -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\"
+# [difftool "meld"]
+#     cmd = meld \"$LOCAL\" \"$REMOTE\"
 [cola]
 	savewindowsettings = true
 	browserdockable = true
@@ -56,5 +57,3 @@
     conflictstyle = diff3 
 [mergetool]
     prompt = false
-[difftool "vimdiff"]
-	cmd = vim -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\"
