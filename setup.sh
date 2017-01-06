@@ -52,7 +52,7 @@ if [[ ! -e vim ]]; then
         --enable-cscope \
         --prefix=/usr
     # obtain version info, strip quotes (http://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable)
-    vim_version=`ack '#define VIM_VERSION_NODOT' src/version.h | awk '{ print $3; }' | tr -d '"'`
+    vim_version=`grep '#define VIM_VERSION_NODOT' src/version.h | awk '{ print $3; }' | tr -d '"'`
     echo $vim_version
     make VIMRUNTIMEDIR=/usr/share/vim/$vim_version
     sudo make install
