@@ -1,6 +1,9 @@
 #makes some shortcuts available for vim instead for shell
 stty -ixon
 
+# VI input mode
+set -o vi
+
 #nvbn/thefuck
 command -v thefuck >/dev/null 2>&1 && eval "$(thefuck --alias)"
 
