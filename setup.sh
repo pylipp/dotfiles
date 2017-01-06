@@ -92,21 +92,8 @@ cd $home/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
 echo "----------------------------------------------------------"
-echo "Installing pip..."
-# http://stackoverflow.com/questions/27711184/why-is-pip-raising-an-assertionerror-on-pip-freeze
-# https://pip.pypa.io/en/latest/installing/
-cd $home/software
-sudo apt-get --purge -y remove python-pip
-curl -O https://bootstrap.pypa.io/get-pip.py
-sudo python get-pip.py
-hash -r
-rm get-pip.py
-
-echo "----------------------------------------------------------"
 echo "Installing virtualenv..."
 cd $home
-sudo pip install virtualenv
-sudo pip install virtualenvwrapper
 
 echo "----------------------------------------------------------"
 echo "Installing watson..."
@@ -115,11 +102,13 @@ sudo wget -O /etc/bash_completion.d/watson https://raw.githubusercontent.com/Tai
 sudo wget -O /usr/local/share/zsh/site-functions/_watson https://raw.githubusercontent.com/TailorDev/Watson/master/watson.zsh-completion
 mkdir -p $home/.config/watson
 ln -s $home/.files/watson_config $home/.config/watson/config
+sudo apt install virtualenv
+sudo apt install virtualenvwrapper
 
 echo "----------------------------------------------------------"
 echo "Installing more programs (git-cola, thefuck, dropbox, ctags)..."
 sudo apt-get install -y git-cola
-sudo pip install -y thefuck
+# sudo apt-get install -y thefuck
 sudo apt-get install -y nautilus nautilus-dropbox
 sudo apt-get install -y exuberant-ctags
 sudo apt-get install -y tmux
