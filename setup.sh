@@ -11,6 +11,8 @@ read -n 1 -p "Home directory specified: $1 OK [y/n]" reply
 echo
 if [[ "$reply" != 'y' ]]; then exit; fi
 
+sudo apt update && sudo apt upgrade > /dev/null
+
 echo "----------------------------------------------------------"
 echo "Installing zsh..."
 # https://wiki.ubuntuusers.de/Zsh/
@@ -96,7 +98,8 @@ sudo apt install virtualenv > /dev/null
 sudo apt install virtualenvwrapper > /dev/null
 
 echo "----------------------------------------------------------"
-echo "Installing more programs (git-cola, thefuck, dropbox, ctags)..."
+echo "Installing more programs (nautilus, dropbox, ctags, tmux)..."
+# TODO install fzf, hub
 # sudo apt-get install -y thefuck
 sudo apt-get install -y nautilus nautilus-dropbox > /dev/null
 sudo apt-get install -y exuberant-ctags > /dev/null
