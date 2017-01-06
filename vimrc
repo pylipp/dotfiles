@@ -1,76 +1,62 @@
 "
 "SETTINGS
-"
+
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" install vim-plug if not existing
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" initialize vim-plug, including rtp update and more 
+" https://github.com/junegunn/vim-plug/wiki/faq#migrating-from-other-plugin-managers
+call plug#begin('~/.vim/bundle')
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
+" Keep Plug commands between plug#begin/end. Use single quotes.
+
 " Code completion for C-languages and python
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install-py --clang-completer' }
 " TagBar
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 " NerdTree
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " TaskList
-Plugin 'vim-scripts/tasklist.vim'
+Plug 'vim-scripts/tasklist.vim'
 " Correct python indentation according to PEP8 from https://github.com/vim-scripts/indentpython.vim
-"Plugin 'vim-scripts/indentpython.vim'
+"Plug 'vim-scripts/indentpython.vim'
 " Git integration https://github.com/tpope/vim-fugitive
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " Python code completion
-"Plugin 'rkulla/pydiction'
+"Plug 'rkulla/pydiction'
 " Ultisnips
-"Plugin 'SirVer/Ultisnips'
+"Plug 'SirVer/Ultisnips'
 " Even better error highlighting
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 " Python error highlighting
-"Plugin 'kevinw/pyflakes-vim' "or rather 'nvie/vim-flake8' ?
+"Plug 'kevinw/pyflakes-vim' "or rather 'nvie/vim-flake8' ?
 " Airline plging
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " filetype dependent commenting
-Plugin 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim'
 " selection when opening files
-Plugin 'EinfachToll/DidYouMean'
+Plug 'EinfachToll/DidYouMean'
 " java completion
-Plugin 'artur-shaik/vim-javacomplete2'
+Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 " mappings to handle 'surroundings'
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " correctly in/decrement dates and times
-Plugin 'tpope/vim-speeddating'
+Plug 'tpope/vim-speeddating'
 " enable repeating of plugin commands by .
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
 " ack integration in vim
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-
-
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" All of your Plugs must be added before the following line
+call plug#end()            " required
 
 
 "
@@ -132,7 +118,7 @@ set undodir=~/.vim/undo/  " in neovim (different location)
 set foldmethod=indent
 set foldlevel=99
 "nnoremap <space> za
-"Plugin 'tmhedberg/SimplyFold'
+"Plug 'tmhedberg/SimplyFold'
 "let g:SimplyFold_docstring_preview=1
 
 let mapleader=" "

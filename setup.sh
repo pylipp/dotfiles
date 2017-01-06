@@ -80,11 +80,7 @@ ln -s $home/.files/tmux.conf $home/.tmux.conf
 
 echo "----------------------------------------------------------"
 echo "Installing vim plugins..."
-# https://github.com/VundleVim/Vundle.vim
-cd $home
-mkdir -p .files/.vim/bundle
-git clone https://github.com/VundleVim/Vundle.vim.git $home/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+vim +qall
 # setup link now to avoid errors due to uninstalled plugins
 ln -s $home/.files/vimrc $home/.vimrc
 
