@@ -11,10 +11,6 @@ echo
 if [[ "$reply" != 'y' ]]; then exit; fi
 
 echo "----------------------------------------------------------"
-echo "Installing git..."
-sudo apt-get install -y git
-
-echo "----------------------------------------------------------"
 echo "Installing zsh..."
 # https://wiki.ubuntuusers.de/Zsh/
 sudo apt-get install -y zsh
