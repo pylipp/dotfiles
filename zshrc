@@ -3729,3 +3729,5 @@ function virtual_env_prompt () {
     REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
 }
 grml_theme_add_token virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
