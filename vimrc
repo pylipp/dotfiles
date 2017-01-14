@@ -15,9 +15,10 @@ endif
 call plug#begin('~/.vim/bundle')
 
 " Keep Plug commands between plug#begin/end. Use single quotes.
+" Installing new plugin: add Plug, `source %`, :PlugInstall
 
 " Code completion for C-languages and python
-Plug 'Valloric/YouCompleteMe', { 'do': './install-py --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install-py --clang-completer', 'frozen': 1 }
 " TagBar
 Plug 'majutsushi/tagbar'
 " NerdTree
@@ -53,6 +54,12 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
 " ack integration in vim
 Plug 'mileszs/ack.vim'
+" Support for editing latex files 
+Plug 'lervag/vimtex', {'for': 'tex' }
+" Show git status of lines
+Plug 'airblade/vim-gitgutter'
+" Convenient moving of lines, TODO use mapping without Alt-key
+" Plug 'matze/vim-move'
 
 
 " All of your Plugs must be added before the following line
@@ -95,6 +102,7 @@ set encoding=utf-8  "set encoding, useful for python3
 set nowrap        "don't wrap long line
 set colorcolumn=81 "Show end of long line
 set pvh=25  " set preview window height
+set updatetime=500 " for gitgutter
 
 set wildmenu "show completion options for command line
 set wildmode=list:longest
