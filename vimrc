@@ -1,74 +1,12 @@
-"
-"SETTINGS
-
 set nocompatible              " be iMproved, required
 
-" install vim-plug if not existing
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" initialize vim-plug, including rtp update and more 
-" https://github.com/junegunn/vim-plug/wiki/faq#migrating-from-other-plugin-managers
-call plug#begin('~/.vim/bundle')
-
-" Keep Plug commands between plug#begin/end. Use single quotes.
-" Installing new plugin: add Plug, `source %`, :PlugInstall
-
-" Code completion for C-languages and python
-Plug 'Valloric/YouCompleteMe', { 'do': './install-py --clang-completer', 'frozen': 1 }
-" TagBar
-Plug 'majutsushi/tagbar'
-" NerdTree
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-" TaskList
-Plug 'vim-scripts/tasklist.vim'
-" Correct python indentation according to PEP8 from https://github.com/vim-scripts/indentpython.vim
-"Plug 'vim-scripts/indentpython.vim'
-" Git integration https://github.com/tpope/vim-fugitive
-Plug 'tpope/vim-fugitive'
-" Python code completion
-"Plug 'rkulla/pydiction'
-" Ultisnips
-"Plug 'SirVer/Ultisnips'
-" Even better error highlighting
-Plug 'scrooloose/syntastic'
-" Python error highlighting
-"Plug 'kevinw/pyflakes-vim' "or rather 'nvie/vim-flake8' ?
-" Airline plging
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" filetype dependent commenting
-Plug 'tomtom/tcomment_vim'
-" selection when opening files
-Plug 'EinfachToll/DidYouMean'
-" java completion
-Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
-" mappings to handle 'surroundings'
-Plug 'tpope/vim-surround'
-" correctly in/decrement dates and times
-Plug 'tpope/vim-speeddating'
-" enable repeating of plugin commands by .
-Plug 'tpope/vim-repeat'
-" ack integration in vim
-Plug 'mileszs/ack.vim'
-" Support for editing latex files 
-Plug 'lervag/vimtex', {'for': 'tex' }
-" Show git status of lines
-Plug 'airblade/vim-gitgutter'
-" Convenient moving of lines, TODO use mapping without Alt-key
-" Plug 'matze/vim-move'
-
-
-" All of your Plugs must be added before the following line
-call plug#end()            " required
-
+" load plugins from separate file
+source ~/.vim/startup/plugins.vim
 
 "
 " PERSONAL SETTINGS
 "
+
 set modelines=0 "prevent security exploits
 set autoindent  "indent if previous line is indented
 set number      "set line numbering
@@ -143,85 +81,6 @@ syntax on       "enable syntax highlighting
 set t_Co=256            " use 265 colors in vim
 let g:solarized_termcolors=256
 colorscheme solarized " an appropriate color scheme
-
-
-" for javacomplete2 plugin
-" Solve Javavi error by running
-" mvn -f ~/.vim/bundle/vim-javacomplete2/libs/javavi/pom.xml compile
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
-
-" NERDTree - plugin to view the current directory
-map <F2> :NERDTreeToggle<CR>
-
-
-"Exuberant ctags - tag generation for language objects
-"look for next tags file from current path up to Home
-set tags=./tags;$HOME
-"Goes to definition of function under cursor; <C-t> will jump back
-map <C-s> <C-]>
-"opens definition in horizontal split window
-"map <C-i> <C-w><C-]> "avoiding because it shadows <TAB>
-"refresh tags, calls bash script in /usr/bin
-map <silent> <F7> :w <bar> :!.update-ctags.sh<CR><CR>
-
-
-"Tagbar - displays current code structure
-nmap <F3> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1 "jump to Tagbar when requested
-let g:tagbar_autoclose = 1 "close Tagbar after tag selection
-let g:tagbar_show_linenumbers = 1 "show linenumbers
-
-
-" YouCompleteMe code completion engine
-" https://github.com/Valloric/YouCompleteMe/blob/master/doc/youcompleteme.txt
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_error_symbol = '⚡︎ '
-let g:ycm_warning_symbol = '⚠︎ '
-let g:ycm_autoclose_preview_window_after_completion = 0
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
-"map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-
-
-" Syntastic syntax check
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs = 1
-let g:syntastic_python_checker_args = '--ignore=E225 --ignore=W291 --ignore=E231 --ignore=E702'
-let g:syntastic_tex_checkers = []
-
-
-" UltiSnips plugin for snippet support
-" remapping trigger key (originally TAB) to solve conflict with YCM
-"function! g:UltiSnips_Complete()
-"    call UltiSnips#ExpandSnippet()
-"    if g:ulti_expand_res == 0
-"        if pumvisible()
-"            return "\<C-n>"
-"        else
-"            call UltiSnips#JumpForwards()
-"            if g:ulti_jump_forwards_res == 0
-"               return "\<TAB>"
-"            endif
-"        endif
-"    endif
-"    return ""
-"endfunction
-"
-"au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-""let g:UltiSnipsExpandTrigger="<tab>" "done by default
-"let g:UltiSnipsJumpForwardTrigger="<C-m>"
-""let g:UltiSnipsListSnippets="<C-n>"
-"let g:UltiSnipsJumpBackwardTrigger="<C-S-m>"
 
 
 " TaskList plugin for managing TODOs, FIXMEs and XXXs
@@ -351,16 +210,3 @@ highlight SpellLocal term=underline cterm=underline
 " C-y d | scroll upwards, current line at the bottom
 " C-z d | suspend vim and return to shell; return to vim with fg
 
-" https://github.com/tomtom/tcomment_vim/issues/139
-noremap <silent> gC :set opfunc=ToggleComment<CR>g@
-vnoremap <silent> gC :<C-U>call ToggleComment(visualmode())<CR>
-
-function! ToggleComment(type)
-    " motion
-    if a:type == "line" || a:type == "char" || a:type == "block"
-        silent '[,'] norm gcc
-    " visual
-    else
-        silent '<,'> norm gcc
-    endif
-endfunction
