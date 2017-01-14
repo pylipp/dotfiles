@@ -58,9 +58,6 @@ set undodir=~/.vim/undo/  " in neovim (different location)
 "https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/#.Vi9-CN7uzXY.reddit
 set foldmethod=indent
 set foldlevel=99
-"nnoremap <space> za
-"Plug 'tmhedberg/SimplyFold'
-"let g:SimplyFold_docstring_preview=1
 
 
 "

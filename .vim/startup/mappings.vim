@@ -3,6 +3,7 @@
 "
 
 let mapleader=" "
+
 "trying out this remapping of the Esc key
 nnoremap öö <Esc>
 inoremap öö <Esc>
@@ -26,15 +27,13 @@ imap <C-f> <Esc><C-f>i
 imap <C-b> <Esc><C-b>i
 
 
-" save all current files
-noremap <leader>w :wa<CR>
 " save file as sudo
 cmap w!! w !sudo tee > /dev/null %
 
 map Y y$
-map ß $
 noremap , ;
 noremap ; ,
+
 " disable arrow keys
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
@@ -44,15 +43,17 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
+
 " make vim's regex machine smarter at searching, refer to :h magic
 nnoremap / /\v
 vnoremap / /\v
+
 " add closing brackets
 "inoremap { {}<Esc>i
 "inoremap [ []<Esc>i
+"
 nnoremap j gj
 nnoremap k gk
-
 
 " enter paste mode when pasting
 set pastetoggle=<F12>
