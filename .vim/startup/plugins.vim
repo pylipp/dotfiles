@@ -66,12 +66,8 @@ call plug#end()            " required
 
 
 "
-" ADDITIONAL PLUGIN-SPECIFIC SETTINGS
+" ADDITIONAL PLUGIN-SPECIFIC SETTINGS AND MAPPINGS
 "
-
-
-" NERDTree - plugin to view the current directory
-map <F2> :NERDTreeToggle<CR>
 
 
 "Exuberant ctags - tag generation for language objects
@@ -81,57 +77,58 @@ set tags=./tags;$HOME
 map <C-s> <C-]>
 
 
-if exists('loaded_tagbar')
-    "Tagbar - displays current code structure
-    nmap <F3> :TagbarToggle<CR>
-    let g:tagbar_autofocus = 1 "jump to Tagbar when requested
-    let g:tagbar_autoclose = 1 "close Tagbar after tag selection
-    let g:tagbar_show_linenumbers = 1 "show linenumbers
-endif
+" NERDTree - plugin to view the current directory
+map <F2> :NERDTreeToggle<CR>
 
 
-if exists('loaded_youcompleteme')
-    " YouCompleteMe code completion engine
-    " https://github.com/Valloric/YouCompleteMe/blob/master/doc/youcompleteme.txt
-    let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-    let g:ycm_confirm_extra_conf = 0
-    let g:ycm_error_symbol = '⚡︎ '
-    let g:ycm_warning_symbol = '⚠︎ '
-    let g:ycm_autoclose_preview_window_after_completion = 0
-    let g:ycm_autoclose_preview_window_after_insertion = 1
-    let g:ycm_complete_in_comments = 1
-    let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
-    "map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-endif
+"Tagbar - displays current code structure
+nmap <F3> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1 "jump to Tagbar when requested
+let g:tagbar_autoclose = 1 "close Tagbar after tag selection
+let g:tagbar_show_linenumbers = 1 "show linenumbers
 
 
-if exists('loaded_syntastic_plugin')
-    " Syntastic syntax check
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-    "let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 0
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0
-    let g:syntastic_enable_signs = 1
-    let g:syntastic_python_checker_args = '--ignore=E225 --ignore=W291 --ignore=E231 --ignore=E702'
-    let g:syntastic_tex_checkers = []
-endif
+" TaskList plugin for managing TODOs, FIXMEs and XXXs
+map <F8> :ToggleTaskList<CR>
+imap <F8> <Esc>:ToggleTaskList<CR>
 
 
-if exists('loaded_tcomment')
-    " https://github.com/tomtom/tcomment_vim/issues/139
-    noremap <silent> gC :set opfunc=ToggleComment<CR>g@
-    vnoremap <silent> gC :<C-U>call ToggleComment(visualmode())<CR>
+" YouCompleteMe code completion engine
+" https://github.com/Valloric/YouCompleteMe/blob/master/doc/youcompleteme.txt
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_error_symbol = '⚡︎ '
+let g:ycm_warning_symbol = '⚠︎ '
+let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
+"map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-    function! ToggleComment(type)
-        " motion
-        if a:type == "line" || a:type == "char" || a:type == "block"
-            silent '[,'] norm gcc
-        " visual
-        else
-            silent '<,'> norm gcc
-        endif
-    endfunction
-endif
+
+" Syntastic syntax check
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_signs = 1
+let g:syntastic_python_checker_args = '--ignore=E225 --ignore=W291 --ignore=E231 --ignore=E702'
+let g:syntastic_tex_checkers = []
+
+
+" https://github.com/tomtom/tcomment_vim/issues/139
+noremap <silent> gC :set opfunc=ToggleComment<CR>g@
+vnoremap <silent> gC :<C-U>call ToggleComment(visualmode())<CR>
+
+function! ToggleComment(type)
+    " motion
+    if a:type == "line" || a:type == "char" || a:type == "block"
+        silent '[,'] norm gcc
+    " visual
+    else
+        silent '<,'> norm gcc
+    endif
+endfunction
