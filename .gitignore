@@ -5,3 +5,4 @@ personalrepos
 .vim/backup
 .vim/.netrwhist
 local_shrc
+vimrc

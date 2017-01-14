@@ -80,16 +80,20 @@ ln -s $home/.files/zshrc $home/.zshrc
 ln -s $home/.files/tmux.conf $home/.tmux.conf
 
 echo "----------------------------------------------------------"
-echo "Installing vim plugins..."
+echo "Configuring vim..."
+cd $home/.files 
+bash generate_vimrc.sh
 ln -s $home/.files/vimrc $home/.vimrc
 vim +qall > /dev/null
 
-echo "----------------------------------------------------------"
-echo "Installing ycm..."
-# https://github.com/Valloric/YouCompleteMe#installation
-sudo apt-get install -y cmake > /dev/null
-cd $home/.vim/bundle/YouCompleteMe
-./install.py --clang-completer > /dev/null
+if [[ -d "$home/.vim/bundle/YouCompleteMe" ]]; then
+    echo "----------------------------------------------------------"
+    echo "Installing ycm..."
+    # https://github.com/Valloric/YouCompleteMe#installation
+    sudo apt-get install -y cmake > /dev/null
+    cd $home/.vim/bundle/YouCompleteMe
+    ./install.py --clang-completer > /dev/null
+fi
 
 echo "----------------------------------------------------------"
 echo "Installing virtualenv..."
