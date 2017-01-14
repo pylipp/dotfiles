@@ -62,6 +62,13 @@ set pastetoggle=<F12>
 nnoremap <leader><Space> :noh<CR><Esc>
 
 
+" interact with system clipboard 
+" http://sts10.github.io/blog/2016/02/12/best-of-my-vimrc/ 
+nnoremap <leader>p "+]p
+nnoremap <leader>P "+]P
+nnoremap <leader>y :y+<CR>
+vnoremap <leader>y "+y
+
 " open .vimrc in new tab
 noremap <leader>v :tabnew $MYVIMRC<CR>
 " reload .vimrc and makes all changes active
