@@ -74,8 +74,6 @@ inoremap öö <Esc>
 vnoremap öö <Esc>gV
 onoremap öö <Esc>
 
-let python_highlight_all=1
-
 syntax on       "enable syntax highlighting
 
 set t_Co=256            " use 265 colors in vim

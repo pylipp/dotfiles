@@ -125,6 +125,8 @@ endfunction
 
 call s:EnableByDefault("g:python_slow_sync")
 
+let python_highlight_all=1
+
 if s:Enabled("g:python_highlight_all")
   call s:EnableByDefault("g:python_highlight_builtins")
   if s:Enabled("g:python_highlight_builtins")
