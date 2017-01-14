@@ -132,11 +132,9 @@ let python_highlight_all=1
 
 syntax on       "enable syntax highlighting
 
-if &term!="xterm"
-   set t_Co=256            " use 265 colors in vim
-   let g:solarized_termcolors=256
-   colorscheme solarized " an appropriate color scheme
-endif
+set t_Co=256            " use 265 colors in vim
+let g:solarized_termcolors=256
+colorscheme solarized " an appropriate color scheme
 
 
 " for javacomplete2 plugin
