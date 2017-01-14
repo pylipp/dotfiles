@@ -4,14 +4,17 @@ if [[ "$#" -ne 1 ]]; then
     exit 
 fi
 
-# TODO remove trailing slash
-home=$1
+# remove trailing slash, does not work!
+# http://stackoverflow.com/questions/1848415/remove-slash-from-the-end-of-a-variable
+home=${1%/}
 echo
-read -n 1 -p "Home directory specified: $1 OK [y/n]" reply
+read -n 1 -p "Home directory specified: $1 OK [y/n] " reply
 echo
 if [[ "$reply" != 'y' ]]; then exit; fi
 
+
 sudo apt update && sudo apt upgrade > /dev/null
+
 
 echo "----------------------------------------------------------"
 echo "Installing zsh..."
@@ -23,9 +26,11 @@ sudo apt-get install -y zsh > /dev/null
 sudo chsh $USER -s $(which zsh)
 sudo apt-get install -y xclip > /dev/null
 
+
 echo "----------------------------------------------------------"
 echo "Installing ag..."
 sudo apt-get install -y silversearcher-ag ack > /dev/null
+
 
 echo "----------------------------------------------------------"
 echo "Installing vim..."
@@ -65,19 +70,19 @@ if [[ ! -e vim ]]; then
     vim --help | head -n1
 fi
 
+
 echo "----------------------------------------------------------"
 echo "Setting up symbolic links to .files..."
 cd $home
 ln -s $home/.files/.vim $home/.vim
 ln -s $home/.files/ycm_extra_conf.py $home/.ycm_extra_conf.py
 ln -s $home/.files/gitconfig $home/.gitconfig
-sudo ln -s $home/.files/gitstatus.py /usr/bin/gitstatus 
-# ln -s ~/.files/lubuntu-rc.xml ~/.config/openbox/lubuntu-rc.xml
 ln -s $home/.files/ackrc $home/.ackrc
 rm $home/.bashrc
 ln -s $home/.files/bashrc $home/.bashrc
 ln -s $home/.files/zshrc $home/.zshrc
 ln -s $home/.files/tmux.conf $home/.tmux.conf
+
 
 echo "----------------------------------------------------------"
 echo "Configuring vim..."
@@ -85,6 +90,7 @@ cd $home/.files
 bash generate_vimrc.sh
 ln -s $home/.files/vimrc $home/.vimrc
 vim +qall > /dev/null
+
 
 if [[ -d "$home/.vim/bundle/YouCompleteMe" ]]; then
     echo "----------------------------------------------------------"
@@ -95,21 +101,24 @@ if [[ -d "$home/.vim/bundle/YouCompleteMe" ]]; then
     ./install.py --clang-completer > /dev/null
 fi
 
+
 echo "----------------------------------------------------------"
 echo "Installing virtualenv..."
 cd $home
 sudo apt install virtualenv > /dev/null
 sudo apt install virtualenvwrapper > /dev/null
 
+
 echo "----------------------------------------------------------"
 echo "Installing more programs (nautilus, dropbox, ctags, tmux)..."
 # TODO install fzf, hub
 # sudo apt-get install -y thefuck
-sudo apt-get install -y nautilus nautilus-dropbox > /dev/null
+# sudo apt-get install -y nautilus nautilus-dropbox > /dev/null
 sudo apt-get install -y exuberant-ctags > /dev/null
 sudo apt-get install -y tmux > /dev/null
 sudo wget -O /usr/local/share/zsh/site-functions/_hub \
     https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
+
 
 echo "----------------------------------------------------------"
 read -n 1 -p "Install QtCreator...?" reply
