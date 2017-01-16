@@ -53,6 +53,8 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
 " ack integration in vim
 Plug 'mileszs/ack.vim'
+" ROS helpers
+Plug 'taketwo/vim-ros'
 
 
 " All of your Plugs must be added before the following line
