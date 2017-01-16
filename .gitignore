@@ -3,4 +3,6 @@ personalrepos
 .vim/undo
 .vim/swp
 .vim/backup
+.vim/.netrwhist
 local_shrc
+vimrc

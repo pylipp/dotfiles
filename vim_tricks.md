@@ -68,3 +68,7 @@ Cursor positioned inside the text object.
 ### Paste in insert mode (http://www.viemu.com/a-why-vi-vim.html)
 
 - C-r <register>
+
+### Open http link in browser
+
+- gx
