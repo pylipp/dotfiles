@@ -59,6 +59,8 @@ Plug 'lervag/vimtex', {'for': 'tex' }
 Plug 'airblade/vim-gitgutter'
 " Convenient moving of lines, TODO use mapping without Alt-key
 " Plug 'matze/vim-move'
+" ROS helpers
+Plug 'taketwo/vim-ros'
 
 
 " All of your Plugs must be added before the following line
