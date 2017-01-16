@@ -13,7 +13,7 @@ echo
 if [[ "$reply" != 'y' ]]; then exit; fi
 
 
-sudo apt update > /dev/null && sudo apt upgrade > /dev/null
+sudo apt-get update > /dev/null && sudo apt-get upgrade > /dev/null
 
 
 echo "----------------------------------------------------------"
@@ -106,8 +106,8 @@ fi
 echo "----------------------------------------------------------"
 echo "Installing virtualenv..."
 cd $home
-sudo apt install python-virtualenv > /dev/null
-sudo apt install virtualenvwrapper > /dev/null
+sudo apt-get install python-virtualenv > /dev/null
+sudo apt-get install virtualenvwrapper > /dev/null
 
 
 echo "----------------------------------------------------------"
