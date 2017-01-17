@@ -1,5 +1,5 @@
 #/bin/bash 
-echo "set nocompatible" >> vimrc
+echo "set nocompatible" > vimrc
 echo >> vimrc
 
 echo

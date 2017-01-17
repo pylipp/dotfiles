@@ -13,7 +13,7 @@ echo
 if [[ "$reply" != 'y' ]]; then exit; fi
 
 
-sudo apt update && sudo apt upgrade > /dev/null
+sudo apt-get update > /dev/null && sudo apt-get upgrade > /dev/null
 
 
 echo "----------------------------------------------------------"
@@ -29,7 +29,8 @@ sudo apt-get install -y xclip > /dev/null
 
 echo "----------------------------------------------------------"
 echo "Installing ag..."
-sudo apt-get install -y silversearcher-ag ack > /dev/null
+sudo apt-get install -y silversearcher-ag ack-grep > /dev/null
+
 
 
 echo "----------------------------------------------------------"
@@ -76,6 +77,7 @@ echo "Setting up symbolic links to .files..."
 cd $home
 ln -s $home/.files/.vim $home/.vim
 ln -s $home/.files/ycm_extra_conf.py $home/.ycm_extra_conf.py
+rm $home/.gitconfig
 ln -s $home/.files/gitconfig $home/.gitconfig
 ln -s $home/.files/ackrc $home/.ackrc
 rm $home/.bashrc
@@ -105,8 +107,9 @@ fi
 echo "----------------------------------------------------------"
 echo "Installing virtualenv..."
 cd $home
-sudo apt install virtualenv > /dev/null
-sudo apt install virtualenvwrapper > /dev/null
+sudo apt-get install python-virtualenv > /dev/null
+sudo apt-get install virtualenvwrapper > /dev/null
+
 
 
 echo "----------------------------------------------------------"
@@ -116,18 +119,17 @@ echo "Installing more programs (nautilus, dropbox, ctags, tmux)..."
 # sudo apt-get install -y nautilus nautilus-dropbox > /dev/null
 sudo apt-get install -y exuberant-ctags > /dev/null
 sudo apt-get install -y tmux > /dev/null
-sudo wget -O /usr/local/share/zsh/site-functions/_hub \
+sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
     https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
 
 
 echo "----------------------------------------------------------"
-read -n 1 -p "Install QtCreator...?" reply
+read -n 1 -p "Install QtCreator...? " reply
 echo
-if [[ "$reply" != 'y' ]]; then 
+if [[ "$reply" == 'y' ]]; then 
     echo "Installing qtcreator..."
     cd $home/Downloads 
-    wget
-    http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run > /dev/null
+    wget -q http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run > /dev/null
     chmod 755 qt-unified-linux-x64-online.run 
     ./qt-unified-linux-x64-online.run
 fi
