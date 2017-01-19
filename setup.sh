@@ -84,6 +84,8 @@ rm $home/.bashrc
 ln -s $home/.files/bashrc $home/.bashrc
 ln -s $home/.files/zshrc $home/.zshrc
 ln -s $home/.files/tmux.conf $home/.tmux.conf
+mkdir -p $home/.config/i3
+ln -s $home/.files/i3_config $home/.config/i3/config
 
 
 echo "----------------------------------------------------------"
@@ -110,6 +112,10 @@ cd $home
 sudo apt-get install python-virtualenv > /dev/null
 sudo apt-get install virtualenvwrapper > /dev/null
 
+
+echo "----------------------------------------------------------"
+echo "Installing i3..."
+sudo apt-get install -y i3 feh > /dev/null 
 
 
 echo "----------------------------------------------------------"
