@@ -72,3 +72,12 @@ Cursor positioned inside the text object.
 ### Open http link in browser
 
 - gx
+
+### Open file under cursor
+
+- gf
+
+### Context-aware line completion (https://www.youtube.com/watch?v=3TX3kV3TICU)
+
+- C-x C-l
+- C-x C-p
