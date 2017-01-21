@@ -40,6 +40,7 @@ set updatetime=500 " for gitgutter
 set wildmenu "show completion options for command line
 set wildmode=list:longest
 set undofile  "store undo actions in file
+set path+=** "recursively search from cwd downwards when :find
 
 set hidden      " allows making buffers hidden even without unsaved changes
 set history=1000 "remember more commands and search history
@@ -58,6 +59,9 @@ set undodir=~/.vim/undo/  " in neovim (different location)
 "https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/#.Vi9-CN7uzXY.reddit
 set foldmethod=indent
 set foldlevel=99
+
+" hide banner in builtin file browser
+let g:netrw_banner=0
 
 
 "
