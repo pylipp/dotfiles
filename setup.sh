@@ -77,7 +77,7 @@ echo "Setting up symbolic links to .files..."
 cd $home
 ln -s $home/.files/.vim $home/.vim
 ln -s $home/.files/ycm_extra_conf.py $home/.ycm_extra_conf.py
-rm $home/.gitconfig
+mv $home/.gitconfig $home/.gitconfig_old 2>/dev/null
 ln -s $home/.files/gitconfig $home/.gitconfig
 ln -s $home/.files/ackrc $home/.ackrc
 rm $home/.bashrc
