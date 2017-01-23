@@ -61,6 +61,8 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'matze/vim-move'
 " ROS helpers
 Plug 'taketwo/vim-ros'
+" Seamless tmux and vim navigation
+Plug 'christoomey/vim-tmux-navigator'
 
 
 " All of your Plugs must be added before the following line
