@@ -126,7 +126,7 @@ sudo $hub_dir/./install && rm -rf $hub_dir $hub_dir.tgz version.go
 
 echo "----------------------------------------------------------"
 echo "Installing i3..."
-sudo apt-get install -y i3 feh > /dev/null 
+sudo apt-get install -y i3 rofi feh > /dev/null 
 sudo ln -s $home/.files/i3exit /usr/local/bin/i3exit
 
 
