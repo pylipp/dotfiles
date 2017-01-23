@@ -114,6 +114,17 @@ sudo apt-get install virtualenvwrapper > /dev/null
 
 
 echo "----------------------------------------------------------"
+echo "Installing hub..."
+cd $home/software 
+wget -q https://raw.githubusercontent.com/github/hub/master/version/version.go 
+hub_version=`grep "var Version" version.go | cut -d" " -f4 | tr -d \"`
+hub_dir=hub-linux-amd64-$hub_version
+wget -q https://github.com/github/hub/releases/download/v$hub_version/hub_dir.tgz
+tar xf $hub_dir.tgz
+sudo $hub_dir/./install && rm -rf $hub_dir $hub_dir.tgz version.go
+
+
+echo "----------------------------------------------------------"
 echo "Installing i3..."
 sudo apt-get install -y i3 feh > /dev/null 
 
