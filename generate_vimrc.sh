@@ -5,7 +5,7 @@ echo >> vimrc
 echo
 read -n 1 -p "Install vim plugins? y/n " reply
 echo
-if [[ "$reply" -eq 'y' ]]; then 
+if [[ "$reply" == 'y' ]]; then 
     echo "source ~/.vim/startup/plugins.vim" >> vimrc 
 fi 
 
