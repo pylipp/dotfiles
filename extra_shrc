@@ -15,8 +15,10 @@ if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
     . /usr/local/bin/virtualenvwrapper.sh
 fi
 
-if [ -e /opt/ros/kinetic/ ]; then
-    source /opt/ros/kinetic/setup.$(basename $SHELL)
+if [ -e /opt/ros ]; then
+    source /opt/ros/*/setup.$(basename $SHELL)
     source ~/repos/virtual_baker/devel/setup.zsh
+fi
+if [ -e /opt/pylon5 ]; then
     source /opt/pylon5/bin/pylon-setup-env.sh /opt/pylon5/
 fi
