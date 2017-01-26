@@ -80,6 +80,21 @@ fi
 
 
 echo "----------------------------------------------------------"
+echo "Installing neovim..."
+mkvirtualenv --python=/usr/bin/python3.5 neovim > /dev/null
+pip install neovim > /dev/null
+sudo apt-get install neovim > /dev/null 2>&1
+if [[ "$?" -ne "0" ]]; then 
+    # Ubuntu installation 
+    sudo apt-get install software-properties-common > /dev/null 
+    sudo add-apt-repository ppa:neovim-ppa/unstable > /dev/null 
+    sudo apt-get update > /dev/null 
+    sudo apt-get install neovim 
+fi 
+ln -s $home/.files/.vim $home/.config/nvim
+
+
+echo "----------------------------------------------------------"
 echo "Setting up symbolic links to .files..."
 cd $home
 ln -s $home/.files/.vim $home/.vim
