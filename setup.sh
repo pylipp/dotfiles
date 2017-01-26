@@ -34,6 +34,13 @@ sudo apt-get install -y silversearcher-ag ack-grep > /dev/null
 
 
 echo "----------------------------------------------------------"
+echo "Installing virtualenv..."
+cd $home
+sudo apt-get install -y python-virtualenv > /dev/null
+sudo apt-get install -y virtualenvwrapper > /dev/null
+
+
+echo "----------------------------------------------------------"
 echo "Installing vim..."
 # https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 mkdir -p $home/software
@@ -104,13 +111,6 @@ if [[ -d "$home/.vim/bundle/YouCompleteMe" ]]; then
     cd $home/.vim/bundle/YouCompleteMe
     ./install.py --clang-completer > /dev/null
 fi
-
-
-echo "----------------------------------------------------------"
-echo "Installing virtualenv..."
-cd $home
-sudo apt-get install python-virtualenv > /dev/null
-sudo apt-get install virtualenvwrapper > /dev/null
 
 
 echo "----------------------------------------------------------"
