@@ -65,6 +65,8 @@ Plug 'taketwo/vim-ros'
 Plug 'christoomey/vim-tmux-navigator'
 " quick split and join of lines using gS and gJ
 Plug 'AndrewRadev/splitjoin.vim'
+" Helpers for UNIX shell commands 
+Plug 'tpope/vim-eunuch'
 
 
 " All of your Plugs must be added before the following line
