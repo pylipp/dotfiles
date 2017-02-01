@@ -138,3 +138,5 @@ function! ToggleComment(type)
         silent '<,'> norm gcc
     endif
 endfunction
+
+let g:vimtex_latexmk_build_dir = 'build'
