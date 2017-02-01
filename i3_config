@@ -94,8 +94,8 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "firefox"
-set $workspace2 "terminals"
+set $workspace1 "1 firefox"
+set $workspace2 "2 terminals"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
