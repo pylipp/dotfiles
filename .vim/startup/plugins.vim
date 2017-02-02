@@ -142,3 +142,5 @@ function! ToggleComment(type)
 endfunction
 
 let g:vimtex_latexmk_build_dir = 'build'
+
+let g:ros_catkin_make_options = '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
