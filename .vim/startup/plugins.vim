@@ -143,4 +143,10 @@ endfunction
 
 let g:vimtex_latexmk_build_dir = 'build'
 
+" https://github.com/lervag/vimtex/issues/537#issuecomment-249684619
+augroup MyVimtex
+  au!
+  autocmd User VimtexEventCompileStarted call vimtex#latexmk#output() | resize 12 | wincmd w
+augroup END
+
 let g:ros_catkin_make_options = '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
