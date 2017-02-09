@@ -108,6 +108,7 @@ ln -s $home/.files/zshrc $home/.zshrc
 ln -s $home/.files/tmux.conf $home/.tmux.conf
 mkdir -p $home/.config/i3
 ln -s $home/.files/i3_config $home/.config/i3/config
+ln -s $home/.files/latexmkrc $home/.latexmkrc
 
 
 echo "----------------------------------------------------------"
