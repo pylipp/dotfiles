@@ -10,7 +10,7 @@ sub makeglossaries {
 
 # from http://dlpeterson.com/2013/08/latex-workflow/
 # Same options as vimtex
-$pdflatex = 'pdflatex -file-line-error -synctex=1 %O %S';
+$pdflatex = 'pdflatex -file-line-error -interaction=nonstopmode -synctex=1 %O %S';
 
 # .bbl files assumed to be regeneratable, safe as long as the .bib file is available
 $bibtex_use = 2;
