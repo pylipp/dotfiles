@@ -153,6 +153,7 @@ echo "Installing more programs (nautilus, dropbox, ctags, tmux)..."
 # sudo apt-get install -y nautilus nautilus-dropbox > /dev/null
 sudo apt-get install -y exuberant-ctags > /dev/null
 sudo apt-get install -y tmux > /dev/null
+sudo apt-get install -y tig > /dev/null
 sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
     https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
 
