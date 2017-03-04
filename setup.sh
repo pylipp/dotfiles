@@ -20,10 +20,14 @@ echo "----------------------------------------------------------"
 echo "Installing zsh..."
 # https://wiki.ubuntuusers.de/Zsh/
 sudo apt-get install -y zsh > /dev/null
+wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+sed -i "s/env zsh//g" install.sh 
+sh install.sh > /dev/null
 # https://github.com/robbyrussell/oh-my-zsh/issues/1224#issuecomment-31623113
 # This workaround might be required:
 # sudo sed -i 's/^auth[[:space:]]*required/#auth required/' /etc/pam.d/chsh
-sudo chsh $USER -s $(which zsh)
+# sudo chsh $USER -s $(which zsh)
+rm install.sh .zshrc .zshrc.pre-oh-my-zsh
 sudo apt-get install -y xclip > /dev/null
 
 
