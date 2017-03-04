@@ -34,6 +34,16 @@ sudo apt-get install -y silversearcher-ag ack-grep > /dev/null
 
 
 echo "----------------------------------------------------------"
+echo "Installing ripgrep..."
+wget https://raw.githubusercontent.com/BurntSushi/ripgrep/4e8c0fc4ade785775005b416dc030295c684cb67/Cargo.toml
+ripgrep_version=`grep version Cargo.toml | head -1 | cut -d" " -f3 | tr -d'"'`
+wget https://github.com/BurntSushi/ripgrep/releases/download/$ripgrep_version/ripgrep-$ripgrep_version-x86_64-unknown-linux-musl.tar.gz
+tar xf ripgrep-$ripgrep_version-x86_64-unknown-linux-musl.tar.gz
+sudo cp ripgrep-$ripgrep_version-x86_64-unknown-linux-musl/rg /usr/local/bin
+rm -rf ripgrep-$ripgrep_version-x86_64-unknown-linux-musl.tar.gz ripgrep-$ripgrep_version-x86_64-unknown-linux-musl
+
+
+echo "----------------------------------------------------------"
 echo "Installing virtualenv..."
 cd $home
 sudo apt-get install -y python-virtualenv > /dev/null
