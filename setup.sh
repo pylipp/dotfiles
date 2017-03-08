@@ -34,14 +34,14 @@ install_core_utils() {
 
     echo "----------------------------------------------------------"
     echo "Installing virtualenv..."
-    cd $home
+    cd $HOME
     sudo apt-get install -y python-virtualenv > /dev/null
     sudo apt-get install -y virtualenvwrapper > /dev/null 
 
 
     echo "----------------------------------------------------------"
     echo "Installing hub..."
-    cd $home/software 
+    cd $HOME/software 
     wget -q https://raw.githubusercontent.com/github/hub/master/version/version.go 
     hub_version=`grep "var Version" version.go | cut -d" " -f4 | tr -d \"`
     hub_dir=hub-linux-amd64-$hub_version
@@ -53,7 +53,7 @@ install_core_utils() {
     echo "----------------------------------------------------------"
     echo "Installing i3..."
     sudo apt-get install -y i3 rofi xautolock feh > /dev/null 
-    sudo ln -s $home/.files/i3exit /usr/local/bin/i3exit
+    sudo ln -s $HOME/.files/i3exit /usr/local/bin/i3exit
 
 
     echo "----------------------------------------------------------"
@@ -73,8 +73,8 @@ install_vim() {
     echo "----------------------------------------------------------"
     echo "Installing vim..."
     # https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
-    mkdir -p $home/software
-    cd $home/software
+    mkdir -p $HOME/software
+    cd $HOME/software
     if [[ ! -e vim ]]; then
         sudo apt-get remove -y vim vim-runtime gvim vim-tiny vim-common > /dev/null
         sudo apt-get install -y libncurses5-dev libgnome2-dev libgnomeui-dev \
@@ -105,23 +105,23 @@ install_vim() {
         sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
         sudo update-alternatives --set vi /usr/bin/vim
     fi
-    ln -s $home/.files/.vim $home/.vim
+    ln -s $HOME/.files/.vim $HOME/.vim
 
 
     echo "----------------------------------------------------------"
     echo "Configuring vim..."
-    cd $home/.files 
+    cd $HOME/.files 
     bash generate_vimrc.sh
-    ln -s $home/.files/vimrc $home/.vimrc
+    ln -s $HOME/.files/vimrc $HOME/.vimrc
     vim +qall > /dev/null
 
 
-    if [[ -d "$home/.vim/bundle/YouCompleteMe" ]]; then
+    if [[ -d "$HOME/.vim/bundle/YouCompleteMe" ]]; then
         echo "----------------------------------------------------------"
         echo "Installing ycm..."
         # https://github.com/Valloric/YouCompleteMe#installation
         sudo apt-get install -y cmake > /dev/null
-        cd $home/.vim/bundle/YouCompleteMe
+        cd $HOME/.vim/bundle/YouCompleteMe
         ./install.py --clang-completer > /dev/null
     fi
 }
@@ -140,33 +140,33 @@ install_neovim() {
         sudo apt-get update > /dev/null 
         sudo apt-get install -y  neovim 
     fi 
-    ln -s $home/.files/.vim $home/.config/nvim
+    ln -s $HOME/.files/.vim $HOME/.config/nvim
 }
 
 
 setup_links() {
     echo "----------------------------------------------------------"
     echo "Setting up symbolic links to .files..."
-    cd $home
-    ln -s $home/.files/ycm_extra_conf.py $home/.ycm_extra_conf.py
-    mv $home/.gitconfig $home/.gitconfig_old 2>/dev/null
-    ln -s $home/.files/gitconfig $home/.gitconfig
-    ln -s $home/.files/ackrc $home/.ackrc
-    rm $home/.bashrc
-    ln -s $home/.files/bashrc $home/.bashrc
-    ln -s $home/.files/zshrc $home/.zshrc
-    ln -s $home/.files/oh-my-zsh/themes $home/.oh-my-zsh/custom/themes
-    ln -s $home/.files/tmux.conf $home/.tmux.conf
-    mkdir -p $home/.config/i3
-    ln -s $home/.files/i3_config $home/.config/i3/config
-    ln -s $home/.files/latexmkrc $home/.latexmkrc
+    cd $HOME
+    ln -s $HOME/.files/ycm_extra_conf.py $HOME/.ycm_extra_conf.py
+    mv $HOME/.gitconfig $HOME/.gitconfig_old 2>/dev/null
+    ln -s $HOME/.files/gitconfig $HOME/.gitconfig
+    ln -s $HOME/.files/ackrc $HOME/.ackrc
+    rm $HOME/.bashrc
+    ln -s $HOME/.files/bashrc $HOME/.bashrc
+    ln -s $HOME/.files/zshrc $HOME/.zshrc
+    ln -s $HOME/.files/oh-my-zsh/themes $HOME/.oh-my-zsh/custom/themes
+    ln -s $HOME/.files/tmux.conf $HOME/.tmux.conf
+    mkdir -p $HOME/.config/i3
+    ln -s $HOME/.files/i3_config $HOME/.config/i3/config
+    ln -s $HOME/.files/latexmkrc $HOME/.latexmkrc
 }
 
 
 install_qtcreator() {
     echo "----------------------------------------------------------"
     echo "Installing qtcreator..."
-    cd $home/Downloads 
+    cd $HOME/Downloads 
     wget -q http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run > /dev/null
     chmod 755 qt-unified-linux-x64-online.run 
     ./qt-unified-linux-x64-online.run
