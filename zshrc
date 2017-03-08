@@ -31,7 +31,7 @@ ZSH_THEME="af-magic"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -88,6 +88,10 @@ source $ZSH/oh-my-zsh.sh
 
 # http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
 zstyle ':completion:*' special-dirs true
+
+# http://superuser.com/questions/439209/how-to-partially-disable-the-zshs-autocorrect
+unsetopt correct_all
+setopt correct
 
 if [ -f ~/.files/bash_aliases ]; then
     . ~/.files/bash_aliases
