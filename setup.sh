@@ -119,6 +119,7 @@ ln -s $home/.files/ackrc $home/.ackrc
 rm $home/.bashrc
 ln -s $home/.files/bashrc $home/.bashrc
 ln -s $home/.files/zshrc $home/.zshrc
+ln -s $home/.files/oh-my-zsh/themes $home/.oh-my-zsh/custom/themes
 ln -s $home/.files/tmux.conf $home/.tmux.conf
 mkdir -p $home/.config/i3
 ln -s $home/.files/i3_config $home/.config/i3/config
