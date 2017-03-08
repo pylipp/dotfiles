@@ -1,20 +1,4 @@
 #/bin/bash 
-if [[ "$#" -ne 1 ]]; then 
-    echo "Usage: bash setup.sh home_dir"
-    exit 
-fi
-
-# remove trailing slash, does not work!
-# http://stackoverflow.com/questions/1848415/remove-slash-from-the-end-of-a-variable
-home=${1%/}
-echo
-read -n 1 -p "Home directory specified: $1 OK [y/n] " reply
-echo
-if [[ "$reply" != 'y' ]]; then exit; fi
-
-
-sudo apt-get update > /dev/null && sudo apt-get upgrade > /dev/null
-
 
 install_core_utils() {
     echo "----------------------------------------------------------"
@@ -189,18 +173,8 @@ install_qtcreator() {
 }
 
 install_complete() {
+    sudo apt-get update > /dev/null && sudo apt-get upgrade > /dev/null
     install_core_utils 
     install_vim 
     setup_links 
 }
-# echo "----------------------------------------------------------"
-# echo "Configuring keyboard shortcuts..."
-# gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '<Control><Alt>b'
-# gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right ['<Shift><Control><Alt>l']
-# gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left ['<Shift><Control><Alt>h']
-# gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up ['<Shift><Control><Alt>k']
-# gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down ['<Shift><Control><Alt>j']
-# gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right ['<Control><Alt>l']
-# gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left ['<Control><Alt>h']
-# gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up ['<Control><Alt>k']
-# gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down ['<Control><Alt>j']
