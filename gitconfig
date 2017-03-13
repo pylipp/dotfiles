@@ -13,6 +13,7 @@
 	tool = vimdiff
 [difftool]
     prompt = false
+    trustExitCode = true
 [difftool "vimdiff"]
 	cmd = vim -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\"
 # [difftool "meld"]
