@@ -71,7 +71,7 @@ let g:netrw_banner=0
 syntax on       "enable syntax highlighting
 
 set t_Co=256            " use 265 colors in vim
-let g:solarized_termcolors=256
+let g:solarized_termcolors=16 "256 for gnome-/mate-terminal
 colorscheme solarized " an appropriate color scheme
 
 
