@@ -159,6 +159,8 @@ setup_links() {
     ln -s $HOME/.files/tmux.conf $HOME/.tmux.conf
     mkdir -p $HOME/.config/i3
     ln -s $HOME/.files/i3_config $HOME/.config/i3/config
+    ln -s $HOME/.files/Xresources $HOME/.Xresources
+    ln -s $HOME/.files/dir_colors $HOME/.dir_colors
     ln -s $HOME/.files/latexmkrc $HOME/.latexmkrc
 }
 
