@@ -110,3 +110,5 @@ if [ -f ~/.files/local_shrc ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval `dircolors ~/.dir_colors`
