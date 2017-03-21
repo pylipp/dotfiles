@@ -180,7 +180,7 @@ bar {
 bindsym $mod+n workspace back_and_forth
 
 #exec --no-startup-id display-visor -f -l --screen0 VGA-1 --screen1 LVDS-1
-exec --no-startup-id ~/.i3/scripts/dual-screen.sh
+exec --no-startup-id ~/.i3/dual-screen.sh
 
 # get running sink via 
 # pactl list sinks | grep -B 1 RUNNING | grep Sink | cut -d"#" -f2
