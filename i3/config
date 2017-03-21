@@ -133,7 +133,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exit
 # lock i3 
 # bindsym $mod+Shift+x i3lock
-exec xautolock -time 15 -locker 'lock -p -- scrot -z'
+exec xautolock -time 15 -locker '~/.i3/i3lock-fancy/lock -p -- scrot -z'
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -208,7 +208,7 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 # https://github.com/chrjguill/i3lock-color
 # https://github.com/zeorin/i3lock-fancy/tree/multimonitor
-bindsym Ctrl+mod1+l exec lock -p -- scrot -z
+bindsym Ctrl+mod1+l exec ~/.i3/i3lock-fancy/lock -p -- scrot -z
 
 # take screenshot, dumped in home directory
 bindsym Print exec scrot
