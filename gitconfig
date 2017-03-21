@@ -53,6 +53,7 @@
     ign = ls-files -o -i --exclude-standard
     # view changes in file after pull 
     dfap = difftool master@{1} master
+	chp = cherry-pick
 [merge]
     tool = vimdiff 
     conflictstyle = diff3 
