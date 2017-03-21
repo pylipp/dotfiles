@@ -1,5 +1,7 @@
 #/bin/bash 
 
+mkdir -p $HOME/software
+
 install_core_utils() {
     echo "----------------------------------------------------------"
     echo "Installing zsh..."
@@ -53,7 +55,18 @@ install_core_utils() {
     echo "----------------------------------------------------------"
     echo "Installing i3..."
     sudo apt-get install -y i3 rofi xautolock feh > /dev/null 
-    sudo ln -s $HOME/.files/i3exit /usr/local/bin/i3exit
+    cd $HOME/software
+    sudo apt-get install -y pkg-config libxcb1 libpam-dev libcairo-dev \
+        libxcb-xinerama0-dev libev-dev libx11-dev libx11-xcb-dev libxkbcommon0 \
+        libxkbcommon-x11-0 libxcb-dpms0-dev libxcb-image0-dev libxcb-util0-dev \
+        libxcb-xkb-dev libxkbcommon-x11-dev libxkbcommon-dev
+    git clone https://github.com/chrjguill/i3lock-color
+    cd i3lock-color 
+    sudo make install 
+    cd ~/.files/i3
+    git submodule add https://github.com/zeorin/i3lock-fancy
+    cd i3lock-fancy
+    git checkout -b multimonitor origin/multimonitor
 
 
     echo "----------------------------------------------------------"
@@ -73,7 +86,6 @@ install_vim() {
     echo "----------------------------------------------------------"
     echo "Installing vim..."
     # https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
-    mkdir -p $HOME/software
     cd $HOME/software
     if [[ ! -e vim ]]; then
         sudo apt-get remove -y vim vim-runtime gvim vim-tiny vim-common > /dev/null
@@ -157,8 +169,7 @@ setup_links() {
     ln -s $HOME/.files/zshrc $HOME/.zshrc
     ln -s $HOME/.files/oh-my-zsh/themes $HOME/.oh-my-zsh/custom/themes
     ln -s $HOME/.files/tmux.conf $HOME/.tmux.conf
-    mkdir -p $HOME/.config/i3
-    ln -s $HOME/.files/i3_config $HOME/.config/i3/config
+    ln -s $HOME/.files/i3 $HOME/.i3
     ln -s $HOME/.files/Xresources $HOME/.Xresources
     ln -s $HOME/.files/dir_colors $HOME/.dir_colors
     ln -s $HOME/.files/latexmkrc $HOME/.latexmkrc
