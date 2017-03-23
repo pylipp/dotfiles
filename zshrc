@@ -112,7 +112,3 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval `dircolors ~/.dir_colors`
-
-# https://github.com/altercation/solarized/issues/159#issuecomment-5566892
-export TERM="xterm-256color"
-export TERMINAL="xterm-256color"
