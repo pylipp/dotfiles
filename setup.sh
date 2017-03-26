@@ -1,5 +1,7 @@
 #/bin/bash 
 
+set -eu
+
 mkdir -p $HOME/software
 
 install_core_utils() {
