@@ -1,5 +1,7 @@
 #/bin/bash 
 
+set -eu
+
 mkdir -p $HOME/software
 
 install_core_utils() {
@@ -171,6 +173,7 @@ setup_links() {
     ln -s $HOME/.files/tmux.conf $HOME/.tmux.conf
     ln -s $HOME/.files/i3 $HOME/.i3
     ln -s $HOME/.files/Xresources $HOME/.Xresources
+    ln -s $HOME/.files/xinitrc $HOME/.xinitrc
     ln -s $HOME/.files/dir_colors $HOME/.dir_colors
     ln -s $HOME/.files/latexmkrc $HOME/.latexmkrc
 }
