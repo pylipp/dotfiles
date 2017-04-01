@@ -27,7 +27,7 @@ set expandtab     "convert tabs to whitespace
 set softtabstop=4 "tab key indent
 set shiftwidth=4  "autoindent width
 set backspace=2   "stop weird backspace behavior
-set visualbell
+set novisualbell  "no display blinking at EOF
 set cursorline    "highlight current line
 set textwidth=79  "automatic line break after 79 chars
 set fileformat=unix "avoid conversion issues
