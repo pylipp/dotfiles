@@ -79,6 +79,7 @@ install_core_utils() {
     sudo apt-get install -y exuberant-ctags > /dev/null
     sudo apt-get install -y tmux > /dev/null
     sudo apt-get install -y tig > /dev/null
+    sudo apt-get install -y zathura > /dev/null
     sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
         https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
 }
@@ -176,6 +177,7 @@ setup_links() {
     ln -s $HOME/.files/xinitrc $HOME/.xinitrc
     ln -s $HOME/.files/dir_colors $HOME/.dir_colors
     ln -s $HOME/.files/latexmkrc $HOME/.latexmkrc
+    ln -s $HOME/.files/zathurarc $HOME/.config/zathura/zathurarc
 }
 
 
