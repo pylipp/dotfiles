@@ -177,6 +177,7 @@ setup_links() {
     ln -s $HOME/.files/xinitrc $HOME/.xinitrc
     ln -s $HOME/.files/dir_colors $HOME/.dir_colors
     ln -s $HOME/.files/latexmkrc $HOME/.latexmkrc
+    mkdir -p $HOME/.config/zathura 2> /dev/null
     ln -s $HOME/.files/zathurarc $HOME/.config/zathura/zathurarc
 }
 
