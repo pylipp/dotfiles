@@ -68,6 +68,7 @@ Cursor positioned inside the text object.
 ### Paste in insert mode (http://www.viemu.com/a-why-vi-vim.html)
 
 - C-r <register>
+- C-r = will prompt you to enter an expression (:help i_ctrl-r)
 
 ### Open http link in browser
 
@@ -85,3 +86,13 @@ Cursor positioned inside the text object.
 ### Read shell output into current file (https://www.reddit.com/r/vim/comments/4sls0w/macro_practice_formatting_images_filenames_into/)
 
 - :r !ls *.py 
+
+### Execute normal command during insert mode 
+
+- C-o <command> 
+
+### Run and evaluate python2/3 commands
+
+- :python import datetime
+- :put= pyeval('str(datetime.date.today())')
+- :pyfile <script.py>
