@@ -1,9 +1,9 @@
 personalrepos
-.vim/bundle
-.vim/undo
-.vim/swp
-.vim/backup
-.vim/.netrwhist
+vim/bundle
+vim/undo
+vim/swp
+vim/backup
+vim/.netrwhist
 local_shrc
 vimrc
 i3/dual-screen.sh

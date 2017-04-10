@@ -120,7 +120,7 @@ install_vim() {
         sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
         sudo update-alternatives --set vi /usr/bin/vim
     fi
-    ln -s $HOME/.files/.vim $HOME/.vim
+    ln -s $HOME/.files/vim $HOME/.vim
 
 
     echo "----------------------------------------------------------"
@@ -155,7 +155,7 @@ install_neovim() {
         sudo apt-get update > /dev/null 
         sudo apt-get install -y  neovim 
     fi 
-    ln -s $HOME/.files/.vim $HOME/.config/nvim
+    ln -s $HOME/.files/vim $HOME/.config/nvim
 }
 
 
