@@ -73,7 +73,7 @@ install_core_utils() {
     echo "----------------------------------------------------------"
     echo "Installing more programs (nautilus, dropbox, ctags, tmux)..."
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
+    ~/.fzf/install --all
     # sudo apt-get install -y thefuck
     # sudo apt-get install -y nautilus nautilus-dropbox > /dev/null
     sudo apt-get install -y exuberant-ctags > /dev/null
