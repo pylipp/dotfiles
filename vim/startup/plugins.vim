@@ -67,8 +67,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'AndrewRadev/splitjoin.vim'
 " Helpers for UNIX shell commands 
 Plug 'tpope/vim-eunuch'
-" Fuzzy file searching
-Plug 'ctrlpvim/ctrlp.vim'
+" Fuzzy file, buffer etc. searching
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " All of your Plugs must be added before the following line
 call plug#end()            " required
@@ -155,6 +156,7 @@ let g:ros_catkin_make_options = '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
 if executable('ag')
     " stole those from https://github.com/colbycheeze/dotfiles/blob/master/vimrc.bundles
     set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    let g:ctrlp_use_caching = 0
 endif
+
+" fzf.vim mappings
+noremap <C-p> :Files<CR>
