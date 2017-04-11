@@ -51,8 +51,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 " enable repeating of plugin commands by .
 Plug 'tpope/vim-repeat'
-" ack integration in vim
-Plug 'mileszs/ack.vim'
 " Support for editing latex files 
 Plug 'lervag/vimtex', {'for': 'tex' }
 " Show git status of lines

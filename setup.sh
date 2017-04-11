@@ -22,8 +22,7 @@ install_core_utils() {
 
     echo "----------------------------------------------------------"
     echo "Installing ag..."
-    sudo apt-get install -y silversearcher-ag ack-grep > /dev/null
-
+    sudo apt-get install -y silversearcher-ag > /dev/null
 
 
     echo "----------------------------------------------------------"
@@ -167,7 +166,6 @@ setup_links() {
     ln -s $HOME/.files/ycm_extra_conf.py $HOME/.ycm_extra_conf.py
     mv $HOME/.gitconfig $HOME/.gitconfig_old 2>/dev/null
     ln -s $HOME/.files/gitconfig $HOME/.gitconfig
-    ln -s $HOME/.files/ackrc $HOME/.ackrc
     rm $HOME/.bashrc
     ln -s $HOME/.files/bashrc $HOME/.bashrc
     ln -s $HOME/.files/zshrc $HOME/.zshrc
