@@ -93,6 +93,9 @@ zstyle ':completion:*' special-dirs true
 unsetopt correct_all
 setopt correct
 
+# http://unix.stackexchange.com/questions/126719/how-to-disable-auto-cd-in-zsh-with-oh-my-zsh
+unsetopt AUTO_CD
+
 if [ -f ~/.files/bash_aliases ]; then
     . ~/.files/bash_aliases
 fi
