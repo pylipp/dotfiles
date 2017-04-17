@@ -68,6 +68,7 @@ install_core_utils() {
     git submodule add https://github.com/zeorin/i3lock-fancy
     cd i3lock-fancy
     git checkout -b multimonitor origin/multimonitor
+    git clone https://github.com/tobi-wan-kenobi/bumblebee-status $HOME/software/bumblebee-status
 
 
     echo "----------------------------------------------------------"
