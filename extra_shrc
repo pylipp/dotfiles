@@ -20,6 +20,7 @@ export TERMINAL="uxterm"
 # make fzf search hidden directories
 # https://github.com/junegunn/fzf/issues/337#issuecomment-136389913
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_COMPLETION_TRIGGER='+'
 
 #nvbn/thefuck
 command -v thefuck >/dev/null 2>&1 && eval "$(thefuck --alias)"
