@@ -180,6 +180,7 @@ setup_links() {
     ln -s $HOME/.files/latexmkrc $HOME/.latexmkrc
     mkdir -p $HOME/.config/zathura 2> /dev/null
     ln -s $HOME/.files/zathurarc $HOME/.config/zathura/zathurarc
+    ln -s $HOME/.files/pylintrc $HOME/.pylintrc
 }
 
 
