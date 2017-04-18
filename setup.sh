@@ -97,6 +97,7 @@ install_vim() {
             libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
             libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
             python3-dev > /dev/null
+        sudo apt-get install -y pylint shellcheck > /dev/null
         git clone https://github.com/vim/vim.git > /dev/null
         cd vim
         # TODO: specify correct python config-dir!

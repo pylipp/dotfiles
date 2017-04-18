@@ -32,8 +32,6 @@ Plug 'tpope/vim-fugitive'
 "Plug 'rkulla/pydiction'
 " Ultisnips
 "Plug 'SirVer/Ultisnips'
-" Even better error highlighting
-Plug 'scrooloose/syntastic'
 " Python error highlighting
 "Plug 'kevinw/pyflakes-vim' "or rather 'nvie/vim-flake8' ?
 " Airline plging
@@ -68,6 +66,8 @@ Plug 'tpope/vim-eunuch'
 " Fuzzy file, buffer etc. searching
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" asynchronous linting
+Plug 'w0rp/ale'
 
 " All of your Plugs must be added before the following line
 call plug#end()            " required
@@ -118,14 +118,15 @@ let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs = 1
-let g:syntastic_python_checker_args = '--ignore=E225 --ignore=W291 --ignore=E231 --ignore=E702'
-let g:syntastic_tex_checkers = []
 
+" make ALE linting less aggressive
+" from https://github.com/christoomey/dotfiles/blob/master/vim/rcplugins/ale-lint
+set updatetime=1000
+" autocmd CursorHold * call ale#Lint()
+" autocmd CursorHoldI * call ale#Lint()
+autocmd InsertLeave * call ale#Lint()
+autocmd TextChanged * call ale#Lint()
+let g:ale_lint_on_text_changed = 0
 
 " https://github.com/tomtom/tcomment_vim/issues/139
 noremap <silent> gC :set opfunc=ToggleComment<CR>g@
