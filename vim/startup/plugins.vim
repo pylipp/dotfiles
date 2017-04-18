@@ -158,3 +158,9 @@ endif
 
 " fzf.vim mappings
 noremap <C-p> :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+
+let g:fzf_action = {
+            \ 'ctrl-s': 'split', 
+            \ 'ctrl-v': 'vsplit',
+            \ 'ctrl-t': 'tab split' }
