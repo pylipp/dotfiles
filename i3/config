@@ -176,6 +176,10 @@ bar {
         tray_output primary
         # status_command i3status
         status_command ~/software/bumblebee-status/bumblebee-status -d -m nic pulseaudio memory disk battery datetime
+
+        colors {
+                # focused_workspace #4c7899 #285577 #ffffff
+                }
 }
 
 bindsym $mod+n workspace back_and_forth
