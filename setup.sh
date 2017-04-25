@@ -83,6 +83,7 @@ install_core_utils() {
     sudo apt-get install -y zathura > /dev/null
     sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
         https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
 
 
