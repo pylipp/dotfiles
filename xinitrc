@@ -7,6 +7,9 @@
 # invoke global X session script
 # . /etc/X11/Xsession
 
+# map Escape key to Capslock
+setxkbmap -option caps:escape
+
 xrdb -load ~/.Xresources
 
 exec /usr/bin/i3
