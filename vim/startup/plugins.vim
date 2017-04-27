@@ -69,6 +69,18 @@ Plug 'junegunn/fzf.vim'
 " asynchronous linting
 Plug 'w0rp/ale'
 
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 
@@ -116,7 +128,7 @@ let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
 
 " Syntastic syntax check
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " make ALE linting less aggressive
