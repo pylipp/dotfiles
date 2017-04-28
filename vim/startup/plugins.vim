@@ -68,6 +68,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " asynchronous linting
 Plug 'w0rp/ale'
+" continuously update session files 
+Plug 'tpope/vim-obsession'
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
