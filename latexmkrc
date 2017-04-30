@@ -8,9 +8,7 @@ sub makeglossaries {
   return $return;
 }
 
-# from http://dlpeterson.com/2013/08/latex-workflow/
-# Same options as vimtex
-$pdflatex = 'pdflatex -file-line-error -interaction=nonstopmode -synctex=1 %O %S';
+$pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 --shell-escape %O %S';
 
 # .bbl files assumed to be regeneratable, safe as long as the .bib file is available
 $bibtex_use = 2;
@@ -19,13 +17,11 @@ $bibtex_use = 2;
 $biber = 'biber --debug %O %S';
 
 # Default pdf viewer
-$pdf_previewer = 'evince %O %S';
+$pdf_previewer = 'zathura %O %S';
 
 # Use these two configs instead of the flags -pdf and -pvc
 $pdf_mode = 1;
 $preview_continuous_mode = 1;
-
-$synctex = 1;
 
 $out_dir = 'build';
 

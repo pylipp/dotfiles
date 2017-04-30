@@ -156,7 +156,7 @@ function! ToggleComment(type)
     endif
 endfunction
 
-let g:vimtex_latexmk_build_dir = 'build'
+let g:vimtex_view_method = 'zathura'
 
 " https://github.com/lervag/vimtex/issues/537#issuecomment-249684619
 augroup MyVimtex
