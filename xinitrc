@@ -9,6 +9,7 @@
 
 # map Escape key to Capslock
 setxkbmap -option caps:escape
+# setxkbmap -option caps:swapescape
 
 xrdb -load ~/.Xresources
 
