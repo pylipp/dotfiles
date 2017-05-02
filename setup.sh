@@ -55,7 +55,7 @@ install_core_utils() {
 
     echo "----------------------------------------------------------"
     echo "Installing i3..."
-    sudo apt-get install -y i3 rofi xautolock feh > /dev/null 
+    sudo apt-get install -y i3 rofi xautolock feh dunst > /dev/null 
     cd $HOME/software
     sudo apt-get install -y pkg-config libxcb1 libpam-dev libcairo-dev \
         libxcb-xinerama0-dev libev-dev libx11-dev libx11-xcb-dev libxkbcommon0 \
