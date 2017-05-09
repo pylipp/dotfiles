@@ -23,7 +23,7 @@ Plug 'majutsushi/tagbar'
 " NerdTree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " TaskList
-Plug 'vim-scripts/tasklist.vim'
+Plug 'pylipp/tasklist.vim'
 " Correct python indentation according to PEP8 from https://github.com/vim-scripts/indentpython.vim
 "Plug 'vim-scripts/indentpython.vim'
 " Git integration https://github.com/tpope/vim-fugitive
@@ -72,18 +72,10 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-obsession'
 " swap between eponymous files with different extensions (C++ header/src)
 Plug 'kana/vim-altr'
-
-function! BuildComposer(info)
-  if a:info.status != 'unchanged' || a:info.force
-    if has('nvim')
-      !cargo build --release
-    else
-      !cargo build --release --no-default-features --features json-rpc
-    endif
-  endif
-endfunction
-
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+" instant markdown preview in browser
+" install rust from: rustup.rs 
+" in plugin directory run: cargo build --release
+Plug 'euclio/vim-markdown-composer'
 
 " All of your Plugs must be added before the following line
 call plug#end()            " required
@@ -184,3 +176,11 @@ let g:fzf_action = {
 
 " altr-vim mappings 
 nmap <leader>s <Plug>(altr-forward)
+
+" vim-markdown-composer settings 
+let g:markdown_composer_browser = 'firefox'
+let g:markdown_composer_open_browser = 0
+let g:markdown_composer_refresh_rate = 500
+" let g:markdown_composer_autostart = 0
+" nnoremap <leader>ms :ComposerStart<CR>
+nnoremap <leader>mo :ComposerOpen<CR>
