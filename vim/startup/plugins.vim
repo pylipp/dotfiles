@@ -70,6 +70,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 " continuously update session files 
 Plug 'tpope/vim-obsession'
+" swap between eponymous files with different extensions (C++ header/src)
+Plug 'kana/vim-altr'
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -179,3 +181,6 @@ let g:fzf_action = {
             \ 'ctrl-s': 'split', 
             \ 'ctrl-v': 'vsplit',
             \ 'ctrl-t': 'tab split' }
+
+" altr-vim mappings 
+nmap <leader>s <Plug>(altr-forward)
