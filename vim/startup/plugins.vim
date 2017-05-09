@@ -23,7 +23,7 @@ Plug 'majutsushi/tagbar'
 " NerdTree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " TaskList
-Plug 'vim-scripts/tasklist.vim'
+Plug 'pylipp/tasklist.vim'
 " Correct python indentation according to PEP8 from https://github.com/vim-scripts/indentpython.vim
 "Plug 'vim-scripts/indentpython.vim'
 " Git integration https://github.com/tpope/vim-fugitive
