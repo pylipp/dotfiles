@@ -33,13 +33,6 @@ if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
     . /usr/local/bin/virtualenvwrapper.sh
 fi
 
-if [ -e /opt/ros ]; then
-    source /opt/ros/*/setup.$(basename $SHELL)
-fi
-if [ -e /opt/pylon5 ]; then
-    source /opt/pylon5/bin/pylon-setup-env.sh /opt/pylon5/
-fi
-
 #http://askubuntu.com/questions/362280/enter-ssh-passphrase-once
 SSH_ENV=$HOME/.ssh/env
 function start_agent {
