@@ -72,7 +72,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+v split h
 
 # split in vertical orientation
-bindsym $mod+b split v
+bindsym $mod+minus split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -99,6 +99,7 @@ set $workspace2 "2 terminals"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
+bindsym $mod+b workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
