@@ -71,7 +71,7 @@ install_core_utils() {
 
     echo "----------------------------------------------------------"
     echo "Installing i3..."
-    sudo apt-get install -y i3 rofi xautolock feh dunst > /dev/null 
+    sudo apt-get install -y i3 xautolock xorg xinit feh dunst > /dev/null 
     cd $HOME/software
     sudo apt-get install -y pkg-config libxcb1 libpam-dev libcairo-dev \
         libxcb-xinerama0-dev libev-dev libx11-dev libx11-xcb-dev libxkbcommon0 \
@@ -95,8 +95,10 @@ install_core_utils() {
     # sudo apt-get install -y nautilus nautilus-dropbox > /dev/null
     sudo apt-get install -y exuberant-ctags > /dev/null
     sudo apt-get install -y tmux > /dev/null
+    sudo apt-get install -y cmake network-manager > /dev/null
     sudo apt-get install -y tig > /dev/null
     sudo apt-get install -y zathura > /dev/null
+    sudo apt-get install libxml2-dev libxslt-dev pulseaudio libasound2-dev
     sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
         https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -111,7 +113,6 @@ install_vim() {
     if [[ ! -e vim ]]; then
         sudo apt-get remove -y vim vim-runtime gvim vim-tiny vim-common > /dev/null
         sudo apt-get install -y libncurses5-dev \
-            libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
             libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
             python3-dev > /dev/null
         sudo apt-get install -y pylint shellcheck > /dev/null
@@ -211,7 +212,7 @@ install_qtcreator() {
 }
 
 install_complete() {
-    sudo apt-get update > /dev/null && sudo apt-get upgrade > /dev/null
+    sudo apt-get update > /dev/null && sudo apt-get upgrade -y > /dev/null
     install_core_utils 
     install_vim 
     setup_links 
