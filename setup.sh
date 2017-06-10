@@ -2,6 +2,18 @@
 
 set -eu
 
+rm_existing() {
+    if [ -e "$1" ]; then
+        rm "$1"
+    fi
+}
+
+mv_existing() {
+    if [ -e "$1" ]; then
+        mv "$1" "$1"_old
+    fi
+}
+
 mkdir -p $HOME/software
 
 install_core_utils() {
@@ -16,7 +28,9 @@ install_core_utils() {
     # This workaround might be required:
     # sudo sed -i 's/^auth[[:space:]]*required/#auth required/' /etc/pam.d/chsh
     # sudo chsh $USER -s $(which zsh)
-    rm install.sh .zshrc .zshrc.pre-oh-my-zsh
+    for file in install.sh .zshrc .zshrc.pre-oh-my-zsh; do
+        rm_existing "$file"
+    done
     sudo apt-get install -y xclip > /dev/null
 
 
@@ -167,9 +181,9 @@ setup_links() {
     echo "Setting up symbolic links to .files..."
     cd $HOME
     ln -s $HOME/.files/ycm_extra_conf.py $HOME/.ycm_extra_conf.py
-    mv $HOME/.gitconfig $HOME/.gitconfig_old 2>/dev/null
+    mv_existing $HOME/.gitconfig 
     ln -s $HOME/.files/gitconfig $HOME/.gitconfig
-    rm $HOME/.bashrc
+    rm_existing $HOME/.bashrc
     ln -s $HOME/.files/bashrc $HOME/.bashrc
     ln -s $HOME/.files/zshrc $HOME/.zshrc
     ln -s $HOME/.files/oh-my-zsh/themes $HOME/.oh-my-zsh/custom/themes
