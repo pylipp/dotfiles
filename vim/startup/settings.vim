@@ -36,6 +36,7 @@ set nowrap        "don't wrap long line
 set colorcolumn=81 "Show end of long line
 set pvh=25  " set preview window height
 set updatetime=500 " for gitgutter
+set synmaxcol=200 " highlight first 200 chars of a long line
 
 set wildmenu "show completion options for command line
 set wildmode=list:longest
@@ -63,6 +64,17 @@ set foldlevel=99
 " hide banner in builtin file browser
 let g:netrw_banner=0
 
+" automatically equalized splits when Vim is resized
+autocmd VimResized * wincmd =
+
+" automatically read and save modified buffers
+set autoread
+
+augroup autoSaveAndRead
+    autocmd!
+    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
+    autocmd CursorHold * silent! checktime
+augroup END
 
 "
 " COLOR SETTINGS
