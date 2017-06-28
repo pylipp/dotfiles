@@ -1,5 +1,7 @@
 alias svn='colorsvn'
 
+alias ag='ag --path-to-agignore ~/.files/gitignore_global'
+
 alias ipp='ipython --pylab'
 alias gitkall='gitk --all'
 
