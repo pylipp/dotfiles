@@ -34,6 +34,9 @@ echo -e "\tpip install -U -r requirements.txt -e ." >> Makefile
 echo "" >> Makefile
 echo "test:" >> Makefile
 echo -e "\t@[ -z \$\$VIRTUAL_ENV ] && echo 'Acticate $package_name virtualenv.' || python -m unittest discover" >> Makefile
+echo "" >> Makefile
+echo "tags:" >> Makefile
+echo -e "\tctags -R ." >> Makefile
 
 echo "from setuptools import setup, find_packages
 
