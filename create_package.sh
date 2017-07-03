@@ -24,7 +24,7 @@ mkdir test
 echo "# $package_name" > README.md
 
 
-echo ".PHONY: all test install clean" >> Makefile
+echo ".PHONY: all test install clean tags" >> Makefile
 echo "" >> Makefile
 echo "all:" >> Makefile
 echo -e "\t@echo Available targets: install, test" >> Makefile
