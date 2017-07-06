@@ -24,7 +24,7 @@ mkdir test
 echo "# $package_name" > README.md
 
 
-echo ".PHONY: all test install clean" >> Makefile
+echo ".PHONY: all test install clean tags" >> Makefile
 echo "" >> Makefile
 echo "all:" >> Makefile
 echo -e "\t@echo Available targets: install, test" >> Makefile
@@ -34,6 +34,9 @@ echo -e "\tpip install -U -r requirements.txt -e ." >> Makefile
 echo "" >> Makefile
 echo "test:" >> Makefile
 echo -e "\t@[ -z \$\$VIRTUAL_ENV ] && echo 'Acticate $package_name virtualenv.' || python -m unittest discover" >> Makefile
+echo "" >> Makefile
+echo "tags:" >> Makefile
+echo -e "\tctags -R ." >> Makefile
 
 echo "from setuptools import setup, find_packages
 
