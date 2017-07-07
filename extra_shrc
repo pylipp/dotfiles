@@ -36,7 +36,7 @@ fi
 #http://askubuntu.com/questions/362280/enter-ssh-passphrase-once
 SSH_ENV=$HOME/.ssh/env
 if [ ! -e "$SSH_ENV" ]; then
-    mkdir $HOME/.ssh
+    mkdir -p $HOME/.ssh
     touch "$SSH_ENV"
 fi
 function start_agent {
