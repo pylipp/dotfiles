@@ -11,3 +11,4 @@ build/
 devel/
 *.egg-info
 *.orig
+CMakeLists.txt.user
