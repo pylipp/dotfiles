@@ -154,9 +154,12 @@ endfunction
 let g:vimtex_view_method = 'zathura'
 
 " https://github.com/lervag/vimtex/issues/537#issuecomment-249684619
+" open Vimtex compile output in tab and return to first tab
 augroup MyVimtex
   au!
-  autocmd User VimtexEventCompileStarted call vimtex#latexmk#output() | resize 12 | wincmd w
+  autocmd User VimtexEventCompileStarted 
+    \   call vimtex#latexmk#output() 
+    \   | wincmd T | tabfirst
 augroup END
 
 let g:ros_catkin_make_options = '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
