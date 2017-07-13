@@ -98,10 +98,14 @@ install_core_utils() {
     sudo apt-get install -y cmake network-manager > /dev/null
     sudo apt-get install -y tig > /dev/null
     sudo apt-get install -y zathura > /dev/null
+    sudo apt-get install -y usbmount > /dev/null
     sudo apt-get install libxml2-dev libxslt-dev pulseaudio libasound2-dev
     sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
         https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+    # make automounted devices readable for user
+    sudo sed -i -r 's/(FS_MOUNTOPTIONS=").*"/\1uid=1000,gid=1000"/' /etc/usbmount/usbmount.conf
 }
 
 
