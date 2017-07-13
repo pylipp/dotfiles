@@ -76,6 +76,7 @@ Plug 'kana/vim-altr'
 " install rust from: rustup.rs 
 " in plugin directory run: cargo build --release
 Plug 'euclio/vim-markdown-composer'
+Plug 'Yggdroot/indentLine'
 
 " All of your Plugs must be added before the following line
 call plug#end()            " required
@@ -184,3 +185,7 @@ let g:markdown_composer_refresh_rate = 500
 " let g:markdown_composer_autostart = 0
 " nnoremap <leader>ms :ComposerStart<CR>
 nnoremap <leader>mo :ComposerOpen<CR>
+
+" indentLine settings to max out performance
+let g:indentLine_faster = 1
+" let g:indentLine_setConceal = 0
