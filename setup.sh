@@ -203,6 +203,7 @@ setup_links() {
     mkdir -p $HOME/.config/zathura 2> /dev/null
     ln -s $HOME/.files/zathurarc $HOME/.config/zathura/zathurarc
     ln -s $HOME/.files/pylintrc $HOME/.pylintrc
+    mkdir -p $HOME/.ptpython && ln -s $HOME/.files/ptpython_config.py $HOME/.ptpython/config.py
 }
 
 
