@@ -115,7 +115,7 @@ install_vim() {
         sudo apt-get remove -y vim vim-runtime gvim vim-tiny vim-common > /dev/null
         install_packages libncurses5-dev \
             libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
-            python3-dev pylint shellchec 
+            python3-dev pylint shellcheck
 
         git clone https://github.com/vim/vim.git > /dev/null
         cd vim
