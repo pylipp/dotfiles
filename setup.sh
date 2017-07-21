@@ -14,13 +14,19 @@ mv_existing() {
     fi
 }
 
+install_packages() {
+    for package in $@; do 
+        echo -e "\033[0;33mInstalling $package........................\033[0m"
+        sudo apt-get install -y $package
+    done 
+}
+
 mkdir -p $HOME/software
 
 install_core_utils() {
     echo "----------------------------------------------------------"
-    echo "Installing zsh..."
     # https://wiki.ubuntuusers.de/Zsh/
-    sudo apt-get install -y zsh > /dev/null
+    install_packages zsh xclip
     wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
     sed -i "s/env zsh//g" install.sh 
     sh install.sh > /dev/null
@@ -31,12 +37,10 @@ install_core_utils() {
     for file in install.sh .zshrc .zshrc.pre-oh-my-zsh; do
         rm_existing "$file"
     done
-    sudo apt-get install -y xclip > /dev/null
 
 
     echo "----------------------------------------------------------"
-    echo "Installing ag..."
-    sudo apt-get install -y silversearcher-ag > /dev/null
+    install_packages silversearcher-ag
 
 
     echo "----------------------------------------------------------"
@@ -50,10 +54,7 @@ install_core_utils() {
 
 
     echo "----------------------------------------------------------"
-    echo "Installing virtualenv..."
-    cd $HOME
-    sudo apt-get install -y python-virtualenv > /dev/null
-    sudo apt-get install -y virtualenvwrapper > /dev/null 
+    install_packages python-virtualenv virtualenvwrapper
 
 
     echo "----------------------------------------------------------"
@@ -70,10 +71,9 @@ install_core_utils() {
 
 
     echo "----------------------------------------------------------"
-    echo "Installing i3..."
-    sudo apt-get install -y i3 xautolock xorg xinit feh dunst > /dev/null 
+    install_packages i3 xautolock xorg xinit feh dunst
     cd $HOME/software
-    sudo apt-get install -y pkg-config libxcb1 libpam-dev libcairo-dev \
+    install_packages pkg-config libxcb1 libpam-dev libcairo-dev \
         libxcb-xinerama0-dev libev-dev libx11-dev libx11-xcb-dev libxkbcommon0 \
         libxkbcommon-x11-0 libxcb-dpms0-dev libxcb-image0-dev libxcb-util0-dev \
         libxcb-xkb-dev libxkbcommon-x11-dev libxkbcommon-dev
@@ -88,18 +88,13 @@ install_core_utils() {
 
 
     echo "----------------------------------------------------------"
-    echo "Installing more programs (nautilus, dropbox, ctags, tmux)..."
+    echo "Installing fzf..."
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install --all
+
     # sudo apt-get install -y thefuck
-    # sudo apt-get install -y nautilus nautilus-dropbox > /dev/null
-    sudo apt-get install -y exuberant-ctags > /dev/null
-    sudo apt-get install -y tmux > /dev/null
-    sudo apt-get install -y cmake network-manager > /dev/null
-    sudo apt-get install -y tig > /dev/null
-    sudo apt-get install -y zathura > /dev/null
-    sudo apt-get install -y usbmount > /dev/null
-    sudo apt-get install libxml2-dev libxslt-dev pulseaudio libasound2-dev
+    install_packages exuberant-ctags tmux cmake tig zathura \
+        network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev
     sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
         https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -116,10 +111,9 @@ install_vim() {
     cd $HOME/software
     if [[ ! -e vim ]]; then
         sudo apt-get remove -y vim vim-runtime gvim vim-tiny vim-common > /dev/null
-        sudo apt-get install -y libncurses5-dev \
+        install_packages libncurses5-dev \
             libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
-            python3-dev > /dev/null
-        sudo apt-get install -y pylint shellcheck > /dev/null
+            python3-dev pylint shellchec 
         git clone https://github.com/vim/vim.git > /dev/null
         cd vim
         # TODO: specify correct python config-dir!
@@ -159,7 +153,6 @@ install_vim() {
         echo "----------------------------------------------------------"
         echo "Installing ycm..."
         # https://github.com/Valloric/YouCompleteMe#installation
-        sudo apt-get install -y cmake > /dev/null
         cd $HOME/.vim/bundle/YouCompleteMe
         ./install.py --clang-completer > /dev/null
     fi
@@ -171,13 +164,13 @@ install_neovim() {
     echo "Installing neovim..."
     mkvirtualenv --python=/usr/bin/python3.5 neovim > /dev/null
     pip install neovim > /dev/null
-    sudo apt-get install -y  neovim > /dev/null 2>&1
+    install_packages neovim
     if [[ "$?" -ne "0" ]]; then 
         # Ubuntu installation 
-        sudo apt-get install -y  software-properties-common > /dev/null 
+        install_package software-properties-common
         sudo add-apt-repository ppa:neovim-ppa/unstable
         sudo apt-get update > /dev/null 
-        sudo apt-get install -y  neovim 
+        install_packages neovim
     fi 
     ln -s $HOME/.files/vim $HOME/.config/nvim
 }
