@@ -116,18 +116,25 @@ install_vim() {
         install_packages libncurses5-dev \
             libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
             python3-dev pylint shellchec 
+
         git clone https://github.com/vim/vim.git > /dev/null
         cd vim
-        # TODO: specify correct python config-dir!
+
+        echo -n "Path to Python2 config dir (/usr/lib/...): "
+        read VIM_PYTHON2_CONFIG_DIR
+        echo -n "Path to Python3 config dir (/usr/lib/...): "
+        read VIM_PYTHON3_CONFIG_DIR
+
         ./configure --with-features=huge \
             --enable-multibyte \
             --enable-pythoninterp \
-            --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
+            --with-python-config-dir=$VIM_PYTHON2_CONFIG_DIR \
             --enable-python3interp \
-            --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
+            --with-python3-config-dir=$VIM_PYTHON3_CONFIG_DIR \
             --enable-gui=gtk2 \
             --enable-cscope \
             --prefix=/usr > /dev/null
+
         # obtain version info, strip quotes (http://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable)
         vim_version=`grep '#define VIM_VERSION_NODOT' src/version.h | awk '{ print $3; }' | tr -d '"'`
         echo
