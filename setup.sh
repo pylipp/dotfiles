@@ -44,16 +44,6 @@ install_core_utils() {
 
 
     echo "----------------------------------------------------------"
-    echo "Installing ripgrep..."
-    wget https://raw.githubusercontent.com/BurntSushi/ripgrep/4e8c0fc4ade785775005b416dc030295c684cb67/Cargo.toml
-    ripgrep_version=`grep version Cargo.toml | head -1 | cut -d" " -f3 | tr -d'"'`
-    wget https://github.com/BurntSushi/ripgrep/releases/download/$ripgrep_version/ripgrep-$ripgrep_version-x86_64-unknown-linux-musl.tar.gz
-    tar xf ripgrep-$ripgrep_version-x86_64-unknown-linux-musl.tar.gz
-    sudo cp ripgrep-$ripgrep_version-x86_64-unknown-linux-musl/rg /usr/local/bin
-    rm -rf ripgrep-$ripgrep_version-x86_64-unknown-linux-musl.tar.gz ripgrep-$ripgrep_version-x86_64-unknown-linux-musl
-
-
-    echo "----------------------------------------------------------"
     install_packages python-virtualenv virtualenvwrapper
 
 
@@ -101,6 +91,18 @@ install_core_utils() {
 
     # make automounted devices readable for user
     sudo sed -i -r 's/(FS_MOUNTOPTIONS=").*"/\1uid=1000,gid=1000"/' /etc/usbmount/usbmount.conf
+}
+
+
+install_ripgrep() {
+    echo "----------------------------------------------------------"
+    echo "Installing ripgrep..."
+    wget https://raw.githubusercontent.com/BurntSushi/ripgrep/4e8c0fc4ade785775005b416dc030295c684cb67/Cargo.toml
+    ripgrep_version=`grep version Cargo.toml | head -1 | cut -d" " -f3 | tr -d'"'`
+    wget https://github.com/BurntSushi/ripgrep/releases/download/$ripgrep_version/ripgrep-$ripgrep_version-x86_64-unknown-linux-musl.tar.gz
+    tar xf ripgrep-$ripgrep_version-x86_64-unknown-linux-musl.tar.gz
+    sudo cp ripgrep-$ripgrep_version-x86_64-unknown-linux-musl/rg /usr/local/bin
+    rm -rf ripgrep-$ripgrep_version-x86_64-unknown-linux-musl.tar.gz ripgrep-$ripgrep_version-x86_64-unknown-linux-musl
 }
 
 
