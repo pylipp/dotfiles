@@ -185,6 +185,24 @@ install_neovim() {
 }
 
 
+install_termite() {
+    # alternatively use script from  https://github.com/Corwind/termite-install
+    cd $HOME/software 
+    git clone https://github.com/thestinger/vte-ng.git 
+    install_packages libgtk-3-dev libgtk-3-0 gtk-doc-tools libpcre2-8-0 libpcre2-dev m4 gperf
+    cd vte-ng 
+    ./autogen.sh --disable-introspection --disable-vala && make && sudo make install
+    sudo echo /usr/local/lib/libvte-2.91.so >> /etc/ld.so.conf.d/vte.conf 
+    sudo ldconfig
+    cd ..
+    git clone https://github.com/thestinger/termite.git 
+    cd termite 
+    make && sudo make install || echo "Could not build termite!"
+    sudo cp termite.terminfo /lib/terminfo/x/xterm-termite
+    tic -x termite.terminfo
+}
+
+
 setup_links() {
     echo "----------------------------------------------------------"
     echo "Setting up symbolic links to .files..."
@@ -206,6 +224,8 @@ setup_links() {
     ln -s $HOME/.files/zathurarc $HOME/.config/zathura/zathurarc
     ln -s $HOME/.files/pylintrc $HOME/.pylintrc
     mkdir -p $HOME/.ptpython && ln -s $HOME/.files/ptpython_config.py $HOME/.ptpython/config.py
+    mkdir -p $HOME/.config/termite 
+    ln -s $HOME/.files/termite_config $HOME/.config/termite/config
 }
 
 
