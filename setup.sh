@@ -189,15 +189,18 @@ install_termite() {
     # alternatively use script from  https://github.com/Corwind/termite-install
     cd $HOME/software 
     git clone https://github.com/thestinger/vte-ng.git 
-    install_packages libgtk-3-dev libgtk-3-0 gtk-doc-tools libpcre2-8-0 libpcre2-dev m4 gperf
+    install_packages g++ libgtk-3-dev gtk-doc-tools gnutls-bin valac intltool \
+        libpcre2-dev libglib3.0-cil-dev libgnutls28-dev libgirepository1.0-dev \
+        libxml2-utils m4 gperf
     cd vte-ng 
-    ./autogen.sh --disable-introspection --disable-vala && make && sudo make install
+    ./autogen.sh && make && sudo make install
     sudo echo /usr/local/lib/libvte-2.91.so >> /etc/ld.so.conf.d/vte.conf 
     sudo ldconfig
     cd ..
-    git clone https://github.com/thestinger/termite.git 
+    git clone --recursive https://github.com/thestinger/termite.git 
     cd termite 
     make && sudo make install || echo "Could not build termite!"
+    sudo mkdir -p /lib/terminfo/x
     sudo cp termite.terminfo /lib/terminfo/x/xterm-termite
     tic -x termite.terminfo
 }
