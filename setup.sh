@@ -125,6 +125,9 @@ install_vim() {
         echo -n "Path to Python3 config dir (/usr/lib/...): "
         read VIM_PYTHON3_CONFIG_DIR
 
+        # TODO: lua installation for neocomplete with
+        # https://gist.github.com/dyzajash/9cfd2c821fc599cbb1a5d1c72305a0b7
+
         ./configure --with-features=huge \
             --enable-multibyte \
             --enable-pythoninterp \
