@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -e
 
 rm_existing() {
     if [ -e "$1" ]; then
