@@ -86,6 +86,7 @@ Cursor positioned inside the text object.
 ### Read shell output into current file (https://www.reddit.com/r/vim/comments/4sls0w/macro_practice_formatting_images_filenames_into/)
 
 - :r !ls *.py 
+- :.ls .py
 
 ### Execute normal command during insert mode 
 
