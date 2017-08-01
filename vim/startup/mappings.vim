@@ -4,12 +4,6 @@
 
 let mapleader=" "
 
-"trying out this remapping of the Esc key
-nnoremap öö <Esc>
-inoremap öö <Esc>
-vnoremap öö <Esc>gV
-onoremap öö <Esc>
-
 " key mappings for switching between multiple windows
 map <C-h> <C-w>h
 map <C-j> <C-w>j
