@@ -123,14 +123,14 @@ let g:ycm_key_list_select_completion = ['<C-n>', '<TAB>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<S-TAB>']
 " make jedi select Python interpreter from PATH (helpful in venvs)
 let g:ycm_python_binary_path = 'python'
-let g:ycm_key_invoke_completion = '<leader>ys' "s = semantic completion
-map <leader>yg :YcmCompleter GoTo<CR>
-map <leader>yd :YcmDiags<CR>
-map <leader>yf :YcmCompleter FixIt<CR>
-map <leader>yr :YcmCompleter GoToReferences<CR>
-map <leader>yt :YcmCompleter GetType<CR>
+" let g:ycm_key_invoke_completion = '<leader>ys' "s = semantic completion
+nnoremap <leader>yg :YcmCompleter GoTo<CR>
+nnoremap <leader>yd :YcmDiags<CR>
+nnoremap <leader>yf :YcmCompleter FixIt<CR>
+nnoremap <leader>yr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>yt :YcmCompleter GetType<CR>
 " h for help
-map <leader>yh :YcmCompleter GetDoc<CR>
+nnoremap <leader>yh :YcmCompleter GetDoc<CR>
 
 
 " Syntastic syntax check
