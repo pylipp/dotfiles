@@ -9,16 +9,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-" mapping also enabled in insert mode
-imap <C-h> <Esc><C-w>h
-imap <C-j> <Esc><C-w>j
-imap <C-k> <Esc><C-w>k
-imap <C-l> <Esc><C-w>l
-" enable movement mappings in insert mode
-imap <C-d> <Esc><C-d>i
-imap <C-u> <Esc><C-u>i
-imap <C-f> <Esc><C-f>i
-imap <C-b> <Esc><C-b>i
 
 
 if has("nvim")
