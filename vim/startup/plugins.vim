@@ -132,6 +132,10 @@ nnoremap <leader>yt :YcmCompleter GetType<CR>
 " h for help
 nnoremap <leader>yh :YcmCompleter GetDoc<CR>
 
+let g:ycm_semantic_triggers = {
+\   'roslaunch' : ['="', '$(', '/'],
+\   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
+\ }
 
 " Syntastic syntax check
 set statusline+=%#warningmsg#
