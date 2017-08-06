@@ -31,7 +31,7 @@ Plug 'tpope/vim-fugitive'
 " Python code completion
 "Plug 'rkulla/pydiction'
 " Ultisnips
-"Plug 'SirVer/Ultisnips'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " Python error highlighting
 "Plug 'kevinw/pyflakes-vim' "or rather 'nvie/vim-flake8' ?
 " Airline plging
@@ -202,3 +202,9 @@ nnoremap <leader>mo :ComposerOpen<CR>
 " indentLine settings to max out performance
 let g:indentLine_faster = 1
 " let g:indentLine_setConceal = 0
+
+let g:UltiSnipsExpandTrigger='<C-j>'
+let g:UltiSnipsJumpForwardTrigger='<C-j>'
+let g:UltiSnipsJumpBackwardTrigger='<C-k>'
+let g:UltiSnipsEditSplit = 'vertical'
+"let g:UltiSnipsSnippetsDir = '~/.files/snippets'
