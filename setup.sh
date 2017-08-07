@@ -232,6 +232,7 @@ setup_links() {
     mkdir -p $HOME/.ptpython && ln -s $HOME/.files/ptpython_config.py $HOME/.ptpython/config.py
     mkdir -p $HOME/.config/termite 
     ln -s $HOME/.files/termite_config $HOME/.config/termite/config
+    ln -s $HOME/.files/tigrc $HOME/.tigrc
 }
 
 

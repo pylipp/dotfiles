@@ -1,0 +1,3 @@
+set main-view = line-number:no,interval=5 id:yes date:default author:full commit-title:yes,graph,refs,overflow=no
+set tree-view = line-number:no,interval=5 mode author:full file-size date:default id:yes file-name
+set refs-view = line-number:no id:yes date:default author:full ref commit-title
