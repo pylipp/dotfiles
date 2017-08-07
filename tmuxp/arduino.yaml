@@ -1,0 +1,20 @@
+session_name: arduino
+windows:
+    - window_name: code
+      shell_command_before:
+        - workon platformio
+      start_directory: ~/code/arduino/platformio
+      layout: main-vertical
+      focus: true
+      panes:
+        -
+        - 
+    - window_name: ros
+      shell_command_before:
+        - source /opt/ros/kinetic/setup.zsh
+      start_directory: ~/
+      layout: main-horizontal
+      panes:
+        -
+        -
+        -
