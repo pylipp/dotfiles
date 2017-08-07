@@ -1,0 +1,18 @@
+session_name: financeager
+windows:
+    - window_name: code
+      shell_command_before:
+        - workon financeager_py3
+      start_directory: ~/code/python/financeager
+      panes:
+        -
+    - window_name: test
+      shell_command_before:
+        - workon financeager_py3
+      start_directory: ~/code/python/financeager
+      panes:
+        -
+    - window_name: config
+      start_directory: ~/.config/financeager
+      panes:
+        -

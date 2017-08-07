@@ -96,6 +96,9 @@ setopt correct
 # http://unix.stackexchange.com/questions/126719/how-to-disable-auto-cd-in-zsh-with-oh-my-zsh
 unsetopt AUTO_CD
 
+# setting for tmuxp
+export DISABLE_AUTO_TITLE='true'
+
 if [ -f ~/.files/bash_aliases ]; then
     . ~/.files/bash_aliases
 fi
