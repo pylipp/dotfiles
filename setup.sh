@@ -4,7 +4,7 @@ set -e
 
 rm_existing() {
     if [ -e "$1" ]; then
-        rm "$1"
+        rm -rf "$1"
     fi
 }
 
