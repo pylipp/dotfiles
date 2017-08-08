@@ -152,6 +152,7 @@ install_vim() {
         sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
         sudo update-alternatives --set vi /usr/bin/vim
     fi
+    rm_existing $HOME/.vim
     ln -s $HOME/.files/vim $HOME/.vim
 
 
@@ -159,6 +160,7 @@ install_vim() {
     echo "Configuring vim..."
     cd $HOME/.files 
     bash generate_vimrc.sh
+    rm_existing $HOME/.vimrc
     ln -s $HOME/.files/vimrc $HOME/.vimrc
     vim +qall > /dev/null
 
@@ -220,6 +222,7 @@ setup_links() {
     ln -s $HOME/.files/gitconfig $HOME/.gitconfig
     rm_existing $HOME/.bashrc
     ln -s $HOME/.files/bashrc $HOME/.bashrc
+    rm_existing $HOME/.zshrc
     ln -s $HOME/.files/zshrc $HOME/.zshrc
     ln -s $HOME/.files/oh-my-zsh/themes $HOME/.oh-my-zsh/custom/themes
     ln -s $HOME/.files/tmux.conf $HOME/.tmux.conf
