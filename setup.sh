@@ -67,6 +67,7 @@ install_core_utils() {
     # sudo apt-get install -y thefuck
     install_packages exuberant-ctags tmux cmake tig zathura \
         network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev \
+        libxcb-composite0-dev python-dev curl doxygen graphviz
     sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
         https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
