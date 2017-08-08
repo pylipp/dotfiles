@@ -59,7 +59,24 @@ install_core_utils() {
     tar xf $hub_dir.tgz
     sudo $hub_dir/./install && rm -rf $hub_dir $hub_dir.tgz version.go
 
+    echo "----------------------------------------------------------"
+    echo "Installing fzf..."
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install --all
 
+    # sudo apt-get install -y thefuck
+    install_packages exuberant-ctags tmux cmake tig zathura \
+        network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev \
+    sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
+        https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+    # make automounted devices readable for user
+    sudo sed -i -r 's/(FS_MOUNTOPTIONS=").*"/\1uid=1000,gid=1000"/' /etc/usbmount/usbmount.conf
+}
+
+
+install_i3() {
     echo "----------------------------------------------------------"
     install_packages i3 xautolock xorg xinit feh dunst
     cd $HOME/software
@@ -75,22 +92,6 @@ install_core_utils() {
     cd i3lock-fancy
     git checkout -b multimonitor origin/multimonitor
     git clone https://github.com/tobi-wan-kenobi/bumblebee-status $HOME/software/bumblebee-status
-
-
-    echo "----------------------------------------------------------"
-    echo "Installing fzf..."
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install --all
-
-    # sudo apt-get install -y thefuck
-    install_packages exuberant-ctags tmux cmake tig zathura \
-        network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev
-    sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
-        https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-    # make automounted devices readable for user
-    sudo sed -i -r 's/(FS_MOUNTOPTIONS=").*"/\1uid=1000,gid=1000"/' /etc/usbmount/usbmount.conf
 }
 
 
