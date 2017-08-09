@@ -58,6 +58,8 @@ install_core_utils() {
     wget -q https://github.com/github/hub/releases/download/v$hub_version/$hub_dir.tgz
     tar xf $hub_dir.tgz
     sudo $hub_dir/./install && rm -rf $hub_dir $hub_dir.tgz version.go
+    sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
+        https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
 
     echo "----------------------------------------------------------"
     echo "Installing fzf..."
@@ -68,8 +70,6 @@ install_core_utils() {
     install_packages exuberant-ctags tmux cmake tig zathura \
         network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev \
         libxcb-composite0-dev python-dev curl doxygen graphviz
-    sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
-        https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
     # make automounted devices readable for user
