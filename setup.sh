@@ -88,10 +88,8 @@ install_i3() {
     git clone https://github.com/chrjguill/i3lock-color
     cd i3lock-color 
     sudo make install 
-    cd ~/.files/i3
-    git submodule add https://github.com/zeorin/i3lock-fancy
-    cd i3lock-fancy
-    git checkout -b multimonitor origin/multimonitor
+    cd ~/.files/i3/i3lock-fancy
+    git checkout multimonitor
     git clone https://github.com/tobi-wan-kenobi/bumblebee-status $HOME/software/bumblebee-status
 }
 
