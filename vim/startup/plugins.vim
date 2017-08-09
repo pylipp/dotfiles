@@ -172,7 +172,7 @@ let g:vimtex_view_method = 'zathura'
 augroup MyVimtex
   au!
   autocmd User VimtexEventCompileStarted 
-    \   call vimtex#latexmk#output() 
+    \   call vimtex#compiler#output() 
     \   | wincmd T | tabfirst
 augroup END
 
