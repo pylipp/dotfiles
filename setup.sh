@@ -152,16 +152,14 @@ install_vim() {
         sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
         sudo update-alternatives --set vi /usr/bin/vim
     fi
-    rm_existing $HOME/.vim
+    mv_existing $HOME/.vim
     ln -s $HOME/.files/vim $HOME/.vim
 
 
     echo "----------------------------------------------------------"
     echo "Configuring vim..."
-    cd $HOME/.files 
-    bash generate_vimrc.sh
-    rm_existing $HOME/.vimrc
-    ln -s $HOME/.files/vimrc $HOME/.vimrc
+    mv_existing $HOME/.vimrc
+    bash $HOME/.files/generate_vimrc.sh
     vim +qall > /dev/null
 
 

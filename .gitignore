@@ -5,5 +5,4 @@ vim/swp
 vim/backup
 vim/.netrwhist
 local_shrc
-vimrc
 i3/dual-screen.sh
