@@ -75,7 +75,7 @@ Plug 'kana/vim-altr'
 " instant markdown preview in browser
 " install rust from: rustup.rs 
 " in plugin directory run: cargo build --release
-Plug 'euclio/vim-markdown-composer'
+Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release --init --no-default-features --features json-rpc' }
 Plug 'Yggdroot/indentLine'
 
 " All of your Plugs must be added before the following line
