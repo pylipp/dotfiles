@@ -79,6 +79,7 @@ Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release --init --no-
 Plug 'Yggdroot/indentLine'
 " manage tag files
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'peterhoeg/vim-qml'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 
