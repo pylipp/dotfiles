@@ -77,7 +77,8 @@ Plug 'kana/vim-altr'
 " in plugin directory run: cargo build --release
 Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release --init --no-default-features --features json-rpc' }
 Plug 'Yggdroot/indentLine'
-
+" manage tag files
+Plug 'ludovicchabant/vim-gutentags'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 
