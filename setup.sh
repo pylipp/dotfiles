@@ -168,6 +168,17 @@ install_vim() {
         cd $HOME/.vim/bundle/YouCompleteMe
         ./install.py --clang-completer > /dev/null
     fi
+
+    # http://vim.wikia.com/wiki/Enable_servername_capability_in_vim/xterm
+    # using method 2B (with 2C, window switching stopped working)
+    # required for vimtex plugin, see https://github.com/lervag/vimtex/issues/852
+    # ~/.local/bin has to be before /usr/bin in $PATH
+    mkdir -p $HOME/.local/bin
+    cd $HOME/.local/bin
+    mv_existing vim
+    echo '#!/bin/sh' > vim
+    echo 'exec /usr/bin/vim --servername VIM "$@"' >> vim
+    chmod 755 vim
 }
 
 
