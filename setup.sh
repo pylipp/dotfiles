@@ -239,11 +239,12 @@ setup_links() {
 
 install_qtcreator() {
     echo "----------------------------------------------------------"
+    install_package libgl1-mesa-dev
     echo "Installing qtcreator..."
     cd $HOME/Downloads 
     wget -q http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run > /dev/null
     chmod 755 qt-unified-linux-x64-online.run 
-    ./qt-unified-linux-x64-online.run
+    sudo ./qt-unified-linux-x64-online.run
 }
 
 install_complete() {
