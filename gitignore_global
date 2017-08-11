@@ -12,3 +12,4 @@ devel/
 *.egg-info
 *.orig
 CMakeLists.txt.user
+__pycache__/
