@@ -1,3 +1,5 @@
+[options]
+font = hack 10
 # Solarized dark color scheme
 
 [colors]
