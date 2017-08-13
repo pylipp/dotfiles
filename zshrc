@@ -7,9 +7,20 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="avit"
-# Comes with virtualenv prompt
-ZSH_THEME="avit"
+# I tried: agnoster, bullet-train, spaceship, avit
+ZSH_THEME="bullet-train"
+
+# kick out time and custom from default settings
+BULLETTRAIN_PROMPT_CHAR=">"
+BULLETTRAIN_PROMPT_ORDER=(
+    status
+    dir
+    virtualenv
+    git
+    cmd_exec_time
+)
+BULLETTRAIN_TIME_BG="208"
+BULLETTRAIN_GIT_BG="251"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,7 +64,7 @@ ZSH_THEME="avit"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip tmux vi-mode virtualenv)
+# plugins=(git pip tmux vi-mode virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
