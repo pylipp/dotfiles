@@ -15,7 +15,7 @@ set -o vi
 export TERM="xterm-256color"
 
 # set for i3-sensible-terminal
-export TERMINAL="uxterm"
+export TERMINAL="termite"
 
 export PATH=~/.local/bin:$PATH
 
