@@ -13,7 +13,7 @@ devel/
 *.orig
 
 # Qt related
-CMakeLists.txt.user
+*.user
 *.qmlc
 
 __pycache__/
