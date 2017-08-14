@@ -33,39 +33,13 @@ set mouse=a     "enables the mouse in all modes
 
 
 let mapleader=" "
-"trying out this remapping of the Esc key
-nnoremap üü <Esc>
-inoremap üü <Esc>
-vnoremap üü <Esc>gV
-onoremap üü <Esc>
-
-"set wrap options
-"autocmd FileType html,xml,text,README,tex set wrap linebreak textwidth=124 colorcolumn=125
-
 
 " key mappings for switching between multiple windows
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-" mapping also enabled in insert mode
-imap <C-h> <Esc><C-w>h
-imap <C-j> <Esc><C-w>j
-imap <C-k> <Esc><C-w>k
-imap <C-l> <Esc><C-w>l
-" enable movement mappings in insert mode
-imap <C-d> <Esc><C-d>i
-imap <C-u> <Esc><C-u>i
-imap <C-f> <Esc><C-f>i
-imap <C-b> <Esc><C-b>i
 
-
-" key mappings to insert a new line after current line without entering insert mode
-"nmap <CR> o<Esc>
-"map <Space> <C-d> "deprecated, Space used as leader key
-noremap <C-Space> <C-u>
-" save all current files
-noremap <leader>w :wa<CR>
 map Y y$
 map ß $
 noremap , ;
