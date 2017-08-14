@@ -1,19 +1,29 @@
+# Python related
 *.pyc
+__pycache__/
+*.egg-info
+
+# Editor related
 *.swp
 *.swo
 *~
+.~lock.*
+
+# C++ related
 *.so
 *.a
 *.o
-.~lock.*
-tags
+
+# Build-system related (ROS, cmake)
 build/
 devel/
-*.egg-info
+
+# Git related
 *.orig
 
 # Qt related
 *.user
 *.qmlc
 
-__pycache__/
+# Miscellaneous
+tags
