@@ -11,5 +11,9 @@ build/
 devel/
 *.egg-info
 *.orig
+
+# Qt related
 CMakeLists.txt.user
+*.qmlc
+
 __pycache__/
