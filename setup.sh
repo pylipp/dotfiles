@@ -277,9 +277,18 @@ install_qtcreator() {
     sudo ln -s /opt/Qt/5.9.1/gcc_64/include /usr/include/qt
 }
 
+
+post_install() {
+    # steps performed last because they require dotfiles links being set up
+    echo_colored "----------------------------------------------------------"
+    echo_colored "Install tmux plugings..."
+    $HOME/.tmux/plugins/tpm/scripts/./install_plugins.sh
+}
+
 install_complete() {
     sudo apt-get update > /dev/null && sudo apt-get upgrade -y > /dev/null
     install_core_utils 
     install_vim 
     setup_links 
+    post_install
 }
