@@ -17,6 +17,8 @@ export TERM="xterm-256color"
 # set for i3-sensible-terminal
 export TERMINAL="termite"
 
+export EDITOR=/usr/bin/vim
+
 export PATH=~/.local/bin:$PATH
 
 # make fzf search hidden directories
