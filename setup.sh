@@ -87,7 +87,7 @@ install_core_utils() {
     # sudo apt-get install -y thefuck
     install_packages exuberant-ctags tmux cmake tig zathura htop fonts-hack-ttf \
         network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev \
-        libxcb-composite0-dev python-dev curl doxygen graphviz lm-sensors
+        libxcb-composite0-dev python-dev curl doxygen graphviz lm-sensors direnv
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
     # make automounted devices readable for user
@@ -263,6 +263,7 @@ setup_links() {
     mkdir -p $HOME/.config/termite 
     ln -s $HOME/.files/termite_config $HOME/.config/termite/config
     ln -s $HOME/.files/tigrc $HOME/.tigrc
+    ln -s $HOME/.files/direnvrc $HOME/.direnvrc
 }
 
 
