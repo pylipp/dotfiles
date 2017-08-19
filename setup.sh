@@ -238,6 +238,19 @@ install_termite() {
 }
 
 
+install_powerline_font_xterm() {
+    # https://powerline.readthedocs.io/en/latest/installation/linux.html#fonts-installation
+    # https://github.com/powerline/powerline/issues/1589
+    cd $HOME/software
+    git clone https://github.com/powerline/fonts
+    mkdir -p ~/.local/share/fonts
+    cp fonts/DejaVuSansMono/"DejaVu Sans Mono Oblique for Powerline.ttf" ~/.local/share/fonts
+    fc-cache -v -f ~/.local/share/fonts
+    # maybe not required?
+    ln -s ~/.local/share/fonts ~/.fonts
+}
+
+
 setup_links() {
     echo_colored "----------------------------------------------------------"
     echo_colored "Setting up symbolic links to .files..."
