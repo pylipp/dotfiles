@@ -264,6 +264,7 @@ setup_links() {
     ln -s $HOME/.files/termite_config $HOME/.config/termite/config
     ln -s $HOME/.files/tigrc $HOME/.tigrc
     ln -s $HOME/.files/direnvrc $HOME/.direnvrc
+    ln -s $HOME/.files/pythonrc $HOME/.pythonrc
 }
 
 

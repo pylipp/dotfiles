@@ -21,6 +21,8 @@ export EDITOR=/usr/bin/vim
 
 export PATH=~/.local/bin:$PATH
 
+export PYTHONSTARTUP=~/.pythonrc
+
 # make fzf search hidden directories
 # https://github.com/junegunn/fzf/issues/337#issuecomment-136389913
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
