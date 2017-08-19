@@ -226,7 +226,7 @@ install_termite() {
         libxml2-utils m4 gperf
     cd vte-ng 
     ./autogen.sh && make && sudo make install
-    sudo echo /usr/local/lib/libvte-2.91.so >> /etc/ld.so.conf.d/vte.conf 
+    echo /usr/local/lib/libvte-2.91.so | sudo tee --append /etc/ld.so.conf.d/vte.conf > /dev/null
     sudo ldconfig
     cd ..
     git clone --recursive https://github.com/thestinger/termite.git 
