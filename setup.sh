@@ -49,7 +49,8 @@ install_core_utils() {
     install_packages python2.7 g++ python-requests python-psutils python-netifaces \
         exuberant-ctags tmux cmake tig zathura htop fonts-hack-ttf \
         network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev \
-        libxcb-composite0-dev python-dev curl doxygen graphviz lm-sensors direnv
+        libxcb-composite0-dev python-dev curl doxygen graphviz lm-sensors direnv \
+        scrot imagemagick silversearcher-ag python-virtualenv virtualenvwrapper
 
     echo "----------------------------------------------------------"
     # https://wiki.ubuntuusers.de/Zsh/
@@ -67,10 +68,6 @@ install_core_utils() {
 
 
     echo_info "----------------------------------------------------------"
-    install_packages silversearcher-ag
-
-
-    echo_info "----------------------------------------------------------"
     echo_info "Installing pip..."
     # http://stackoverflow.com/questions/27711184/why-is-pip-raising-an-assertionerror-on-pip-freeze
     # https://pip.pypa.io/en/latest/installing/
@@ -81,10 +78,6 @@ install_core_utils() {
     python3 get-pip.py --user
     hash -r
     rm get-pip.py
-
-
-    echo_info "----------------------------------------------------------"
-    install_packages python-virtualenv virtualenvwrapper
 
 
     echo_info "----------------------------------------------------------"
