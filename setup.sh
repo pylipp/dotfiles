@@ -269,33 +269,33 @@ install_powerline_font_xterm() {
 }
 
 
+setup_link() {
+    echo_info "Setting up link to $1..."
+    ln -s .files/$1 $2
+}
+
+
 setup_links() {
     echo_info "----------------------------------------------------------"
     echo_info "Setting up symbolic links to .files..."
     cd $HOME
-    ln -s $HOME/.files/ycm_extra_conf.py $HOME/.ycm_extra_conf.py
-    mv_existing $HOME/.gitconfig 
-    ln -s $HOME/.files/gitconfig $HOME/.gitconfig
-    rm_existing $HOME/.bashrc
-    ln -s $HOME/.files/bashrc $HOME/.bashrc
-    rm_existing $HOME/.zshrc
-    ln -s $HOME/.files/zshrc $HOME/.zshrc
+    for rcfile in ycm_extra_conf.py gitconfig bashrc zshrc tmux.conf i3 \
+        Xresources xinitrc dir_colors latexmkrc pylintrc tigrc direnvrc \
+        pythonrc
+    do
+        link_name="."$rcfile
+        link_path=$HOME/$link_name
+        mv_existing $link_path
+        setup_link $rcfile $link_path
+    done
+    
     ln -s $HOME/.files/oh-my-zsh/themes $HOME/.oh-my-zsh/custom/themes
-    ln -s $HOME/.files/tmux.conf $HOME/.tmux.conf
-    ln -s $HOME/.files/i3 $HOME/.i3
-    ln -s $HOME/.files/Xresources $HOME/.Xresources
-    ln -s $HOME/.files/xinitrc $HOME/.xinitrc
-    ln -s $HOME/.files/dir_colors $HOME/.dir_colors
-    ln -s $HOME/.files/latexmkrc $HOME/.latexmkrc
-    mkdir -p $HOME/.config/zathura 2> /dev/null
+    mkdir -p $HOME/.config/zathura
     ln -s $HOME/.files/zathurarc $HOME/.config/zathura/zathurarc
-    ln -s $HOME/.files/pylintrc $HOME/.pylintrc
-    mkdir -p $HOME/.ptpython && ln -s $HOME/.files/ptpython_config.py $HOME/.ptpython/config.py
+    mkdir -p $HOME/.ptpython 
+    ln -s $HOME/.files/ptpython_config.py $HOME/.ptpython/config.py
     mkdir -p $HOME/.config/termite 
     ln -s $HOME/.files/termite_config $HOME/.config/termite/config
-    ln -s $HOME/.files/tigrc $HOME/.tigrc
-    ln -s $HOME/.files/direnvrc $HOME/.direnvrc
-    ln -s $HOME/.files/pythonrc $HOME/.pythonrc
 }
 
 
