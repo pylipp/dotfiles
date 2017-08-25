@@ -30,6 +30,12 @@ mkdir -p $HOME/software
 
 install_core_utils() {
     echo "----------------------------------------------------------"
+    install_packages python2.7 g++ python-requests python-psutils python-netifaces \
+        exuberant-ctags tmux cmake tig zathura htop fonts-hack-ttf \
+        network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev \
+        libxcb-composite0-dev python-dev curl doxygen graphviz lm-sensors direnv
+
+    echo "----------------------------------------------------------"
     # https://wiki.ubuntuusers.de/Zsh/
     install_packages zsh xclip
     wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
@@ -84,10 +90,6 @@ install_core_utils() {
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install --all
 
-    # sudo apt-get install -y thefuck
-    install_packages exuberant-ctags tmux cmake tig zathura htop fonts-hack-ttf \
-        network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev \
-        libxcb-composite0-dev python-dev curl doxygen graphviz lm-sensors direnv
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
     # make automounted devices readable for user
