@@ -19,10 +19,25 @@ echo_info() {
     echo -e "\033[0;32m$*\033[0m"
 }
 
+echo_warn() {
+    # print output in yellow
+    echo -e "\033[0;33m$*\033[0m"
+}
+
+echo_error() {
+    # print output in red
+    echo -e "\033[0;31m$*\033[0m"
+}
+
 install_packages() {
     for package in $@; do 
         echo_info Installing $package........................
         sudo apt-get install -y $package
+        if [[ $? -ne 0 ]]; then
+            echo_error "##################################################"
+            echo_error "Error installing $package!"
+            echo_error "##################################################"
+        fi
     done 
 }
 
