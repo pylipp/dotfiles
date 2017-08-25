@@ -2,18 +2,6 @@
 
 set -e
 
-rm_existing() {
-    if [ -e "$1" ]; then
-        rm -rf "$1"
-    fi
-}
-
-mv_existing() {
-    if [ -e "$1" ]; then
-        mv "$1" "$1"_old
-    fi
-}
-
 echo_info() {
     # print output in green
     echo -e "\033[0;32m$*\033[0m"
@@ -27,6 +15,19 @@ echo_warn() {
 echo_error() {
     # print output in red
     echo -e "\033[0;31m$*\033[0m"
+}
+
+rm_existing() {
+    if [ -e "$1" ]; then
+        rm -rf "$1"
+    fi
+}
+
+mv_existing() {
+    if [ -e "$1" ]; then
+        echo_warn "Backing up existing file $1"
+        mv "$1" "$1"_old
+    fi
 }
 
 install_packages() {
