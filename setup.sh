@@ -53,7 +53,7 @@ install_core_utils() {
         scrot imagemagick silversearcher-ag python-virtualenv virtualenvwrapper
 
     echo "----------------------------------------------------------"
-    # https://wiki.ubuntuusers.de/Zsh/
+    cd $HOME
     install_packages zsh xclip
     wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
     sed -i "s/env zsh//g" install.sh 
@@ -61,7 +61,7 @@ install_core_utils() {
     # https://github.com/robbyrussell/oh-my-zsh/issues/1224#issuecomment-31623113
     # This workaround might be required:
     # sudo sed -i 's/^auth[[:space:]]*required/#auth required/' /etc/pam.d/chsh
-    # sudo chsh $USER -s $(which zsh)
+    sudo chsh $USER -s $(which zsh)
     for file in install.sh .zshrc .zshrc.pre-oh-my-zsh; do
         rm_existing "$file"
     done
