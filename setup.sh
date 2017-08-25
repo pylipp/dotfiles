@@ -42,9 +42,10 @@ install_packages() {
     done 
 }
 
-mkdir -p $HOME/software
 
 install_core_utils() {
+    mkdir -p $HOME/software
+
     echo "----------------------------------------------------------"
     install_packages python2.7 g++ python-requests python-psutils python-netifaces \
         exuberant-ctags tmux cmake tig zathura htop fonts-hack-ttf \
@@ -107,6 +108,8 @@ install_core_utils() {
 
 
 install_i3() {
+    mkdir -p $HOME/software
+
     echo_info "----------------------------------------------------------"
     install_packages i3 xautolock xorg xinit feh dunst
     cd $HOME/software
@@ -136,6 +139,8 @@ install_ripgrep() {
 
 
 install_vim() {
+    mkdir -p $HOME/software
+
     echo_info "----------------------------------------------------------"
     echo_info "Installing vim..."
     # https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
@@ -229,6 +234,8 @@ install_neovim() {
 
 
 install_termite() {
+    mkdir -p $HOME/software
+
     # alternatively use script from  https://github.com/Corwind/termite-install
     cd $HOME/software 
     git clone https://github.com/thestinger/vte-ng.git 
@@ -250,6 +257,8 @@ install_termite() {
 
 
 install_powerline_font_xterm() {
+    mkdir -p $HOME/software
+
     # https://powerline.readthedocs.io/en/latest/installation/linux.html#fonts-installation
     # https://github.com/powerline/powerline/issues/1589
     cd $HOME/software
