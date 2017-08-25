@@ -122,7 +122,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# force some applications to open in their assigned workspace 
+# force some applications to open in their assigned workspace
 # fetch class from xprop output
 # assign [class="Firefox"] $workspace1
 
@@ -132,7 +132,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exit
-# lock i3 
+# lock i3
 # bindsym $mod+Shift+x i3lock
 exec xautolock -time 15 -locker '~/.i3/i3lock-fancy/lock -p -- scrot -z'
 
@@ -164,8 +164,8 @@ bindsym $mod+r mode "resize"
 
 # https://extendedreality.wordpress.com/2014/11/20/i3-tips-n-tricks/
 mode "Move workspace" {
-        bindsym h move workspace to output left 
-        bindsym l move workspace to output right 
+        bindsym h move workspace to output left
+        bindsym l move workspace to output right
         bindsym Escape mode "default"
 }
 
@@ -191,13 +191,13 @@ exec --no-startup-id nm-applet
 #exec killall -q <notification daemon>
 #exec --no-startup-id dunst
 
-# get running sink via 
+# get running sink via
 # pactl list sinks | grep -B 1 RUNNING | grep Sink | cut -d"#" -f2
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 
-# System control key bindings from 
+# System control key bindings from
 # https://faq.i3wm.org/question/239/how-do-i-suspendlockscreen-and-logout.1.html
 # add i3exit script to /usr/local/bin
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
