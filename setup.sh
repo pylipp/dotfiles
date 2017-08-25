@@ -14,14 +14,14 @@ mv_existing() {
     fi
 }
 
-echo_colored() {
-    # print output in yellow
-    echo -e "\033[0;33m$*\033[0m"
+echo_info() {
+    # print output in green
+    echo -e "\033[0;32m$*\033[0m"
 }
 
 install_packages() {
     for package in $@; do 
-        echo_colored Installing $package........................
+        echo_info Installing $package........................
         sudo apt-get install -y $package
     done 
 }
@@ -50,12 +50,12 @@ install_core_utils() {
     done
 
 
-    echo_colored "----------------------------------------------------------"
+    echo_info "----------------------------------------------------------"
     install_packages silversearcher-ag
 
 
-    echo_colored "----------------------------------------------------------"
-    echo_colored "Installing pip..."
+    echo_info "----------------------------------------------------------"
+    echo_info "Installing pip..."
     # http://stackoverflow.com/questions/27711184/why-is-pip-raising-an-assertionerror-on-pip-freeze
     # https://pip.pypa.io/en/latest/installing/
     cd $HOME/software
@@ -67,12 +67,12 @@ install_core_utils() {
     rm get-pip.py
 
 
-    echo_colored "----------------------------------------------------------"
+    echo_info "----------------------------------------------------------"
     install_packages python-virtualenv virtualenvwrapper
 
 
-    echo_colored "----------------------------------------------------------"
-    echo_colored "Installing hub..."
+    echo_info "----------------------------------------------------------"
+    echo_info "Installing hub..."
     echo -n "What architecture are you using (arm/amd64): "
     read ARCH
     cd $HOME/software 
@@ -85,8 +85,8 @@ install_core_utils() {
     sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
         https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
 
-    echo_colored "----------------------------------------------------------"
-    echo_colored "Installing fzf..."
+    echo_info "----------------------------------------------------------"
+    echo_info "Installing fzf..."
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install --all
 
@@ -98,7 +98,7 @@ install_core_utils() {
 
 
 install_i3() {
-    echo_colored "----------------------------------------------------------"
+    echo_info "----------------------------------------------------------"
     install_packages i3 xautolock xorg xinit feh dunst
     cd $HOME/software
     install_packages pkg-config libxcb1 libpam-dev libcairo-dev \
@@ -115,8 +115,8 @@ install_i3() {
 
 
 install_ripgrep() {
-    echo_colored "----------------------------------------------------------"
-    echo_colored "Installing ripgrep..."
+    echo_info "----------------------------------------------------------"
+    echo_info "Installing ripgrep..."
     wget https://raw.githubusercontent.com/BurntSushi/ripgrep/4e8c0fc4ade785775005b416dc030295c684cb67/Cargo.toml
     ripgrep_version=`grep version Cargo.toml | head -1 | cut -d" " -f3 | tr -d'"'`
     wget https://github.com/BurntSushi/ripgrep/releases/download/$ripgrep_version/ripgrep-$ripgrep_version-x86_64-unknown-linux-musl.tar.gz
@@ -127,8 +127,8 @@ install_ripgrep() {
 
 
 install_vim() {
-    echo_colored "----------------------------------------------------------"
-    echo_colored "Installing vim..."
+    echo_info "----------------------------------------------------------"
+    echo_info "Installing vim..."
     # https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
     cd $HOME/software
     if [[ ! -e vim ]]; then
@@ -161,7 +161,7 @@ install_vim() {
         # obtain version info, strip quotes (http://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable)
         vim_version=`grep '#define VIM_VERSION_NODOT' src/version.h | awk '{ print $3; }' | tr -d '"'`
         echo
-        echo_colored $vim_version
+        echo_info $vim_version
         echo
         make VIMRUNTIMEDIR=/usr/share/vim/$vim_version > /dev/null
         sudo make install > /dev/null
@@ -174,16 +174,16 @@ install_vim() {
     ln -s $HOME/.files/vim $HOME/.vim
 
 
-    echo_colored "----------------------------------------------------------"
-    echo_colored "Configuring vim..."
+    echo_info "----------------------------------------------------------"
+    echo_info "Configuring vim..."
     mv_existing $HOME/.vimrc
     bash $HOME/.files/generate_vimrc.sh
     vim +qall > /dev/null
 
 
     if [[ -d "$HOME/.vim/bundle/YouCompleteMe" ]]; then
-        echo_colored "----------------------------------------------------------"
-        echo_colored "Installing ycm..."
+        echo_info "----------------------------------------------------------"
+        echo_info "Installing ycm..."
         # https://github.com/Valloric/YouCompleteMe#installation
         cd $HOME/.vim/bundle/YouCompleteMe
         ./install.py --clang-completer > /dev/null
@@ -203,8 +203,8 @@ install_vim() {
 
 
 install_neovim() {
-    echo_colored "----------------------------------------------------------"
-    echo_colored "Installing neovim..."
+    echo_info "----------------------------------------------------------"
+    echo_info "Installing neovim..."
     mkvirtualenv --python=/usr/bin/python3.5 neovim > /dev/null
     pip install neovim > /dev/null
     install_packages neovim
@@ -254,8 +254,8 @@ install_powerline_font_xterm() {
 
 
 setup_links() {
-    echo_colored "----------------------------------------------------------"
-    echo_colored "Setting up symbolic links to .files..."
+    echo_info "----------------------------------------------------------"
+    echo_info "Setting up symbolic links to .files..."
     cd $HOME
     ln -s $HOME/.files/ycm_extra_conf.py $HOME/.ycm_extra_conf.py
     mv_existing $HOME/.gitconfig 
@@ -284,9 +284,9 @@ setup_links() {
 
 
 install_qtcreator() {
-    echo_colored "----------------------------------------------------------"
+    echo_info "----------------------------------------------------------"
     install_package libgl1-mesa-dev
-    echo_colored "Installing qtcreator..."
+    echo_info "Installing qtcreator..."
     cd $HOME/Downloads 
     wget -q http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run > /dev/null
     chmod 755 qt-unified-linux-x64-online.run 
@@ -297,8 +297,8 @@ install_qtcreator() {
 
 post_install() {
     # steps performed last because they require dotfiles links being set up
-    echo_colored "----------------------------------------------------------"
-    echo_colored "Install tmux plugings..."
+    echo_info "----------------------------------------------------------"
+    echo_info "Install tmux plugings..."
     $HOME/.tmux/plugins/tpm/scripts/./install_plugins.sh
 }
 
