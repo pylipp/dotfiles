@@ -47,11 +47,11 @@ install_core_utils() {
     mkdir -p $HOME/software
 
     echo "----------------------------------------------------------"
-    install_packages python2.7 g++ python-requests python-psutils python-netifaces \
+    install_packages python2.7 g++ \
         exuberant-ctags tmux cmake tig zathura htop fonts-hack-ttf \
         network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev \
         libxcb-composite0-dev python-dev curl doxygen graphviz lm-sensors direnv \
-        scrot imagemagick silversearcher-ag python-virtualenv virtualenvwrapper
+        scrot silversearcher-ag python-virtualenv virtualenvwrapper
 
     echo "----------------------------------------------------------"
     cd $HOME
@@ -111,7 +111,8 @@ install_i3() {
     mkdir -p $HOME/software
 
     echo_info "----------------------------------------------------------"
-    install_packages i3 xautolock xorg xinit feh dunst
+    install_packages i3 xautolock xorg xinit feh dunst imagemagick
+
     cd $HOME/software
     install_packages pkg-config libxcb1 libpam-dev libcairo-dev \
         libxcb-xinerama0-dev libev-dev libx11-dev libx11-xcb-dev libxkbcommon0 \
@@ -122,6 +123,8 @@ install_i3() {
     sudo make install 
     cd ~/.files/i3/i3lock-fancy
     git checkout multimonitor
+
+    install_packages python-requests python-psutils python-netifaces
     git clone https://github.com/tobi-wan-kenobi/bumblebee-status $HOME/software/bumblebee-status
 }
 
