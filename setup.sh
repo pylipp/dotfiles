@@ -246,7 +246,7 @@ install_powerline_font_xterm() {
     cd $HOME/software
     git clone https://github.com/powerline/fonts
     mkdir -p ~/.local/share/fonts
-    cp fonts/DejaVuSansMono/"DejaVu Sans Mono Oblique for Powerline.ttf" ~/.local/share/fonts
+    cp fonts/DejaVuSansMono/"DejaVu Sans Mono for Powerline.ttf" ~/.local/share/fonts
     fc-cache -v -f ~/.local/share/fonts
     # maybe not required?
     ln -s ~/.local/share/fonts ~/.fonts
