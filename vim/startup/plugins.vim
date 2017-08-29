@@ -73,7 +73,7 @@ Plug 'tpope/vim-obsession'
 " swap between eponymous files with different extensions (C++ header/src)
 Plug 'kana/vim-altr'
 " instant markdown preview in browser
-Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'pylipp/vim-markdown-preview', { 'branch': 'bugfix/firefox' }
 Plug 'Yggdroot/indentLine'
 " manage tag files
 Plug 'ludovicchabant/vim-gutentags'
