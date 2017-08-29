@@ -32,6 +32,9 @@ echo "" >> Makefile
 echo "install:" >> Makefile
 echo -e "\tpip install -U -r requirements.txt -e ." >> Makefile
 echo "" >> Makefile
+echo "install-dev: install" >> Makefile
+echo -e "\tpip install -r requirements_dev.txt" >> Makefile
+echo "" >> Makefile
 echo "test:" >> Makefile
 echo -e "\t@[ -z \$\$VIRTUAL_ENV ] && echo 'Acticate $package_name virtualenv.' || python -m unittest discover" >> Makefile
 echo "" >> Makefile
