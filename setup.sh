@@ -50,6 +50,7 @@ install_core_utils() {
     install_packages python2.7 g++ \
         exuberant-ctags tmux cmake tig zathura htop fonts-hack-ttf \
         network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev \
+        zip unzip alsa-utils \
         libxcb-composite0-dev python-dev curl doxygen graphviz lm-sensors direnv \
         scrot silversearcher-ag python-virtualenv virtualenvwrapper
 
