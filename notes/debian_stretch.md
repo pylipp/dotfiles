@@ -1,4 +1,4 @@
-Setting up Debian Stretch from the netinst image on my Aspire 5741G
+Setting up Debian -Stretch- Buster/Sid (remember to check what you download...) from the netinst image on my Aspire 5741G
 
 ### Start
 
@@ -23,12 +23,11 @@ Boot into USB stick and follow instructions (wlan setup failed)
 
         iwlist scan
 
-    3. Edit `/etc/network/interfaces`
+    3. Edit `/etc/network/interfaces` to automatically bring up the wireless network interface at boot
 
         auto wlp3s0b1
-        iface wlp3s0b1 inet dhcp
-            wpa-ssid <wifi name>
-            wpa-psk <wifi password>
+
+    and reboot. Network-Manager should handle everything (meaning that step 4 is redundant). Add networks using `nmtui`.
 
     4. `ifup` dat shit
 
@@ -51,8 +50,9 @@ Boot into USB stick and follow instructions (wlan setup failed)
 
 - helpers:
 
+    sudo apt-get update && sudo apt-get upgrade
     sudo apt-get install git rsync tmux
 
 ### More references
 
-- https://linuxpanda.wordpress.com/2014/03/02/guide-how-to-install-debian-8-jessie-xfce-using-netinst-minimal-iso-step-by-step-with-pictures/
+- [https://linuxpanda.wordpress.com/2014/03/02/guide-how-to-install-debian-8-jessie-xfce-using-netinst-minimal-iso-step-by-step-with-pictures/]()
