@@ -73,9 +73,7 @@ Plug 'tpope/vim-obsession'
 " swap between eponymous files with different extensions (C++ header/src)
 Plug 'kana/vim-altr'
 " instant markdown preview in browser
-" install rust from: rustup.rs 
-" in plugin directory run: cargo build --release
-Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release --init --no-default-features --features json-rpc' }
+Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'Yggdroot/indentLine'
 " manage tag files
 Plug 'ludovicchabant/vim-gutentags'
@@ -197,13 +195,11 @@ let g:fzf_action = {
 " altr-vim mappings 
 nmap <leader>s <Plug>(altr-forward)
 
-" vim-markdown-composer settings 
-let g:markdown_composer_browser = 'firefox'
-let g:markdown_composer_open_browser = 0
-let g:markdown_composer_refresh_rate = 500
-" let g:markdown_composer_autostart = 0
-" nnoremap <leader>ms :ComposerStart<CR>
-nnoremap <leader>mo :ComposerOpen<CR>
+" vim-markdown-preview settings (requires see, ~/.mailcap)
+let vim_markdown_preview_hotkey='<leader>mp'
+let vim_markdown_preview_browser='firefox'
+" update preview on BufWrite
+let vim_markdown_preview_toggle=3
 
 " indentLine settings to max out performance
 let g:indentLine_faster = 1
