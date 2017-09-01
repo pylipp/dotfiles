@@ -28,6 +28,10 @@ map Y y$
 noremap , ;
 noremap ; ,
 
+" more convenient jumping to mark position on German keyboard
+noremap ' `
+noremap ` '
+
 " disable arrow keys
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
