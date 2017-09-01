@@ -72,6 +72,8 @@ noremap <leader>v :tabnew $MYVIMRC<CR>
 " reload .vimrc and makes all changes active
 noremap <silent> <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
+" Prettily format json: https://stackoverflow.com/a/16625961/3865876
+command! -range -nargs=0 -bar Jsonify <line1>,<line2>!python -m json.tool
 
 "
 " MY VIM KEYMAPPINGS
