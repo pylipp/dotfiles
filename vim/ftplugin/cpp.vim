@@ -17,3 +17,8 @@ map <F4> :call Mosh_Flip_Ext()<CR>
 " Compile and execute. Creates a generic main executable
 nnoremap <F5> :w <bar> exec '!g++ -Wall -g  -std=c++11 '.shellescape('%').' -o '.shellescape('main').' && ./'.shellescape('main')<CR>
 "autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
+" https://google.github.io/styleguide/cppguide.html#Spaces_vs._Tabs
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2

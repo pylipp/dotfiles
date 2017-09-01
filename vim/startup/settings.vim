@@ -25,7 +25,7 @@ set showmode    " show current mode at the bottom
 set tabstop=4
 set expandtab     "convert tabs to whitespace
 set softtabstop=4 "tab key indent
-set shiftwidth=4  "autoindent width
+set shiftwidth=4  "autoindent width, used for >>, << etc.
 set backspace=2   "stop weird backspace behavior
 set novisualbell  "no display blinking at EOF
 set cursorline    "highlight current line
