@@ -28,3 +28,4 @@ devel/
 # Miscellaneous
 tags
 .envrc
+.notags
