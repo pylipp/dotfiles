@@ -78,6 +78,11 @@ Plug 'Yggdroot/indentLine'
 " manage tag files
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'peterhoeg/vim-qml'
+Plug 'wellle/targets.vim'
+Plug 'bronson/vim-visual-star-search'
+Plug 'michaeljsmith/vim-indent-object'
+
+
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 
