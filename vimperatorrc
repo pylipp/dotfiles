@@ -1,0 +1,4 @@
+" custom mapping to launch external editor, because C-i is handled directly in
+" the textfields of some webpages, like e.g. stackoverflow
+set editor="xterm -e vim"
+inoremap <C-A-i> <C-i>
