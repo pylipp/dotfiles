@@ -75,6 +75,9 @@ noremap <silent> <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo '
 " Prettily format json: https://stackoverflow.com/a/16625961/3865876
 command! -range -nargs=0 -bar Jsonify <line1>,<line2>!python -m json.tool
 
+" Copy File to clipboard
+nnoremap <leader>cf gg"+yG<CR>
+
 "
 " MY VIM KEYMAPPINGS
 "
