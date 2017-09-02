@@ -82,6 +82,7 @@ Cursor positioned inside the text object.
 
 - C-x C-l
 - C-x C-p
+- C-x C-k (dictionary completion)
 
 ### Read shell output into current file (https://www.reddit.com/r/vim/comments/4sls0w/macro_practice_formatting_images_filenames_into/)
 
@@ -97,3 +98,10 @@ Cursor positioned inside the text object.
 - :python import datetime
 - :put= pyeval('str(datetime.date.today())')
 - :pyfile <script.py>
+
+### Vim spell check,  https://robots.thoughtbot.com/vim-spell-checking and http://vimcasts.org/episodes/spell-checking/
+
+- zg: add word under cursor to dictionary
+- zw: remove word from dictionary
+- z=: correct suggestions for word under cursor
+- [s, ]s: navigate to previous/next spell error
