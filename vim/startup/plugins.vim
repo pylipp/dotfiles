@@ -197,8 +197,11 @@ let g:fzf_action = {
             \ 'ctrl-v': 'vsplit',
             \ 'ctrl-t': 'tab split' }
 
-" altr-vim mappings 
-nmap <leader>s <Plug>(altr-forward)
+" altr-vim mappings, mnemonic: HeaderSource
+nmap <leader>hs <Plug>(altr-forward)
+
+nnoremap <leader>se :set spell! spelllang=en_us<CR>
+nnoremap <leader>sd :set spell! spelllang=de_20<CR>
 
 " vim-markdown-preview settings (requires see, ~/.mailcap)
 let vim_markdown_preview_hotkey='<leader>mp'
