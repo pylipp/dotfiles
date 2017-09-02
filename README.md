@@ -16,3 +16,24 @@ install_complete
 ```
 
 This will install and set up vim, zsh, and some more tools.
+
+## Programs and tools
+
+Some of these are not installed with `install_complete`. See `setup.sh` for specific installation functions. 
+
+Functionality | Program name | Notes
+------------- | ------------ | -----
+Window manager | `i3` | using bumblebee status line
+Terminal | `xterm`/`gnome-terminal` | solarized color scheme
+Shell | `zsh` | themes and goodies from `oh-my-zsh`
+Terminal multiplexer | `tmux` | plugins loaded by `tpm`; custom session defined with `tmuxp`
+VCS | `git` | additionally using `hub` for managing github workflows from the CL and `tig` for a git-log TUI
+Editor | `vim` | built from source, see [vim/startup]() for personal settings
+Python development | `virtualenvwrapper` |
+Python REPL | `ptpython` | vi-like editing; usually installing it in venvs
+Auto environment loading | `direnv` | handy for activating venvs
+PDF reader | `zathura` | 
+In-file search | `ag` |
+Command-line utility | `fzf` |
+Tex utility | `latexmk` |
+Qt-Editor | `qtcreator` |
