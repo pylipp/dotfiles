@@ -19,8 +19,6 @@ export TERMINAL="termite"
 
 export EDITOR=/usr/bin/vim
 
-export PATH=~/.local/bin:$PATH
-
 export PYTHONSTARTUP=~/.pythonrc
 
 # make fzf search hidden directories
