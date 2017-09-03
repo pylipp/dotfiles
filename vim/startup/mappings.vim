@@ -2,8 +2,6 @@
 " CUSTOM MAPPINGS
 "
 
-let mapleader=" "
-
 " key mappings for switching between multiple windows
 map <C-h> <C-w>h
 map <C-j> <C-w>j

@@ -61,6 +61,9 @@ set undodir=~/.vim/undo/  " in neovim (different location)
 set foldmethod=indent
 set foldlevel=99
 
+let mapleader=" "
+let maplocalleader=" "
+
 " hide banner in builtin file browser
 let g:netrw_banner=0
 
