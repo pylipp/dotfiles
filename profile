@@ -1,3 +1,3 @@
-export PATH=~/.local/bin:$PATH
+[ -e ~/.local/bin ] && export PATH=~/.local/bin:$PATH
 
-[ -f ~/.files/local_profile ] && . ~/.files/local_profile
+[ -e ~/.files/local_profile ] && . ~/.files/local_profile
