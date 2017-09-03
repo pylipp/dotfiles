@@ -275,6 +275,31 @@ install_powerline_font_xterm() {
 }
 
 
+install_texlive() {
+    echo_info "----------------------------------------------------------"
+    echo_info "Installing texlive..."
+
+    # https://www.tug.org/texlive/doc/install-tl.html
+    if [[ ! -f $HOME/.files/texlive.profile ]]; then
+        echo_error "$HOME/.files/texlive.profile not found!"
+        exit
+    fi
+    mkdir ~/Downloads
+    cd ~/Downloads
+    wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+    tar xf install-tl-unx.tar.gz
+    cd install-tl-$(date +%Y%m%d)
+    sudo ./install-tl -profile ~/.files/texlive.profile
+    cd ..
+    rm -rf install-tl-*
+
+    install_packages latexmk xzdec
+
+    echo_info "Add /usr/local/texlive/2017/bin/x86_64-linux to PATH."
+    echo_info "Run tlmgr init-usertree."
+}
+
+
 setup_link() {
     echo_info "Setting up link to $1..."
     ln -s .files/$1 $2
