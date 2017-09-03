@@ -197,8 +197,8 @@ let g:fzf_action = {
             \ 'ctrl-v': 'vsplit',
             \ 'ctrl-t': 'tab split' }
 
-" altr-vim mappings, mnemonic: HeaderSource
-nmap <leader>hs <Plug>(altr-forward)
+" altr-vim mappings, mnemonic: SourceHeader
+nmap <leader>sh <Plug>(altr-forward)
 
 nnoremap <leader>se :set spell! spelllang=en_us<CR>
 nnoremap <leader>sd :set spell! spelllang=de_20<CR>
