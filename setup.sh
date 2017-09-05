@@ -312,7 +312,7 @@ setup_links() {
     cd $HOME
     for rcfile in ycm_extra_conf.py gitconfig bashrc zshrc tmux.conf i3 \
         Xresources xinitrc dir_colors latexmkrc pylintrc tigrc direnvrc \
-        pythonrc mailcap vimperatorrc profile zprofile
+        pythonrc mailcap vimperatorrc profile zprofile xprofile
     do
         link_name="."$rcfile
         link_path=$HOME/$link_name

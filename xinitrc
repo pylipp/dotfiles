@@ -7,12 +7,6 @@
 # invoke global X session script
 # . /etc/X11/Xsession
 
-# load custom keyboard layout or fallback to de(nodeadkeys)
-setxkbmap -layout pylipp 2> /dev/null || setxkbmap de -variant nodeadkeys
-
-# swap Escape key and Capslock
-setxkbmap -option caps:swapescape
-
-xrdb -load ~/.Xresources
+[ -f ~/.xprofile ] && . ~/.xprofile
 
 exec /usr/bin/i3
