@@ -1,4 +1,4 @@
-xmodmap -e "keycode 47 = bracketright braceright"
-xmodmap -e "keycode 48 = bracketleft braceleft"
-xmodmap -e "keycode 17 = 8 parenleft 8 asterisk odiaeresis trademark"
-xmodmap -e "keycode 18 = 9 parenright 9 parenleft adiaeresis plusminus"
+keycode 47 = bracketleft braceleft
+keycode 48 = bracketright braceright
+keycode 17 = 8 parenleft 8 asterisk odiaeresis trademark
+keycode 18 = 9 parenright 9 parenleft adiaeresis plusminus
