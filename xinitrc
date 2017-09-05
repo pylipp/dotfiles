@@ -7,9 +7,11 @@
 # invoke global X session script
 # . /etc/X11/Xsession
 
-# map Escape key to Capslock
-setxkbmap -option caps:escape
-# setxkbmap -option caps:swapescape
+# load custom keyboard layout or fallback to de(nodeadkeys)
+setxkbmap -layout pylipp 2> /dev/null || setxkbmap de -variant nodeadkeys
+
+# swap Escape key and Capslock
+setxkbmap -option caps:swapescape
 
 xrdb -load ~/.Xresources
 

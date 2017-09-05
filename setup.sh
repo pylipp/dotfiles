@@ -347,6 +347,9 @@ post_install() {
     echo_info "----------------------------------------------------------"
     echo_info "Install tmux plugings..."
     $HOME/.tmux/plugins/tpm/scripts/./install_plugins.sh
+
+    sudo cp "$HOME/.files/keyboard" /usr/share/X11/xkb/symbols/pylipp
+    setxkbmap pylipp
 }
 
 install_complete() {

@@ -1,0 +1,22 @@
+// customizing the German nodeadkeys keyboard layout by swapping brackets and umlaute
+// sudo cp keyboard /usr/share/X11/xkb/symbols/pylipp
+// load via setxkbmap pylipp
+// 
+// ORIGINAL | CUSTOM
+// ö        | [
+// ä        | ]
+// Ö        | {
+// Ä        | }
+// [        | ö
+// ]        | ä
+
+partial alphanumeric_keys
+xkb_symbols "pylipp" {
+
+    include "de(nodeadkeys)"
+
+    key <AE08>	{ [            8,  parenleft,  odiaeresis,   trademark ] };
+    key <AE09>	{ [            9, parenright,  adiaeresis,   plusminus ] };
+    key <AC10>  { [  bracketleft,  braceleft, doubleacute, doubleacute ] };
+    key <AC11>  { [ bracketright, braceright, asciicircum, asciicircum ] };
+};
