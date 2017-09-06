@@ -102,6 +102,7 @@ install_core_utils() {
     ~/.fzf/install --all
 
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    pip install --user tmuxp
 
     # make automounted devices readable for user
     sudo sed -i -r 's/(FS_MOUNTOPTIONS=").*"/\1uid=1000,gid=1000"/' /etc/usbmount/usbmount.conf
@@ -312,7 +313,7 @@ setup_links() {
     cd $HOME
     for rcfile in ycm_extra_conf.py gitconfig bashrc zshrc tmux.conf i3 \
         Xresources xinitrc dir_colors latexmkrc pylintrc tigrc direnvrc \
-        pythonrc mailcap vimperatorrc profile zprofile xprofile
+        pythonrc mailcap vimperatorrc profile zprofile xprofile tmuxp
     do
         link_name="."$rcfile
         link_path=$HOME/$link_name
