@@ -95,8 +95,6 @@ call plug#end()            " required
 "Exuberant ctags - tag generation for language objects
 "look for next tags file from current path up to Home
 set tags=./tags;$HOME
-"Goes to definition of function under cursor; <C-t> will jump back
-map <C-s> <C-]>
 
 
 " NERDTree - plugin to view the current directory
