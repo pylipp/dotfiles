@@ -61,6 +61,9 @@ set undodir=~/.vim/undo/  " in neovim (different location)
 set foldmethod=indent
 set foldlevel=99
 
+" match angular brackets
+set matchpairs+=<:>
+
 let mapleader=" "
 let maplocalleader=" "
 
