@@ -304,7 +304,7 @@ install_texlive() {
         echo_error "$HOME/.files/texlive.profile not found!"
         exit
     fi
-    mkdir ~/Downloads
+    mkdir -p ~/Downloads
     cd ~/Downloads
     wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
     tar xf install-tl-unx.tar.gz
