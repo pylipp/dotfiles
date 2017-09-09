@@ -274,6 +274,8 @@ install_st() {
     git co stable
     ./apply-patches.sh
     install_packages libxft-dev
+    # obtain custom config file
+    make config.h
     # change font size to 13
     sed -i -r 's/(static char font[] = "[[:alpha:]]+:.*pixelsize=)[[:digit:]][[:digit:]](.*)/\113\2/' config.h
     sudo make clean install
