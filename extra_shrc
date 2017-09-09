@@ -15,7 +15,7 @@ set -o vi
 export TERM="xterm-256color"
 
 # set for i3-sensible-terminal
-export TERMINAL="termite"
+export TERMINAL="st"
 
 export EDITOR=/usr/bin/vim
 
