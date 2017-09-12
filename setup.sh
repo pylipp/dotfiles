@@ -315,10 +315,10 @@ install_texlive() {
     cd ..
     rm -rf install-tl-*
 
-    install_packages latexmk xzdec
+    # create symlinks to tex binaries in /usr/local/bin
+    sudo /usr/local/texlive/$(date +%Y)/bin/x86_64-linux/./tlmgr path add
 
-    echo_info "Add /usr/local/texlive/2017/bin/x86_64-linux to PATH."
-    echo_info "Run tlmgr init-usertree."
+    install_packages latexmk xzdec
 }
 
 
