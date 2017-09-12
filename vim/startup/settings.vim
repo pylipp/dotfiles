@@ -96,7 +96,7 @@ augroup vimrcEx
 augroup END
 
 "
-" COLOR SETTINGS
+" COLOR AND SYNTAX HIGHLIGHTING SETTINGS
 "
 
 syntax on       "enable syntax highlighting
@@ -109,12 +109,11 @@ if &term!="xterm-256color" && &term!="xterm" && &term!="screen"
 endif
 colorscheme solarized " an appropriate color scheme
 
-
-" highlight errors in gray background and bold red font
+" highlight errors in bold, underlined red font
 highlight clear SpellBad
-highlight SpellBad ctermbg=7 ctermfg=1 cterm=bold
+highlight SpellBad ctermfg=1 cterm=bold,underline
 highlight clear SpellCap
-highlight SpellBad ctermbg=7 ctermfg=1 cterm=bold
+highlight SpellCap ctermfg=1 cterm=bold
 highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
