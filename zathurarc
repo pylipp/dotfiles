@@ -39,6 +39,8 @@ set recolor-keephue             "true"
 # key bindings
 map w adjust_window width
 map z adjust_window bestfit
+map i toggle_index
+map r rotate
 
 map <C-p> print
 
