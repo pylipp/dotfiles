@@ -76,6 +76,9 @@ command! -range -nargs=0 -bar Jsonify <line1>,<line2>!python -m json.tool
 " Copy File to clipboard
 nnoremap <leader>cf gg"+yG<CR>
 
+" Substitute Umlaute in current buffer
+nnoremap <leader>su :%s/oe/ö<CR> :%s/ae/ä<CR> :%s/ue/ü<CR>
+
 "
 " MY VIM KEYMAPPINGS
 "
