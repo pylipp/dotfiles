@@ -21,8 +21,10 @@ xkb_symbols "pylipp" {
 
     include "de(nodeadkeys)"
 
+    key <AE07>	{ [            7,      slash,   NoSymbol,   seveneighths ] };
     key <AE08>	{ [            8,  parenleft, odiaeresis,   trademark ] };
     key <AE09>	{ [            9, parenright, adiaeresis,   plusminus ] };
+    key <AE10>	{ [            0,      equal,   NoSymbol,   degree ] };
     key <AE11>	{ [       ssharp,   question, udiaeresis, questiondown ] };
     key <AD11>	{ [    backslash,        bar, dead_diaeresis, dead_abovering ] };
     key <AC10>  { [  bracketleft,  braceleft, doubleacute, doubleacute ] };
