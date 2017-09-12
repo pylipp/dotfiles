@@ -41,3 +41,6 @@ map w adjust_window width
 map z adjust_window bestfit
 
 map <C-p> print
+
+# toggle color scheme: solarized <-> white
+map <F6> recolor
