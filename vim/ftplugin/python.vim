@@ -5,14 +5,7 @@ nnoremap <F5> :w <bar> exec '!python '.shellescape('%')<CR>
 map <leader>D Oimport pdb; pdb.set_trace()<Esc>
 map <leader>Q Oimport pdb; import QtCore; QtCore.pyqtRemoveInputHook(); pdb.set_trace()<Esc>
 
-" Strip trailing whitespace at save.
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre * :call DeleteWhitespace()
 
 " Fold routines for python code, version 3.2
 " Source: http://www.vim.org/scripts/script.php?script_id=2527

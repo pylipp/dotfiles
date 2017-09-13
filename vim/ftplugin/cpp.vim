@@ -22,3 +22,5 @@ nnoremap <F5> :w <bar> exec '!g++ -Wall -g  -std=c++11 '.shellescape('%').' -o '
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+
+autocmd BufWritePre * :call DeleteWhitespace()

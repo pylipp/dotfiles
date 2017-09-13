@@ -79,6 +79,8 @@ nnoremap <leader>cf gg"+yG<CR>
 " Substitute Umlaute in current buffer
 nnoremap <leader>su :%s/oe/ö<CR> :%s/ae/ä<CR> :%s/ue/ü<CR>
 
+" Delete trailing Whitespace (automatically done in Python/C++ files when saving)
+nnoremap <leader>dw :call DeleteWhitespace()<CR>
 "
 " MY VIM KEYMAPPINGS
 "

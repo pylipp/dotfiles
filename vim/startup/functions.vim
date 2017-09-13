@@ -7,3 +7,12 @@ fun! RenameFile() " Thanks to Gary Bernhardt & Ben Orenstein
         redraw!
     endif
 endfun
+
+fun! DeleteWhitespace()
+    " remember current cursor position
+    let l = line(".")
+    let c = col(".")
+    " substitute all trailing whitespace, ignore errors (i.e. no matches)
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
