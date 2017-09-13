@@ -66,7 +66,7 @@ nnoremap <leader>y :y+<CR>
 vnoremap <leader>y "+y
 
 " open .vimrc in new tab
-noremap <leader>v :tabnew $MYVIMRC<CR>
+noremap <leader>v :tabnew ~/.vim/startup<CR>
 " reload .vimrc and makes all changes active
 noremap <silent> <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
