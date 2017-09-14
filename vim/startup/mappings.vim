@@ -77,7 +77,7 @@ command! -range -nargs=0 -bar Jsonify <line1>,<line2>!python -m json.tool
 nnoremap <leader>cf gg"+yG<CR>
 
 " Substitute Umlaute in current buffer
-nnoremap <leader>su :%s/oe/ö<CR> :%s/ae/ä<CR> :%s/ue/ü<CR>
+nnoremap <leader>su :%s/oe/ö/e<CR>:%s/ae/ä/e<CR>:%s/ue/ü/e<CR>
 
 " Delete trailing Whitespace (automatically done in Python/C++ files when saving)
 nnoremap <leader>dw :call DeleteWhitespace()<CR>
