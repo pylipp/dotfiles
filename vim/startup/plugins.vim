@@ -83,6 +83,7 @@ Plug 'bronson/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/tpope-vim-abolish'
 Plug 'tpope/vim-unimpaired'
+Plug 'aperezdc/vim-template'
 
 
 " All of your Plugs must be added before the following line
@@ -218,3 +219,6 @@ let g:UltiSnipsJumpForwardTrigger='<C-j>'
 let g:UltiSnipsJumpBackwardTrigger='<C-k>'
 let g:UltiSnipsEditSplit = 'vertical'
 "let g:UltiSnipsSnippetsDir = '~/.files/snippets'
+
+" specify non-public and public custom templates
+let g:templates_directory=['~/.templates', '~/.vim/templates']
