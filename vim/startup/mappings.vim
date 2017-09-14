@@ -81,10 +81,6 @@ nnoremap <leader>su :%s/oe/ö/e<CR>:%s/ae/ä/e<CR>:%s/ue/ü/e<CR>
 
 " Delete trailing Whitespace (automatically done in Python/C++ files when saving)
 nnoremap <leader>dw :call DeleteWhitespace()<CR>
-
-" Insert line below without leaving normal mode
-nnoremap <CR> o<Esc>k
-
 "
 " MY VIM KEYMAPPINGS
 "
