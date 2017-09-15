@@ -2,7 +2,8 @@ set main-view = line-number:no,interval=5 id:yes date:default author:full commit
 set tree-view = line-number:no,interval=5 mode author:full file-size date:default id:yes file-name
 set refs-view = line-number:no id:yes date:default author:full ref commit-title
 
-# use vim-like bindings here 
-# TODO assign overwritten actions to different keys
-bind diff g move-first-line
-bind diff G move-last-line
+# use vim-like bindings here
+# in main view, G still toggle Graph-visualization
+bind generic g move-first-line
+bind generic G move-last-line
+bind generic <Ctrl-g> view-grep
