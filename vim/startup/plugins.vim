@@ -150,7 +150,6 @@ set statusline+=%*
 
 " make ALE linting less aggressive
 " from https://github.com/christoomey/dotfiles/blob/master/vim/rcplugins/ale-lint
-set updatetime=1000
 augroup plugin-ale
     autocmd!
     autocmd InsertLeave * call ale#Lint()
@@ -208,10 +207,10 @@ nnoremap <leader>se :set spell! spelllang=en_us<CR>
 nnoremap <leader>sd :set spell! spelllang=de_20<CR>
 
 " vim-markdown-preview settings (requires see, ~/.mailcap)
-let vim_markdown_preview_hotkey='<leader>mp'
-let vim_markdown_preview_browser='firefox'
+let g:vim_markdown_preview_hotkey='<leader>mp'
+let g:vim_markdown_preview_browser='firefox'
 " update preview on BufWrite
-let vim_markdown_preview_toggle=3
+let g:vim_markdown_preview_toggle=3
 
 " indentLine settings to max out performance
 let g:indentLine_faster = 1

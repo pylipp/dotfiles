@@ -2,6 +2,9 @@
 " PERSONAL SETTINGS
 "
 
+set encoding=utf-8
+scriptencoding utf-8
+
 set modelines=0 "prevent security exploits
 set autoindent  "indent if previous line is indented
 set number      "set line numbering
@@ -31,10 +34,9 @@ set novisualbell  "no display blinking at EOF
 set cursorline    "highlight current line
 set textwidth=80  "automatic line break after 79 chars
 set fileformat=unix "avoid conversion issues
-set encoding=utf-8  "set encoding, useful for python3
 set nowrap        "don't wrap long line
 set colorcolumn=81 "Show end of long line
-set pvh=25  " set preview window height
+set previewheight=25  " set preview window height
 set updatetime=500 " for gitgutter
 set synmaxcol=200 " highlight first 200 chars of a long line
 
@@ -64,14 +66,12 @@ set foldlevel=99
 " match angular brackets
 set matchpairs+=<:>
 
-let mapleader=" "
-let maplocalleader=" "
+let g:mapleader=" "
+let g:maplocalleader=" "
 
 " hide banner in builtin file browser
 let g:netrw_banner=0
 
-" automatically read and save modified buffers
-set autoread
 
 " define autocmd group to avoid reloading after repeated vimrc sourcing
 augroup vimrc
