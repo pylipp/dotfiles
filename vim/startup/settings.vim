@@ -69,6 +69,7 @@ let g:maplocalleader=" "
 " hide banner in builtin file browser
 let g:netrw_banner=0
 
+let g:xml_syntax_folding = 1
 
 " define autocmd group to avoid reloading after repeated vimrc sourcing
 augroup vimrc

@@ -8,7 +8,6 @@ augroup filetypes
     autocmd BufNewFile,BufRead *.gl,*.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 
     "xml syntax highlighting
-    let g:xml_syntax_folding = 1
     autocmd BufNewFile,BufRead *.xml,*.imf,*.iws setf xml
 
     " Options for text-like files. Global defaults should suffice
