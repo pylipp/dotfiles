@@ -199,6 +199,8 @@ install_vim() {
     bash $HOME/.files/generate_vimrc.sh
     vim +qall > /dev/null
 
+    # install linter
+    pip install --user vim-vint
 
     if [[ -d "$HOME/.vim/bundle/YouCompleteMe" ]]; then
         echo_info "----------------------------------------------------------"
