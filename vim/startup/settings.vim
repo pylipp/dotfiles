@@ -6,7 +6,6 @@ set encoding=utf-8
 scriptencoding utf-8
 
 set modelines=0 "prevent security exploits
-set autoindent  "indent if previous line is indented
 set number      "set line numbering
 set relativenumber "set relative line numbering
 set laststatus=2        "always show the status line
@@ -25,17 +24,15 @@ set hlsearch    "highlight search patterns; escape with ...
 set showcmd     " show incomplete cmds at the bottom
 set showmode    " show current mode at the bottom
 
-set tabstop=4
-set expandtab     "convert tabs to whitespace
 set softtabstop=4 "tab key indent
 set shiftwidth=4  "autoindent width, used for >>, << etc.
+set expandtab     "convert tabs to whitespace
+set autoindent  "indent if previous line is indented
+
 set backspace=2   "stop weird backspace behavior
 set novisualbell  "no display blinking at EOF
 set cursorline    "highlight current line
-set textwidth=80  "automatic line break after 79 chars
 set fileformat=unix "avoid conversion issues
-set nowrap        "don't wrap long line
-set colorcolumn=81 "Show end of long line
 set previewheight=25  " set preview window height
 set updatetime=500 " for gitgutter
 set synmaxcol=200 " highlight first 200 chars of a long line

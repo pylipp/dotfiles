@@ -1,3 +1,6 @@
+setlocal textwidth=80
+setlocal colorcolumn=81
+
 augroup python
     autocmd!
     autocmd BufWritePre * :call DeleteWhitespace()

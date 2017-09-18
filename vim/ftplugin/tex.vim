@@ -1,7 +1,6 @@
 " from http://vim-latex.sourceforge.net/documentation/latex-suite/recommended-settings.html
 " this is mostly a matter of taste. but LaTeX looks good with just a bit
 " of indentation.
-set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 

@@ -1,7 +1,9 @@
 " https://google.github.io/styleguide/cppguide.html#Spaces_vs._Tabs
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+setlocal softtabstop=2
+setlocal shiftwidth=2
+
+setlocal textwidth=80
+setlocal colorcolumn=81
 
 augroup cpp
     autocmd!

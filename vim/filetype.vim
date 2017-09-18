@@ -11,6 +11,6 @@ augroup filetypes
     let g:xml_syntax_folding = 1
     autocmd BufNewFile,BufRead *.xml,*.imf,*.iws setf xml
 
-    "set wrap options
-    autocmd BufRead,BufNewFile *.html,*.xml,*.txt,README*,*.tex,*.md setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 colorcolumn=
+    " Options for text-like files. Global defaults should suffice
+    autocmd BufRead,BufNewFile *.html,*.xml,*.txt,README*,*.tex,*.md setlocal linebreak
 augroup END
