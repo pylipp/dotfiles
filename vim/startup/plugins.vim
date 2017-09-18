@@ -3,6 +3,7 @@
 "  
 
 " install vim-plug if not existing
+" TODO use git submodule instead
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -10,7 +11,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " initialize vim-plug, including rtp update and more 
-" https://github.com/junegunn/vim-plug/wiki/faq#migrating-from-other-plugin-managers
 call plug#begin('~/.vim/bundle')
 
 " Keep Plug commands between plug#begin/end. Use single quotes.
@@ -24,16 +24,10 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " TaskList
 Plug 'pylipp/tasklist.vim'
-" Correct python indentation according to PEP8 from https://github.com/vim-scripts/indentpython.vim
-"Plug 'vim-scripts/indentpython.vim'
 " Git integration https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-fugitive'
-" Python code completion
-"Plug 'rkulla/pydiction'
 " Ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-" Python error highlighting
-"Plug 'kevinw/pyflakes-vim' "or rather 'nvie/vim-flake8' ?
 " Airline plging
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -53,14 +47,10 @@ Plug 'tpope/vim-repeat'
 Plug 'lervag/vimtex', {'for': 'tex' }
 " Show git status of lines
 Plug 'airblade/vim-gitgutter'
-" Convenient moving of lines, TODO use mapping without Alt-key
-" Plug 'matze/vim-move'
 " ROS helpers
 Plug 'taketwo/vim-ros'
 " Seamless tmux and vim navigation
 Plug 'christoomey/vim-tmux-navigator'
-" quick split and join of lines using gS and gJ
-Plug 'AndrewRadev/splitjoin.vim'
 " Helpers for UNIX shell commands 
 Plug 'tpope/vim-eunuch'
 " Fuzzy file, buffer etc. searching
@@ -73,21 +63,28 @@ Plug 'tpope/vim-obsession'
 " swap between eponymous files with different extensions (C++ header/src)
 Plug 'kana/vim-altr'
 " instant markdown preview in browser
-Plug 'pylipp/vim-markdown-preview', { 'branch': 'bugfix/firefox' }
+Plug 'pylipp/vim-markdown-preview', { 'for': 'markdown', 'branch': 'bugfix/firefox' }
+" visualize indents
 Plug 'Yggdroot/indentLine'
 " manage tag files
 Plug 'ludovicchabant/vim-gutentags'
+" QML syntax highlighting
 Plug 'peterhoeg/vim-qml'
+" more VIM objects
 Plug 'wellle/targets.vim'
-Plug 'bronson/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
+" enhanced * searching
+Plug 'bronson/vim-visual-star-search'
+" enhanced substutite
 Plug 'tpope/tpope-vim-abolish'
+" more [ ] mappings for navigation etc.
 Plug 'tpope/vim-unimpaired'
+" template files
 Plug 'aperezdc/vim-template'
 
 
 " All of your Plugs must be added before the following line
-call plug#end()            " required
+call plug#end()
 
 
 "
