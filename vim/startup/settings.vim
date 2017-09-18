@@ -32,6 +32,8 @@ set showcmd     " show incomplete cmds at the bottom
 set showmode    " show current mode at the bottom
 set wildmenu "show completion options for command line
 set wildmode=list:longest
+set statusline+=%#warningmsg#
+set statusline+=%*
 
 """ Search Options
 set ignorecase

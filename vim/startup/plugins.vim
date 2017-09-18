@@ -143,11 +143,6 @@ let g:ycm_semantic_triggers = {
 \   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
 \ }
 
-" Syntastic syntax check
-set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 " make ALE linting less aggressive
 " from https://github.com/christoomey/dotfiles/blob/master/vim/rcplugins/ale-lint
 augroup plugin-ale
