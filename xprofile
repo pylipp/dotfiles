@@ -6,6 +6,6 @@
 setxkbmap -layout pylipp 2> /dev/null || setxkbmap de -variant nodeadkeys
 
 # swap Escape key and Capslock
-setxkbmap -option caps:swapescape
+setxkbmap -option caps:escape
 
 xrdb -load ~/.Xresources
