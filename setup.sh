@@ -98,6 +98,7 @@ install_core_utils() {
 
     echo_info "----------------------------------------------------------"
     echo_info "Installing fzf..."
+    install_packages coderay
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install --all
 
