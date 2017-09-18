@@ -23,4 +23,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
-autocmd BufWritePre * :call DeleteWhitespace()
+augroup cpp
+    autocmd!
+    autocmd BufWritePre * :call DeleteWhitespace()
+augroup END

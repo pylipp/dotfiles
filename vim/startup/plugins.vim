@@ -151,10 +151,13 @@ set statusline+=%*
 " make ALE linting less aggressive
 " from https://github.com/christoomey/dotfiles/blob/master/vim/rcplugins/ale-lint
 set updatetime=1000
-" autocmd CursorHold * call ale#Lint()
-" autocmd CursorHoldI * call ale#Lint()
-autocmd InsertLeave * call ale#Lint()
-autocmd TextChanged * call ale#Lint()
+augroup plugin-ale
+    autocmd!
+    autocmd InsertLeave * call ale#Lint()
+    autocmd TextChanged * call ale#Lint()
+    " autocmd CursorHold * call ale#Lint()
+    " autocmd CursorHoldI * call ale#Lint()
+augroup END
 let g:ale_lint_on_text_changed = 0
 
 " https://github.com/tomtom/tcomment_vim/issues/139
@@ -175,8 +178,8 @@ let g:vimtex_view_method = 'zathura'
 
 " https://github.com/lervag/vimtex/issues/537#issuecomment-249684619
 " open Vimtex compile output in tab and return to first tab
-augroup MyVimtex
-  au!
+augroup plugin-vimtex
+  autocmd!
   autocmd User VimtexEventCompileStarted 
     \   call vimtex#compiler#output() 
     \   | wincmd T | tabfirst

@@ -5,7 +5,10 @@ nnoremap <F5> :w <bar> exec '!python '.shellescape('%')<CR>
 map <leader>D Oimport pdb; pdb.set_trace()<Esc>
 map <leader>Q Oimport pdb; import QtCore; QtCore.pyqtRemoveInputHook(); pdb.set_trace()<Esc>
 
-autocmd BufWritePre * :call DeleteWhitespace()
+augroup python
+    autocmd!
+    autocmd BufWritePre * :call DeleteWhitespace()
+augroup END
 
 " Fold routines for python code, version 3.2
 " Source: http://www.vim.org/scripts/script.php?script_id=2527

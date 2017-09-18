@@ -70,30 +70,28 @@ let maplocalleader=" "
 " hide banner in builtin file browser
 let g:netrw_banner=0
 
-" automatically equalized splits when Vim is resized
-autocmd VimResized * wincmd =
-
 " automatically read and save modified buffers
 set autoread
 
-augroup autoSaveAndRead
+" define autocmd group to avoid reloading after repeated vimrc sourcing
+augroup vimrc
     autocmd!
-    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
-    autocmd CursorHold * silent! checktime
 augroup END
 
-" put in group for easy deletion
-augroup vimrcEx
-    autocmd!
+" automatically equalized splits when Vim is resized
+autocmd vimrc VimResized * wincmd =
 
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it for commit messages, when the position is invalid, or when
-    " inside an event handler (happens when dropping a file on gvim).
-    autocmd BufReadPost *
-        \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal g`\"" |
-        \ endif
-augroup END
+" automatically read and save modified buffers
+autocmd vimrc TextChanged,InsertLeave,FocusLost * silent! wall
+autocmd vimrc CursorHold * silent! checktime
+
+" When editing a file, always jump to the last known cursor position.
+" Don't do it for commit messages, when the position is invalid, or when
+" inside an event handler (happens when dropping a file on gvim).
+autocmd vimrc BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
 
 "
 " COLOR AND SYNTAX HIGHLIGHTING SETTINGS
