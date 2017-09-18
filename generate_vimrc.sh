@@ -1,7 +1,7 @@
 #/bin/bash 
+
+# TODO: move existing vimrc
 vimrc=$HOME/.vimrc
-echo "set nocompatible" > $vimrc
-echo >> $vimrc
 
 for file in settings functions mappings; do
     echo "source ~/.vim/startup/$file.vim" >> $vimrc 
