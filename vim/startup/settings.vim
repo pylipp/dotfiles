@@ -97,7 +97,10 @@ autocmd vimrc BufReadPost *
 " COLOR AND SYNTAX HIGHLIGHTING SETTINGS
 "
 
-syntax on       "enable syntax highlighting
+if !exists('g:syntax_on')
+    " https://stackoverflow.com/questions/33380451/is-there-a-difference-between-syntax-on-and-syntax-enable-in-vimscript
+    syntax enable       "enable syntax highlighting
+endif
 
 set t_Co=16
 if &term!="xterm-256color" && &term!="xterm" && &term!="screen"
