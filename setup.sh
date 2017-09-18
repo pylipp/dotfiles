@@ -115,11 +115,21 @@ install_i3() {
     echo_info "----------------------------------------------------------"
     install_packages i3 xautolock xorg xinit feh dunst imagemagick
 
+    # Dunst v1.1.0 misses a file; figured out by looking at the Makefile
+    # https://github.com/dunst-project/dunst/blob/master/Makefile
+    if [[ ! -e /usr/lib/systemd/user/dunst.service ]]; then
+        wget https://raw.githubusercontent.com/dunst-project/dunst/master/dunst.systemd.service.in
+        sed -i "s|##PREFIX##|/usr|" dunst.systemd.service.in
+        sudo chmod 644 dunst.systemd.service.in
+        sudo chown root:root dunst.systemd.service.in
+        sudo mv dunst.systemd.service.in /usr/lib/systemd/user/dunst.service
+    fi
+
     cd $HOME/software
     install_packages pkg-config libxcb1 libpam-dev libcairo-dev \
         libxcb-xinerama0-dev libev-dev libx11-dev libx11-xcb-dev libxkbcommon0 \
         libxkbcommon-x11-0 libxcb-dpms0-dev libxcb-image0-dev libxcb-util0-dev \
-        libxcb-xkb-dev libxkbcommon-x11-dev libxkbcommon-dev xterm
+        libxcb-xkb-dev libxkbcommon-x11-dev libxkbcommon-dev xterm dbus-x11
     git clone https://github.com/chrjguill/i3lock-color
     cd i3lock-color 
     sudo make install 
