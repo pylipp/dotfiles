@@ -6,4 +6,4 @@ au BufNewFile,BufRead *.gl,*.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 let g:xml_syntax_folding = 1
 au BufNewFile,BufRead *.xml,*.imf,*.iws setf xml
 "set wrap options
-au BufRead,BufNewFile *.html,*.xml,*.txt,README*,*.tex,*.md set wrap linebreak nolist textwidth=0 wrapmargin=0 colorcolumn=
+au BufRead,BufNewFile *.html,*.xml,*.txt,README*,*.tex,*.md setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 colorcolumn=
