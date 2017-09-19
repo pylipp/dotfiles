@@ -112,19 +112,19 @@ install_core_utils() {
 
 install_i3() {
     mkdir -p $HOME/software
+    cd $HOME/software
 
     echo_info "----------------------------------------------------------"
-    install_packages i3 xautolock xorg xinit feh dunst imagemagick
+    install_packages i3 xautolock xorg xinit feh imagemagick
 
-    # Dunst v1.1.0 misses a file; figured out by looking at the Makefile
-    # https://github.com/dunst-project/dunst/blob/master/Makefile
-    if [[ ! -e /usr/lib/systemd/user/dunst.service ]]; then
-        wget https://raw.githubusercontent.com/dunst-project/dunst/master/dunst.systemd.service.in
-        sed -i "s|##PREFIX##|/usr|" dunst.systemd.service.in
-        sudo chmod 644 dunst.systemd.service.in
-        sudo chown root:root dunst.systemd.service.in
-        sudo mv dunst.systemd.service.in /usr/lib/systemd/user/dunst.service
-    fi
+    # install dunst from source. v1.1.0 from the debian repos is outdated
+    install_packages libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk-3-dev libxdg-basedir-dev
+    git clone https://github.com/dunst-project/dunst
+    cd dunst
+    git checkout v1.2.0
+    make
+    sudo make install
+    
 
     cd $HOME/software
     install_packages pkg-config libxcb1 libpam-dev libcairo-dev \
