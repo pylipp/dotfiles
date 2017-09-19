@@ -127,6 +127,7 @@ if [ -f ~/.files/local_shrc ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.files/fzf_custom.zsh ] && source ~/.files/fzf_custom.zsh
 
 eval `dircolors ~/.dir_colors`
 
