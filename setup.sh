@@ -363,6 +363,8 @@ setup_links() {
     ln -s $HOME/.files/ptpython_config.py $HOME/.ptpython/config.py
     mkdir -p $HOME/.config/termite 
     ln -s $HOME/.files/termite_config $HOME/.config/termite/config
+    mkdir -p $HOME/.config/pudb
+    ln -s $HOME/.files/pudb.cfg $HOME/.config/pudb/pudb.cfg
 }
 
 
