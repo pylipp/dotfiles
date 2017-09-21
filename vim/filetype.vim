@@ -12,4 +12,9 @@ augroup filetypes
 
     " Options for text-like files. Global defaults should suffice
     autocmd BufRead,BufNewFile *.html,*.xml,*.txt,README*,*.tex,*.md setlocal linebreak
+
+    " enable dictionary completion with C-n/C-p by setting spelling langugage
+    autocmd FileType text setlocal spell spelllang=en_us complete+=k
+    autocmd FileType tex setlocal spell spelllang=en_us complete+=k
+    autocmd FileType markdown setlocal spell spelllang=en_us complete+=k
 augroup END
