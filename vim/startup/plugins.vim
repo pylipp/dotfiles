@@ -81,6 +81,8 @@ Plug 'tpope/tpope-vim-abolish'
 Plug 'tpope/vim-unimpaired'
 " template files
 Plug 'aperezdc/vim-template'
+" highlight word under cursor and its twins
+Plug 'dominikduda/vim_current_word'
 
 
 " All of your Plugs must be added before the following line
@@ -247,3 +249,5 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+highlight CurrentWord term=bold cterm=bold 
