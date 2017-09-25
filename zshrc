@@ -20,7 +20,6 @@ BULLETTRAIN_PROMPT_ORDER=(
     cmd_exec_time
 )
 BULLETTRAIN_TIME_BG="208"
-BULLETTRAIN_GIT_BG="251"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
