@@ -108,7 +108,7 @@ if !exists('g:syntax_on')
 endif
 
 set t_Co=16
-if &term!="xterm-256color" && &term!="xterm" && &term!="screen"
+if &term!="xterm-256color" && &term!="xterm" && &term!="screen" && &term!="st-256color"
     "gnome/mate-terminal
     set t_Co=256            " use 265 colors in vim
     let g:solarized_termcolors=256
