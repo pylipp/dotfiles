@@ -4,16 +4,6 @@ stty -ixon
 # VI input mode
 set -o vi
 
-# https://github.com/altercation/solarized/issues/159#issuecomment-5566892
-# People don't recommend exporting TERM in a shell rc. 
-# Doing so (without default-terminal="screen-256color" in .tmux.conf, with
-# t_Co=16 in .vimrc) gives TERM=screen in a tmux session. The session correctly
-# uses the solarized colors, however in vim, text has a bold appearance (colors
-# are same). Explicitly setting TERM solves this. Remember to run 
-#     xrdb -load ~/.Xresources 
-# when having tweaked xterm configs or after logging in.
-export TERM="xterm-256color"
-
 # set for i3-sensible-terminal
 export TERMINAL="st"
 
