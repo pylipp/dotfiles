@@ -274,27 +274,6 @@ install_termite() {
 }
 
 
-install_st() {
-    # https://st.suckless.org/ simple terminal
-    # toggle light/dark theme by F6
-    # zoom in/out via Alt-Shift-PageUp/Down
-    # copy/paste via Alt-Shift-C/V
-    mkdir -p $HOME/software
-    cd $HOME/software
-    git clone https://github.com/katie-jones/st
-    # toggle light/dark theme by F6
-    cd st
-    git co stable
-    ./apply-patches.sh
-    install_packages libxft-dev
-    # obtain custom config file
-    make config.h
-    # change font size to 13
-    sed -i -r 's/(static char font[] = "[[:alpha:]]+:.*pixelsize=)[[:digit:]][[:digit:]](.*)/\113\2/' config.h
-    sudo make clean install
-}
-
-
 install_powerline_font_xterm() {
     mkdir -p $HOME/software
 
