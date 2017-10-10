@@ -1,3 +1,8 @@
+if exists('b:custom_tex')
+    finish
+endif
+let b:custom_tex=1
+
 " from http://vim-latex.sourceforge.net/documentation/latex-suite/recommended-settings.html
 " this is mostly a matter of taste. but LaTeX looks good with just a bit
 " of indentation.

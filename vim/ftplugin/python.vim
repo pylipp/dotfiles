@@ -1,3 +1,8 @@
+if exists('b:custom_python')
+    finish
+endif
+let b:custom_python=1
+
 setlocal textwidth=80
 setlocal colorcolumn=81
 
