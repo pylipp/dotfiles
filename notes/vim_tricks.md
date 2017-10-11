@@ -105,3 +105,8 @@ Cursor positioned inside the text object.
 - zw: remove word from dictionary
 - z=: correct suggestions for word under cursor
 - [s, ]s: navigate to previous/next spell error
+
+### Format paragraph (textwidth etc)
+
+- gqip leaves cursor at current position
+- gwip moves cursor ahead
