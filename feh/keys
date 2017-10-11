@@ -1,2 +1,6 @@
 zoom_in  plus
 zoom_out minus
+
+# swap keys so that fullscreen is mapped (more intuitively) to f
+toggle_fullscreen f
+save_filelist v
