@@ -1,3 +1,6 @@
+# start feh with custom action for save (re)moving
+alias feh='feh --action1="mv %f /tmp"'
+
 alias svn='colorsvn'
 
 alias ag='ag -p ~/.files/gitignore_global'
