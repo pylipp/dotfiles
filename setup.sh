@@ -106,7 +106,10 @@ install_core_utils() {
     pip install --user tmuxp
 
     # make automounted devices readable for user
-    sudo sed -i -r 's/(FS_MOUNTOPTIONS=").*"/\1uid=1000,gid=1000"/' /etc/usbmount/usbmount.conf
+    # https://unix.stackexchange.com/a/155689/192726
+    if [[ -e /etc/usbmount/usbmount.conf ]]; then
+        sudo sed -i -r 's/(^MOUNTOPTIONS=".*)"/\1,uid=1000,gid=1000"/' /etc/usbmount/usbmount.conf
+    fi
 }
 
 
