@@ -3,10 +3,10 @@
 "
 
 " key mappings for switching between multiple windows
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 
 if has("nvim")
@@ -20,9 +20,9 @@ endif
 
 
 " save file as sudo
-cmap w!! w !sudo tee > /dev/null %
+cnoremap w!! w !sudo tee > /dev/null %
 
-map Y y$
+noremap Y y$
 noremap , ;
 noremap ; ,
 

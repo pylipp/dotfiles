@@ -154,8 +154,8 @@ augroup END
 let g:ale_lint_on_text_changed = 0
 
 " https://github.com/tomtom/tcomment_vim/issues/139
-noremap <silent> gC :set opfunc=ToggleComment<CR>g@
-vnoremap <silent> gC :<C-U>call ToggleComment(visualmode())<CR>
+nnoremap <silent> gC :set opfunc=ToggleComment<CR>g@
+xnoremap <silent> gC :<C-U>call ToggleComment(visualmode())<CR>
 
 function! ToggleComment(type)
     " motion
@@ -186,7 +186,7 @@ if executable('ag')
 endif
 
 " fzf.vim mappings
-noremap <C-p> :Files<CR>
+nnoremap <C-p> :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 
 let g:fzf_action = {
@@ -195,7 +195,7 @@ let g:fzf_action = {
             \ 'ctrl-t': 'tab split' }
 
 " altr-vim mappings, mnemonic: SourceHeader
-nmap <leader>sh <Plug>(altr-forward)
+nnoremap <leader>sh <Plug>(altr-forward)
 
 nnoremap <leader>se :set spell! spelllang=en_us<CR>
 nnoremap <leader>sd :set spell! spelllang=de_20<CR>
