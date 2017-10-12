@@ -62,3 +62,8 @@ man() {
     # vim -c "Man $1 $2" -c "silent only" #requires vim-man plugin
     PAGER="/bin/sh -c \"col -b | vim -R -c 'set ft=man' -\"" command man "$@"
 }
+
+installed() {
+    # check for installed package; all options passed to fzf
+    dpkg --list | fzf --multi "$@"
+}
