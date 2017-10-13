@@ -109,12 +109,6 @@ endif
 
 let g:solarized_termcolors=16
 set t_Co=16
-" TODO test in gnome-terminal if I can get rid of this
-if &term!="xterm-256color" && &term!="xterm" && &term!="screen" && &term!="st-256color" && &term!="screen-256color"
-    "gnome/mate-terminal
-    set t_Co=256            " use 265 colors in vim
-    let g:solarized_termcolors=256
-endif
 colorscheme solarized " an appropriate color scheme
 
 " highlight errors in bold, underlined red font
