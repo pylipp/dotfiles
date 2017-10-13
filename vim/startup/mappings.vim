@@ -2,13 +2,6 @@
 " CUSTOM MAPPINGS
 "
 
-" key mappings for switching between multiple windows
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-
 if has("nvim")
     " Neovim terminal key mappings, see :help terminal-emulator-input
     tnoremap <Esc> <C-\><C-n>
