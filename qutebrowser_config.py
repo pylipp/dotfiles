@@ -27,3 +27,6 @@ c.tabs.padding = {'top': 2, 'left': 5, 'bottom': 2, 'right': 5}
 #   - left
 #   - right
 c.tabs.position = 'top'
+
+# Bindings for normal mode
+config.bind('<ctrl+\\>', 'tab-focus last')
