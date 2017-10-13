@@ -17,7 +17,7 @@ c.editor.command = ['st', '-e', '/usr/bin/vim', '{}']
 
 # Padding around text for tabs
 # Type: Padding
-c.tabs.padding = {'bottom': 2, 'left': 5, 'right': 5, 'top': 2}
+c.tabs.padding = {'top': 2, 'left': 5, 'bottom': 2, 'right': 5}
 
 # The position of the tab bar.
 # Type: Position
@@ -26,4 +26,4 @@ c.tabs.padding = {'bottom': 2, 'left': 5, 'right': 5, 'top': 2}
 #   - bottom
 #   - left
 #   - right
-c.tabs.position = 'left'
+c.tabs.position = 'top'
