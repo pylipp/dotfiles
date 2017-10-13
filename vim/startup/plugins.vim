@@ -58,8 +58,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " asynchronous linting
 Plug 'w0rp/ale'
-" continuously update session files 
-Plug 'tpope/vim-obsession'
 " swap between eponymous files with different extensions (C++ header/src)
 Plug 'kana/vim-altr'
 " instant markdown preview in browser
