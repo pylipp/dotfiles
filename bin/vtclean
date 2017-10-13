@@ -1,0 +1,5 @@
+#!/bin/bash
+
+vim +PlugClean +qa < /dev/tty
+
+~/.tmux/plugins/tpm/bin/clean_plugins
