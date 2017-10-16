@@ -110,6 +110,9 @@ install_core_utils() {
     if [[ -e /etc/usbmount/usbmount.conf ]]; then
         sudo sed -i -r 's/(^MOUNTOPTIONS=".*)"/\1,uid=1000,gid=1000"/' /etc/usbmount/usbmount.conf
     fi
+
+    # make zathura default application to open pdfs using xdg-open
+    xdg-mime default zathura.desktop application/pdf
 }
 
 
