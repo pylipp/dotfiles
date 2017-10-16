@@ -10,14 +10,27 @@
 # Type: Bool
 c.auto_save.session = True
 
+# Background color of selected even tabs.
+# Type: QtColor
+c.colors.tabs.selected.even.bg = 'darkorange'
+
+# Background color of selected odd tabs.
+# Type: QtColor
+c.colors.tabs.selected.odd.bg = 'darkorange'
+
 # The editor (and arguments) to use for the `open-editor` command. `{}`
 # gets replaced by the filename of the file to be edited.
 # Type: ShellCommand
 c.editor.command = ['st', '-e', '/usr/bin/vim', '{}']
 
+# Automatically enter insert mode if an editable element is focused
+# after loading the page.
+# Type: Bool
+c.input.insert_mode.auto_load = True
+
 # Padding around text for tabs
 # Type: Padding
-c.tabs.padding = {'top': 2, 'left': 5, 'bottom': 2, 'right': 5}
+c.tabs.padding = {'top': 2, 'bottom': 2, 'right': 5, 'left': 5}
 
 # The position of the tab bar.
 # Type: Position
@@ -26,7 +39,7 @@ c.tabs.padding = {'top': 2, 'left': 5, 'bottom': 2, 'right': 5}
 #   - bottom
 #   - left
 #   - right
-c.tabs.position = 'top'
+c.tabs.position = 'bottom'
 
 # Bindings for normal mode
 config.bind('<ctrl+\\>', 'tab-focus last')
