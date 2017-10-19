@@ -341,6 +341,8 @@ setup_links() {
     ln -s $HOME/.files/pudb.cfg $HOME/.config/pudb/pudb.cfg
     mkdir -p $HOME/.config/feh
     ln -s $HOME/.files/feh $HOME/.config/feh
+    mkdir -p $HOME/.local/share
+    ln -s $HOME/.files/local/share/applications $HOME/.local/share/applications
 }
 
 
