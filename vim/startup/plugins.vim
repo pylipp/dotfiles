@@ -186,6 +186,7 @@ endif
 " fzf.vim mappings
 nnoremap <C-p> :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <leader>a :Ag<CR>
 
 let g:fzf_action = {
             \ 'ctrl-s': 'split', 
@@ -193,7 +194,7 @@ let g:fzf_action = {
             \ 'ctrl-t': 'tab split' }
 
 " altr-vim mappings, mnemonic: SourceHeader
-nnoremap <leader>sh <Plug>(altr-forward)
+nnoremap <leader>sh :call altr#forward()<CR>
 
 nnoremap <leader>se :set spell! spelllang=en_us<CR>
 nnoremap <leader>sd :set spell! spelllang=de_20<CR>
