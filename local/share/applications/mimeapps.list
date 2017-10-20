@@ -3,3 +3,4 @@
 application/pdf=zathura.desktop
 image/jpeg=feh.desktop
 image/png=feh.desktop
+text/html=qutebrowser.desktop
