@@ -1,12 +1,7 @@
 # start feh with custom action for save (re)moving
 alias feh='feh --action1="mv %f /tmp" --scale-down'
 
-alias svn='colorsvn'
-
 alias ag='ag -p ~/.files/gitignore_global'
-
-alias ipp='ipython --pylab'
-alias gitkall='gitk --all'
 
 # http://stackoverflow.com/questions/20327621/calling-ipython-from-a-virtualenv
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
@@ -18,11 +13,6 @@ alias pbpaste='xclip -o -selection c '
 
 # repeat definition for zsh
 alias ll='ls -alF'
-
-# remap Mate commands to Ubuntu commands
-command -v evince >/dev/null 2>&1 || alias evince='atril'
-command -v eog >/dev/null 2>&1 || alias eog='eom'
-command -v nautilus >/dev/null 2>&1 || alias nautilus='caja'
 
 # some shortcuts for handling VMs
 # docs: https://www.virtualbox.org/manual/ch08.html
