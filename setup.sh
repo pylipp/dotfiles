@@ -320,7 +320,7 @@ setup_links() {
     echo_info "Setting up symbolic links to .files..."
     cd $HOME
     for rcfile in ycm_extra_conf.py gitconfig bashrc zshrc tmux.conf i3 \
-        Xresources xinitrc dir_colors latexmkrc pylintrc tigrc direnvrc \
+        xinitrc dir_colors latexmkrc pylintrc tigrc direnvrc \
         pythonrc mailcap vimperatorrc profile zprofile xprofile tmuxp \
         vintrc.yaml
     do
