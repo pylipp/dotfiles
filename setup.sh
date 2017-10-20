@@ -266,6 +266,8 @@ install_termite() {
     sudo mkdir -p /lib/terminfo/x
     sudo cp termite.terminfo /lib/terminfo/x/xterm-termite
     tic -x termite.terminfo
+    mkdir -p $HOME/.config/termite 
+    ln -s $HOME/.files/termite_config $HOME/.config/termite/config
 }
 
 
@@ -321,7 +323,7 @@ setup_links() {
     cd $HOME
     for rcfile in ycm_extra_conf.py gitconfig bashrc zshrc tmux.conf i3 \
         xinitrc dir_colors latexmkrc pylintrc tigrc direnvrc \
-        pythonrc mailcap vimperatorrc profile zprofile xprofile tmuxp \
+        pythonrc mailcap profile zprofile xprofile tmuxp \
         vintrc.yaml
     do
         link_name="."$rcfile
@@ -335,8 +337,6 @@ setup_links() {
     ln -s $HOME/.files/zathurarc $HOME/.config/zathura/zathurarc
     mkdir -p $HOME/.ptpython 
     ln -s $HOME/.files/ptpython_config.py $HOME/.ptpython/config.py
-    mkdir -p $HOME/.config/termite 
-    ln -s $HOME/.files/termite_config $HOME/.config/termite/config
     mkdir -p $HOME/.config/pudb
     ln -s $HOME/.files/pudb.cfg $HOME/.config/pudb/pudb.cfg
     mkdir -p $HOME/.config/feh
