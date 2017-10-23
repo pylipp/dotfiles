@@ -24,14 +24,16 @@ Some of these are not installed with `install_complete`. See `setup.sh` for spec
 Functionality | Program name | Notes
 ------------- | ------------ | -----
 Window manager | `i3` | using bumblebee status line
-Terminal | `xterm`/`gnome-terminal` | solarized color scheme
+Terminal | `st` | solarized color scheme
 Shell | `zsh` | themes and goodies from `oh-my-zsh`
 Terminal multiplexer | `tmux` | plugins loaded by `tpm`; custom session defined with `tmuxp`
 VCS | `git` | additionally using `hub` for managing github workflows from the CL and `tig` for a git-log TUI
-Editor | `vim` | built from source, see [vim/startup]() for personal settings
+Editor | `vim` | built from source, see [vim/startup](https://github.com/pylipp/dotfiles/tree/master/vim/startup) for personal settings
 Python development | `virtualenvwrapper` |
 Python REPL | `ptpython` | vi-like editing; usually installing it in venvs
+Python Debugger | `pudb` | vi-like editing; usually installing it in venvs
 Auto environment loading | `direnv` | handy for activating venvs
+Webbrowser | `qutebrowser` | vi-like key bindings
 PDF reader | `zathura` | 
 In-file search | `ag` |
 Command-line utility | `fzf` |
