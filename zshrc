@@ -37,8 +37,8 @@ BULLETTRAIN_TIME_BG="208"
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# Uncomment the following line to disable auto-setting terminal title (required by e.g. tmuxp)
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -105,9 +105,6 @@ setopt correct
 
 # http://unix.stackexchange.com/questions/126719/how-to-disable-auto-cd-in-zsh-with-oh-my-zsh
 unsetopt AUTO_CD
-
-# setting for tmuxp
-export DISABLE_AUTO_TITLE='true'
 
 # Ignore duplicates and commands starting with whitespace; https://wiki.gentoo.org/wiki/Zsh/Guide#Prompts
 setopt hist_ignore_all_dups
