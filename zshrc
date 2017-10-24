@@ -109,6 +109,10 @@ unsetopt AUTO_CD
 # setting for tmuxp
 export DISABLE_AUTO_TITLE='true'
 
+# Ignore duplicates and commands starting with whitespace; https://wiki.gentoo.org/wiki/Zsh/Guide#Prompts
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+
 if [ -f ~/.files/bash_aliases ]; then
     . ~/.files/bash_aliases
 fi
