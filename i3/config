@@ -30,7 +30,7 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal &
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -134,7 +134,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exit
 # lock i3
 # bindsym $mod+Shift+x i3lock
-exec xautolock -time 15 -locker '~/.i3/i3lock-fancy/lock -p -- scrot -z'
+exec xautolock -time 15 -locker '~/.i3/i3lock-fancy/lock -p -- scrot -z' &
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -186,10 +186,10 @@ bar {
 bindsym $mod+n workspace back_and_forth
 
 #exec --no-startup-id display-visor -f -l --screen0 VGA-1 --screen1 LVDS-1
-exec --no-startup-id ~/.screenlayout/dual-screen.sh
-exec --no-startup-id nm-applet
-exec --no-startup-id dunst
-exec --no-startup-id ~/.i3/check_battery.bash
+exec --no-startup-id ~/.screenlayout/dual-screen.sh &
+# exec --no-startup-id nm-applet
+exec --no-startup-id dunst &
+exec --no-startup-id ~/.i3/check_battery.bash &
 
 # get running sink via
 # pactl list sinks | grep -B 1 RUNNING | grep Sink | cut -d"#" -f2
