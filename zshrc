@@ -130,7 +130,7 @@ fi
 [ -f ~/.files/fzf_custom.zsh ] && source ~/.files/fzf_custom.zsh
 [ -f ~/.files/grc.zsh ] && source ~/.files/grc.zsh
 
-eval `dircolors ~/.dir_colors`
+[ -f ~/.dir_colors ] && eval `dircolors ~/.dir_colors`
 
 # General, safe setup for bash/zsh acc. to https://direnv.net/ (section Setup)
 command -v direnv >/dev/null 2>&1 && eval "$(direnv hook $(basename $SHELL))"
