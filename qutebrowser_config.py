@@ -43,3 +43,5 @@ c.tabs.position = 'bottom'
 
 # Bindings for normal mode
 config.bind('<ctrl+\\>', 'tab-focus last')
+config.bind('<ctrl+r>', 'reload')
+config.bind('gT', 'set-cmd-text -s :open -t !dcc')
