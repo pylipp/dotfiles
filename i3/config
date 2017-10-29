@@ -94,13 +94,10 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1 firefox"
-set $workspace2 "2 terminals"
-
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+b workspace $workspace1
-bindsym $mod+2 workspace $workspace2
+bindsym $mod+1 workspace 1
+bindsym $mod+b workspace 1  # because that's where the Browser usually is
+bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
@@ -111,8 +108,8 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
@@ -124,7 +121,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # force some applications to open in their assigned workspace
 # fetch class from xprop output
-# assign [class="Firefox"] $workspace1
+# assign [class="Firefox"] 1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
