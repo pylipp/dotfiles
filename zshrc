@@ -128,6 +128,7 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.files/fzf_custom.zsh ] && source ~/.files/fzf_custom.zsh
+[ -f ~/.files/grc.zsh ] && source ~/.files/grc.zsh
 
 eval `dircolors ~/.dir_colors`
 
