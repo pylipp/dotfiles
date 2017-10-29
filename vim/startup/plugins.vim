@@ -208,9 +208,9 @@ let g:vim_markdown_preview_toggle=3
 let g:indentLine_faster = 1
 " let g:indentLine_setConceal = 0
 
-let g:UltiSnipsExpandTrigger='<C-j>'
-let g:UltiSnipsJumpForwardTrigger='<C-j>'
-let g:UltiSnipsJumpBackwardTrigger='<C-k>'
+let g:UltiSnipsExpandTrigger='<C-s>'
+let g:UltiSnipsJumpForwardTrigger='<C-s>'
+let g:UltiSnipsJumpBackwardTrigger='<C-S-s>'
 let g:UltiSnipsEditSplit = 'vertical'
 "let g:UltiSnipsSnippetsDir = '~/.files/snippets'
 
