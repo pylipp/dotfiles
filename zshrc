@@ -10,17 +10,6 @@
 # I tried: agnoster, bullet-train, spaceship, avit
 ZSH_THEME="bullet-train"
 
-# kick out time and custom from default settings
-BULLETTRAIN_PROMPT_CHAR=">"
-BULLETTRAIN_PROMPT_ORDER=(
-    status
-    dir
-    virtualenv
-    git
-    cmd_exec_time
-)
-BULLETTRAIN_TIME_BG="208"
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 

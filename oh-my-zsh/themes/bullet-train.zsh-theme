@@ -9,6 +9,43 @@
 # Terminal.app - it has significantly better color fidelity.
 
 # ------------------------------------------------------------------------------
+# CUSTOM CONFIGURATION
+# placed here to avoid cluttering .zshrc
+# - substitute powerline symbols
+# - git symbol colors match git status colors
+# ------------------------------------------------------------------------------
+BULLETTRAIN_PROMPT_CHAR=">"
+BULLETTRAIN_PROMPT_ORDER=(
+    status
+    dir
+    virtualenv
+    git
+    cmd_exec_time
+)
+BULLETTRAIN_SOLARIZED_DARK_BG="8"
+BULLETTRAIN_DIR_BG=$BULLETTRAIN_SOLARIZED_DARK_BG
+BULLETTRAIN_DIR_FG=blue
+BULLETTRAIN_VIRTUALENV_BG=$BULLETTRAIN_SOLARIZED_DARK_BG
+BULLETTRAIN_VIRTUALENV_FG="9"
+BULLETTRAIN_VIRTUALENV_PREFIX=""
+BULLETTRAIN_GIT_BG=$BULLETTRAIN_SOLARIZED_DARK_BG
+BULLETTRAIN_GIT_FG="12"
+BULLETTRAIN_GIT_PREFIX=""
+BULLETTRAIN_GIT_DIRTY=""
+BULLETTRAIN_GIT_CLEAN=" %F{green}V%F{$BULLETTRAIN_GIT_FG}"
+BULLETTRAIN_GIT_ADDED=" %F{yellow}+%F{$BULLETTRAIN_GIT_FG}"
+BULLETTRAIN_GIT_MODIFIED=" %F{red}~%F{$BULLETTRAIN_GIT_FG}"
+BULLETTRAIN_GIT_DELETED=" %F{red}x%F{$BULLETTRAIN_GIT_FG}"
+BULLETTRAIN_GIT_UNTRACKED=" %F{cyan}*%F{$BULLETTRAIN_GIT_FG}"
+BULLETTRAIN_GIT_RENAMED=" >"
+BULLETTRAIN_GIT_UNMERGED=" ="
+BULLETTRAIN_GIT_AHEAD=" ^"
+BULLETTRAIN_GIT_BEHIND=" v"
+BULLETTRAIN_GIT_PROMPT_DIVERGED=" Y"
+BULLETTRAIN_EXEC_TIME_BG=$BULLETTRAIN_SOLARIZED_DARK_BG
+BULLETTRAIN_EXEC_TIME_FG=yellow
+
+# ------------------------------------------------------------------------------
 # CONFIGURATION
 # The default configuration, that can be overwrite in your .zshrc file
 # ------------------------------------------------------------------------------
@@ -23,6 +60,7 @@ if [ ! -n "${BULLETTRAIN_PROMPT_ORDER+1}" ]; then
     custom
     context
     dir
+    screen
     perl
     ruby
     virtualenv
@@ -275,6 +313,17 @@ else
   ZSH_THEME_GIT_PROMPT_DIVERGED=$BULLETTRAIN_GIT_PROMPT_DIVERGED
 fi
 
+# SCREEN
+if [ ! -n "${BULLETTRAIN_SCREEN_BG+1}" ]; then
+  BULLETTRAIN_SCREEN_BG=white
+fi
+if [ ! -n "${BULLETTRAIN_SCREEN_FG+1}" ]; then
+  BULLETTRAIN_SCREEN_FG=black
+fi
+if [ ! -n "${BULLETTRAIN_SCREEN_PREFIX+1}" ]; then
+  BULLETTRAIN_SCREEN_PREFIX="⬗"
+fi
+
 # COMMAND EXECUTION TIME
 if [ ! -n "${BULLETTRAIN_EXEC_TIME_ELAPSED+1}" ]; then
   BULLETTRAIN_EXEC_TIME_ELAPSED=5
@@ -293,7 +342,7 @@ fi
 # ------------------------------------------------------------------------------
 
 CURRENT_BG='NONE'
-SEGMENT_SEPARATOR=''
+SEGMENT_SEPARATOR=''
 
 # Begin a segment
 # Takes three arguments, background, foreground and text. All of them can be omitted,
@@ -365,7 +414,7 @@ precmd() {
 }
 
 prompt_cmd_exec_time() {
-  [ $BULLETTRAIN_last_exec_duration -gt $BULLETTRAIN_EXEC_TIME_ELAPSED ] && prompt_segment $BULLETTRAIN_EXEC_TIME_BG $BULLETTRAIN_EXEC_TIME_FG "$(displaytime $BULLETTRAIN_last_exec_duration)"
+  [ $BULLETTRAIN_last_exec_duration -gt $BULLETTRAIN_EXEC_TIME_ELAPSED ] && prompt_segment $BULLETTRAIN_EXEC_TIME_BG $BULLETTRAIN_EXEC_TIME_FG "<$(displaytime $BULLETTRAIN_last_exec_duration)>"
 }
 
 # Custom
@@ -397,9 +446,9 @@ prompt_git() {
 
     eval git_prompt=${BULLETTRAIN_GIT_PROMPT_CMD}
     if [[ $BULLETTRAIN_GIT_EXTENDED == true ]]; then
-      echo -n ${git_prompt}$(git_prompt_status)
+      echo -n "["${git_prompt}$(git_prompt_status)"]"
     else
-      echo -n ${git_prompt}
+      echo -n "["${git_prompt}"]"
     fi
   fi
 }
@@ -510,7 +559,7 @@ prompt_go() {
 prompt_virtualenv() {
   local virtualenv_path="$VIRTUAL_ENV"
   if [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
-    prompt_segment $BULLETTRAIN_VIRTUALENV_BG $BULLETTRAIN_VIRTUALENV_FG $BULLETTRAIN_VIRTUALENV_PREFIX" $(basename $virtualenv_path)"
+    prompt_segment $BULLETTRAIN_VIRTUALENV_BG $BULLETTRAIN_VIRTUALENV_FG $BULLETTRAIN_VIRTUALENV_PREFIX"($(basename $virtualenv_path))"
   elif which pyenv &> /dev/null; then
     prompt_segment $BULLETTRAIN_VIRTUALENV_BG $BULLETTRAIN_VIRTUALENV_FG $BULLETTRAIN_VIRTUALENV_PREFIX" $(pyenv version | sed -e 's/ (set.*$//' | tr '\n' ' ' | sed 's/.$//')"
   fi
@@ -540,6 +589,14 @@ prompt_aws() {
   fi
 }
 
+# SCREEN Session
+prompt_screen() {
+  local session_name="$STY"
+  if [[ "$session_name" != "" ]]; then
+    prompt_segment $BULLETTRAIN_SCREEN_BG $BULLETTRAIN_SCREEN_FG $BULLETTRAIN_SCREEN_PREFIX" $session_name"
+  fi
+}
+
 prompt_time() {
   if [[ $BULLETTRAIN_TIME_12HR == true ]]; then
     prompt_segment $BULLETTRAIN_TIME_BG $BULLETTRAIN_TIME_FG %D{%r}
@@ -555,10 +612,10 @@ prompt_time() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 && $BULLETTRAIN_STATUS_EXIT_SHOW != true ]] && symbols+="✘"
-  [[ $RETVAL -ne 0 && $BULLETTRAIN_STATUS_EXIT_SHOW == true ]] && symbols+="✘ $RETVAL"
-  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡%f"
-  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="⚙"
+  [[ $RETVAL -ne 0 && $BULLETTRAIN_STATUS_EXIT_SHOW != true ]] && symbols+="X"
+  [[ $RETVAL -ne 0 && $BULLETTRAIN_STATUS_EXIT_SHOW == true ]] && symbols+="X $RETVAL"
+  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}!%f"
+  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="&"
 
   if [[ -n "$symbols" && $RETVAL -ne 0 ]]; then
     prompt_segment $BULLETTRAIN_STATUS_ERROR_BG $BULLETTRAIN_STATUS_FG "$symbols"
