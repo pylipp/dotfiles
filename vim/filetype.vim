@@ -10,6 +10,8 @@ augroup filetypes
     "xml syntax highlighting
     autocmd BufNewFile,BufRead *.xml,*.imf,*.iws setf xml
 
+    autocmd BufNewFile,BufRead *.ino,*.pde setf cpp
+
     " Options for text-like files. Global defaults should suffice
     autocmd BufRead,BufNewFile *.html,*.xml,*.txt,README*,*.tex,*.md setlocal linebreak
 
