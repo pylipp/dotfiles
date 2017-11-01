@@ -271,7 +271,7 @@ install_termite() {
 }
 
 
-install_powerline_font_xterm() {
+install_powerline_font() {
     mkdir -p $HOME/software
 
     # https://powerline.readthedocs.io/en/latest/installation/linux.html#fonts-installation
@@ -281,8 +281,9 @@ install_powerline_font_xterm() {
     mkdir -p ~/.local/share/fonts
     cp fonts/DejaVuSansMono/"DejaVu Sans Mono for Powerline.ttf" ~/.local/share/fonts
     fc-cache -v -f ~/.local/share/fonts
-    # maybe not required?
+    # not consistent across distros, hence set links
     ln -s ~/.local/share/fonts ~/.fonts
+    ln -s ~/.config/fontconfig/conf.d ~/.fonts.conf.d
 }
 
 
