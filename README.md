@@ -39,3 +39,8 @@ In-file search | `ag` |
 Command-line utility | `fzf` |
 Tex utility | `latexmk` |
 Qt-Editor | `qtcreator` |
+
+## TODOs
+
+- dissect `setup.sh` into smaller installation scripts
+- bumblebee status in venv
