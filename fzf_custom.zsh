@@ -19,4 +19,4 @@ fzf-vim-widget() {
 
 # register widget and assign keybinding
 zle -N fzf-vim-widget
-bindkey '^P' fzf-vim-widget
+#bindkey '^P' fzf-vim-widget
