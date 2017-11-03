@@ -184,7 +184,8 @@ endif
 
 " fzf.vim mappings
 nnoremap <C-p> :Files<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
+" mnemonic: Jump to buffer
+nnoremap <silent> <leader>j :Buffers<CR>
 nnoremap <leader>a :Ag<CR>
 
 let g:fzf_action = {
