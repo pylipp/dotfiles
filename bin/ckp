@@ -1,0 +1,44 @@
+#!/bin/bash
+# https://stackoverflow.com/a/14505895/3865876
+"exec" "$WORKON_HOME/pykeepass/bin/python" "$0" "$@"
+
+# Script to temporarily Copy Keepass Password to system clipboard
+# Requirements in 'pykeepass' venv: pip install pykeepass==2.7.2 pyperclip==1.5.32
+
+import getpass
+import sys
+import os
+import time
+
+from pykeepass import PyKeePass
+import pyperclip
+
+# prompt until user gives correct master password
+while True:
+    password = getpass.getpass()
+    try:
+        kp = PyKeePass(os.path.expanduser("~/.database.kdbx"), password=password)
+        break
+    except IOError:
+        print("Invalid password. Try again.", file=sys.stderr)
+
+# find entry given by command line argument
+try:
+    entry_name = sys.argv[1]
+    entry = kp.find_entries_by_title(entry_name, first=True)
+    message = "Entry '{}' not found. ".format(entry_name)
+except IndexError:
+    entry = None
+    message = ""
+
+if entry is None:
+    # print entry titles in database
+    print("{}Choose from:".format(message), file=sys.stderr)
+    print('\n'.join(("{e.title} ({e.username})".format(e=e) for e in kp.entries)),
+        file=sys.stderr)
+    sys.exit(1)
+else:
+    # copy password to clipboard; clear after ten seconds
+    pyperclip.copy(entry.password)
+    time.sleep(10)
+    pyperclip.copy("")
