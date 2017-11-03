@@ -4,4 +4,4 @@ if [[ -z $PATTERN ]]; then
   PATTERN='TODO|FIXME'
 fi
 
-awk 'match($0, /^.*('$PATTERN'):?\s?(.*)$/, ary) {print FILENAME":"FNR":"ary[1]":"ary[2]}' $@
+gawk 'match($0, /^.*('$PATTERN'):?\s?(.*)$/, ary) {print FILENAME":"FNR":"ary[1]":"ary[2]}' $@
