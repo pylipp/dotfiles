@@ -77,6 +77,11 @@ nnoremap <leader>dw :call DeleteWhitespace()<CR>
 "
 " MY VIM KEYMAPPINGS
 "
+
+" Open :h in new tab; https://stackoverflow.com/a/3132202/3865876
+cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
+
+
 " F1
 " F2  c | toggle NerdTreeWindow
 " F3  c | toggle TagBar
