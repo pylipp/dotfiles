@@ -227,8 +227,8 @@ let g:fzf_action = {
 " altr-vim mappings, mnemonic: SourceHeader
 nnoremap <leader>sh :call altr#forward()<CR>
 
-nnoremap <leader>se :set spell! spelllang=en_us<CR>
-nnoremap <leader>sd :set spell! spelllang=de_20<CR>
+nnoremap <leader>se :setlocal spell spelllang=en_us<CR>
+nnoremap <leader>sd :setlocal spell spelllang=de_20<CR>
 
 " vim-markdown-preview settings (requires see, ~/.mailcap)
 let g:vim_markdown_preview_hotkey='<leader>mp'
