@@ -141,6 +141,7 @@ let g:ycm_semantic_triggers = {
 
 " make ALE linting less aggressive
 " from https://github.com/christoomey/dotfiles/blob/master/vim/rcplugins/ale-lint
+" ALE populates the loclist; use [l, ]l from vim-unimpaired for navigating
 augroup plugin-ale
     autocmd!
     autocmd InsertLeave * call ale#Lint()
@@ -149,6 +150,12 @@ augroup plugin-ale
     " autocmd CursorHoldI * call ale#Lint()
 augroup END
 let g:ale_lint_on_text_changed = 0
+let g:ale_sign_error = 'E>'
+let g:ale_sign_warning = 'W>'
+let g:ale_echo_msg_format = '[%linter%] %s'
+let g:ale_linters = {
+    \'python': ['flake8',],
+    \}
 
 " https://github.com/tomtom/tcomment_vim/issues/139
 nnoremap <silent> gC :set opfunc=ToggleComment<CR>g@
