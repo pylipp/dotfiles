@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+
+import subprocess
+import time
+import os.path
+import sys
+
+
+def _init():
+    """Query task from user and start background process."""
+    new_task = input("What do you want to work on? ").strip()
+
+    if not new_task:
+        return
+
+    # runs in the background because no reference is kept
+    # https://stackoverflow.com/a/7224186/3865876
+    subprocess.Popen([os.path.abspath(__file__), new_task])
+
+
+def _notify_send(message, urgency="critical"):
+    subprocess.Popen(["notify-send", "-u", urgency, message])
+
+
+def _run_daemon(task, minutes=60):
+    """Periodically nag about the given task. Messages are cycled."""
+    interval = 60 * 15
+    total_seconds = 60 * int(minutes)
+
+    messages = [
+            "Go start work on '{}'!",
+            "Distracted? Focus on '{}'!",
+            "Hej, still working on '{}'?",
+            "Keep going, dude! '{}' is almost done.",
+            ]
+
+    m = 0
+    while total_seconds > 0:
+        _notify_send(messages[m % len(messages)].format(task))
+        time.sleep(min([total_seconds, interval]))
+        total_seconds -= interval
+        m += 1
+
+    _notify_send("Time to focus on something else?!")
+
+
+if __name__ == "__main__":
+    """Usage:
+        focusalready
+        # or (runs background job, only way to specify focus duration):
+        focusalready TASK MINUTES &
+    """
+    if len(sys.argv) > 1:
+        _run_daemon(*sys.argv[1:])
+    else:
+        _init()
