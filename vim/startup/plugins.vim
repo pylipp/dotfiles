@@ -183,10 +183,41 @@ if executable('ag')
 endif
 
 " fzf.vim mappings
-nnoremap <C-p> :Files<CR>
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+nnoremap <leader>f :Files<CR>
+
 " mnemonic: Jump to buffer
 nnoremap <silent> <leader>j :Buffers<CR>
+
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
 nnoremap <leader>a :Ag<CR>
+
+" http://www.wezm.net/technical/2016/09/ripgrep-with-vim/
+command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'ag --column --line-number --color --ignore-case '.shellescape(<q-args>), 1,
+      \   <bang>0)
+nnoremap <leader>r :Rg
+
+" slow; would be nicer to have output of g] in quickfix list
+nnoremap <leader>t :Tags <C-R>=expand('<cword>')<CR><CR>
+
+" These two paragraph are from :h fzf-vim-usage
+" Search command mappings in normal, visual and operator pending mode
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion, see :h fzf-vim-mappings
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 let g:fzf_action = {
             \ 'ctrl-s': 'split', 
