@@ -4,25 +4,14 @@ import subprocess
 import time
 import os.path
 import sys
-
-
-def _init():
-    """Query task from user and start background process."""
-    new_task = input("What do you want to work on? ").strip()
-
-    if not new_task:
-        return
-
-    # runs in the background because no reference is kept
-    # https://stackoverflow.com/a/7224186/3865876
-    subprocess.Popen([os.path.abspath(__file__), new_task])
+import argparse
 
 
 def _notify_send(message, urgency="critical"):
     subprocess.Popen(["notify-send", "-u", urgency, message])
 
 
-def _run_daemon(task, minutes=60):
+def _run_daemon(task, minutes):
     """Periodically nag about the given task. Messages are cycled."""
     interval = 60 * 15
     total_seconds = 60 * int(minutes)
@@ -44,13 +33,35 @@ def _run_daemon(task, minutes=60):
     _notify_send("Time to focus on something else?!")
 
 
+def _parse_command_line():
+    parser = argparse.ArgumentParser(description="Command line utility to help "
+            "staying focused")
+    # display only 'on' command in public help
+    subparsers = parser.add_subparsers(dest="command", metavar='{on}',
+            title="available commands", )
+
+    on_parser = subparsers.add_parser("on", help="start staying focused!")
+    on_parser.add_argument("task", help="name of the task")
+    on_parser.add_argument("-m", "--minutes", default="60",
+            help="duration of session in minutes")
+
+    daemon_parser = subparsers.add_parser("daemon", description="launch daemon")
+    daemon_parser.add_argument("task")
+    daemon_parser.add_argument("minutes")
+
+    return parser.parse_args()
+
+
 if __name__ == "__main__":
-    """Usage:
-        focusalready
-        # or (runs background job, only way to specify focus duration):
-        focusalready TASK MINUTES &
-    """
-    if len(sys.argv) > 1:
-        _run_daemon(*sys.argv[1:])
-    else:
-        _init()
+    args = vars(_parse_command_line())
+    command = args.pop("command")
+
+    if command == "on":
+        # runs in the background because no reference is kept
+        # https://stackoverflow.com/a/7224186/3865876
+        subprocess.Popen([
+            os.path.abspath(__file__),
+            "daemon", args["task"], args["minutes"]
+            ])
+    elif command == "daemon":
+        _run_daemon(**args)
