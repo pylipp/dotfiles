@@ -74,9 +74,6 @@ nnoremap <leader>su :%s/oe/ö/e<CR>:%s/ae/ä/e<CR>:%s/ue/ü/e<CR>
 
 " Delete trailing Whitespace (automatically done in Python/C++ files when saving)
 nnoremap <leader>dw :call DeleteWhitespace()<CR>
-"
-" MY VIM KEYMAPPINGS
-"
 
 " Open :h in new tab; https://stackoverflow.com/a/3132202/3865876
 cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
@@ -94,7 +91,8 @@ cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : '
 " F10
 " F11
 " F12 c | pastetoggle
-"
+
+" NORMAL MODE CTRL KEYMAPPINGS (d: vim default, c: custom)
 " C-a d | n: increment number under cursor, i: insert text written most recently
 " C-b d | move one page up
 " C-c d | interrupt
@@ -103,23 +101,22 @@ cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : '
 " C-f d | move one page down
 " C-g d | display filename, current and total line number etc
 " C-h c | move to window on the left
-" C-i c | open function definition under cursor in new hor. split window
+" C-i d | jump to next cursor position
 " C-j c | move to window below
 " C-k c | move to window above
 " C-l c | move to window to the right
 " C-m d | FUTILE (inserts new line)
-" C-n c | FUTILE (insert next matching word) or used for UltiSnips?
+" C-n d | FUTILE (insert next matching word)
 " C-o d | jump to previous cursor position
 " C-p d | insert previous matching word
 " C-q d | uncomment current line
 " C-r d | redo (undo the undo)
-" C-s c | go to function definition under cursor (using ctags)
-" C-t c | move back to place of function call (reverse C-z)
+" C-s c | UltiSnips select/next
+" C-t d | jump to previous tag
 " C-u d | move half-page up
-" C-v c | start visual block mode
-" C-w c | prefix for window switching commands
-" C-x c | decrement number
+" C-v d | start visual block mode
+" C-w d | prefix for window switching commands
+" C-x d | decrement number
 " C-y d | scroll upwards, current line at the bottom
 " C-z d | suspend vim and return to shell; return to vim with fg
-
-
+" C-] d | go to function definition under cursor (using ctags)
