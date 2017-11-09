@@ -1,6 +1,6 @@
 "
 " PLUGIN MANAGEMENT
-"  
+"
 
 " install vim-plug if not existing
 " TODO use git submodule instead
@@ -10,7 +10,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" initialize vim-plug, including rtp update and more 
+" initialize vim-plug, including rtp update and more
 call plug#begin('~/.vim/bundle')
 
 " Keep Plug commands between plug#begin/end. Use single quotes.
@@ -42,7 +42,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 " enable repeating of plugin commands by .
 Plug 'tpope/vim-repeat'
-" Support for editing latex files 
+" Support for editing latex files
 Plug 'lervag/vimtex', {'for': 'tex' }
 " Show git status of lines
 Plug 'airblade/vim-gitgutter'
@@ -50,7 +50,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'taketwo/vim-ros'
 " Seamless tmux and vim navigation
 Plug 'christoomey/vim-tmux-navigator'
-" Helpers for UNIX shell commands 
+" Helpers for UNIX shell commands
 Plug 'tpope/vim-eunuch'
 " Fuzzy file, buffer etc. searching
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -170,8 +170,8 @@ let g:vimtex_view_method = 'zathura'
 " open Vimtex compile output in tab and return to first tab
 augroup plugin-vimtex
   autocmd!
-  autocmd User VimtexEventCompileStarted 
-    \   call vimtex#compiler#output() 
+  autocmd User VimtexEventCompileStarted
+    \   call vimtex#compiler#output()
     \   | wincmd T | tabfirst
 augroup END
 
@@ -220,7 +220,7 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 let g:fzf_action = {
-            \ 'ctrl-s': 'split', 
+            \ 'ctrl-s': 'split',
             \ 'ctrl-v': 'vsplit',
             \ 'ctrl-t': 'tab split' }
 
@@ -260,4 +260,4 @@ let g:lightline = {
     \ },
     \ }
 
-highlight CurrentWord term=bold cterm=bold 
+highlight CurrentWord term=bold cterm=bold
