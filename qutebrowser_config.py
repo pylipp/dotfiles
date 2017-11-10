@@ -23,6 +23,11 @@ c.colors.tabs.selected.odd.bg = 'darkorange'
 # Type: ShellCommand
 c.editor.command = ['st', '-e', '/usr/bin/vim', '{}']
 
+# Default monospace fonts. Whenever "monospace" is used in a font
+# setting, it's replaced with the fonts listed here.
+# Type: Font
+c.fonts.monospace = 'Inconsolata'
+
 # Automatically enter insert mode if an editable element is focused
 # after loading the page.
 # Type: Bool
