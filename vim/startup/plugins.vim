@@ -193,6 +193,7 @@ endif
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 nnoremap <leader>f :Files<CR>
+nnoremap <leader>F :Files!<CR>
 
 " mnemonic: Jump to buffer
 nnoremap <silent> <leader>j :Buffers<CR>
@@ -203,6 +204,7 @@ command! -bang -nargs=* Ag
   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \                 <bang>0)
 nnoremap <leader>a :Ag<CR>
+nnoremap <leader>A :Ag!<CR>
 
 " http://www.wezm.net/technical/2016/09/ripgrep-with-vim/
 command! -bang -nargs=* Rg
