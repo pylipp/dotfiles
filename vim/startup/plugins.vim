@@ -46,8 +46,10 @@ Plug 'tpope/vim-repeat'
 Plug 'lervag/vimtex', {'for': 'tex' }
 " Show git status of lines
 Plug 'airblade/vim-gitgutter'
-" ROS helpers
-Plug 'taketwo/vim-ros'
+if has('python')
+    " ROS helpers
+    Plug 'taketwo/vim-ros'
+endif
 " Seamless tmux and vim navigation
 Plug 'christoomey/vim-tmux-navigator'
 " Helpers for UNIX shell commands
