@@ -1,10 +1,13 @@
-personalrepos
 vim/bundle
 vim/undo
 vim/swp
 vim/backup
 vim/.netrwhist
+vim/vimrc
+
 local_shrc
 local_profile
+
 i3/dual-screen.sh
+
 global_gituser
