@@ -364,7 +364,10 @@ post_install() {
     # steps performed last because they require dotfiles links being set up
     echo_info "----------------------------------------------------------"
     echo_info "Install tmux plugings..."
-    $HOME/.tmux/plugins/tpm/scripts/./install_plugins.sh
+    cd $HOME/.tmux/plugins/tpm
+    bin/install_plugins
+    cd ../tmux-mem-cpu-load
+    git checkout feature/temperature
 
     sudo cp "$HOME/.files/keyboard" /usr/share/X11/xkb/symbols/pylipp
     setxkbmap pylipp
