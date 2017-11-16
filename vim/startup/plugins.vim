@@ -63,8 +63,6 @@ Plug 'w0rp/ale'
 Plug 'kana/vim-altr'
 " instant markdown preview in browser
 Plug 'pylipp/vim-markdown-preview', { 'for': 'markdown', 'branch': 'bugfix/firefox' }
-" visualize indents
-Plug 'Yggdroot/indentLine'
 " manage tag files
 Plug 'ludovicchabant/vim-gutentags'
 " QML syntax highlighting
@@ -246,10 +244,6 @@ let g:vim_markdown_preview_hotkey='<leader>mp'
 let g:vim_markdown_preview_browser='firefox'
 " update preview on BufWrite
 let g:vim_markdown_preview_toggle=3
-
-" indentLine settings to max out performance
-let g:indentLine_faster = 1
-" let g:indentLine_setConceal = 0
 
 let g:UltiSnipsExpandTrigger='<C-s>'
 let g:UltiSnipsJumpForwardTrigger='<C-s>'
