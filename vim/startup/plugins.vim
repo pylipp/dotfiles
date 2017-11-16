@@ -148,6 +148,7 @@ augroup plugin-ale
     autocmd TextChanged * call ale#Lint()
     " autocmd CursorHold * call ale#Lint()
     " autocmd CursorHoldI * call ale#Lint()
+    highlight ALEWarningSign ctermfg=3
 augroup END
 let g:ale_lint_on_text_changed = 0
 let g:ale_sign_error = 'E>'
