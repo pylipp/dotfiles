@@ -187,6 +187,7 @@ exec --no-startup-id ~/.screenlayout/dual-screen.sh &
 # exec --no-startup-id nm-applet
 exec --no-startup-id dunst &
 exec --no-startup-id ~/.i3/check_battery.bash &
+exec --no-startup-id ~/.i3/reload_keyboard.bash &
 
 # get running sink via
 # pactl list sinks | grep -B 1 RUNNING | grep Sink | cut -d"#" -f2
