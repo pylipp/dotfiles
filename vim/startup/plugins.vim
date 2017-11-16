@@ -80,7 +80,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'aperezdc/vim-template'
 " highlight word under cursor and its twins
 Plug 'dominikduda/vim_current_word'
-
+" Python indents acc. to PEP8
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python', }
 
 " All of your Plugs must be added before the following line
 call plug#end()
