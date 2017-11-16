@@ -202,11 +202,11 @@ nnoremap <silent> <leader>j :Buffers<CR>
 
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 fzf#vim#with_preview('right:50%', '?'),
   \                 <bang>0)
 nnoremap <leader>a :Ag<CR>
-nnoremap <leader>A :Ag!<CR>
+" Search for word under cursor
+nnoremap <leader>A :Ag <C-R>=expand('<cword>')<CR><CR>
 
 " http://www.wezm.net/technical/2016/09/ripgrep-with-vim/
 command! -bang -nargs=* Rg
