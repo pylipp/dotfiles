@@ -12,6 +12,8 @@ augroup filetypes
 
     autocmd BufNewFile,BufRead *.ino,*.pde setf cpp
 
+    autocmd BufNewFile,BufRead qutebrowser-editor-* setf text
+
     " Options for text-like files. Global defaults should suffice
     autocmd BufRead,BufNewFile *.html,*.xml,*.txt,README*,*.tex,*.md setlocal linebreak
 
