@@ -1,7 +1,7 @@
 # set for i3-sensible-terminal
 export TERMINAL="st"
 
-export EDITOR=/usr/bin/vim
+export EDITOR=vim
 
 export BROWSER=qutebrowser
 
