@@ -47,7 +47,7 @@ install_core_utils() {
     mkdir -p $HOME/software
 
     echo "----------------------------------------------------------"
-    install_packages g++ xclip \
+    install_packages g++ xclip build-essential \
         exuberant-ctags tmux cmake tig zathura htop fonts-hack-ttf \
         network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev \
         zip unzip alsa-utils gawk libxml2-utils \
@@ -73,9 +73,6 @@ install_core_utils() {
     install_packages coderay
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install --all
-
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    pip install --user tmuxp
 
     # make automounted devices readable for user
     # https://unix.stackexchange.com/a/155689/192726
@@ -294,9 +291,9 @@ setup_links() {
     echo_info "----------------------------------------------------------"
     echo_info "Setting up symbolic links to .files..."
     cd $HOME
-    for rcfile in ycm_extra_conf.py gitconfig bashrc tmux.conf i3 \
+    for rcfile in ycm_extra_conf.py gitconfig bashrc i3 \
         xinitrc dir_colors latexmkrc pylintrc tigrc direnvrc \
-        pythonrc mailcap profile zprofile xprofile tmuxp \
+        pythonrc mailcap profile zprofile xprofile \
         vintrc.yaml
     do
         link_name="."$rcfile
@@ -334,11 +331,6 @@ install_qtcreator() {
 post_install() {
     # steps performed last because they require dotfiles links being set up
     echo_info "----------------------------------------------------------"
-    echo_info "Install tmux plugings..."
-    cd $HOME/.tmux/plugins/tpm
-    bin/install_plugins
-    cd ../tmux-mem-cpu-load
-    git checkout feature/temperature
 
     sudo cp "$HOME/.files/keyboard" /usr/share/X11/xkb/symbols/pylipp
     setxkbmap pylipp
