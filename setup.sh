@@ -129,75 +129,6 @@ install_ripgrep() {
 }
 
 
-install_vim() {
-    mkdir -p $HOME/software
-
-    echo_info "----------------------------------------------------------"
-    echo_info "Installing vim..."
-    # https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
-    cd $HOME/software
-    if [[ ! -e vim ]]; then
-        sudo apt-get remove -y vim vim-runtime gvim vim-tiny vim-common > /dev/null
-        install_packages libncurses5-dev \
-            libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
-            python3-dev pylint shellcheck xdotool markdown
-
-        git clone https://github.com/vim/vim.git > /dev/null
-        cd vim
-
-        echo -n "Path to Python2 config dir (/usr/lib/...): "
-        read VIM_PYTHON2_CONFIG_DIR
-        echo -n "Path to Python3 config dir (/usr/lib/...): "
-        read VIM_PYTHON3_CONFIG_DIR
-
-        # TODO: lua installation for neocomplete with
-        # https://gist.github.com/dyzajash/9cfd2c821fc599cbb1a5d1c72305a0b7
-
-        ./configure --with-features=huge \
-            --enable-multibyte \
-            --enable-pythoninterp \
-            --with-python-config-dir=$VIM_PYTHON2_CONFIG_DIR \
-            --enable-python3interp \
-            --with-python3-config-dir=$VIM_PYTHON3_CONFIG_DIR \
-            --enable-gui=gtk2 \
-            --enable-cscope \
-            --prefix=/usr > /dev/null
-
-        # obtain version info, strip quotes (http://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable)
-        vim_version=`grep '#define VIM_VERSION_NODOT' src/version.h | awk '{ print $3; }' | tr -d '"'`
-        echo
-        echo_info $vim_version
-        echo
-        make VIMRUNTIMEDIR=/usr/share/vim/$vim_version > /dev/null
-        sudo make install > /dev/null
-        sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
-        sudo update-alternatives --set editor /usr/bin/vim
-        sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
-        sudo update-alternatives --set vi /usr/bin/vim
-    fi
-    mv_existing $HOME/.vim
-    ln -s $HOME/.files/vim $HOME/.vim
-
-
-    echo_info "----------------------------------------------------------"
-    echo_info "Configuring vim..."
-    mv_existing $HOME/.vimrc
-    bash $HOME/.files/generate_vimrc.sh
-    vim +qall > /dev/null
-
-    # install linter
-    pip install --user vim-vint
-
-    if [[ -d "$HOME/.vim/bundle/YouCompleteMe" ]]; then
-        echo_info "----------------------------------------------------------"
-        echo_info "Installing ycm..."
-        # https://github.com/Valloric/YouCompleteMe#installation
-        cd $HOME/.vim/bundle/YouCompleteMe
-        ./install.py --clang-completer > /dev/null
-    fi
-}
-
-
 install_neovim() {
     echo_info "----------------------------------------------------------"
     echo_info "Installing neovim..."
@@ -339,7 +270,6 @@ post_install() {
 install_complete() {
     sudo apt-get update > /dev/null && sudo apt-get upgrade -y > /dev/null
     install_core_utils 
-    install_vim 
     setup_links 
     post_install
 }
