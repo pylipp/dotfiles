@@ -47,12 +47,12 @@ install_core_utils() {
     mkdir -p $HOME/software
 
     echo "----------------------------------------------------------"
-    install_packages python2.7 g++ \
+    install_packages g++ \
         exuberant-ctags tmux cmake tig zathura htop fonts-hack-ttf \
         network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev \
         zip unzip alsa-utils gawk libxml2-utils \
-        libxcb-composite0-dev python-dev curl doxygen graphviz lm-sensors direnv \
-        scrot silversearcher-ag python-virtualenv virtualenvwrapper
+        libxcb-composite0-dev python-dev wget curl doxygen graphviz lm-sensors direnv \
+        scrot silversearcher-ag
 
     echo "----------------------------------------------------------"
     cd $HOME
@@ -67,19 +67,6 @@ install_core_utils() {
     for file in install.sh .zshrc .zshrc.pre-oh-my-zsh; do
         rm_existing "$file"
     done
-
-
-    echo_info "----------------------------------------------------------"
-    echo_info "Installing pip..."
-    # http://stackoverflow.com/questions/27711184/why-is-pip-raising-an-assertionerror-on-pip-freeze
-    # https://pip.pypa.io/en/latest/installing/
-    cd $HOME/software
-    sudo apt-get --purge -y remove python-pip python3-pip
-    curl -O https://bootstrap.pypa.io/get-pip.py
-    python2 get-pip.py --user
-    python3 get-pip.py --user
-    hash -r
-    rm get-pip.py
 
 
     echo_info "----------------------------------------------------------"
