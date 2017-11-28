@@ -85,38 +85,6 @@ install_core_utils() {
 }
 
 
-install_i3() {
-    mkdir -p $HOME/software
-    cd $HOME/software
-
-    echo_info "----------------------------------------------------------"
-    install_packages i3 xautolock xorg xinit feh imagemagick
-
-    # install dunst from source. v1.1.0 from the debian repos is outdated
-    install_packages libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk-3-dev libxdg-basedir-dev
-    git clone https://github.com/dunst-project/dunst
-    cd dunst
-    git checkout v1.2.0
-    make
-    sudo make install
-    
-
-    cd $HOME/software
-    install_packages pkg-config libxcb1 libpam-dev libcairo-dev \
-        libxcb-xinerama0-dev libev-dev libx11-dev libx11-xcb-dev libxkbcommon0 \
-        libxkbcommon-x11-0 libxcb-dpms0-dev libxcb-image0-dev libxcb-util0-dev \
-        libxcb-xkb-dev libxkbcommon-x11-dev libxkbcommon-dev xterm dbus-x11
-    git clone https://github.com/chrjguill/i3lock-color
-    cd i3lock-color 
-    sudo make install 
-    cd ~/.files/i3/i3lock-fancy
-    git checkout multimonitor
-
-    install_packages python-requests python-psutils python-netifaces
-    git clone https://github.com/tobi-wan-kenobi/bumblebee-status $HOME/software/bumblebee-status
-}
-
-
 install_ripgrep() {
     echo_info "----------------------------------------------------------"
     echo_info "Installing ripgrep..."
