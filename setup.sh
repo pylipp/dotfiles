@@ -47,27 +47,12 @@ install_core_utils() {
     mkdir -p $HOME/software
 
     echo "----------------------------------------------------------"
-    install_packages g++ \
+    install_packages g++ xclip \
         exuberant-ctags tmux cmake tig zathura htop fonts-hack-ttf \
         network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev \
         zip unzip alsa-utils gawk libxml2-utils \
         libxcb-composite0-dev python-dev wget curl doxygen graphviz lm-sensors direnv \
         scrot silversearcher-ag
-
-    echo "----------------------------------------------------------"
-    cd $HOME
-    install_packages zsh xclip
-    wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-    sed -i "s/env zsh//g" install.sh 
-    sh install.sh > /dev/null
-    # https://github.com/robbyrussell/oh-my-zsh/issues/1224#issuecomment-31623113
-    # This workaround might be required:
-    # sudo sed -i 's/^auth[[:space:]]*required/#auth required/' /etc/pam.d/chsh
-    sudo chsh $USER -s $(which zsh)
-    for file in install.sh .zshrc .zshrc.pre-oh-my-zsh; do
-        rm_existing "$file"
-    done
-
 
     echo_info "----------------------------------------------------------"
     echo_info "Installing hub..."
@@ -309,7 +294,7 @@ setup_links() {
     echo_info "----------------------------------------------------------"
     echo_info "Setting up symbolic links to .files..."
     cd $HOME
-    for rcfile in ycm_extra_conf.py gitconfig bashrc zshrc tmux.conf i3 \
+    for rcfile in ycm_extra_conf.py gitconfig bashrc tmux.conf i3 \
         xinitrc dir_colors latexmkrc pylintrc tigrc direnvrc \
         pythonrc mailcap profile zprofile xprofile tmuxp \
         vintrc.yaml
@@ -320,7 +305,6 @@ setup_links() {
         setup_link $rcfile $link_path
     done
     
-    ln -s $HOME/.files/oh-my-zsh/themes $HOME/.oh-my-zsh/custom/themes
     mkdir -p $HOME/.config/zathura
     ln -s $HOME/.files/zathurarc $HOME/.config/zathura/zathurarc
     mkdir -p $HOME/.ptpython 
