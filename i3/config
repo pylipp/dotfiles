@@ -172,8 +172,8 @@ bar {
         # laptop display
         tray_output LVDS-1
         output LVDS-1
-        # status_command i3status -c ~/.i3/i3status.conf
-        status_command ~/.virtualenvs/bumblebee/bin/python ~/software/bumblebee-status/bumblebee-status -m nic memory disk battery datetime
+        status_command i3status -c ~/.i3/i3status.conf
+        # status_command ~/.virtualenvs/bumblebee/bin/python ~/software/bumblebee-status/bumblebee-status -m nic memory disk battery datetime
 }
 
 bar {
