@@ -5,4 +5,5 @@ if [[ -d ~/software/activitywatch ]]; then
     ./aw-server &
     ./aw-watcher-afk &
     ./aw-watcher-window &
+    cd
 fi

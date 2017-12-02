@@ -192,7 +192,7 @@ exec --no-startup-id ~/.screenlayout/dual-screen.sh &
 exec --no-startup-id dunst &
 exec --no-startup-id ~/.i3/check_battery.bash &
 exec --no-startup-id ~/.i3/reload_keyboard.bash &
-exec --no-startup-id ~/.i3/start_aw.bash &
+exec --no-startup-id ~/.i3/start_aw.bash
 exec --no-startup-id ~/.i3/core_temperature.py &
 
 # get running sink via
