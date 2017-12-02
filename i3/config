@@ -175,7 +175,6 @@ bar {
         tray_output eDP-1
         output eDP-1
         status_command i3status -c ~/.i3/i3status.conf
-        # status_command ~/.virtualenvs/bumblebee/bin/python ~/software/bumblebee-status/bumblebee-status -m nic memory disk battery datetime
 }
 
 bar {
