@@ -43,48 +43,6 @@ install_packages() {
 }
 
 
-install_core_utils() {
-    mkdir -p $HOME/software
-
-    echo "----------------------------------------------------------"
-    install_packages g++ xclip build-essential \
-        exuberant-ctags tmux cmake tig zathura htop fonts-hack-ttf \
-        network-manager usbmount libxml2-dev libxslt-dev pulseaudio libasound2-dev \
-        zip unzip alsa-utils gawk libxml2-utils \
-        libxcb-composite0-dev python-dev wget curl doxygen graphviz lm-sensors direnv \
-        scrot silversearcher-ag
-
-    echo_info "----------------------------------------------------------"
-    echo_info "Installing hub..."
-    echo -n "What architecture are you using (arm/amd64): "
-    read ARCH
-    cd $HOME/software 
-    wget -q https://raw.githubusercontent.com/github/hub/master/version/version.go 
-    hub_version=`grep "var Version" version.go | cut -d" " -f4 | tr -d \"`
-    hub_dir=hub-linux-"$ARCH"-$hub_version
-    wget -q https://github.com/github/hub/releases/download/v$hub_version/$hub_dir.tgz
-    tar xf $hub_dir.tgz
-    sudo $hub_dir/./install && rm -rf $hub_dir $hub_dir.tgz version.go
-    sudo wget -q -O /usr/local/share/zsh/site-functions/_hub \
-        https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion > /dev/null
-
-    echo_info "----------------------------------------------------------"
-    echo_info "Installing fzf..."
-    install_packages coderay
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install --all
-
-    # make automounted devices readable for user
-    # https://unix.stackexchange.com/a/155689/192726
-    if [[ -e /etc/usbmount/usbmount.conf ]]; then
-        sudo sed -i -r 's/(^MOUNTOPTIONS=".*)"/\1,uid=1000,gid=1000"/' /etc/usbmount/usbmount.conf
-    fi
-
-    # make zathura default application to open pdfs using xdg-open
-    xdg-mime default zathura.desktop application/pdf
-}
-
-
 install_ripgrep() {
     echo_info "----------------------------------------------------------"
     echo_info "Installing ripgrep..."
@@ -237,7 +195,6 @@ post_install() {
 
 install_complete() {
     sudo apt-get update > /dev/null && sudo apt-get upgrade -y > /dev/null
-    install_core_utils 
     setup_links 
     post_install
 }
