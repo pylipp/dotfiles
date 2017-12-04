@@ -11,15 +11,14 @@ cd $HOME
 git clone https://github.com/pylipp/dotfiles .files
 cd .files
 git submodule update --init --recursive
-source setup.sh
-install_complete
+bash setup/complete_setup.bash global
 ```
 
 This will install and set up vim, zsh, and some more tools.
 
 ## Programs and tools
 
-Some of these are not installed with `install_complete`. See `setup.sh` for specific installation functions. 
+Some of these are not installed with `complete_setup.bash`. See `setup/` for specific installation scripts. 
 
 Functionality | Program name | Notes
 ------------- | ------------ | -----
