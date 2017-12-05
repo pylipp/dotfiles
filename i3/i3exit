@@ -1,7 +1,7 @@
 #!/bin/sh
 # https://faq.i3wm.org/question/239/how-do-i-suspendlockscreen-and-logout.1.html
 lock() {
-    i3lock -c 000000
+    ~/.i3/i3lock-fancy/lock -p -- scrot -z || i3lock -c 000000
 }
 
 case "$1" in
