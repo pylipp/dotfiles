@@ -5,7 +5,7 @@ export EDITOR=vim
 
 export BROWSER=qutebrowser
 
-export PYTHONSTARTUP=~/.pythonrc
+export PYTHONSTARTUP=~/.files/pythonrc
 
 # make fzf search hidden directories
 # https://github.com/junegunn/fzf/issues/337#issuecomment-136389913
