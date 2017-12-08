@@ -1,7 +1,9 @@
+sudo: required
 language: python
 python:
   - "3.5"
 before_script:
-  - bash setup/complete_setup.bash
+  - sudo apt-get -qq update
+  - bash setup/install_core_utils.bash global
 script:
   - exit 0
