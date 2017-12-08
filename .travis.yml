@@ -1,5 +1,7 @@
 language: python
 python:
   - "3.5"
-before_install:
+before_script:
   - bash setup/complete_setup.bash
+script:
+  - exit 0
