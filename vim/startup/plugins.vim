@@ -32,6 +32,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 " filetype dependent commenting
 Plug 'tomtom/tcomment_vim'
+Plug 'pylipp/vim-comment-box'
 " selection when opening files
 Plug 'EinfachToll/DidYouMean'
 " java completion
@@ -159,6 +160,8 @@ let g:ale_linters = {
     \'python': ['flake8',],
     \'tex': ['chktex',],
     \}
+
+nnoremap <leader>cb :<C-u>call CommentBox()<CR>
 
 " https://github.com/tomtom/tcomment_vim/issues/139
 nnoremap <silent> gC :set opfunc=ToggleComment<CR>g@
