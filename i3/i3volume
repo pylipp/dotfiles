@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Wrapper around pactl to control audio
+# Usage: ./i3volume [lower|raise|mute] [delta]
+
+set -e
+
+# find running sink
+sink=$(pactl list sinks | grep -B 1 RUNNING | grep Sink | cut -d"#" -f2)
+
+# get command line arguments
+operation=${1:-lower}
+delta=${2:-5}
+
+# apply operation
+if [[ $operation = "lower" ]]; then
+    pactl set-sink-volume $sink -$delta%
+elif [[ $operation = "raise" ]]; then
+    pactl set-sink-volume $sink +$delta%
+elif [[ $operation = "mute" ]]; then
+    pactl set-sink-mute $sink toggle
+else
+    echo "i3volume: unknown operation $operation"
+fi
