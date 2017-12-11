@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Script to lock screen with pixelated screenshot
+# inspired by i3lock-fancy
+# dependencies: scrot, imagemagick, i3lock
+
+set -e
+
+# take screenshot
+image=$(mktemp).png
+scrot $image
+
+# pixelate the screenshot
+convert -scale 5% -scale 2000% $image $image
+
+# lock screen
+i3lock -i $image
