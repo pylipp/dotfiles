@@ -50,9 +50,12 @@ set pastetoggle=<F12>
 " clear search hightlighting
 nnoremap <leader><Space> :noh<CR><Esc>
 
+" paste from most recent used register in insert mode
+" overrides built-in i_Ctrl-V behaviour which can be achieved by C-q, too
+inoremap <C-v> <C-r>"
 
 " interact with system clipboard 
-" http://sts10.github.io/blog/2016/02/12/best-of-my-vimrc/ 
+" http://sts10.github.io/blog/2016/02/12/best-of-my-vimrc/
 nnoremap <leader>p "+]p
 nnoremap <leader>P "+]P
 nnoremap <leader>y :y+<CR>
@@ -79,6 +82,9 @@ nnoremap <leader>dw :call DeleteWhitespace()<CR>
 
 " Open :h in new tab; https://stackoverflow.com/a/3132202/3865876
 cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
+
+" Substitute First suggestion of badly spelled word
+nnoremap <leader>sf 1z=
 
 
 " F1
