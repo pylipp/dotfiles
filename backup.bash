@@ -44,17 +44,18 @@ BACKUPDATE=$(date +%Y%m%d)
 LOGFILE=$LOGDIR/$BACKUPDATE.log
 BORGARCHIVE=$BACKUPDIR::$BACKUPDATE
 
-borg create --verbose --stats --compression lz4 $BORGARCHIVE \
+borg create --verbose --stats --compression lz4 \
     --exclude "sh:**/build" \
     --exclude "*__pycache__*" \
     --exclude "*.pyc" \
+    $BORGARCHIVE \
     \
     code \
     Documents \
     Pictures \
     \
     .config \
-    .files/local_shrc \
+    .files/local_* \
     .files/global_gituser \
     .screenlayout \
     .vimrc \
@@ -68,6 +69,14 @@ borg create --verbose --stats --compression lz4 $BORGARCHIVE \
     \
     .zsh_history \
     >> $LOGFILE 2>&1
+
+if [[ $? -ne 0 ]]; then
+    echo Error backing up!
+    unset BORG_PASSPHRASE
+    exit 1
+fi
+
+echo Successfully backed up!
 
 # clean up old backups
 borg prune --verbose --stats \
