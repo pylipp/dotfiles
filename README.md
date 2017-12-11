@@ -50,5 +50,4 @@ Qt-Editor | `qtcreator` |
 
 ## TODOs
 
-- dissect `setup.sh` into smaller installation scripts
-- bumblebee status in venv
+- setup docker for testing?
