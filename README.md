@@ -4,13 +4,16 @@ This is a collection of setup scripts, configuration files and notes that I find
 
 ## Installation 
 
+### Development utilities
+
+This will install and set up vim, zsh, tmux and some more tools.
+
 When setting up a vanilla system (Debian based, i.e. Ubuntu 14.04 and 16.04 as well as Stretch), I do:
-```
+```bash
 sudo apt-get install git
-cd $HOME
+cd ~
 git clone https://github.com/pylipp/dotfiles .files
-cd .files
-bash setup/complete_setup.bash global
+bash ~/.files/setup/complete_setup.bash global
 ```
 
 ### Desktop environment
@@ -32,7 +35,7 @@ Window manager | `i3` | using `i3status`, `i3lock` and additional scripts in `i3
 Terminal | `st` | solarized color scheme
 Shell | `zsh` | themes and goodies from `oh-my-zsh`
 Terminal multiplexer | `tmux` | plugins loaded by `tpm`; custom session defined with `tmuxp`
-VCS | `git` | additionally using `hub` for managing github workflows from the CL and `tig` for a git-log TUI
+VCS | `git` | additionally using `hub` for managing GitHub workflows from the CL and `tig` for a git-log TUI
 Editor | `vim` | built from source, see [vim/startup](https://github.com/pylipp/dotfiles/tree/master/vim/startup) for personal settings
 Python development | `virtualenvwrapper` |
 Python REPL | `ptpython` | vi-like editing; usually installing it in venvs
