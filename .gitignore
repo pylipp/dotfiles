@@ -3,12 +3,10 @@ vim/undo
 vim/swp
 vim/backup
 vim/.netrwhist
-vim/vimrc
 
 local_shrc
 local_profile
 local_tmux.conf
-
-i3/dual-screen.sh
+local_vimrc
 
 global_gituser
