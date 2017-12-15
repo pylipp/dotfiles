@@ -7,8 +7,9 @@
 set -e
 
 # take screenshot
+# uses xwd from x11-apps if scrot not available, see https://askubuntu.com/a/501984
 image=$(mktemp).png
-scrot $image
+scrot $image || ( xwd -root -display $DISPLAY | convert - $image )
 
 # pixelate the screenshot
 convert -scale 5% -scale 2000% $image $image
