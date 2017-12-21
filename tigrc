@@ -8,3 +8,5 @@ bind generic g move-first-line
 bind generic G move-last-line
 bind generic <Ctrl-g> view-grep
 bind main i !@sh -c "echo -n %(commit) | xclip -selection c"
+
+bind stash A !git stash apply %(stash)
