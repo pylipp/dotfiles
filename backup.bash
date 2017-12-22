@@ -53,19 +53,24 @@ borg create --verbose --stats --compression lz4 \
     code \
     Documents \
     Pictures \
+    Music \
     \
     .config \
     .files/local_* \
     .files/global_gituser \
     .screenlayout \
-    .vimrc \
+    .ssh \
     \
     .mozilla/firefox \
     .cache/thunderbird \
     .local/share/qutebrowser \
     .thunderbird \
+    .cat_installer \
     \
     .virtualenvs \
+    .local/share/activitywatch \
+    .local/share/pydartz \
+    .platformio \
     \
     .zsh_history \
     >> $LOGFILE 2>&1
