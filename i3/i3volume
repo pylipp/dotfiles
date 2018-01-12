@@ -6,19 +6,20 @@
 set -e
 
 # find running sink
-sink=$(pactl list sinks | grep -B 1 RUNNING | grep Sink | cut -d"#" -f2)
+sink="Master"
 
 # get command line arguments
 operation=${1:-lower}
 delta=${2:-5}
 
 # apply operation
+# https://unix.stackexchange.com/a/32209/192726
 if [[ $operation = "lower" ]]; then
-    pactl set-sink-volume $sink -$delta%
+    amixer -q sset $sink $delta%-
 elif [[ $operation = "raise" ]]; then
-    pactl set-sink-volume $sink +$delta%
+    amixer -q sset $sink $delta%+
 elif [[ $operation = "mute" ]]; then
-    pactl set-sink-mute $sink toggle
+    amixer -q sset $sink toggle
 else
     echo "i3volume: unknown operation $operation"
 fi
