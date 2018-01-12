@@ -1,9 +1,17 @@
 #!/bin/bash
 
+start_if_not_running() {
+    local process
+    process="$1"
+    if ! pgrep -f $process >/dev/null; then
+        ./$process &
+    fi
+}
+
 if [[ -d ~/software/activitywatch ]]; then
     cd ~/software/activitywatch
-    ./aw-server &
-    ./aw-watcher-afk &
-    ./aw-watcher-window &
+    start_if_not_running aw-server
+    start_if_not_running aw-watcher-afk
+    start_if_not_running aw-watcher-window
     cd
 fi
