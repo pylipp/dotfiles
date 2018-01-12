@@ -1,5 +1,5 @@
 # start feh with custom action for save (re)moving
-alias feh='feh --action1="mv %f /tmp" --scale-down'
+alias feh='feh --action1="mv %F /tmp" --scale-down --action2="echo $(pwd)/%F >> ~/Pictures/copy_list"'
 
 alias ag='ag -p ~/.files/gitignore_global'
 
