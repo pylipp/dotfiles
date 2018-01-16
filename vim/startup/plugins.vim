@@ -162,6 +162,9 @@ let g:ale_linters = {
     \'python': ['flake8',],
     \'tex': ['chktex',],
     \}
+let g:ale_fixers = {
+    \'python': ['yapf',],
+    \}
 
 nnoremap <leader>cb :<C-u>call CommentBox()<CR>
 
