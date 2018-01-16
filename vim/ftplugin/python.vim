@@ -10,8 +10,8 @@ augroup python
     autocmd BufWritePre * :call DeleteWhitespace()
 
     " highligh long lines
-    highlight ColorColumn ctermfg=DarkRed
-    call matchadd('ColorColumn', '\%80v', 100)
+    highlight ColorColumn ctermfg=DarkYellow
+    call matchadd('ColorColumn', '\%81v', 100)
 augroup END
 
 " Fold routines for python code, version 3.2
