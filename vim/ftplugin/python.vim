@@ -4,11 +4,14 @@ endif
 let b:custom_python=1
 
 setlocal textwidth=80
-setlocal colorcolumn=81
 
 augroup python
     autocmd!
     autocmd BufWritePre * :call DeleteWhitespace()
+
+    " highligh long lines
+    highlight ColorColumn ctermfg=DarkRed
+    call matchadd('ColorColumn', '\%80v', 100)
 augroup END
 
 " Fold routines for python code, version 3.2
