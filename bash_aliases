@@ -6,6 +6,8 @@ alias ag='ag -p ~/.files/gitignore_global'
 # http://stackoverflow.com/questions/20327621/calling-ipython-from-a-virtualenv
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
+alias mkvenv35="mkvirtualenv --python=/usr/bin/python3.5 "
+
 # Copy file content to clipboard or from clipboard to commandline
 # http://superuser.com/questions/113529/how-can-i-load-a-files-contents-into-the-clipboard
 alias pbcopy='xclip -i -selection c '
