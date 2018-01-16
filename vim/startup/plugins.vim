@@ -55,6 +55,8 @@ endif
 Plug 'christoomey/vim-tmux-navigator'
 " Helpers for UNIX shell commands
 Plug 'tpope/vim-eunuch'
+" Create non-existing directory when saving new file
+Plug 'pbrisbin/vim-mkdir'
 " Fuzzy file, buffer etc. searching
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
