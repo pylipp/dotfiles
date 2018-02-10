@@ -2,6 +2,7 @@
 	editor = /usr/bin/vim
 	excludesfile = ~/.files/gitignore_global
 	autocrlf = input
+	hooksPath = ~/.files/git/hooks
 # [branch]
 #     autosetupmerge = true
 [push]

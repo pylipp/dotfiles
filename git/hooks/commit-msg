@@ -1,0 +1,5 @@
+#/bin/sh
+#
+# Simple hook to remove trailing period from first line of commit message
+
+sed -i '1 s/\.[[:space:]]*$//' "$1"
