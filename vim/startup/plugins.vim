@@ -26,6 +26,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'pylipp/tasklist.vim'
 " Git integration https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
 " Ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " Lightline statusline plugin
