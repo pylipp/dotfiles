@@ -1,7 +1,8 @@
 # start feh with custom action for save (re)moving
 alias feh='feh --action1="mv %F /tmp" --scale-down --action2="echo $(pwd)/%F >> ~/Pictures/copy_list"'
 
-alias ag='ag -p ~/.files/gitignore_global'
+alias ag='rg --ignore-file ~/.files/gitignore_global'
+alias rg='rg --ignore-file ~/.files/gitignore_global'
 
 # http://stackoverflow.com/questions/20327621/calling-ipython-from-a-virtualenv
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"

@@ -221,7 +221,7 @@ nnoremap <leader>A :Ag <C-R>=expand('<cword>')<CR><CR>
 " http://www.wezm.net/technical/2016/09/ripgrep-with-vim/
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
-      \   'ag --column --line-number --color --ignore-case '.shellescape(<q-args>), 1,
+      \   'rg --column --color --ignore-case '.shellescape(<q-args>), 1,
       \   <bang>0)
 nnoremap <leader>r :Rg
 
