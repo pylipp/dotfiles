@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# mock Gvim by launching vim in simple-terminal
+st -e "$(which vim)" "$@"
