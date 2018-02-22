@@ -97,4 +97,4 @@ unset BORG_PASSPHRASE
 BACKUP_DATES_FILE=$CONFIGDIR/backup_dates
 date +%s >> $BACKUP_DATES_FILE
 
-sudo umount $MOUNTPOINT
+echo "Backup completed. Eventually do 'sudo umount $MOUNTPOINT'."
