@@ -40,7 +40,8 @@ vnoremap / /\v
 " add closing brackets
 "inoremap { {}<Esc>i
 "inoremap [ []<Esc>i
-"
+
+" navigate between visual lines when line wrapped
 nnoremap j gj
 nnoremap k gk
 
@@ -48,7 +49,9 @@ nnoremap k gk
 set pastetoggle=<F12>
 
 " clear search hightlighting
-nnoremap <leader><Space> :noh<CR><Esc>
+nnoremap <leader>n :noh<CR><Esc>
+" jump to previous buffer
+nnoremap <leader><Space> <C-^>
 
 " paste from most recent used register in insert mode
 " overrides built-in i_Ctrl-V behaviour which can be achieved by C-q, too
@@ -58,6 +61,7 @@ inoremap <C-v> <C-r>"
 " http://sts10.github.io/blog/2016/02/12/best-of-my-vimrc/
 nnoremap <leader>p "+]p
 nnoremap <leader>P "+]P
+" copy current line
 nnoremap <leader>y :y+<CR>
 vnoremap <leader>y "+y
 
