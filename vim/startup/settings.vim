@@ -39,7 +39,6 @@ set wildmode=list:longest
 set ignorecase
 set wildignorecase  "ignore case for filename completion on command line
 set smartcase   "ignore case if search pattern is all lc, case-sensitive otherwise
-set gdefault "global substitutions by default
 set incsearch
 set showmatch
 set hlsearch    "highlight search patterns; escape with ...

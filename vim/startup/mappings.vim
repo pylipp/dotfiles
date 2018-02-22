@@ -18,6 +18,8 @@ cnoremap w!! w !sudo tee > /dev/null %
 noremap Y y$
 noremap , ;
 noremap ; ,
+nnoremap ß $
+xnoremap ß $
 
 " more convenient jumping to mark position on German keyboard
 noremap ' `
@@ -90,6 +92,12 @@ cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : '
 " Substitute First suggestion of badly spelled word
 nnoremap <leader>sf 1z=
 
+" Search and replace word under cursor/selection on current line...
+nnoremap <space>sl :'{,'}s/\<<c-r><c-w>\>//g<left><left>
+xnoremap <space>sl y:'{,'}s/<c-r><c-0>//g<left><left>
+" ...and in entire buffer
+nnoremap <space>sb :%s/\<<c-r><c-w>\>//g<left><left>
+xnoremap <space>sb y:%s/<c-r><c-0>//g<left><left>
 
 " F1
 " F2  c | toggle NerdTreeWindow
