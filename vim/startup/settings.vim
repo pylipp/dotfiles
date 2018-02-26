@@ -59,6 +59,12 @@ set backupdir=~/.vim/backup/  " in neovim (different location)
 set directory=~/.vim/swp/  " in neovim (different location)
 set undodir=~/.vim/undo/  " in neovim (different location)
 
+" Whitespace character highlighting
+" Indicate trailing space by centered white dot
+execute "set listchars=trail:\uB7"
+set list
+highlight SpecialKey ctermfg=white cterm=bold
+
 """ Folding Options
 "https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/#.Vi9-CN7uzXY.reddit
 set foldmethod=indent
