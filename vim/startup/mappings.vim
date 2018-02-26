@@ -81,7 +81,7 @@ command! Xmlify %!xmllint --format %
 nnoremap <leader>cf gg"+yG<CR>
 
 " Substitute Umlaute in current buffer
-nnoremap <leader>su :%s/oe/ö/e<CR>:%s/ae/ä/e<CR>:%s/ue/ü/e<CR>
+nnoremap <leader>su :%s/oe/ö/ge<CR>:%s/ae/ä/ge<CR>:%s/ue/ü/ge<CR>
 
 " Delete trailing Whitespace (automatically done in Python/C++ files when saving)
 nnoremap <leader>dw :call DeleteWhitespace()<CR>
