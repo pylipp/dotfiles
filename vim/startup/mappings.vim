@@ -40,8 +40,13 @@ nnoremap / /\v
 vnoremap / /\v
 
 " add closing brackets
-"inoremap { {}<Esc>i
-"inoremap [ []<Esc>i
+inoremap (<CR> (<CR>)<Esc>O
+inoremap {<CR> {<CR>}<Esc>O
+inoremap {; {<CR>};<Esc>O
+inoremap {, {<CR>},<Esc>O
+inoremap [<CR> [<CR>]<Esc>O
+inoremap [; [<CR>];<Esc>O
+inoremap [, [<CR>],<Esc>O"inoremap { {}<Esc>i
 
 " navigate between visual lines when line wrapped
 nnoremap j gj
@@ -74,8 +79,10 @@ noremap <silent> <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo '
 
 " Prettily format json: https://stackoverflow.com/a/16625961/3865876
 command! -range -nargs=0 -bar Jsonify <line1>,<line2>!python -m json.tool
-
+" ... and XML
 command! Xmlify %!xmllint --format %
+
+nnoremap g= mmgg=G''
 
 " Copy File to clipboard
 nnoremap <leader>cf gg"+yG<CR>
