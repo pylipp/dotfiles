@@ -22,42 +22,66 @@ mkdir $package_name
 mkdir test
 
 echo "# $package_name" > README.md
+echo "__version__ = '0.1'" > $package_name/__init__.py
 
+version_command="'import $package_name; print($package_name.__version__)'"
 
-echo ".PHONY: all test install clean tags" >> Makefile
-echo "" >> Makefile
-echo "all:" >> Makefile
-echo -e "\t@echo Available targets: install, test" >> Makefile
-echo "" >> Makefile
-echo "install:" >> Makefile
-echo -e "\tpip install -U -r requirements.txt -e ." >> Makefile
-echo "" >> Makefile
-echo "install-dev: install" >> Makefile
-echo -e "\tpip install -r requirements_dev.txt" >> Makefile
-echo "" >> Makefile
-echo "test:" >> Makefile
-echo -e "\t@[ -z \$\$VIRTUAL_ENV ] && echo 'Acticate $package_name virtualenv.' || python -m unittest discover" >> Makefile
-echo "" >> Makefile
-echo "tags:" >> Makefile
-echo -e "\tctags -R ." >> Makefile
+echo "\
+VERSION=\$(shell python -c $version_command)
+
+.PHONY: all test install tags upload tag publish coverage lint
+
+all:
+	@echo 'Available targets: install, test, upload, tag, publish, coverage, lint'
+
+install:
+	pip install -U -r requirements.txt -e .
+
+test:
+	python setup.py test
+
+upload: README.md setup.py
+	rm -f dist/*
+	python setup.py bdist_wheel --universal
+	twine upload dist/*
+
+tag:
+	git tag v\$(VERSION)
+	git push --tags
+
+publish: tag upload
+
+coverage:
+	coverage run --source $package_name setup.py test
+	coverage report
+	coverage html
+
+lint:
+	flake8 $package_name test" > Makefile
+
 
 echo "from setuptools import setup, find_packages
+from $package_name import __version__
+
+with open('README.md') as readme:
+    long_description = readme.read()
 
 setup(
-        name='$package_name',
-        version='0.1',
-        description='TODO',
-        url='http://github.com/pylipp/$package_name',
-        author='Philipp Metzner',
-        author_email='$mail_address',
-        license='GPLv3',
-        #classifiers=[],
-        packages=find_packages(exclude=['test', 'doc']),
-        entry_points = {
-            'console_scripts': ['$package_name = $package_name.main:main']
-            },
-        install_requires=[]
-        )" > setup.py
+    name='$package_name',
+    version=__version__,
+    description='TODO',
+    long_description=long_description,
+    url='https://github.com/pylipp/$package_name',
+    author='Philipp Metzner',
+    author_email='$mail_address',
+    license='GPLv3',
+    #classifiers=[],
+    packages=find_packages(exclude=['test', 'doc']),
+    entry_points = {
+        'console_scripts': ['$package_name = $package_name.main:main']
+        },
+    install_requires=[]
+)" > setup.py
 
 git init
 git add -A
@@ -67,5 +91,7 @@ git ci -m "Initial commit."
 # git create $package_name
 
 export WORKON_HOME=$HOME/.virtualenvs
-. /usr/local/bin/virtualenvwrapper.sh
+. $(whereis virtualenvwrapper | cut -d" " -f2-)/virtualenvwrapper.sh
 mkvirtualenv --python=$python_version $package_name
+pip install pudb ptpython flake8 twine
+deactivate
