@@ -221,5 +221,9 @@ bindsym Print exec scrot
 
 focus_follows_mouse no
 
+# Open the most favorite editor
+bindsym $mod+o exec gvim
+
 # don't maximize previews with qmlscene
 for_window [class="QtQmlViewer"] floating enable
+for_window [class="gvim"] floating enable
