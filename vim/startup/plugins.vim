@@ -223,10 +223,12 @@ command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
       \   'rg --column --color --ignore-case '.shellescape(<q-args>), 1,
       \   <bang>0)
-nnoremap <leader>r :Rg
+nnoremap <leader>r :Rg<space>
 
 " slow; would be nicer to have output of g] in quickfix list
 nnoremap <leader>t :Tags <C-R>=expand('<cword>')<CR><CR>
+
+nnoremap <leader>l :Lines<CR>
 
 " These two paragraph are from :h fzf-vim-usage
 " Search command mappings in normal, visual and operator pending mode
