@@ -73,3 +73,8 @@ gu() {
     repo=$(xclip -selection clipboard -o)
     git clone $repo && cd $(basename $repo)
 }
+
+wt() {
+    # Watson report of Today
+    watson report --from $(date +%F)
+}
