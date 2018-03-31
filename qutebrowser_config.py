@@ -50,3 +50,4 @@ c.tabs.position = 'bottom'
 config.bind('<ctrl+\\>', 'tab-focus last')
 config.bind('<ctrl+r>', 'reload')
 config.bind('gT', 'set-cmd-text -s :open -t !dcc')
+config.bind('gD', 'spawn --userscript ~/.files/local/share/qutebrowser/userscripts/getbib')
