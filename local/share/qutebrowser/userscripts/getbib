@@ -7,7 +7,6 @@ download to. Otherwise, bibtex information is downloaded to '/tmp' and hence
 deleted at reboot.
 
 Installation: see qute://help/userscripts.html
-Dependencies: requests
 
 Inspired by
 https://ocefpaf.github.io/python4oceanographers/blog/2014/05/19/doi2bibtex/
@@ -19,8 +18,7 @@ import shutil
 import re
 from collections import Counter
 from urllib import parse as url_parse
-
-import requests
+from urllib import request as url_request
 
 
 FIFO_PATH = os.getenv("QUTE_FIFO")
@@ -53,13 +51,15 @@ message_fifo("Found {} DOIs on page, selecting {}".format(len(dois), doi),
 # get bibtex data corresponding to DOI
 url = "http://dx.doi.org/" + url_parse.quote(doi)
 headers = dict(Accept='text/bibliography; style=bibtex')
-response = requests.get(url, headers=headers)
-if not response.ok:
-    message_fifo("Request returned {}".format(response.status_code))
+request = url_request.Request(url, headers=headers)
+response = url_request.urlopen(request)
+status_code = response.getcode()
+if status_code >= 400:
+    message_fifo("Request returned {}".format(status_code))
     sys.exit()
 
 # obtain content and format it
-bibtex = response.content.decode("utf-8").strip()
+bibtex = response.read().decode("utf-8").strip()
 bibtex = bibtex.replace(" ", "\n    ", 1).\
     replace("}, ", "},\n    ").replace("}}", "}\n}")
 
