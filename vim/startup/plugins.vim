@@ -260,10 +260,6 @@ let g:vim_markdown_preview_browser='firefox'
 let g:vim_markdown_preview_toggle=3
 
 let g:UltiSnipsExpandTrigger='<C-s>'
-let g:UltiSnipsJumpForwardTrigger='<C-s>'
-let g:UltiSnipsJumpBackwardTrigger='<C-S-s>'
-let g:UltiSnipsEditSplit = 'vertical'
-"let g:UltiSnipsSnippetsDir = '~/.files/snippets'
 
 " specify non-public and public custom templates
 let g:templates_directory=['~/.templates', '~/.vim/templates']
