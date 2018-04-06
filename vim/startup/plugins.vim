@@ -162,6 +162,7 @@ let g:ale_echo_msg_format = '[%linter%] %s'
 let g:ale_linters = {
     \'python': ['flake8',],
     \'tex': ['chktex',],
+    \'qml': ['qmlfmt',],
     \}
 let g:ale_fixers = {
     \'python': ['yapf',],
