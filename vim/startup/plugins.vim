@@ -66,7 +66,7 @@ Plug 'w0rp/ale'
 " swap between eponymous files with different extensions (C++ header/src)
 Plug 'kana/vim-altr'
 " instant markdown preview in browser
-Plug 'pylipp/vim-markdown-preview', { 'for': 'markdown', 'branch': 'bugfix/firefox' }
+Plug 'pylipp/vim-markdown-preview', { 'for': 'markdown', 'branch': 'feature/colorscheme' }
 " manage tag files
 Plug 'ludovicchabant/vim-gutentags'
 " QML syntax highlighting
