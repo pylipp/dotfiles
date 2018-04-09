@@ -14,7 +14,7 @@ while true; do
 
     if [[ $status_ = "Discharging" ]]; then
         # display notification for 14 seconds and sleep for 15 to avoid overlap
-        if [[ $capacity -lt 15 ]]; then
+        if [[ $capacity -lt 30 ]]; then
             notify-send -t 14000 -u critical WARNING "Remaining battery level: $capacity% !!"
         fi
         if [[ $capacity -lt 10 ]]; then
@@ -24,5 +24,5 @@ while true; do
         fi
     fi
 
-    sleep 15
+    sleep 10
 done
