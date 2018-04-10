@@ -1,0 +1,35 @@
+regexp=PASS
+colours=green
+count=more
+======
+regexp=^WARN|QWARN
+colours=yellow
+count=more
+======
+regexp=FAIL!
+colours=red
+count=more
+======
+regexp=Loc
+colours=red
+count=more
+======
+regexp=\((\d+)\)
+colours=red
+count=more
+======
+regexp=Totals
+colours=bold white
+======
+regexp=(\d+) passed
+colours=bold green
+======
+regexp=(\d+) failed
+colours=bold red
+======
+regexp=(\d+) skipped
+colours=bold yellow
+======
+# test method name
+regexp=::(test_[a-z0-9_]+)
+colours=none,reverse

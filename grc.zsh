@@ -26,6 +26,7 @@ if [[ "$TERM" != dumb ]] && (( $+commands[grc] )) ; then
     ping \
     ping6 \
     ps \
+    qmltestrunner \
     traceroute \
     traceroute6 \
     wdiff \
