@@ -256,7 +256,8 @@ nnoremap <leader>sd :setlocal spell spelllang=de_20<CR>
 
 " vim-markdown-preview settings (requires see, ~/.mailcap)
 let g:vim_markdown_preview_hotkey='<leader>mp'
-let g:vim_markdown_preview_browser='firefox'
+let g:vim_markdown_preview_browser='qutebrowser'
+let g:vim_markdown_preview_colorscheme='solarized-dark'
 " update preview on BufWrite
 let g:vim_markdown_preview_toggle=3
 
