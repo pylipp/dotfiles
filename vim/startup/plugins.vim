@@ -269,6 +269,7 @@ let g:UltiSnipsExpandTrigger='<C-s>'
 
 " specify non-public and public custom templates
 let g:templates_directory=['~/.templates', '~/.vim/templates']
+let g:templates_no_builtin_templates=1
 
 let g:lightline = {
     \ 'colorscheme': 'solarized',
