@@ -86,6 +86,8 @@ Plug 'aperezdc/vim-template'
 Plug 'dominikduda/vim_current_word'
 " Python indents acc. to PEP8
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python', }
+" grep integration
+Plug 'mhinz/vim-grepper'
 
 " All of your Plugs must be added before the following line
 call plug#end()
@@ -253,6 +255,9 @@ nnoremap <leader>sh :call altr#forward()<CR>
 
 nnoremap <leader>se :setlocal spell spelllang=en_us<CR>
 nnoremap <leader>sd :setlocal spell spelllang=de_20<CR>
+
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
 
 " vim-markdown-preview settings (requires see, ~/.mailcap)
 let g:vim_markdown_preview_hotkey='<leader>mp'
