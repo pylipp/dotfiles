@@ -69,7 +69,9 @@ highlight SpecialKey ctermfg=white cterm=bold
 "https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/#.Vi9-CN7uzXY.reddit
 set foldmethod=indent
 set foldlevel=99
+
 let g:xml_syntax_folding = 1
+let g:tex_flavor = 'latex'
 
 let g:mapleader=" "
 let g:maplocalleader=" "
