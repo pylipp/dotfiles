@@ -256,6 +256,7 @@ nnoremap <leader>sh :call altr#forward()<CR>
 nnoremap <leader>se :setlocal spell spelllang=en_us<CR>
 nnoremap <leader>sd :setlocal spell spelllang=de_20<CR>
 
+nnoremap <leader>g :Grepper<CR>
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 
