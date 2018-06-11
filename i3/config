@@ -227,3 +227,4 @@ bindsym $mod+o exec gvim
 # don't maximize previews with qmlscene
 for_window [class="QtQmlViewer"] floating enable
 for_window [class="gvim"] floating enable
+for_window [class="Matplotlib"] floating enable
