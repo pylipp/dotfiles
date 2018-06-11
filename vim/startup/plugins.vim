@@ -168,6 +168,7 @@ let g:ale_linters = {
     \}
 let g:ale_fixers = {
     \'python': ['yapf',],
+    \'qml': ['qmlfmt',],
     \}
 
 nnoremap <leader>cb :<C-u>call CommentBox()<CR>
