@@ -28,7 +28,10 @@ devel/
 *.user
 *.qmlc
 
-# Miscellaneous
+# Tags
 tags
-.envrc
 .notags
+.gutctags
+
+# Miscellaneous
+.envrc
