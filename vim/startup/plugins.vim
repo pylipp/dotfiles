@@ -170,6 +170,9 @@ let g:ale_fixers = {
     \'python': ['yapf',],
     \'qml': ['qmlfmt',],
     \}
+" navigate between Warnings
+nmap <silent> ]w <Plug>(ale_next_wrap)
+nmap <silent> [w <Plug>(ale_previous_wrap)
 
 nnoremap <leader>cb :<C-u>call CommentBox()<CR>
 
