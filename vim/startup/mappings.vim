@@ -55,6 +55,9 @@ nnoremap k gk
 " enter paste mode when pasting
 set pastetoggle=<F12>
 
+" open netrw file browser
+nnoremap <leader>N :Vexplore<CR>
+
 " clear search hightlighting
 nnoremap <leader>n :noh<CR><Esc>
 " jump to previous buffer

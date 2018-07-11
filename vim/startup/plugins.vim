@@ -20,8 +20,6 @@ call plug#begin('~/.vim/bundle')
 Plug 'Valloric/YouCompleteMe', { 'do': './install-py --clang-completer', 'frozen': 1 }
 " TagBar
 Plug 'majutsushi/tagbar'
-" NerdTree
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " TaskList
 Plug 'pylipp/tasklist.vim'
 " Git integration https://github.com/tpope/vim-fugitive
@@ -103,10 +101,6 @@ call plug#end()
 "Exuberant ctags - tag generation for language objects
 "look for next tags file from current path up to Home
 set tags=./tags;$HOME
-
-
-" NERDTree - plugin to view the current directory
-map <F2> :NERDTreeToggle<CR>
 
 
 "Tagbar - displays current code structure

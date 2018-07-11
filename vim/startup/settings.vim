@@ -76,8 +76,12 @@ let g:tex_flavor = 'latex'
 let g:mapleader=" "
 let g:maplocalleader=" "
 
-" hide banner in builtin file browser
+" Tweak builtin file browser: hide banner, shrink size, display tree
+" structure, open selected file in previous window
 let g:netrw_banner=0
+let g:netrw_winsize=25
+let g:netrw_liststyle=3
+let g:netrw_browse_split=4
 
 
 "
