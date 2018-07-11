@@ -86,6 +86,8 @@ Plug 'aperezdc/vim-template'
 Plug 'dominikduda/vim_current_word'
 " Python indents acc. to PEP8
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python', }
+" Python code folding
+Plug 'tmhedberg/SimpylFold', { 'for': 'python', }
 " grep integration
 Plug 'mhinz/vim-grepper'
 
