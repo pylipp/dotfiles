@@ -31,7 +31,6 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 " filetype dependent commenting
 Plug 'tomtom/tcomment_vim'
-Plug 'pylipp/vim-comment-box'
 " selection when opening files
 Plug 'EinfachToll/DidYouMean'
 " java completion
@@ -80,8 +79,8 @@ Plug 'tpope/tpope-vim-abolish'
 Plug 'tpope/vim-unimpaired'
 " template files
 Plug 'aperezdc/vim-template'
-" highlight word under cursor and its twins
-Plug 'dominikduda/vim_current_word'
+" highlight all occurences of word under cursor
+Plug 'dominikduda/vim_current_word', { 'for': ['python', 'cpp', 'qml'], }
 " Python indents acc. to PEP8
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python', }
 " Python code folding
@@ -104,7 +103,7 @@ set tags=./tags;$HOME
 
 
 "Tagbar - displays current code structure
-nmap <F3> :TagbarToggle<CR>
+nmap <leader>T :TagbarToggle<CR>
 let g:tagbar_autofocus = 1 "jump to Tagbar when requested
 let g:tagbar_autoclose = 1 "close Tagbar after tag selection
 let g:tagbar_show_linenumbers = 1 "show linenumbers
@@ -268,6 +267,7 @@ let g:vim_markdown_preview_colorscheme='solarized-dark'
 let g:vim_markdown_preview_toggle=3
 
 let g:UltiSnipsExpandTrigger='<C-s>'
+let g:UltiSnipsSnippetDirectories=['UltiSnips', 'snips']
 
 " specify non-public and public custom templates
 let g:templates_directory=['~/.templates', '~/.vim/templates']
