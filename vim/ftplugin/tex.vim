@@ -6,13 +6,13 @@ let b:custom_tex=1
 " from http://vim-latex.sourceforge.net/documentation/latex-suite/recommended-settings.html
 " this is mostly a matter of taste. but LaTeX looks good with just a bit
 " of indentation.
-set shiftwidth=2
-set softtabstop=2
+setlocal shiftwidth=2
+setlocal softtabstop=2
 
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
-set iskeyword+=:
+setlocal iskeyword+=:
 
 if !exists('g:ycm_semantic_triggers')
   let g:ycm_semantic_triggers = {}
