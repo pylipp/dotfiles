@@ -20,7 +20,7 @@ Cursor positioned inside the text object.
 
 ### Suspend vim, return to shell
 
-- :sus
+- :sus or Ctrl-z
 - return using by fg
 
 ### Open/close fold
@@ -110,3 +110,11 @@ Cursor positioned inside the text object.
 
 - gqip leaves cursor at current position
 - gwip moves cursor ahead
+
+### Commandline window
+
+- q:, q/, q? open the command line window showing the history of :-commands and searches
+- enter new command or search pattern on the last line and execute with <CR>
+- return to command line with Ctrl-C
+- when already in the command line (after :,/,?), type Ctrl-F to open the commandline window
+- :h cmdline-editing
