@@ -71,6 +71,7 @@ set foldlevel=99
 
 let g:xml_syntax_folding = 1
 let g:tex_flavor = 'latex'
+let g:tex_comment_nospell=1
 
 let g:mapleader=" "
 let g:maplocalleader=" "
