@@ -17,7 +17,6 @@ set cursorline    "highlight current line
 set fileformat=unix "avoid conversion issues
 set previewheight=25  " set preview window height
 set updatetime=500 " for gitgutter
-set synmaxcol=200 " highlight first 200 chars of a long line
 set path+=** "recursively search from cwd downwards when :find
 set matchpairs+=<:> " match angular brackets
 set hidden      " allows making buffers hidden even without unsaved changes
