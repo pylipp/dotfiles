@@ -13,3 +13,9 @@ augroup python
     highlight ColorColumn ctermfg=DarkYellow
     call matchadd('ColorColumn', '\%81v', 100)
 augroup END
+
+let b:py_version_string=system('python --version')
+if b:py_version_string =~# '^Python 2.'
+    Python2Syntax
+endif
+unlet b:py_version_string
