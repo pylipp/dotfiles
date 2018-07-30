@@ -8,7 +8,7 @@ sub makeglossaries {
   return $return;
 }
 
-$pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 --shell-escape %O %S';
+$pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 -shell-escape %O %S';
 
 # .bbl files assumed to be regeneratable, safe as long as the .bib file is available
 $bibtex_use = 2;
