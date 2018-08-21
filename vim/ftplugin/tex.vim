@@ -9,6 +9,11 @@ let b:custom_tex=1
 setlocal shiftwidth=2
 setlocal softtabstop=2
 
+" Convert some expressions to utf-8 symbols (delimiters, math symbols, greek
+" letters, super/subscripts); see :help tex-conceal
+setlocal conceallevel=2
+let g:tex_conceal='bdmgs'
+
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
