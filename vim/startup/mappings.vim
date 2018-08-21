@@ -51,6 +51,14 @@ inoremap [, [<CR>],<Esc>O
 " navigate between visual lines when line wrapped
 nnoremap j gj
 nnoremap k gk
+nnoremap 0 g0
+nnoremap ^ g^
+nnoremap $ g$
+vnoremap j gj
+vnoremap k gk
+vnoremap 0 g0
+vnoremap ^ g^
+vnoremap $ g$
 
 " enter paste mode when pasting
 set pastetoggle=<F12>
