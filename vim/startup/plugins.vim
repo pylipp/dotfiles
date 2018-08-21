@@ -285,3 +285,6 @@ let g:lightline = {
     \ }
 
 highlight CurrentWord term=bold cterm=bold
+
+" Force updating of gitgutter symbols in simple terminal
+let g:gitgutter_terminal_reports_focus=0
