@@ -17,3 +17,10 @@ centroid
 eigenvector
 2D
 effector
+effectors
+numpy
+scipy
+matplotlib
+Jacobian
+overdetermined
+thresholding
