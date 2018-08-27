@@ -7,7 +7,7 @@ set refs-view = line-number:no id:yes date:default author:full ref commit-title
 bind generic g move-first-line
 bind generic G move-last-line
 bind generic <Ctrl-g> view-grep
-bind main i !@sh -c "echo -n $(git rev-parse --short %(head)) | xclip -selection c"
+bind main i !@sh -c "echo -n $(git rev-parse --short %(commit)) | xclip -selection c"
 bind main I !@sh -c "echo -n %(commit) | xclip -selection c"
 
 bind stash A !git stash apply %(stash)
