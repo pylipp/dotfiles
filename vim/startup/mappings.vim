@@ -60,6 +60,9 @@ vnoremap 0 g0
 vnoremap ^ g^
 vnoremap $ g$
 
+" Toggle fold
+nnoremap <CR> za
+
 " enter paste mode when pasting
 set pastetoggle=<F12>
 
