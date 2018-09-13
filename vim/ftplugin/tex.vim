@@ -25,3 +25,4 @@ endif
 let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 let g:vimtex_fold_enabled=1
+let g:vimtex_fold_manual=1
