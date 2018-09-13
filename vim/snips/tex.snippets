@@ -1,0 +1,10 @@
+snippet nge "New glossary entry" b
+\newglossaryentry{${1/[ -]/_/ga}}%
+{%
+  text={${2:t}},
+  name={\$${3:$2}\$},
+  description={$1},
+  sort={${5:$2}}
+}
+$0
+endsnippet
