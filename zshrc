@@ -99,6 +99,9 @@ unsetopt AUTO_CD
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 
+# Edit current command line in $EDITOR. https://unix.stackexchange.com/a/6622/192726
+bindkey -M vicmd ' ' edit-command-line
+
 if [ -f ~/.files/bash_aliases ]; then
     . ~/.files/bash_aliases
 fi
