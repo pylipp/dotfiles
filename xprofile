@@ -19,9 +19,6 @@ dunst &
 # network manager trayicon
 nm-applet &
 
-# activity watch tracker
-~/.i3/start_aw.bash
-
 # utility scripts
 ~/.i3/reload_keyboard.bash &
 ~/.i3/check_battery.bash &
