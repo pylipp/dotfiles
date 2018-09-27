@@ -13,3 +13,6 @@ augroup cpp
     autocmd!
     autocmd BufWritePre * :call DeleteWhitespace()
 augroup END
+
+" Turn off annoying error highlighting
+highlight clear SpellBad

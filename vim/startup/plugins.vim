@@ -87,6 +87,8 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python', }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python', }
 " grep integration
 Plug 'mhinz/vim-grepper'
+" enhanced C/C++ syntax highlighting
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 " All of your Plugs must be added before the following line
 call plug#end()
