@@ -60,8 +60,13 @@ vnoremap 0 g0
 vnoremap ^ g^
 vnoremap $ g$
 
-" Toggle fold
+" Toggle fold in regular windows (not command line or quickfix window)
 nnoremap <CR> za
+augroup resetenter
+    autocmd!
+    autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
+    autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+augroup END
 
 " enter paste mode when pasting
 set pastetoggle=<F12>
