@@ -66,6 +66,7 @@ Plug 'kana/vim-altr'
 Plug 'pylipp/vim-markdown-preview', { 'for': 'markdown', 'branch': 'feature/colorscheme' }
 " manage tag files
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'joereynolds/gtags-scope', { 'for': ['c', 'cpp'], }
 " QML syntax highlighting
 Plug 'peterhoeg/vim-qml'
 " more VIM objects
@@ -103,6 +104,25 @@ call plug#end()
 "look for next tags file from current path up to Home
 set tags=./tags;$HOME
 
+" GNU Global integration using cscope interface
+"   's'   symbol: find all references to the token under cursor
+"   'g'   global: find global definition(s) of the token under cursor
+"   'c'   calls:  find all calls to the function name under cursor
+"   't'   text:   find all instances of the text under cursor
+"   'e'   egrep:  egrep search for the word under cursor
+"   'f'   file:   open the filename under cursor (key binding p for path)
+"   'i'   includes: find files that include the filename under cursor
+"   'd'   called: find functions that function under cursor calls
+let g:GtagsCscope_Auto_Map = 0
+let g:GtagsCscope_Auto_Load = 1
+let g:GtagsCscope_Quiet = 1
+nnoremap <leader>cs :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>ct :cs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>cp :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <leader>ci :cs find i <C-R>=expand("<cfile>")<CR><CR>
 
 "Tagbar - displays current code structure
 nmap <leader>T :TagbarToggle<CR>

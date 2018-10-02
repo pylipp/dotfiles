@@ -32,6 +32,10 @@ devel/
 tags
 .notags
 .gutctags
+GPATH
+GRTAGS
+GSYMS
+GTAGS
 
 # Miscellaneous
 .envrc
