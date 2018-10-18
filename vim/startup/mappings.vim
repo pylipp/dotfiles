@@ -16,8 +16,6 @@ endif
 cnoremap w!! w !sudo tee > /dev/null %
 
 noremap Y y$
-noremap , ;
-noremap ; ,
 nnoremap ß $
 xnoremap ß $
 
