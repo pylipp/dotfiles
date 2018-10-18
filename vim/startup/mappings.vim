@@ -115,6 +115,9 @@ nnoremap <leader>dw :call DeleteWhitespace()<CR>
 " Open :h in new tab; https://stackoverflow.com/a/3132202/3865876
 cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
 
+" Insert current line in command line
+cnoremap <C-r><C-l> <C-r>=getline('.')<CR>
+
 " Substitute First suggestion of badly spelled word
 nnoremap <leader>sf 1z=
 
