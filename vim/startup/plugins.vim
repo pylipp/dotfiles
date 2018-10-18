@@ -74,8 +74,9 @@ Plug 'wellle/targets.vim'
 Plug 'michaeljsmith/vim-indent-object'
 " enhanced * searching
 Plug 'bronson/vim-visual-star-search'
-" enhanced substutite
+" enhanced substitution
 Plug 'tpope/tpope-vim-abolish'
+Plug 'arthurxavierx/vim-caser'
 " more [ ] mappings for navigation etc.
 Plug 'tpope/vim-unimpaired'
 " template files
@@ -310,3 +311,7 @@ highlight CurrentWord term=bold cterm=bold
 
 " Force updating of gitgutter symbols in simple terminal
 let g:gitgutter_terminal_reports_focus=0
+
+" Customize mapping because gs is already used by vim-grepper
+" This overwrites vim-abolish's coercion key binding
+let g:caser_prefix='cr'
