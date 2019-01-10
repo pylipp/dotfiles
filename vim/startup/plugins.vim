@@ -91,6 +91,8 @@ Plug 'tmhedberg/SimpylFold', { 'for': 'python', }
 Plug 'mhinz/vim-grepper'
 " enhanced C/C++ syntax highlighting
 Plug 'octol/vim-cpp-enhanced-highlight'
+" Enhanced hlsearch
+Plug 'romainl/vim-cool'
 
 " All of your Plugs must be added before the following line
 call plug#end()
