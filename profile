@@ -12,10 +12,10 @@ export PYTHONSTARTUP=~/.files/pythonrc
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_COMPLETION_TRIGGER='+'
-export FZF_CTRL_T_OPTS='--preview "coderay {} | head -200"'
+export FZF_CTRL_T_OPTS='--preview "bat --style=numbers --color=always {} || coderay {} || head -200"'
 export FZF_COMPLETION_OPTS="--preview '[[ ! -f {} ]] && \
     echo {} is not a regular file || \
-    coderay {} | head -200'"
+    bat --style=numbers --color=always {} ||coderay {} | head -200'"
 
 [ -e ~/.local/bin ] && export PATH=~/.local/bin:$PATH
 [ -e ~/.files/bin ] && export PATH=~/.files/bin:$PATH
