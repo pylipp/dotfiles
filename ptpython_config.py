@@ -5,7 +5,11 @@ Copy this file to ~/.ptpython/config.py
 """
 from __future__ import unicode_literals
 from prompt_toolkit.filters import ViInsertMode
-from prompt_toolkit.key_binding.input_processor import KeyPress
+try:
+    from prompt_toolkit.key_binding.input_processor import KeyPress
+except ImportError:
+    # Version >= 2.0.0
+    from prompt_toolkit.key_binding.key_processor import KeyPress
 from prompt_toolkit.keys import Keys
 from pygments.token import Token
 
@@ -105,7 +109,7 @@ def configure(repl):
 
     # Enable 24bit True color. (Not all terminals support this. -- maybe check
     # $TERM before changing.)
-    repl.true_color = False
+    repl.color_depth = 'DEPTH_8_BIT'
 
     # Install custom colorscheme named 'my-colorscheme' and use it.
     """
@@ -114,22 +118,27 @@ def configure(repl):
     """
 
     # Add custom key binding for PDB.
+    """
     @repl.add_key_binding(Keys.ControlB)
     def _(event):
         ' Pressing Control-B will insert "pdb.set_trace()" '
         event.cli.current_buffer.insert_text('\nimport pdb; pdb.set_trace()\n')
+    """
 
     # Typing ControlE twice should also execute the current command.
     # (Alternative for Meta-Enter.)
+    """
     @repl.add_key_binding(Keys.ControlE, Keys.ControlE)
     def _(event):
         b = event.current_buffer
         if b.accept_action.is_returnable:
             b.accept_action.validate_and_handle(event.cli, b)
+    """
 
 
     # Typing 'jj' in Vi Insert mode, should send escape. (Go back to navigation
     # mode.)
+    """
     @repl.add_key_binding('j', 'j', filter=ViInsertMode())
     def _(event):
         " Map 'jj' to Escape. "
@@ -142,6 +151,7 @@ def configure(repl):
         'pritn': 'print',
     }
 
+    """
     @repl.add_key_binding(' ')
     def _(event):
         ' When a space is pressed. Check & correct word before cursor. '
