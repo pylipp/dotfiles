@@ -47,3 +47,7 @@ function vmoff() {
     fi
     unsetopt KSH_ARRAYS
 }
+
+scrot() {
+    /usr/bin/scrot --exec 'mv $f ~/Pictures' "$@"
+}
