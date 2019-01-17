@@ -17,3 +17,8 @@ augroup END
 if system('python --version') =~# '^Python 2.'
     Python2Syntax
 endif
+
+" Alternate between module and corresponding test
+if exists('g:loaded_altr')
+    call altr#define('%/*/%.py', '%/test/test_%.py')
+endif
