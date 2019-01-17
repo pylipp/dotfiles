@@ -3,29 +3,34 @@
 # https://github.com/tony/.dot-config/blob/master/.pythonrc
 # enable syntax completion
 from __future__ import print_function
-import atexit
-import os
 
-try:
-    import readline
-except ImportError:
-    print("Module readline not available.")
-else:
-    import rlcompleter
-    readline.parse_and_bind("tab: complete")
+import sys
+if sys.version_info < (3, 4):
+    # Activation of rlcompleter and history is automatic since v3.4
+    # https://docs.python.org/3/library/site.html#readline-configuration
+    import atexit
+    import os
 
-# History
-history_path = os.path.expanduser("~/.python_history")
+    try:
+        import readline
+    except ImportError:
+        print("Module readline not available.")
+    else:
+        import rlcompleter
+        readline.parse_and_bind("tab: complete")
+
+    # History
+    history_path = os.path.expanduser("~/.python_history")
 
 
-def save_history(history_path=history_path):
-    import readline
-    readline.write_history_file(history_path)
+    def save_history(history_path=history_path):
+        import readline
+        readline.write_history_file(history_path)
 
-if os.path.exists(history_path):
-    readline.read_history_file(history_path)
+    if os.path.exists(history_path):
+        readline.read_history_file(history_path)
 
-atexit.register(save_history)
+    atexit.register(save_history)
 
-# anything not deleted (sys and os) will remain in the interpreter session
-del atexit, readline, rlcompleter, save_history, history_path
+    # anything not deleted (sys and os) will remain in the interpreter session
+    del atexit, readline, rlcompleter, save_history, history_path
