@@ -13,6 +13,8 @@ alias mkvenv35="mkvirtualenv --python=/usr/bin/python3.5 "
 
 alias dotfiles='cd ~/.files'
 
+alias popdd='popd; popd'
+
 # Copy file content to clipboard or from clipboard to commandline
 # http://superuser.com/questions/113529/how-can-i-load-a-files-contents-into-the-clipboard
 alias pbcopy='xclip -i -selection c '
