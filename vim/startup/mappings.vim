@@ -125,6 +125,9 @@ xnoremap <space>sl y:'{,'}s/<c-r><c-0>//g<left><left>
 " ...and in entire buffer
 nnoremap <space>sb :%s/\<<c-r><c-w>\>//g<left><left>
 xnoremap <space>sb y:%s/<c-r><c-0>//g<left><left>
+" ...and in quickfix entries
+nnoremap <space>sq :cfdo %s/\<<c-r><c-w>\>//g<left><left> | wa
+xnoremap <space>sq y:cdfo %s/<c-r><c-0>//g<left><left> | wa
 
 " Delete all buffers except the current one, https://stackoverflow.com/a/42071865/3865876
 command! BufOnly silent! execute '%bd | e# | bd#'
