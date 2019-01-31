@@ -43,6 +43,8 @@
     ci = commit
     st = status
     br = branch
+    # mnemonic: Branches RECently checked-out
+    brec = !"git reflog | egrep -io 'moving from ([^[:space:]]+)' | awk '{ print $3 }' | awk ' !x[$0]++' | head -n8"
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     amend = commit --amend --no-edit
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
