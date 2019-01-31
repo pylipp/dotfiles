@@ -283,6 +283,8 @@ nnoremap <leader>sd :setlocal spell spelllang=de_20<CR>
 nnoremap <leader>g :Grepper<CR>
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
+let g:grepper = {}
+let g:grepper.tools = ['rg', 'ag', 'ack', 'ack-grep', 'grep', 'findstr',]
 
 " vim-markdown-preview settings (requires see, ~/.mailcap)
 let g:vim_markdown_preview_hotkey='<leader>mp'
