@@ -132,6 +132,9 @@ xnoremap <space>sq y:cdfo %s/<c-r><c-0>//g<left><left> | wa
 " Delete all buffers except the current one, https://stackoverflow.com/a/42071865/3865876
 command! BufOnly silent! execute '%bd | e# | bd#'
 
+" https://vi.stackexchange.com/a/13435
+command -nargs=? -bar GChanges call setqflist(map(systemlist("git diff --name-only --ignore-submodules <args>"), '{"filename": v:val, "lnum": 1}')) | copen
+
 " F1
 " F2  c | toggle NerdTreeWindow
 " F3  c | toggle TagBar
