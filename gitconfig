@@ -2,7 +2,6 @@
 	editor = /usr/bin/vim
 	excludesfile = ~/.files/gitignore_global
 	autocrlf = input
-	hooksPath = ~/.files/git/hooks
 	pager = /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less -rFX
 # [branch]
 #     autosetupmerge = true
