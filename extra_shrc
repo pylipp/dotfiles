@@ -78,3 +78,9 @@ wt() {
     # Watson report of Today
     watson report --from $(date +%F)
 }
+
+wy() {
+    # Watson report of Yesterday
+    local yesterdate=$(date --date yesterday +%F)
+    watson report --from $yesterdate --to $yesterdate
+}
