@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+"""Utility to compare actual and target working hours based on watson report"""
+from datetime import date as dt
+import subprocess
+from calendar import monthrange, month_name
+import json
+import sys
+
+WORK_DAYS_PER_WEEK = 4
+LAST_WORK_DAY_IN_WEEK = 3  # Thursday
+WORK_HOURS_PER_DAY = 8
+
+class Worked:
+    """Helper to read watson time tracking report and compute relevant
+    quantities."""
+
+    def __init__(self, month=None, year=None):
+        """Initialize time frame for comparison of working hours. Month and year
+        default to the current ones."""
+        today = dt.today()
+        self.month = int(month or today.month)
+        self.year = int(year or today.year)
+        self.nr_of_days_in_month = monthrange(self.year, self.month)[1]
+
+    def _read_report_from_watson(self):
+        """Read watson report of specified time frame in JSON format.
+
+        :return: report (dict)
+        """
+        command = "watson report "\
+            "--json --from {y}-{m}-01 --to {y}-{m}-{d}".format(
+                y=self.year, m=self.month, d=self.nr_of_days_in_month)
+        process = subprocess.run(command.split(), stdout=subprocess.PIPE)
+        return json.loads(process.stdout.decode())
+
+    def _compute_work_days_of_month(self):
+        """Compute the number of work days in the month of interest. Every month
+        of the year has at least 28 days, i.e. four full weeks. The remaining
+        days are relevant if they are not on the weekend.
+
+        :return: number of work days (int)
+        """
+        nr_work_days = 4 * WORK_DAYS_PER_WEEK
+        for day in range(29, self.nr_of_days_in_month):
+            date = dt(self.year, self.month, day)
+            if date.weekday() <= LAST_WORK_DAY_IN_WEEK:
+                nr_work_days += 1
+        return nr_work_days
+
+    def _extract_hours_on_break(self, report):
+        """Return the number of hours spent on non-work related projects by
+        scanning the given watson report.
+
+        :return: hours on break (float)
+        """
+        for project in report["projects"]:
+            if project["name"] == "break":
+                # Convert from seconds to hours
+                return project["time"] / 3600
+        return 0
+
+    def how_much(self):
+        """Main method. Return comparison of actual and target working hours as
+        formatted string
+        
+        :return: work hours information (str)
+        """
+        report = self._read_report_from_watson()
+        nr_work_days = self._compute_work_days_of_month()
+        hours_on_break = self._extract_hours_on_break(report)
+
+        actual_working_hours = report["time"] / 3600 - hours_on_break
+        return "{} of {} hours done in {} of {}!".format(
+            actual_working_hours, nr_work_days * 8, month_name[int(self.month)],
+            self.year)
+
+if __name__ == "__main__":
+    i_worked = Worked(*sys.argv[1:])
+    print(i_worked.how_much())
