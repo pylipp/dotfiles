@@ -53,11 +53,14 @@ class Worked:
 
         :return: hours on break (float)
         """
+        non_work_time = 0
+
         for project in report["projects"]:
-            if project["name"] == "break":
-                # Convert from seconds to hours
-                return project["time"] / 3600
-        return 0
+            if project["name"] in ("break", "personal"):
+                non_work_time += project["time"]
+
+        # Convert from seconds to hours
+        return non_work_time / 3600
 
     def how_much(self):
         """Main method. Return comparison of actual and target working hours as
