@@ -10,6 +10,7 @@ WORK_DAYS_PER_WEEK = 4
 LAST_WORK_DAY_IN_WEEK = 3  # Thursday
 WORK_HOURS_PER_DAY = 8
 
+
 class Worked:
     """Helper to read watson time tracking report and compute relevant
     quantities."""
@@ -65,7 +66,7 @@ class Worked:
     def how_much(self):
         """Main method. Return comparison of actual and target working hours as
         formatted string
-        
+
         :return: work hours information (str)
         """
         report = self._read_report_from_watson()
@@ -76,9 +77,10 @@ class Worked:
         target_working_hours = WORK_HOURS_PER_DAY * nr_work_days
 
         return "{:.2f} of {} hours ({:.2f}%) done in {} of {}!".format(
-            actual_working_hours, target_working_hours, 
-            100 * actual_working_hours / target_working_hours, 
-            month_name[int(self.month)], self.year)
+            actual_working_hours, target_working_hours,
+            100 * actual_working_hours / target_working_hours, month_name[int(
+                self.month)], self.year)
+
 
 if __name__ == "__main__":
     i_worked = Worked(*sys.argv[1:])
