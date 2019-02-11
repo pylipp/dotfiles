@@ -73,9 +73,12 @@ class Worked:
         hours_on_break = self._extract_hours_on_break(report)
 
         actual_working_hours = report["time"] / 3600 - hours_on_break
-        return "{} of {} hours done in {} of {}!".format(
-            actual_working_hours, nr_work_days * 8, month_name[int(self.month)],
-            self.year)
+        target_working_hours = WORK_HOURS_PER_DAY * nr_work_days
+
+        return "{:.2f} of {} hours ({:.2f}%) done in {} of {}!".format(
+            actual_working_hours, target_working_hours, 
+            100 * actual_working_hours / target_working_hours, 
+            month_name[int(self.month)], self.year)
 
 if __name__ == "__main__":
     i_worked = Worked(*sys.argv[1:])
