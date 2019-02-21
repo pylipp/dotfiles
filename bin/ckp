@@ -40,5 +40,19 @@ if entry is None:
 else:
     # copy password to clipboard; clear after ten seconds
     pyperclip.copy(entry.password)
-    time.sleep(10)
+    print("Password has been copied to clipboard!")
+
+    # Display progress bar
+    terminal_width = os.get_terminal_size().columns
+    time_left = 10
+    increment = int(terminal_width / time_left)
+    residual = terminal_width - time_left * increment
+    char = '#'
+
+    while time_left:
+        time.sleep(1)
+        time_left -= 1
+        print(increment * char, end="", flush=True)
+    print(residual * char)
+
     pyperclip.copy("")
