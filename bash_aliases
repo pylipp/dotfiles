@@ -1,7 +1,7 @@
 # start feh with custom action for save (re)moving
 alias feh='feh --action1="mv %F /tmp" --scale-down --action2="echo $(pwd)/%F >> ~/Pictures/copy_list"'
 
-alias ag='rg --ignore-file ~/.files/gitignore_global'
+alias ag='ag --path-to-agignore ~/.files/gitignore_global'
 alias rg='rg --ignore-file ~/.files/gitignore_global'
 
 alias z=zathura
