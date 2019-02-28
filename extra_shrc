@@ -84,3 +84,9 @@ wy() {
     local yesterdate=$(date --date yesterday +%F)
     watson report --from $yesterdate --to $yesterdate
 }
+
+dcleanup(){
+    # Cleanup unused Docker resources, https://stackoverflow.com/a/32723127/3865876
+    docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+    docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
