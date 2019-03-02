@@ -56,10 +56,10 @@ installed() {
 
 backup_reminder() {
     # nag me if last backup was more than two weeks ago
-    backup_dates_file=~/.config/borg/backup_dates
+    local backup_dates_file=~/.config/borg/backup_dates
+    local today=$(date +%s)
     if [[ -e $backup_dates_file ]]; then
-        last_backup=$(tail -n1 $backup_dates_file)
-        today=$(date +%s)
+        local last_backup=$(tail -n1 $backup_dates_file)
         if [[ $(($today - $last_backup)) -gt 1209600 ]]; then
             echo -e "\033[0;31m!!! >>> TIME TO BACKUP <<< !!!\n\033[0m"
         fi
