@@ -49,10 +49,13 @@ else:
     residual = terminal_width - time_left * increment
     char = '#'
 
-    while time_left:
-        time.sleep(0.2)
-        time_left -= 1
-        print(increment * char, end="", flush=True)
-    print(residual * char)
+    try:
+        while time_left:
+            time.sleep(0.2)
+            time_left -= 1
+            print(increment * char, end="", flush=True)
+        print(residual * char)
+    except KeyboardInterrupt:
+        pass
 
     pyperclip.copy("")
