@@ -21,6 +21,7 @@ BULLETTRAIN_PROMPT_ORDER=(
     virtualenv
     git
     cmd_exec_time
+    watson
 )
 BULLETTRAIN_SOLARIZED_DARK_BG="8"
 BULLETTRAIN_DIR_BG=$BULLETTRAIN_SOLARIZED_DARK_BG
@@ -648,6 +649,19 @@ prompt_line_sep() {
   fi
 }
 
+# Active project of watson time tracker
+prompt_watson() {
+  if command -v watson > /dev/null 2>&1; then
+    local watson_status=$(watson status)
+    if [[ "$watson_status" != "No project started" ]]; then
+        # Convert from
+        #   Project name [tag1, tag2] started ...
+        # to
+        #   {name +tag1 +tag2}
+        prompt_segment $BULLETTRAIN_SOLARIZED_DARK_BG green "{$(echo "$watson_status" | grep -o -P '(?<=Project ).*(?= started)' | sed -E 's/\[(.*)\]/+\1/g' | sed 's/, / \+/g')}"
+    fi
+  fi
+}
 # ------------------------------------------------------------------------------
 # MAIN
 # Entry point
