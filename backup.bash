@@ -91,6 +91,9 @@ borg prune --verbose --stats \
     $BACKUPDIR \
     >> $LOGFILE 2>&1
 
+echo "*** Backup overview ***"
+borg list $BACKUPDIR
+
 unset BORG_PASSPHRASE
 
 # store current UNIX time stamp to remind when next backup is due
