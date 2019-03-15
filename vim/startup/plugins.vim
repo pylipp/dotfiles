@@ -166,18 +166,10 @@ let g:ycm_semantic_triggers = {
 \   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
 \ }
 
-" make ALE linting less aggressive
-" from https://github.com/christoomey/dotfiles/blob/master/vim/rcplugins/ale-lint
+" see also https://github.com/christoomey/dotfiles/blob/master/vim/rcplugins/ale-lint
 " ALE populates the loclist; use [l, ]l from vim-unimpaired for navigating
-augroup plugin-ale
-    autocmd!
-    autocmd InsertLeave * call ale#Lint()
-    autocmd TextChanged * call ale#Lint()
-    " autocmd CursorHold * call ale#Lint()
-    " autocmd CursorHoldI * call ale#Lint()
-    highlight ALEWarningSign ctermfg=3
-augroup END
 let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 1
 let g:ale_sign_error = 'E>'
 let g:ale_sign_warning = 'W>'
 let g:ale_echo_msg_format = '[%linter%] %s'
