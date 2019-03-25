@@ -54,6 +54,10 @@ export DISABLE_AUTO_TITLE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(pip colored-man-pages)
 
+# Custom site-functions (e.g. completions). Run before sourcing oh-my-zsh.sh because there
+# compinit is called to setup all available completions
+fpath=(~/.local/share/zsh/site-functions $fpath)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
