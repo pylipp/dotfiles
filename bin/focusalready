@@ -39,6 +39,7 @@ def _parse_command_line():
     # display only 'on' command in public help
     subparsers = parser.add_subparsers(dest="command", metavar='{on}',
             title="available commands", )
+    subparsers.required = True
 
     on_parser = subparsers.add_parser("on", help="start staying focused!")
     on_parser.add_argument("task", help="name of the task")
