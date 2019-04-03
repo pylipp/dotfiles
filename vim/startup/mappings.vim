@@ -120,8 +120,8 @@ cnoremap <C-r><C-l> <C-r>=getline('.')<CR>
 nnoremap <leader>sf 1z=
 
 " Search and replace word under cursor/selection on current line...
-nnoremap <space>sl :'{,'}s/\<<c-r><c-w>\>//g<left><left>
-xnoremap <space>sl y:'{,'}s/<c-r><c-0>//g<left><left>
+nnoremap <space>sl :s/\<<c-r><c-w>\>//g<left><left>
+xnoremap <space>sl y:s/<c-r><c-0>//g<left><left>
 " ...and in entire buffer
 nnoremap <space>sb :%s/\<<c-r><c-w>\>//g<left><left>
 xnoremap <space>sb y:%s/<c-r><c-0>//g<left><left>
