@@ -76,13 +76,13 @@ gu() {
 
 wt() {
     # Watson report of Today
-    watson report --from $(date +%F)
+    watson report --from $(date +%F) --no-pager
 }
 
 wy() {
     # Watson report of Yesterday
     local yesterdate=$(date --date yesterday +%F)
-    watson report --from $yesterdate --to $yesterdate
+    watson report --from $yesterdate --to $yesterdate --no-pager
 }
 
 dcleanup(){
