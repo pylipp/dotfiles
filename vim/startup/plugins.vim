@@ -244,9 +244,6 @@ command! -bang -nargs=* Rg
       \   <bang>0)
 nnoremap <leader>r :Rg<space>
 
-" slow; would be nicer to have output of g] in quickfix list
-nnoremap <leader>t :Tags <C-R>=expand('<cword>')<CR><CR>
-
 nnoremap <leader>l :Lines<CR>
 
 " These two paragraph are from :h fzf-vim-usage
@@ -277,6 +274,7 @@ nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 let g:grepper = {}
 let g:grepper.tools = ['rg', 'ag', 'ack', 'ack-grep', 'grep', 'findstr',]
+let g:grepper.next_tool = '<leader>t'
 
 " vim-markdown-preview settings (requires see, ~/.mailcap)
 let g:vim_markdown_preview_hotkey='<leader>mp'
