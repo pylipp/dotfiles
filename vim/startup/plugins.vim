@@ -93,6 +93,8 @@ Plug 'mhinz/vim-grepper'
 Plug 'octol/vim-cpp-enhanced-highlight'
 " Enhanced hlsearch
 Plug 'romainl/vim-cool'
+" Syntax highlighting for bats test files
+Plug 'aliou/bats.vim', { 'for': 'bats', }
 
 " All of your Plugs must be added before the following line
 call plug#end()
