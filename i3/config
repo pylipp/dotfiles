@@ -222,7 +222,7 @@ bindsym Print exec scrot
 focus_follows_mouse no
 
 # Open the most favorite editor
-bindsym $mod+o exec gvim
+bindsym $mod+o exec gvim +'set spell spelllang=de_20'
 
 # don't maximize previews with qmlscene
 for_window [class="QtQmlViewer"] floating enable
