@@ -239,12 +239,13 @@ nnoremap <leader>a :Ag<CR>
 " Search for word under cursor
 nnoremap <leader>A :Ag <C-R>=expand('<cword>')<CR><CR>
 
-" http://www.wezm.net/technical/2016/09/ripgrep-with-vim/
+" https://github.com/junegunn/fzf.vim/issues/732#issuecomment-437276088
 command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \   'rg --column --color --ignore-case '.shellescape(<q-args>), 1,
-      \   <bang>0)
-nnoremap <leader>r :Rg<space>
+  \ call fzf#vim#grep('rg --column --no-heading --line-number --color=always '.shellescape(<q-args>),
+  \ 1,
+  \ fzf#vim#with_preview(),
+  \ <bang>0)
+nnoremap <leader>r :Rg<CR>
 
 nnoremap <leader>l :Lines<CR>
 
