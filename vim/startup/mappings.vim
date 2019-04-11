@@ -66,6 +66,14 @@ augroup resetenter
     autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 augroup END
 
+" Move visual block (https://vimrcfu.com/snippet/77)
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Reselect visual block after changing indent
+vnoremap < <gv
+vnoremap > >gv
+
 " enter paste mode when pasting
 set pastetoggle=<F12>
 
