@@ -40,7 +40,7 @@
     untracked = cyan
 [alias]
     co = checkout
-    ci = commit
+    ci = commit -v
     st = status
     br = branch
     # mnemonic: Branches RECently checked-out
