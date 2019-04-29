@@ -42,7 +42,7 @@ class Worked:
         :return: number of work days (int)
         """
         nr_work_days = 4 * WORK_DAYS_PER_WEEK
-        for day in range(29, self.nr_of_days_in_month):
+        for day in range(29, self.nr_of_days_in_month + 1):
             date = dt(self.year, self.month, day)
             if date.weekday() <= LAST_WORK_DAY_IN_WEEK:
                 nr_work_days += 1
