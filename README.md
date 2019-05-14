@@ -48,7 +48,7 @@ Functionality | Program name | Notes
 Window manager | `i3` | using `i3status`, `i3lock` and additional scripts in `i3/`
 Terminal | `st` | solarized color scheme
 Shell | `zsh` | themes and goodies from `oh-my-zsh`
-Terminal multiplexer | `tmux` | plugins loaded by `tpm`; custom session defined with `tmuxp`
+Terminal multiplexer | `tmux` | plugins loaded by `tpm`
 VCS | `git` | additionally using `hub` for managing GitHub workflows from the CL and `tig` for a git-log TUI
 Editor | `vim` | built from source, see [vim/startup](https://github.com/pylipp/dotfiles/tree/master/vim/startup) for personal settings
 Python development | `virtualenvwrapper` |
