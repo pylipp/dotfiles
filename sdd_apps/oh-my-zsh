@@ -1,0 +1,17 @@
+#!/bin/bash
+
+sdd_install() {
+    rm -f ~/.zshrc ~/.zshrc.pre-oh-my-zsh
+    ln -s ~/.files/zshrc ~/.zshrc
+    ln -s ~/.files/oh-my-zsh/themes/bullet-train.zsh-theme ~/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
+
+    # Attempt to change login shell; fallback to launching zsh when bash is launched
+    if [[ $SHELL != *zsh ]]; then
+        chsh -s $(which zsh) || echo exec zsh >> ~/.bashrc
+    fi
+}
+
+sdd_uninstall() {
+    rm -f ~/.zshrc
+    sed -i 's/exec zsh//g' ~/.bashrc
+}
