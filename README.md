@@ -16,6 +16,20 @@ git clone https://github.com/pylipp/dotfiles .files
 bash ~/.files/setup/complete_setup.bash global
 ```
 
+With [`sdd`](https://github.com/pylipp/sdd):
+```bash
+# install git and wget
+cd
+git clone https://github.com/pylipp/dotfiles .files
+mkdir software
+git clone https://github.com/pylipp/sdd software/sdd
+cd software/sdd
+./bootstrap.sh
+cd
+mkdir -p ~/.config/sdd
+ln -s ~/.files/sdd_apps ~/.config/sdd/apps
+```
+
 ### Desktop environment
 
 My DE of choice is i3. After some experiments, I decided to strive for a minimalistic configuration using package-built-in tools (i3status, i3lock). Additional scripts for system interaction (screen locking, shutdown, volume control, sensor information) can be found in `i3/`. 
