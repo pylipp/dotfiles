@@ -3,17 +3,17 @@
 # requires borg: sudo apt-get install borgbackup
 
 # Before running this script, set up the backup storage dir once:
-#   cd /mnt/ubuntu
+#   cd /mnt/backup_drive
 #   sudo mkdir backup
 #   sudo chown $USER:$USER backup
 #   borg init backup
 
-MOUNTPOINT=/mnt/ubuntu
+MOUNTPOINT=${MOUNTPOINT:-/mnt/backup_drive}
 [[ ! -e $MOUNTPOINT ]] && sudo mkdir $MOUNTPOINT
 BACKUPDIR=$MOUNTPOINT/backup
 
 if [[ ! -d $BACKUPDIR ]]; then
-    PARTITION=/dev/sdb6
+    PARTITION=${PARTITION:-/dev/sdb6}
     if [[ -e $PARTITION ]]; then
         sudo mount $PARTITION $MOUNTPOINT
     else
@@ -68,8 +68,6 @@ borg create --verbose --stats --compression lz4 \
     .cat_installer \
     \
     .virtualenvs \
-    .local/share/activitywatch \
-    .local/share/pydartz \
     .platformio \
     \
     .zsh_history \
