@@ -130,7 +130,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exit
 # lock i3
-bindsym $mod+Shift+x i3lock
+bindsym $mod+Shift+x exec i3lock
 bindsym Ctrl+mod1+l exec ~/.i3/i3exit lock
 
 # resize window (you can also use the mouse for that)
