@@ -1,0 +1,3 @@
+sdd_install() {
+    echo "Update dotfiles!"
+}
