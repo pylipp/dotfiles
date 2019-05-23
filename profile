@@ -6,6 +6,7 @@ export EDITOR=vim
 export BROWSER=qutebrowser
 
 export PYTHONSTARTUP=~/.files/pythonrc
+export WORKON_HOME=$HOME/.virtualenvs
 
 # https://github.com/junegunn/fzf.vim/issues/732#issuecomment-437379194
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'

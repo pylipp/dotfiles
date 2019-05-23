@@ -11,13 +11,10 @@ command -v hub >/dev/null 2>&1 && eval "$(hub alias -s)"
 
 # http://www.simononsoftware.com/virtualenv-tutorial-part-2/
 if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
-    export WORKON_HOME=$HOME/.virtualenvs
     . /usr/local/bin/virtualenvwrapper.sh
 elif [ -e /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
-    export WORKON_HOME=$HOME/.virtualenvs
     . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 elif [ -e ~/.local/bin/virtualenvwrapper.sh ]; then
-    export WORKON_HOME=$HOME/.virtualenvs
     . ~/.local/bin/virtualenvwrapper.sh
 fi
 
