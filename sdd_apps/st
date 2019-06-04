@@ -1,0 +1,36 @@
+#! /bin/bash
+
+# https://st.suckless.org/ simple terminal
+
+# toggle light/dark theme by F6
+# zoom in/out via Ctrl-Shift-PageUp/Down
+# copy/paste via Ctrl-Shift-C/V
+
+sdd_install() {
+    local version=$1
+    local package=st.tar.gz
+
+    wget -P /tmp https://github.com/pylipp/binaries/releases/download/$version/$package
+    cd /tmp
+    tar xf $package
+
+    mv st "$SDD_INSTALL_PREFIX"/bin
+
+    # Install man page
+    mkdir -p "$SDD_INSTALL_PREFIX"/share/man/man1
+    mv st.1 "$SDD_INSTALL_PREFIX"/share/man/man1
+
+    # Update terminfo entry
+    tic -sx st.info
+
+    rm -rf $package st.info
+}
+
+sdd_uninstall() {
+    rm -f "$SDD_INSTALL_PREFIX"/bin/st
+    rm -f "$SDD_INSTALL_PREFIX"/share/man/man1/st.1
+}
+
+sdd_fetch_latest_version() {
+    _tag_name_of_latest_github_release pylipp binaries
+}
