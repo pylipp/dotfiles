@@ -73,7 +73,7 @@ gu() {
 
 wt() {
     # Watson report of Today
-    watson report --from $(date +%F) --no-pager
+    watson report --from $(date +%F) --no-pager --current "$@"
 }
 
 wy() {
