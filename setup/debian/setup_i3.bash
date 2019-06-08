@@ -18,7 +18,7 @@ main() {
         echo_install_info i3
 
         install_packages git build-essential
-        install_packages i3 xautolock xorg xinit feh scrot imagemagick arandr
+        install_packages i3 i3lock xautolock xorg xinit feh scrot imagemagick arandr
 
         mkcswdir
 
@@ -30,17 +30,6 @@ main() {
         git checkout v1.2.0
         make
         sudo make install
-
-        cd ..
-        install_packages pkg-config libxcb1 libpam-dev libcairo-dev \
-            libxcb-xinerama0-dev libev-dev libx11-dev libx11-xcb-dev libxkbcommon0 \
-            libxkbcommon-x11-0 libxcb-dpms0-dev libxcb-image0-dev libxcb-util0-dev \
-            libxcb-xkb-dev libxkbcommon-x11-dev libxkbcommon-dev dbus-x11 \
-            libxcb-randr0 libxcb-randr0-dev
-        git clone https://github.com/i3/i3lock
-        cd i3lock
-        git checkout 2.10  # does not require autotools
-        sudo make install 
     elif [[ $method = "local" ]]; then
         echo_warn "Sorry, local i3 installation is not possible."
     else
