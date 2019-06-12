@@ -10,3 +10,5 @@ local_tmux.conf
 local_vimrc
 
 global_gituser
+
+__pycache__/*

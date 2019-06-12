@@ -1,32 +1,14 @@
-# Python related
-*.pyc
-__pycache__/
-*.egg-info
-.coverage
-htmlcov/
-dist/
-
 # Editor related
 *.swp
 *.swo
 *~
 .~lock.*
 
-# C++ related
-*.so
-*.a
-*.o
-
-# Build-system related (ROS, cmake)
-build/
-devel/
-
 # Git related
 *.orig
 
 # Qt related
 *.user
-*.qmlc
 
 # Tags
 tags
