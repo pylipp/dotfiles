@@ -33,6 +33,9 @@ c.fonts.monospace = 'Inconsolata'
 # Type: Bool
 c.input.insert_mode.auto_load = True
 
+# Enable 'copy-to-clipboard' button functionality
+c.content.javascript.can_access_clipboard = True
+
 # Padding around text for tabs
 # Type: Padding
 c.tabs.padding = {'top': 2, 'bottom': 2, 'right': 5, 'left': 5}
