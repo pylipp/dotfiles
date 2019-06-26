@@ -9,6 +9,8 @@ command -v thefuck >/dev/null 2>&1 && eval "$(thefuck --alias)"
 
 command -v hub >/dev/null 2>&1 && eval "$(hub alias -s)"
 
+command -v bat >/dev/null 2>&1 && alias cat=bat
+
 # http://www.simononsoftware.com/virtualenv-tutorial-part-2/
 if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
     . /usr/local/bin/virtualenvwrapper.sh
