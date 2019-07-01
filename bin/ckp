@@ -24,7 +24,7 @@ while True:
 
 # find entry given by command line argument
 try:
-    entry_name = sys.argv[1]
+    entry_name = " ".join(sys.argv[1:])
     entry = kp.find_entries_by_title(entry_name, first=True)
     message = "Entry '{}' not found. ".format(entry_name)
 except IndexError:
