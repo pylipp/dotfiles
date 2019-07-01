@@ -37,18 +37,12 @@ Plug 'EinfachToll/DidYouMean'
 Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 " mappings to handle 'surroundings'
 Plug 'tpope/vim-surround'
-" correctly in/decrement dates and times
-Plug 'tpope/vim-speeddating'
 " enable repeating of plugin commands by .
 Plug 'tpope/vim-repeat'
 " Support for editing latex files
 Plug 'lervag/vimtex', {'for': 'tex' }
 " Show git status of lines
 Plug 'airblade/vim-gitgutter'
-if has('python')
-    " ROS helpers
-    Plug 'taketwo/vim-ros'
-endif
 " Seamless tmux and vim navigation
 Plug 'christoomey/vim-tmux-navigator'
 " Helpers for UNIX shell commands
