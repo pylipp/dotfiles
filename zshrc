@@ -129,4 +129,4 @@ fi
 [ -f ~/.dir_colors ] && eval `dircolors ~/.dir_colors`
 
 # General, safe setup for bash/zsh acc. to https://direnv.net/ (section Setup)
-command -v direnv >/dev/null 2>&1 && eval "$(direnv hook $(basename $SHELL))"
+command -v direnv >/dev/null 2>&1 && eval "$(direnv hook $(basename $SHELL))" || true
