@@ -131,12 +131,3 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
-
-
-"
-" NEOVIM-SPECIFIC SETTINGS
-"
-if has("nvim")
-    " path to python interpreter of neovim virtualenv
-    let g:python3_host_prog = $WORKON_HOME . '/neovim/bin/python3'
-endif

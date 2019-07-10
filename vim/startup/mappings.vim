@@ -2,16 +2,6 @@
 " CUSTOM MAPPINGS
 "
 
-if has("nvim")
-    " Neovim terminal key mappings, see :help terminal-emulator-input
-    tnoremap <Esc> <C-\><C-n>
-    tnoremap <C-h> <C-\><C-n><C-h>
-    tnoremap <C-j> <C-\><C-n><C-j>
-    tnoremap <C-k> <C-\><C-n><C-k>
-    tnoremap <C-l> <C-\><C-n><C-l>
-endif
-
-
 " save file as sudo
 cnoremap w!! w !sudo tee > /dev/null %
 
