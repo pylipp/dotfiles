@@ -79,14 +79,6 @@ nnoremap <leader><Space> <C-^>
 " overrides built-in i_Ctrl-V behaviour which can be achieved by C-q, too
 inoremap <C-v> <C-r>"
 
-" interact with system clipboard 
-" http://sts10.github.io/blog/2016/02/12/best-of-my-vimrc/
-nnoremap <leader>p "+]p
-nnoremap <leader>P "+]P
-" copy current line
-nnoremap <leader>y :y+<CR>
-vnoremap <leader>y "+y
-
 " open .vimrc in new tab
 noremap <leader>v :tabnew ~/.vim/startup<CR>
 " reload .vimrc and makes all changes active

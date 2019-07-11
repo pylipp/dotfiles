@@ -23,6 +23,7 @@ set hidden      " allows making buffers hidden even without unsaved changes
 set history=1000 "remember more commands and search history
 set autoread    "autoread when a file is changed from the outside
 set mouse=a     "enables the mouse in all modes
+set clipboard^=unnamedplus
 
 """ Statusline
 set laststatus=2        "always show the status line
