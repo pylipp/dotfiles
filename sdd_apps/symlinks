@@ -1,0 +1,35 @@
+sdd_install() {
+    for rcfile in ycm_extra_conf.py gitconfig bashrc bash_profile \
+        i3 xinitrc dir_colors latexmkrc tigrc direnvrc \
+        mailcap profile zprofile xprofile \
+        vintrc.yaml
+    do
+        link_path=~/.$rcfile
+        rm -f "$link_path"
+        ln -s ~/.files/$rcfile "$link_path"
+    done
+    
+    mkdir -p ~/.config/zathura
+    ln -s ~/.files/zathurarc ~/.config/zathura/zathurarc
+    mkdir -p ~/.ptpython 
+    ln -s ~/.files/ptpython_config.py ~/.ptpython/config.py
+    mkdir -p ~/.config/pudb
+    ln -s ~/.files/pudb.cfg ~/.config/pudb/pudb.cfg
+    mkdir -p ~/.config/feh
+    ln -s ~/.files/feh ~/.config/feh
+    mkdir -p ~/.local/share
+    ln -s ~/.files/local/share/applications ~/.local/share/applications
+}
+
+sdd_uninstall() {
+    for rcfile in ycm_extra_conf.py gitconfig bashrc bash_profile \
+        i3 xinitrc dir_colors latexmkrc tigrc direnvrc \
+        mailcap profile zprofile xprofile \
+        vintrc.yaml
+    do
+        link_path=~/.$rcfile
+        rm -f "$link_path"
+    done
+
+    rm -f ~/.config/zathura/zathurarc ~/.ptpython/config.py ~/.config/pudb/pudb.cfg ~/.config/feh ~/.local/share/applications
+}
