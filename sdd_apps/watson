@@ -1,0 +1,36 @@
+sdd_install() {
+    local version=$1
+
+    python3 -m venv $WORKON_HOME/watson
+    source $WORKON_HOME/watson/bin/activate
+    pip install git+https://github.com/TailorDev/Watson@$version\#egg=td-watson
+
+    mkdir -p ~/.local/bin
+    ln -s $WORKON_HOME/watson/bin/watson ~/.local/bin
+
+    mkdir -p ~/.local/share/zsh/site-functions
+    wget -O ~/.local/share/zsh/site-functions/_watson https://raw.githubusercontent.com/TailorDev/Watson/$version/watson.zsh-completion
+
+    mkdir -p ~/.config/watson
+    ln -s ~/.files/watson_config ~/.config/watson/config
+}
+
+sdd_update() {
+    local version=$1
+
+    source $WORKON_HOME/watson/bin/activate
+    pip install --upgrade git+https://github.com/TailorDev/Watson@$version\#egg=td-watson
+
+    wget -O ~/.local/share/zsh/site-functions/_watson https://raw.githubusercontent.com/TailorDev/Watson/$version/watson.zsh-completion
+}
+
+sdd_uninstall() {
+    rm -rfv ~/.local/bin/watson $WORKON_HOME/watson ~/.local/share/zsh/site-functions/_watson ~/.config/watson/config
+    # Not removing ~/.config/watson because it contains data that still
+    # might be useful
+}
+
+sdd_fetch_latest_version() {
+    local package_name=td-watson
+    wget -qO- https://pypi.python.org/pypi/$package_name/json | python -c "import json, sys; from pkg_resources import parse_version; d=json.loads(sys.stdin.read()); print(sorted(d['releases'].keys(), key=parse_version)[-1])"
+}
