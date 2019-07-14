@@ -1,0 +1,3 @@
+[submodule "venv-burrito"]
+	path = venv-burrito
+	url = https://github.com/pylipp/venv-burrito
