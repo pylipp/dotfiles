@@ -21,5 +21,5 @@ ln -s .files/vim .vim
 vim +qa
 vim +PlugInstall < /dev/tty
 
-sdd install oh-my-zsh tmux direnv symlinks
+sdd install oh-my-zsh tmux direnv symlinks fzf
 echo "Set up .files/global_gituser!"

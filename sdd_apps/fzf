@@ -1,0 +1,21 @@
+INSTALL_COMMAND="./install --all --xdg --no-update-rc"
+
+sdd_install() {
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    cd ~/.fzf
+    $INSTALL_COMMAND
+}
+
+sdd_update() {
+    cd ~/.fzf
+    git pull
+    $INSTALL_COMMAND
+}
+
+sdd_uninstall() {
+    rm -rf ~/.fzf ~/.config/fzf/fzf.{zsh,bash}
+}
+
+sdd_fetch_latest_version() {
+    _name_of_latest_github_tag junegunn fzf
+}

@@ -28,12 +28,6 @@ main() {
         # base utilities
         install_packages wget curl gawk scrot zip unzip 
 
-        echo_install_info fzf
-        # preview colorizer
-        install_packages coderay
-        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-        ~/.fzf/install --all
-
         # make automounted devices readable for user
         # https://unix.stackexchange.com/a/155689/192726
         if [[ -e /etc/usbmount/usbmount.conf ]]; then
