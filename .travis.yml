@@ -1,9 +1,9 @@
-sudo: required
-language: python
-python:
-  - "3.5"
-before_script:
-  - sudo apt-get -qq update
-  - bash setup/install_core_utils.bash global
+dist: xenial
+language: minimal
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y wget git zsh gcc g++ make xclip vim python3-venv
+
 script:
-  - exit 0
+  - bash ./setup/basic_setup.bash
