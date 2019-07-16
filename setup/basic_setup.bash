@@ -29,7 +29,8 @@ ln -s ~/.files/vim ~/.vim
 vim +qa
 vim +PlugInstall +qa < /dev/tty
 
-sdd install oh-my-zsh tmux pip direnv symlinks fzf keyboard st
+sdd install tmux pip direnv symlinks fzf keyboard st
 sdd install watson=aa901567c5aa6129ff6dae799eddbfb0be06cb65
+# sdd install oh-my-zsh
 
 echo "Set up .files/global_gituser!"
