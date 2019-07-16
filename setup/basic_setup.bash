@@ -26,6 +26,7 @@ fi
 rm -f ~/.vimrc ~/.vim
 ln -s ~/.files/vimrc ~/.vimrc
 ln -s ~/.files/vim ~/.vim
+vim +qa
 vim +PlugInstall < /dev/tty
 
 sdd install oh-my-zsh tmux pip direnv symlinks fzf keyboard st
