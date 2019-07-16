@@ -1,0 +1,23 @@
+#!/bin/bash
+
+sdd_install() {
+    mkdir -p ~/.config/xkb/symbols
+    ln -s ~/.files/keyboard ~/.config/xkb/symbols/pylipp
+    cd ~/.config/xkb
+    # worked: http://www.gabriel.urdhr.fr/2014/06/06/custom-keyboard/
+    # did not work: https://unix.stackexchange.com/questions/397716/custom-keyboard-layout-without-root?rq=1
+    setxkbmap pylipp pylipp -print | xkbcomp -I. - $DISPLAY
+
+    # System-wide setup
+    sudo cp "$HOME/.files/keyboard" /usr/share/X11/xkb/symbols/pylipp
+    setxkbmap pylipp
+}
+
+sdd_uninstall() {
+    rm -f ~/.config/xkb/symbols/pylipp
+    setxkbmap de deadgraveacute
+}
+
+sdd_fetch_latest_version() {
+    echo 0.1
+}
