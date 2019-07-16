@@ -4,6 +4,7 @@ language: minimal
 before_install:
   - sudo apt-get update
   - sudo apt-get install -y wget git zsh gcc g++ make xclip vim python3-venv
+  - ln -s ~/build/pylipp/dotfiles ~/.files
 
 script:
   - bash ./setup/basic_setup.bash

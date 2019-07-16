@@ -14,7 +14,7 @@ cd /tmp/sdd
 ./bootstrap.sh
 mkdir -p ~/.config/sdd
 ln -s ~/.files/sdd_apps ~/.config/sdd/apps
-cd
+cd -
 
 # Check for sudo rights of current user
 if groups $USER | grep -q sudo; then
