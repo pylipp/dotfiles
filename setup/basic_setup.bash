@@ -23,11 +23,9 @@ if groups $USER | grep -q sudo; then
     sudo apt-get install wget git zsh gcc g++ make xclip vim python3-venv
 fi
 
-cd
-
-ln -s ~/.files/vimrc .vimrc
-ln -s ~/.files/vim .vim
-vim +qa
+rm -f ~/.vimrc ~/.vim
+ln -s ~/.files/vimrc ~/.vimrc
+ln -s ~/.files/vim ~/.vim
 vim +PlugInstall < /dev/tty
 
 sdd install oh-my-zsh tmux pip direnv symlinks fzf keyboard st
