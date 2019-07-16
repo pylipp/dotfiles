@@ -6,14 +6,22 @@ if [[ ! -z $TMUX ]]; then
     exit 1
 fi
 
+set -e
+
+# Bootstrap sdd
+git clone https://github.com/pylipp/sdd /tmp/sdd
+cd /tmp/sdd
+./bootstrap.sh
+mkdir -p ~/.config/sdd
+ln -s ~/.files/sdd_apps ~/.config/sdd/apps
+cd
+
 # Check for sudo rights of current user
 if groups $USER | grep -q sudo; then
     # Assume Debian-based distro
     sudo apt-get update && sudo apt-get upgrade -y
     sudo apt-get install wget git zsh gcc g++ make xclip vim python3-venv
 fi
-
-set -e
 
 cd
 

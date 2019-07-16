@@ -18,16 +18,9 @@ bash ~/.files/setup/complete_setup.bash global
 
 With [`sdd`](https://github.com/pylipp/sdd):
 ```bash
-# install git and wget
-cd
-git clone https://github.com/pylipp/dotfiles .files
-mkdir software
-git clone https://github.com/pylipp/sdd software/sdd
-cd software/sdd
-./bootstrap.sh
-cd
-mkdir -p ~/.config/sdd
-ln -s ~/.files/sdd_apps ~/.config/sdd/apps
+# Assuming git installation
+git clone --recursive https://github.com/pylipp/dotfiles ~/.files
+bash ~/.files/setup/basic_setup.bash
 ```
 
 ### Desktop environment
