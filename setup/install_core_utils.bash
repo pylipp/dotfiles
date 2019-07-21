@@ -18,7 +18,7 @@ main() {
         install_packages \
             cmake build-essential doxygen graphviz python-dev exuberant-ctags
         # workflow
-        install_packages tig silversearcher-ag xclip
+        install_packages tig silversearcher-ag
         # system utilities
         install_packages network-manager lm-sensors htop
         # libraries
@@ -26,7 +26,7 @@ main() {
         # sound support
         install_packages pulseaudio libasound2-dev alsa-utils
         # base utilities
-        install_packages wget curl gawk scrot zip unzip 
+        install_packages wget curl gawk zip unzip
 
         # make zathura default application to open pdfs using xdg-open
         xdg-mime default zathura.desktop application/pdf

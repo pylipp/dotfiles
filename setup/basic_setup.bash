@@ -20,7 +20,7 @@ cd -
 if groups $USER | grep -q sudo; then
     # Assume Debian-based distro
     sudo apt-get update && sudo apt-get upgrade -y
-    sudo apt-get install wget git zsh gcc g++ make xclip vim python3-venv
+    sudo apt-get install -y wget git zsh gcc g++ make vim python3-venv
 fi
 
 rm -f ~/.vimrc ~/.vim
@@ -29,7 +29,7 @@ ln -s ~/.files/vim ~/.vim
 vim +qa
 vim +PlugInstall +qa < /dev/tty
 
-sdd install tmux pip direnv symlinks fzf keyboard st
+sdd install tmux pip direnv symlinks fzf
 sdd install watson=aa901567c5aa6129ff6dae799eddbfb0be06cb65
 # sdd install oh-my-zsh
 

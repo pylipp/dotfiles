@@ -17,7 +17,11 @@ main() {
     if [[ $method = "global" ]]; then
         echo_install_info i3
 
-        install_packages i3 i3lock xautolock xorg xinit feh scrot imagemagick arandr dunst
+        install_packages i3 i3lock xautolock xorg xinit feh scrot imagemagick arandr dunst xclip scrot zathura
+        sdd install keyboard st
+        # make zathura default application to open pdfs using xdg-open
+        xdg-mime default zathura.desktop application/pdf
+
     elif [[ $method = "local" ]]; then
         echo_warn "Sorry, local i3 installation is not possible."
     else
