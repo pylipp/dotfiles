@@ -8,3 +8,6 @@ before_install:
 
 script:
   - bash ./setup/basic_setup.bash
+
+after_script:
+  - bash ./setup/verify.bash
