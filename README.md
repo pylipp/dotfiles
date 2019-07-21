@@ -6,35 +6,28 @@ This is a collection of setup scripts, configuration files and notes that I find
 
 ### Development utilities
 
-This will install and set up vim, zsh, tmux and some more tools.
+This will install and set up terminal programs like vim, zsh, tmux and some more tools.
 
 When setting up a vanilla system (Debian based, i.e. Ubuntu 14.04 and 16.04 as well as Stretch), I do:
-```bash
-sudo apt-get install git
-cd ~
-git clone https://github.com/pylipp/dotfiles .files
-bash ~/.files/setup/complete_setup.bash global
-```
 
-With [`sdd`](https://github.com/pylipp/sdd):
-```bash
-# Assuming git installation
-git clone --recursive https://github.com/pylipp/dotfiles ~/.files
-bash ~/.files/setup/basic_setup.bash
-```
+    git clone --recursive https://github.com/pylipp/dotfiles ~/.files
+    bash ~/.files/setup/basic_setup.bash
 
 ### Desktop environment
 
 My DE of choice is i3. After some experiments, I decided to strive for a minimalistic configuration using package-built-in tools (i3status, i3lock). Additional scripts for system interaction (screen locking, shutdown, volume control, sensor information) can be found in `i3/`. 
 
 For installation, run
-```bash
-bash ~/.files/setup/setup_i3.bash
-```
+
+    bash ~/.files/setup/setup_i3.bash
 
 ## Programs and tools
 
-Some of these are not installed with `complete_setup.bash`. See `setup/` for specific installation scripts. 
+Run
+
+    bash ~/.files/setup/install_core_utils.bash
+
+See `setup/` for specific installation scripts.
 
 Functionality | Program name | Notes
 ------------- | ------------ | -----
@@ -44,17 +37,38 @@ Shell | `zsh` | themes and goodies from `oh-my-zsh`
 Terminal multiplexer | `tmux` | plugins loaded by `tpm`
 VCS | `git` | additionally using `hub` for managing GitHub workflows from the CL and `tig` for a git-log TUI
 Editor | `vim` | built from source, see [vim/startup](https://github.com/pylipp/dotfiles/tree/master/vim/startup) for personal settings
-Python development | `virtualenvwrapper` |
+Python development | [`venv-burrito`](https://github.com/pylipp/venv-burrito) |
 Python REPL | `ptpython` | vi-like editing; usually installing it in venvs
 Python Debugger | `pudb` | vi-like editing; usually installing it in venvs
 Auto environment loading | `direnv` | handy for activating venvs
 Webbrowser | `qutebrowser` | vi-like key bindings
 PDF reader | `zathura` | 
-In-file search | `ag` |
+In-file search | `ripgrep` |
 Command-line utility | `fzf` |
 Tex utility | `latexmk` |
-Qt-Editor | `qtcreator` |
+Time tracking | `watson` |
 
 ## TODOs
 
-- setup docker for testing?
+Goal: Have distribution-agnostic system management (program configuration, installation and maintenance)
+
+### Future development
+
+Requirement | Specification
+--- | ---
+It is straightforward to set up a new system. | A setup routine exists.
+It is straightforward to update the system. | An update routine exists.
+Setting up the system is distribution-agnostic. | The setup routine is verified in a containerized environment.
+
+### Dependencies
+
+- [`sdd`](https://github.com/pylipp/sdd) is feature-complete
+- `sdd` app management files exist for
+    [ ] vim (at least config setup)
+    [ ] qutebrowser
+    [x] Python dev environment
+    [ ] ckp
+    [x] symlinks
+    [x] i3
+    [x] core-utils
+        [x] fzf
