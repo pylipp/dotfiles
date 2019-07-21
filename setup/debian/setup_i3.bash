@@ -1,33 +1,16 @@
 #! /bin/bash
 
-# Installation script for i3 and tools (dunst, i3lock-color, bumblebee-status)
-# Installation location: /usr and ~/software
-# Requires: - git
-#           - make
-#           - curl
-#           - bash
+# Installation script for i3 and X-server tools
 
 set -e
 
-source $(dirname "$0")/utils.bash
-
 main() {
-    local method=${1:-global}
+    sudo apt-get install --yes i3 i3lock xautolock xorg xinit feh scrot imagemagick arandr dunst xclip scrot zathura
 
-    if [[ $method = "global" ]]; then
-        echo_install_info i3
+    sdd install keyboard st
 
-        install_packages i3 i3lock xautolock xorg xinit feh scrot imagemagick arandr dunst xclip scrot zathura
-        sdd install keyboard st
-        # make zathura default application to open pdfs using xdg-open
-        xdg-mime default zathura.desktop application/pdf
-
-    elif [[ $method = "local" ]]; then
-        echo_warn "Sorry, local i3 installation is not possible."
-    else
-        echo_error "Unknown method '$method'!"
-        exit 1
-    fi
+    # make zathura default application to open pdfs using xdg-open
+    xdg-mime default zathura.desktop application/pdf
 }
 
 main "$@"
