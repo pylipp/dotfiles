@@ -50,7 +50,7 @@ Plug 'tpope/vim-eunuch'
 " Create non-existing directory when saving new file
 Plug 'pbrisbin/vim-mkdir'
 " Fuzzy file, buffer etc. searching
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 " asynchronous linting
 Plug 'w0rp/ale'
