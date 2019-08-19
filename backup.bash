@@ -65,10 +65,8 @@ borg create --verbose --stats --compression lz4 \
     .cache/thunderbird \
     .local/share/qutebrowser \
     .thunderbird \
-    .cat_installer \
     \
     .virtualenvs \
-    .platformio \
     \
     .zsh_history \
     >> $LOGFILE 2>&1
