@@ -4,7 +4,7 @@ set -e
 
 source $(dirname "$0")/utils.bash
 
-QUTEBROWSER_VERSION=v1.6.1
+QUTEBROWSER_VERSION=v1.7.0
 
 install() {
     install_packages python-tox
