@@ -10,6 +10,7 @@ set modelines=0 "prevent security exploits
 set number      "set line numbering
 set relativenumber "set relative line numbering
 set ttyfast "faster scrolling
+set lazyredraw "omit screen redrawing for faster macro completion
 set background=dark "better readability
 set backspace=2   "stop weird backspace behavior
 set novisualbell  "no display blinking at EOF
