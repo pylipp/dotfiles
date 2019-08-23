@@ -18,6 +18,7 @@ set cursorline    "highlight current line
 set fileformat=unix "avoid conversion issues
 set previewheight=25  " set preview window height
 set updatetime=500 " for gitgutter
+set ttimeout ttimeoutlen=10 " little timeout for key codes (e.g. ESC)
 set path+=** "recursively search from cwd downwards when :find
 set matchpairs+=<:> " match angular brackets
 set hidden      " allows making buffers hidden even without unsaved changes
