@@ -2,6 +2,8 @@
 
 set -v
 
+source ~/.profile
+
 tmux -V
 
 pip --version
