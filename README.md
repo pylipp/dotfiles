@@ -64,11 +64,11 @@ Setting up the system is distribution-agnostic. | The setup routine is verified 
 
 - [`sdd`](https://github.com/pylipp/sdd) is feature-complete
 - `sdd` app management files exist for
-    [ ] vim (at least config setup)
-    [ ] qutebrowser
-    [x] Python dev environment
-    [ ] ckp
-    [x] symlinks
-    [x] i3
-    [x] core-utils
-        [x] fzf
+    - [ ] vim (at least config setup)
+    - [ ] qutebrowser
+    - [x] Python dev environment
+    - [ ] ckp
+    - [x] symlinks
+    - [x] i3
+    - [x] core-utils
+        - [x] fzf
