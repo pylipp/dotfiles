@@ -27,10 +27,10 @@ rm -f ~/.vimrc ~/.vim
 ln -s ~/.files/vimrc ~/.vimrc
 ln -s ~/.files/vim ~/.vim
 vim +qa
-vim +PlugInstall +qa < /dev/tty
+# vim +PlugInstall +qa < /dev/tty
 
-sdd install tmux pip direnv symlinks fzf
+sdd install pip direnv symlinks fzf
 sdd install watson=1.7.0
-# sdd install oh-my-zsh
+# sdd install oh-my-zsh tmux
 
 echo "Set up .files/global_gituser!"

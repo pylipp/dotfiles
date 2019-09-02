@@ -11,7 +11,7 @@ command -v hub >/dev/null 2>&1 && eval "$(hub alias -s)"
 
 command -v bat >/dev/null 2>&1 && alias cat=bat
 
-[ -e ~/.files/venv-burrito/functions.bash ] && . ~/.files/venv-burrito/functions.bash
+[ -e "$WORKON_HOME"/virtualenvwrapper/bin/virtualenvwrapper.sh ] && . "$WORKON_HOME"/virtualenvwrapper/bin/virtualenvwrapper.sh
 
 #http://askubuntu.com/questions/362280/enter-ssh-passphrase-once
 SSH_ENV=$HOME/.ssh/env

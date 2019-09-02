@@ -91,7 +91,7 @@ git ci -m "Initial commit."
 # git create $package_name
 
 export WORKON_HOME=$HOME/.virtualenvs
-. $(whereis virtualenvwrapper | cut -d" " -f2-)/virtualenvwrapper.sh
+. "$WORKON_HOME"/virtualenvwrapper/bin/virtualenvwrapper.sh
 mkvirtualenv --python=$python_version $package_name
 pip install pudb ptpython flake8 twine
 deactivate

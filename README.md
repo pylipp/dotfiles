@@ -37,7 +37,7 @@ Shell | `zsh` | themes and goodies from `oh-my-zsh`
 Terminal multiplexer | `tmux` | plugins loaded by `tpm`
 VCS | `git` | additionally using `hub` for managing GitHub workflows from the CL and `tig` for a git-log TUI
 Editor | `vim` | built from source, see [vim/startup](https://github.com/pylipp/dotfiles/tree/master/vim/startup) for personal settings
-Python development | [`venv-burrito`](https://github.com/pylipp/venv-burrito) |
+Python development | [`virtualenvwrapper` fork](https://github.com/pylipp/virtualenvwrapper/tree/use-venv-module) |
 Python REPL | `ptpython` | vi-like editing; usually installing it in venvs
 Python Debugger | `pudb` | vi-like editing; usually installing it in venvs
 Auto environment loading | `direnv` | handy for activating venvs
@@ -64,11 +64,11 @@ Setting up the system is distribution-agnostic. | The setup routine is verified 
 
 - [`sdd`](https://github.com/pylipp/sdd) is feature-complete
 - `sdd` app management files exist for
-    [ ] vim (at least config setup)
-    [ ] qutebrowser
-    [x] Python dev environment
-    [ ] ckp
-    [x] symlinks
-    [x] i3
-    [x] core-utils
-        [x] fzf
+    - [ ] vim (at least config setup)
+    - [ ] qutebrowser
+    - [x] Python dev environment
+    - [ ] ckp
+    - [x] symlinks
+    - [x] i3
+    - [x] core-utils
+        - [x] fzf
