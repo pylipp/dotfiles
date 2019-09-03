@@ -228,4 +228,3 @@ bindsym $mod+o exec gvim +'set spell spelllang=de_20'
 for_window [class="QtQmlViewer"] floating enable
 for_window [class="gvim"] floating enable
 for_window [class="Matplotlib"] floating enable
-for_window [class="VirtualBox Machine"] floating enable
