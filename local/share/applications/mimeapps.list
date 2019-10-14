@@ -4,3 +4,4 @@ application/pdf=zathura.desktop
 image/jpeg=feh.desktop
 image/png=feh.desktop
 text/html=qutebrowser.desktop
+x-scheme-handler/tg=telegramdesktop.desktop
