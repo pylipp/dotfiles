@@ -164,7 +164,7 @@ let g:ycm_semantic_triggers = {
 
 " see also https://github.com/christoomey/dotfiles/blob/master/vim/rcplugins/ale-lint
 " ALE populates the loclist; use [l, ]l from vim-unimpaired for navigating
-let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_sign_error = 'E>'
 let g:ale_sign_warning = 'W>'
