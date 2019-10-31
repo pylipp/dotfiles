@@ -95,7 +95,7 @@ nnoremap g= mmgg=G''
 nnoremap <leader>cf gg"+yG<CR>
 
 " Substitute Umlaute in current buffer
-nnoremap <leader>su :%S/oe/ö/ge<CR>:%S/ae/ä/ge<CR>:%S/ue/ü/ge<CR>:%S/eü/eue/ge<CR>:%S/aü/aue/ge<CR>:%S/aktüll/aktuell/ge<CR>:%S/söben/soeben/ge<CR>:nohlsearch<CR>
+nnoremap <leader>su :%S/oe/ö/ge<CR>:%S/ae/ä/ge<CR>:%S/ue/ü/ge<CR>:%S/eü/eue/ge<CR>:%S/aü/aue/ge<CR>:%S/qü/que/ge<CR>:%S/aktüll/aktuell/ge<CR>:%S/söben/soeben/ge<CR>:nohlsearch<CR>
 
 " Delete trailing Whitespace (automatically done in Python/C++ files when saving)
 nnoremap <leader>dw :call DeleteWhitespace()<CR>
