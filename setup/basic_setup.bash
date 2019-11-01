@@ -30,7 +30,7 @@ vim +qa
 # vim +PlugInstall +qa < /dev/tty
 
 sdd install pip direnv symlinks fzf
-sdd install watson=1.7.0
-# sdd install oh-my-zsh tmux
+# sdd install bat diff-so-fancy hub jq oh-my-zsh ripgrep st tmux virtualenvwrapper
+# pipx install watson==1.8.0 financeager==0.22
 
 echo "Set up .files/global_gituser!"

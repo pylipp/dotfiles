@@ -67,7 +67,7 @@ Setting up the system is distribution-agnostic. | The setup routine is verified 
     - [ ] vim (at least config setup)
     - [ ] qutebrowser
     - [x] Python dev environment
-    - [ ] ckp
+    - [x] ckp (use pipx)
     - [x] symlinks
     - [x] i3
     - [x] core-utils
