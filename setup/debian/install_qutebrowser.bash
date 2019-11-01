@@ -2,13 +2,11 @@
 
 set -e
 
-source $(dirname "$0")/utils.bash
-
-QUTEBROWSER_VERSION=v1.7.0
+QUTEBROWSER_VERSION=v1.8.0
 
 install() {
-    install_packages python-tox
-    python -m platform | grep -qi xenial && install_packages libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3 || true
+    pipx install tox
+    python -m platform | grep -qi xenial && sudo apt-get install --yes libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3 || true
 
     git clone https://github.com/qutebrowser/qutebrowser
     cd qutebrowser
@@ -20,8 +18,7 @@ install() {
     sudo apt install -y --no-install-recommends asciidoc source-highlight
     python3 scripts/asciidoc2html.py
 
-    # TODO: set links in individual installation files or in single script?
-    setup_xdg_config_link qutebrowser qutebrowser_config.py config.py
+    ln -s ~/.files/qutebrowser_config.py ~/.config/qutebrowser/config.py
 
     # make x-www-browser call qutebrowser
     sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser $HOME/.files/bin/qutebrowser 200
@@ -35,7 +32,8 @@ install() {
 }
 
 main() {
-    mkcswdir
+    mkdir -p ~/software
+    cd ~/software
 
     if [[ $1 = "install" ]]; then
         install
