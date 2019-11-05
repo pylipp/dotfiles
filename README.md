@@ -35,9 +35,10 @@ Window manager | `i3` | using `i3status`, `i3lock` and additional scripts in `i3
 Terminal | `st` | solarized color scheme
 Shell | `zsh` | themes and goodies from `oh-my-zsh`
 Terminal multiplexer | `tmux` | plugins loaded by `tpm`
-VCS | `git` | additionally using `hub` for managing GitHub workflows from the CL and `tig` for a git-log TUI
+VCS | `git` | additionally using `hub` for managing GitHub workflows from the CL and `tig` for a git-log TUI. Improved diff using `diff-so-fancy`
 Editor | `vim` | built from source, see [vim/startup](https://github.com/pylipp/dotfiles/tree/master/vim/startup) for personal settings
 Python development | [`virtualenvwrapper` fork](https://github.com/pylipp/virtualenvwrapper/tree/use-venv-module) |
+Python app managment | [`pipx`](https://pipxproject.github.io/pipx/)
 Python REPL | `ptpython` | vi-like editing; usually installing it in venvs
 Python Debugger | `pudb` | vi-like editing; usually installing it in venvs
 Auto environment loading | `direnv` | handy for activating venvs
@@ -47,6 +48,11 @@ In-file search | `ripgrep` |
 Command-line utility | `fzf` |
 Tex utility | `latexmk` |
 Time tracking | `watson` |
+Backup | `borg`
+Pager | `bat`
+File finder | `fd`
+Image Viewer | `feh`
+JSON processing | `jq`
 
 ## TODOs
 
