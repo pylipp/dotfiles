@@ -87,6 +87,8 @@ Plug 'mhinz/vim-grepper'
 Plug 'octol/vim-cpp-enhanced-highlight'
 " Enhanced hlsearch
 Plug 'romainl/vim-cool'
+" Resize location/quickfix window
+Plug 'blueyed/vim-qf_resize'
 " Syntax highlighting for bats test files
 Plug 'aliou/bats.vim', { 'for': 'bats', }
 
