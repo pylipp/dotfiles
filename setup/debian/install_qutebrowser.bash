@@ -4,9 +4,14 @@ set -e
 
 QUTEBROWSER_VERSION=v1.8.0
 
-install() {
+_install() {
     pipx install tox
-    python -m platform | grep -qi xenial && sudo apt-get install --yes libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3 || true
+    if python -m platform | grep -qi xenial; then
+        # Additional packages for Ubuntu 16.04
+        sudo apt-get install --yes libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3
+    else
+        printf 'Assuming Debian 9 (stretch)...\n' >&2
+    fi
 
     git clone https://github.com/qutebrowser/qutebrowser
     cd qutebrowser
@@ -21,7 +26,7 @@ install() {
     ln -s ~/.files/qutebrowser_config.py ~/.config/qutebrowser/config.py
 
     # make x-www-browser call qutebrowser
-    sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser $HOME/.files/bin/qutebrowser 200
+    sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser ~/.files/bin/qutebrowser 200
     update-alternatives --config x-www-browser
 
     # to make thunderbird open links in qutebrowser, edit ~/.thunderbird/<profile>.default/prefs.js
@@ -36,7 +41,7 @@ main() {
     cd ~/software
 
     if [[ $1 = "install" ]]; then
-        install
+        _install
     elif [[ "$1" = "update" ]]; then
         cd qutebrowser
         git fetch
