@@ -109,6 +109,10 @@ cnoremap <C-r><C-l> <C-r>=getline('.')<CR>
 " Substitute First suggestion of badly spelled word
 nnoremap <leader>sf 1z=
 
+" Set spelling language of buffer
+nnoremap <leader>se :setlocal spell spelllang=en_us<CR>
+nnoremap <leader>sd :setlocal spell spelllang=de_20<CR>
+
 " Search and replace word under cursor/selection on current line...
 nnoremap <space>sl :s/\<<c-r><c-w>\>//g<left><left>
 xnoremap <space>sl y:s/<c-r><c-0>//g<left><left>
