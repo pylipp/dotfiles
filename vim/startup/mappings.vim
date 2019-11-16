@@ -132,7 +132,7 @@ command -nargs=? -bar GChanges call setqflist(map(systemlist("git diff --name-on
 " F5  c | execute/compile and execute
 " F6  c | jump to error
 " F7  c | update ctags
-" F8  c | toggle TaskList
+" F8
 " F9
 " F10
 " F11

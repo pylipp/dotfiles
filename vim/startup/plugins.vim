@@ -20,8 +20,6 @@ call plug#begin('~/.vim/bundle')
 Plug 'Valloric/YouCompleteMe', { 'do': './install-py --clang-completer', 'frozen': 1 }
 " TagBar
 Plug 'majutsushi/tagbar'
-" TaskList
-Plug 'pylipp/tasklist.vim'
 " Git integration https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
@@ -130,11 +128,6 @@ nmap <leader>T :TagbarToggle<CR>
 let g:tagbar_autofocus = 1 "jump to Tagbar when requested
 let g:tagbar_autoclose = 1 "close Tagbar after tag selection
 let g:tagbar_show_linenumbers = 1 "show linenumbers
-
-
-" TaskList plugin for managing TODOs, FIXMEs and XXXs
-map <F8> :ToggleTaskList<CR>
-imap <F8> <Esc>:ToggleTaskList<CR>
 
 
 " YouCompleteMe code completion engine

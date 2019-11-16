@@ -70,7 +70,7 @@ noremap <leader>co :copen<CR>
 " F5  c | execute/compile and execute
 " F6  c | jump to error
 " F7  c | update ctags
-" F8  c | toggle TaskList
+" F8
 " F9
 " F10
 " F11
