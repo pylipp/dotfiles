@@ -63,8 +63,6 @@ Plug 'tpope/tpope-vim-abolish'
 Plug 'arthurxavierx/vim-caser'
 " more [ ] mappings for navigation etc.
 Plug 'tpope/vim-unimpaired'
-" template files
-Plug 'aperezdc/vim-template'
 " highlight all occurences of word under cursor
 Plug 'dominikduda/vim_current_word', { 'for': ['python', 'cpp', 'qml'], }
 " Python indents acc. to PEP8
@@ -267,10 +265,6 @@ let g:vim_markdown_preview_toggle=3
 
 let g:UltiSnipsExpandTrigger='<C-s>'
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'snips']
-
-" specify non-public and public custom templates
-let g:templates_directory=['~/.templates', '~/.vim/templates']
-let g:templates_no_builtin_templates=1
 
 let g:lightline = {
     \ 'colorscheme': 'solarized',
