@@ -169,8 +169,6 @@ let g:ale_fixers = {
 nmap <silent> ]w <Plug>(ale_next_wrap)
 nmap <silent> [w <Plug>(ale_previous_wrap)
 
-nnoremap <leader>cb :<C-u>call CommentBox()<CR>
-
 " https://github.com/tomtom/tcomment_vim/issues/139
 nnoremap <silent> gC :set opfunc=ToggleComment<CR>g@
 xnoremap <silent> gC :<C-U>call ToggleComment(visualmode())<CR>
