@@ -9,9 +9,10 @@ augroup python
     autocmd!
     autocmd BufWritePre * :call DeleteWhitespace()
 
-    " highligh long lines
+    " highlight long lines
     highlight ColorColumn ctermfg=DarkYellow
-    call matchadd('ColorColumn', '\%81v', 100)
+    let s:pattern='\%' . string(&textwidth+1) . 'v'
+    call matchadd('ColorColumn', s:pattern, 100)
 augroup END
 
 if system('python --version') =~# '^Python 2.'
