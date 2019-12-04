@@ -56,6 +56,7 @@ Plug 'peterhoeg/vim-qml'
 " more VIM objects
 Plug 'wellle/targets.vim'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python', }
 " enhanced * searching
 Plug 'bronson/vim-visual-star-search'
 " enhanced substitution
