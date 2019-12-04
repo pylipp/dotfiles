@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+# Pure bash script to parse monthly CSV bank statement for relevant entries to
+# add to the financeager database
+
+set -e
+
+if [[ $# -ne 1 ]]; then
+    echo "Invalid number of arguments!"
+    echo "Usage: $(basename "$0") FILE"
+    exit 1
+fi
+
+stores=(lidl rewe aldi "dm fil" denns kaufland tengelmann edeka denn.s alnatura bioladen vollcorner "bio company" netto rossmann "fraulein lose" vitalia nahkauf vollcorner)
+
+tmp_rest_file=/tmp/add_auszug_rest
+rm -f $tmp_rest_file
+
+while IFS="\;" read -r raw_date receiver raw_value; do
+
+    # Format date from dd.mm.yy to mm-dd
+    month_day=$(echo "$raw_date" | { IFS=. read -r d m y && echo "$m-$d"; })
+
+    # Extract year to form 20XX
+    year=20$(echo "$raw_date" | cut -d. -f 3)
+
+    # Convert comma in value to period
+    value=$(echo "$raw_value" | tr , .)
+
+    found=0
+    for store in "${stores[@]}"; do
+
+        # Find out whether any store is mentioned in the receiver field (lowercased)
+        if [[ "${receiver,,}" = *"$store"* ]]; then
+
+            command="financeager add '$store' $value --date $month_day --category groceries --period $year"
+            echo "$command"
+            eval "$command"
+
+            found=1
+            break
+        fi
+    done
+
+    if [[ $found -eq 0 ]]; then
+        echo "$month_day $receiver $value" >> $tmp_rest_file
+    fi
+done < <(tail -n+2 "$1" | cut -d \; -f 2,12,15 | tr -d \")
+#<(csvtool namedcol Buchungstag,Beguenstigter/Zahlungspflichtiger,Betrag -t \; -u \; "$1")
+
+echo =================================================================
+# Show anything that was not added
+cat $tmp_rest_file
