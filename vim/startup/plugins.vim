@@ -195,11 +195,6 @@ augroup END
 
 let g:ros_catkin_make_options = '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
 
-if executable('ag')
-    " stole those from https://github.com/colbycheeze/dotfiles/blob/master/vimrc.bundles
-    set grepprg=ag\ --nogroup\ --nocolor
-endif
-
 " fzf.vim mappings
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
@@ -208,14 +203,6 @@ nnoremap <leader>F :Files!<CR>
 
 " mnemonic: Jump to buffer
 nnoremap <silent> <leader>j :Buffers<CR>
-
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 fzf#vim#with_preview('right:50%', '?'),
-  \                 <bang>0)
-nnoremap <leader>a :Ag<CR>
-" Search for word under cursor
-nnoremap <leader>A :Ag <C-R>=expand('<cword>')<CR><CR>
 
 " https://github.com/junegunn/fzf.vim/issues/732#issuecomment-437276088
 command! -bang -nargs=* Rg
