@@ -9,6 +9,8 @@ noremap Y y$
 nnoremap ß $
 xnoremap ß $
 
+inoremap  <C-w>
+
 " more convenient jumping to mark position on German keyboard
 noremap ' `
 noremap ` '
