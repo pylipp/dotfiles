@@ -80,6 +80,8 @@ Plug 'romainl/vim-cool'
 Plug 'blueyed/vim-qf_resize'
 " Syntax highlighting for bats test files
 Plug 'aliou/bats.vim', { 'for': 'bats', }
+" Utilities for CSV files
+Plug 'chrisbra/csv.vim', { 'for': 'csv', }
 
 " All of your Plugs must be added before the following line
 call plug#end()
@@ -270,3 +272,6 @@ let g:gitgutter_terminal_reports_focus=0
 " Customize mapping because gs is already used by vim-grepper
 " This overwrites vim-abolish's coercion key binding
 let g:caser_prefix='cr'
+
+" Highlight cursor column in CSV file
+let g:csv_highlight_column = 'y'
