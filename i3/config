@@ -186,8 +186,8 @@ bar {
 
 bindsym $mod+n workspace back_and_forth
 
-# helper for i3status temperature display, requires psutil python3 package
-exec --no-startup-id ~/.i3/core_temperature.py &
+# helper for i3status temperature display
+exec --no-startup-id ~/.i3/core_temperature.bash &
 
 # audio control
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.i3/i3volume raise
