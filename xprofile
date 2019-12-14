@@ -7,8 +7,10 @@ setxkbmap -layout pylipp 2> /dev/null || setxkbmap de -variant nodeadkeys
 # swap Escape key and Capslock
 setxkbmap -option caps:escape
 
-# automatic screen locking
-xautolock -time 15 -locker '~/.i3/i3exit lock' &
+# Lock screen after inactivity; suspend on lid close
+# https://www.reddit.com/r/i3wm/comments/e6jife/locking_screen_on_lid_close/
+xset s 600
+xss-lock -- ~/.i3/i3exit lock &
 
 # apply screenlayout
 ~/.screenlayout/dual-screen.sh

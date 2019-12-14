@@ -5,7 +5,7 @@
 set -e
 
 main() {
-    sudo apt-get install --yes i3 i3lock xautolock xorg xinit feh scrot imagemagick arandr dunst xclip scrot zathura
+    sudo apt-get install --yes i3 i3lock xss-lock xorg xinit feh scrot imagemagick arandr dunst xclip scrot zathura
 
     sdd install keyboard st
 
