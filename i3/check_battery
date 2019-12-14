@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 # Utility script to issue a warning at low battery level (<15%) and eventually
 # shutdown the machine at a level <10%.

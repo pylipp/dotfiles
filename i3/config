@@ -131,7 +131,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exit
 # lock i3
 bindsym $mod+Shift+x exec i3lock
-bindsym Ctrl+mod1+l exec ~/.i3/i3exit lock
+bindsym Ctrl+mod1+l exec ~/.i3/system_control lock
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -187,27 +187,27 @@ bar {
 bindsym $mod+n workspace back_and_forth
 
 # helper for i3status temperature display
-exec --no-startup-id ~/.i3/core_temperature.bash &
+exec --no-startup-id ~/.i3/core_temperature &
 
 # audio control
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.i3/i3volume raise
-bindsym XF86AudioLowerVolume exec --no-startup-id ~/.i3/i3volume lower
-bindsym XF86AudioMute exec --no-startup-id ~/.i3/i3volume mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.i3/volume_control raise
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.i3/volume_control lower
+bindsym XF86AudioMute exec --no-startup-id ~/.i3/volume_control mute
 # also use PageUp/PageDown/End for keyboards without media keys
-bindsym $mod+Prior exec --no-startup-id ~/.i3/i3volume raise
-bindsym $mod+Next exec --no-startup-id ~/.i3/i3volume lower
-bindsym $mod+End exec --no-startup-id ~/.i3/i3volume mute
+bindsym $mod+Prior exec --no-startup-id ~/.i3/volume_control raise
+bindsym $mod+Next exec --no-startup-id ~/.i3/volume_control lower
+bindsym $mod+End exec --no-startup-id ~/.i3/volume_control mute
 
 # System control key bindings from
 # https://faq.i3wm.org/question/239/how-do-i-suspendlockscreen-and-logout.1.html
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id ~/.i3/i3exit lock, mode "default"
-    bindsym e exec --no-startup-id ~/.i3/i3exit logout, mode "default"
-    bindsym s exec --no-startup-id ~/.i3/i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id ~/.i3/i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id ~/.i3/i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id ~/.i3/i3exit shutdown, mode "default"
+    bindsym l exec --no-startup-id ~/.i3/system_control lock, mode "default"
+    bindsym e exec --no-startup-id ~/.i3/system_control logout, mode "default"
+    bindsym s exec --no-startup-id ~/.i3/system_control suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.i3/system_control hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/.i3/system_control reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id ~/.i3/system_control shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"

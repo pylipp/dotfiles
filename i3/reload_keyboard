@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 # setxkbmap resets the keyboard layout if the keyboard is un/replugged
 # This script (started by i3) periodically checks the layout and updates it if necessary

@@ -10,7 +10,7 @@ setxkbmap -option caps:escape
 # Lock screen after inactivity; suspend on lid close
 # https://www.reddit.com/r/i3wm/comments/e6jife/locking_screen_on_lid_close/
 xset s 600
-xss-lock -- ~/.i3/i3exit lock &
+xss-lock -- ~/.i3/system_control lock &
 
 # apply screenlayout
 ~/.screenlayout/dual-screen.sh
@@ -22,5 +22,5 @@ dunst &
 nm-applet &
 
 # utility scripts
-~/.i3/reload_keyboard.bash &
-~/.i3/check_battery.bash &
+~/.i3/reload_keyboard &
+~/.i3/check_battery &

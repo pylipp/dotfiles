@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Script to lock screen with pixelated screenshot
 # inspired by i3lock-fancy
