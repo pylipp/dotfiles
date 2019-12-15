@@ -6,41 +6,32 @@
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
-# Always restore open sites when qutebrowser is reopened.
+# Enable JavaScript.
 # Type: Bool
-c.auto_save.session = True
+config.set('content.javascript.enabled', True, 'file://*')
+
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'chrome://*/*')
+
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'qute://*/*')
+
+# Editor (and arguments) to use for the `open-editor` command. The
+# following placeholders are defined: * `{file}`: Filename of the file
+# to be edited. * `{line}`: Line in which the caret is found in the
+# text. * `{column}`: Column in which the caret is found in the text. *
+# `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
+# Same as `{column}`, but starting from index 0.
+# Type: ShellCommand
+c.editor.command = ['st', '-e', '/usr/bin/vim', '{}']
 
 # Background color of selected even tabs.
 # Type: QtColor
 c.colors.tabs.selected.even.bg = 'darkorange'
 
-# Background color of selected odd tabs.
-# Type: QtColor
-c.colors.tabs.selected.odd.bg = 'darkorange'
-
-# The editor (and arguments) to use for the `open-editor` command. `{}`
-# gets replaced by the filename of the file to be edited.
-# Type: ShellCommand
-c.editor.command = ['st', '-e', '/usr/bin/vim', '{}']
-
-# Default monospace fonts. Whenever "monospace" is used in a font
-# setting, it's replaced with the fonts listed here.
-# Type: Font
-c.fonts.monospace = 'Inconsolata'
-
-# Automatically enter insert mode if an editable element is focused
-# after loading the page.
-# Type: Bool
-c.input.insert_mode.auto_load = True
-
-# Enable 'copy-to-clipboard' button functionality
-c.content.javascript.can_access_clipboard = True
-
-# Padding around text for tabs
-# Type: Padding
-c.tabs.padding = {'top': 2, 'bottom': 2, 'right': 5, 'left': 5}
-
-# The position of the tab bar.
+# Position of the tab bar.
 # Type: Position
 # Valid values:
 #   - top
@@ -49,8 +40,41 @@ c.tabs.padding = {'top': 2, 'bottom': 2, 'right': 5, 'left': 5}
 #   - right
 c.tabs.position = 'bottom'
 
+# Automatically enter insert mode if an editable element is focused
+# after loading the page.
+# Type: Bool
+c.input.insert_mode.auto_load = True
+
+# Background color of selected odd tabs.
+# Type: QtColor
+c.colors.tabs.selected.odd.bg = 'darkorange'
+
+# Padding (in pixels) around text for tabs.
+# Type: Padding
+c.tabs.padding = {'bottom': 2, 'right': 5, 'top': 2, 'left': 5}
+
+# Default monospace fonts. Whenever "monospace" is used in a font
+# setting, it's replaced with the fonts listed here.
+# Type: Font
+c.fonts.monospace = 'Inconsolata'
+
+# Allow JavaScript to read from or write to the clipboard. With
+# QtWebEngine, writing the clipboard as response to a user interaction
+# is always allowed.
+# Type: Bool
+c.content.javascript.can_access_clipboard = True
+
+# Always restore open sites when qutebrowser is reopened.
+# Type: Bool
+c.auto_save.session = True
+
+# User agent to send. Unset to send the default. Note that the value
+# read from JavaScript is always the global value.
+# Type: String
+config.set('content.headers.user_agent', 'Mozilla/5.0 (X11; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0', 'https://accounts.google.com/*')
+
 # Bindings for normal mode
-config.bind('<ctrl+\\>', 'tab-focus last')
-config.bind('<ctrl+r>', 'reload')
-config.bind('gT', 'set-cmd-text -s :open -t !dcc')
+config.bind('<Ctrl+\\>', 'tab-focus last')
+config.bind('<Ctrl+r>', 'reload')
 config.bind('gD', 'spawn --userscript ~/.files/local/share/qutebrowser/userscripts/getbib')
+config.bind('gT', 'set-cmd-text -s :open -t !dcc')
