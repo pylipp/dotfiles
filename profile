@@ -22,3 +22,5 @@ export FZF_COMPLETION_OPTS="--preview '[[ ! -f {} ]] && \
 [ -e ~/.files/bin ] && export PATH=~/.files/bin:$PATH
 
 [ -e ~/.files/local_profile ] && . ~/.files/local_profile
+
+[ -e ~/.config/broot/launcher/bash/br ] && . ~/.config/broot/launcher/bash/br
