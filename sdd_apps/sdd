@@ -1,3 +1,5 @@
 sdd_install() {
     echo "Update dotfiles!"
 }
+
+sdd_uninstall() { return; }
