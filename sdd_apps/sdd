@@ -2,4 +2,11 @@ sdd_install() {
     echo "Update dotfiles!"
 }
 
+sdd_upgrade() { return; }
+
 sdd_uninstall() { return; }
+
+sdd_fetch_latest_version() {
+    # overwrite built-in function
+    _sha_of_github_master pylipp sdd
+}
