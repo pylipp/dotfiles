@@ -653,7 +653,7 @@ prompt_line_sep() {
 prompt_watson() {
   if command -v watson > /dev/null 2>&1; then
     local watson_status=$(watson status)
-    if [[ "$watson_status" != "No project started" ]]; then
+    if [[ "$watson_status" != "No project started"* ]]; then
         # Convert from
         #   Project name [tag1, tag2] started ...
         # to
