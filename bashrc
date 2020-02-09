@@ -8,16 +8,23 @@ case $- in
       *) return;;
 esac
 
+# Enable the useful Bash features:
+#  - cdspell, automatically fix directory typos when changing directory
+#  - direxpand, automatically expand directory globs when completing
+#  - dirspell, automatically fix directory typos when completing
+#  - globstar, ** recursive glob
+#  - histappend, append to history, don't overwrite
+#  - histverify, expand, but don't automatically execute, history expansions
+#  - nocaseglob, case-insensitive globbing
+shopt -s histappend histverify direxpand dirspell cdspell globstar nocaseglob
+
 # don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTCONTROL='erasedups:ignoreboth'
+HISTSIZE=50000
+HISTFILESIZE=50000
+HISTIGNORE=?:??
+PROMPT_COMMAND='history -a'
+PROMPT_DIRTRIM=3
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -56,9 +63,12 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_SHOWUNTRACKEDFILES=1
 # add git prompt according to http://stackoverflow.com/a/24716445
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[00m\] \$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[34m\]\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\n\[\033[1m>\033[0m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1)\$ '
 fi
