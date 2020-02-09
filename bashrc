@@ -68,7 +68,7 @@ GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWUNTRACKEDFILES=1
 # add git prompt according to http://stackoverflow.com/a/24716445
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[34m\]\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\n\[\033[1m>\033[0m\] '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[34m\]\w\[\033[33m\]$(__git_ps1 | tr "*" "~" | tr "%" "*" | tr "<" "V" | tr ">" "^" | sed "s/\([~+*V^=<>]\)/ \1/g")\[\033[00m\]\n\[\033[1m>\033[0m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1)\$ '
 fi
