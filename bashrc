@@ -68,7 +68,7 @@ GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWUNTRACKEDFILES=1
 # add git prompt according to http://stackoverflow.com/a/24716445
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[1;41m${?#0}\033[0m\] ${debian_chroot:+($debian_chroot)}\[\033[34m\]\w\[\033[33m\]$(__git_ps1 | tr "*" "~" | tr "%" "*" | tr "<" "V" | tr ">" "^" | sed "s/\([~+*V^=<>]\)/ \1/g")\[\033[00m\]\n\[\033[1m>\033[0m\] '
+    PS1='\[\033[1;41m${?#0}\033[0m\]${debian_chroot:+($debian_chroot)}\[\033[34m\]\w\[\033[33m\]$(__git_ps1 | tr "*" "~" | tr "%" "*" | tr "<" "V" | tr ">" "^" | sed "s/\([~+*V^=<>]\)/ \1/g")\[\033[00m\]\n\[\033[1m>\033[0m\] '
 else
     PS1='${?#0} ${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1)\$ '
 fi
@@ -127,9 +127,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -z "$SHELL" ]; then
-    export SHELL=/bin/bash 
+if [ -d ~/.local/share/bash_completion ]; then
+    # Source custom completion files
+    while IFS= read -r -d '' f; do
+        . "$f"
+    done < <(find ~/.local/share/bash_completion -type f -print0)
 fi
+
+export SHELL=/bin/bash 
 
 if [ -f ~/.files/extra_shrc ]; then 
     . ~/.files/extra_shrc 
