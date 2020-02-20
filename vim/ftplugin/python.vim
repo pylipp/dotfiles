@@ -3,7 +3,9 @@ if exists('b:custom_python')
 endif
 let b:custom_python=1
 
-setlocal textwidth=80
+if &textwidth==0
+    setlocal textwidth=80
+endif
 
 augroup python
     autocmd!
