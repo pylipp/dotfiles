@@ -9,7 +9,7 @@
 
 set -e
 
-source $(dirname "$0")/utils.bash
+source $(dirname "$0")/../utils.bash
 
 install_vim() {
     mkcswdir
@@ -31,42 +31,35 @@ install_vim() {
         sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
         sudo update-alternatives --set vi /usr/bin/vim
     elif [[ $method = "local" ]]; then
-        install_prefix=$HOME/software/vim-rt
+        install_prefix=$HOME/.local
         build_vim "$install_prefix"
         make install
-
-        mkcdir $HOME/.local/bin
-        mv_existing vim
-        ln -s $install_prefix/bin/vim vim
     else
         echo_error "Unknown method '$method'!"
         exit 1
     fi
 
-    setup_vim_config
+    # setup_vim_config
 }
 
 build_vim() {
     mkcswdir
 
-    git clone https://github.com/vim/vim.git
+    if [ ! -d vim ]; then
+        git clone https://github.com/vim/vim.git
+    fi
     cd vim
+    git pull
 
-    VIM_PYTHON2_CONFIG_DIR=/usr/lib/python2.7/config-x86_64-linux-gnu
     VIM_PYTHON3_CONFIG_DIR=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu
-    while [[ ! -e $VIM_PYTHON2_CONFIG_DIR ]]; do
-        echo -n "Path to Python2 config dir: "
-        read VIM_PYTHON2_CONFIG_DIR
-    done
     while [[ ! -e $VIM_PYTHON3_CONFIG_DIR ]]; do
         echo -n "Path to Python3 config dir: "
         read VIM_PYTHON3_CONFIG_DIR
     done
 
+    make clean
     ./configure --with-features=huge \
         --enable-multibyte \
-        --enable-pythoninterp \
-        --with-python-config-dir=$VIM_PYTHON2_CONFIG_DIR \
         --enable-python3interp \
         --with-python3-config-dir=$VIM_PYTHON3_CONFIG_DIR \
         --enable-cscope \
