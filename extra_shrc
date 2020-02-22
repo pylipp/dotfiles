@@ -11,6 +11,9 @@ command -v hub >/dev/null 2>&1 && eval "$(hub alias -s)"
 
 command -v bat >/dev/null 2>&1 && alias cat=bat
 
+# General, safe setup for bash/zsh acc. to https://direnv.net/ (section Setup)
+command -v direnv >/dev/null 2>&1 && eval "$(direnv hook "$(basename "$SHELL")")"
+
 [ -e "$WORKON_HOME"/virtualenvwrapper/bin/virtualenvwrapper.sh ] && . "$WORKON_HOME"/virtualenvwrapper/bin/virtualenvwrapper.sh
 
 #http://askubuntu.com/questions/362280/enter-ssh-passphrase-once
