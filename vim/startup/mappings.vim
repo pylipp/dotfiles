@@ -44,11 +44,21 @@ nnoremap k gk
 nnoremap 0 g0
 nnoremap ^ g^
 nnoremap $ g$
+nnoremap gj j
+nnoremap gk k
+nnoremap g0 0
+nnoremap g^ ^
+nnoremap g$ $
 vnoremap j gj
 vnoremap k gk
 vnoremap 0 g0
 vnoremap ^ g^
 vnoremap $ g$
+vnoremap gj j
+vnoremap gk k
+vnoremap g0 0
+vnoremap g^ ^
+vnoremap g$ $
 
 " Toggle fold in regular windows (not command line or quickfix window)
 nnoremap <CR> za
