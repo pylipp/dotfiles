@@ -110,9 +110,7 @@ if [ -f ~/.files/bash_aliases ]; then
     . ~/.files/bash_aliases
 fi
 
-if [ -z "$SHELL" ]; then
-    export SHELL=/usr/bin/zsh
-fi
+export SHELL=/usr/bin/zsh
 
 if [ -f ~/.files/extra_shrc ]; then 
     . ~/.files/extra_shrc 
