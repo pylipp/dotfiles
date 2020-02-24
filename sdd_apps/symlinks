@@ -19,6 +19,8 @@ sdd_install() {
     ln -s ~/.files/feh ~/.config/feh
     mkdir -p ~/.local/share
     ln -s ~/.files/local/share/applications ~/.local/share/applications
+    rm -f ~/.config/liquidpromptrc
+    ln -s ~/.files/liquidpromptrc ~/.config/liquidpromptrc
 }
 
 sdd_uninstall() {
