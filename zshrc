@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=~/.oh-my-zsh
+# export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -52,13 +52,11 @@ export DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(pip)
+# plugins=(pip)
 
-# Custom site-functions (e.g. completions). Run before sourcing oh-my-zsh.sh because there
-# compinit is called to setup all available completions
+# Custom site-functions (e.g. completions).
 fpath=(~/.local/share/zsh/site-functions $fpath)
-
-source $ZSH/oh-my-zsh.sh
+autoload -U compinit && compinit
 
 # User configuration
 
