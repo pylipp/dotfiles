@@ -6,9 +6,6 @@ alias rg='rg --ignore-file ~/.files/gitignore_global'
 
 alias z=zathura
 
-# http://stackoverflow.com/questions/20327621/calling-ipython-from-a-virtualenv
-alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
-
 alias mkvenv35="mkvirtualenv --python=/usr/bin/python3.5 "
 
 alias dotfiles='cd ~/.files'
@@ -20,5 +17,4 @@ alias popdd='popd; popd'
 alias pbcopy='xclip -i -selection c '
 alias pbpaste='xclip -o -selection c '
 
-# repeat definition for zsh
-alias ll='ls -alF'
+alias l='ls -alF'
