@@ -119,7 +119,6 @@ if [ -f ~/.files/local_shrc ]; then
 fi
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
-[ -f ~/.files/fzf_custom.zsh ] && source ~/.files/fzf_custom.zsh
 [ -f ~/.files/grc.zsh ] && source ~/.files/grc.zsh
 
 [ -f ~/.dir_colors ] && eval `dircolors ~/.dir_colors`
