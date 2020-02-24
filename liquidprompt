@@ -1498,6 +1498,26 @@ _lp_load_color()
     fi
 }
 
+#########################
+#  Watson time tracker  #
+#########################
+_lp_load_watson()
+{
+    command -v watson > /dev/null 2>&1 || return
+    command -v jq > /dev/null 2>&1 || return
+
+    local watson_status state_file
+    state_file=~/.config/watson/state
+    [ ! -f "$state_file" ] && return
+
+    # Convert to {name +tag1 +tag2} format
+    watson_status=$(echo $(jq -r '.project?' $state_file) $(jq -r ".tags[]?" $state_file | sed 's/^/+/g' | xargs))
+
+    if [[ "$watson_status" != "null" ]]; then
+        echo -nE "{${LP_COLORMAP[1]}$watson_status${NO_COL}}"
+    fi
+}
+
 ######################
 # System temperature #
 ######################
@@ -1751,6 +1771,7 @@ _lp_set_prompt()
     fi
 
     LP_RUNTIME=$(_lp_sl "$(_lp_runtime)")
+    LP_WATSON=$(_lp_sl "$(_lp_load_watson)")
 
     # if change of working directory
     if [[ "${LP_OLD_PWD-}" != "LP:$PWD" ]]; then
@@ -1852,7 +1873,7 @@ _lp_set_prompt()
         # Add VCS infos
         # If root, the info has not been collected unless LP_ENABLE_VCS_ROOT
         # is set.
-        PS1+="${LP_VCS}"
+        PS1+="${LP_WATSON}${LP_VCS}"
 
         # add return code and prompt mark
         PS1+="${LP_RUNTIME}${LP_ERR}${LP_MARK_PREFIX}${LP_COLOR_MARK}${LP_MARK}${LP_PS1_POSTFIX}"
