@@ -309,8 +309,13 @@ _lp_source_config()
     LP_USER_ALWAYS=${LP_USER_ALWAYS:-1}
     LP_PERCENTS_ALWAYS=${LP_PERCENTS_ALWAYS:-1}
     LP_PS1=${LP_PS1:-""}
-    LP_PS1_PREFIX=${LP_PS1_PREFIX:-""}
-    LP_PS1_POSTFIX=${LP_PS1_POSTFIX:-""}
+    if $_LP_SHELL_bash; then
+        LP_PS1_PREFIX="\n"
+        LP_PS1_POSTFIX="\n> "
+    elif $_LP_SHELL_zsh; then
+        LP_PS1_PREFIX=$'\n'
+        LP_PS1_POSTFIX=$'\n'"> "
+    fi
 
     LP_ENABLE_PERM=${LP_ENABLE_PERM:-1}
     LP_ENABLE_SHORTEN_PATH=${LP_ENABLE_SHORTEN_PATH:-1}
