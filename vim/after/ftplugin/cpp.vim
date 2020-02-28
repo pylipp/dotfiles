@@ -9,10 +9,5 @@ setlocal shiftwidth=2
 
 setlocal textwidth=80
 
-augroup cpp
-    autocmd!
-    autocmd BufWritePre * :call DeleteWhitespace()
-augroup END
-
 " Turn off annoying error highlighting
 highlight clear SpellBad

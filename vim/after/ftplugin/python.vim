@@ -7,15 +7,10 @@ if &textwidth==0
     setlocal textwidth=80
 endif
 
-augroup python
-    autocmd!
-    autocmd BufWritePre * :call DeleteWhitespace()
-
-    " highlight long lines
-    highlight ColorColumn ctermfg=DarkYellow
-    let s:pattern='\%' . string(&textwidth+1) . 'v'
-    call matchadd('ColorColumn', s:pattern, 100)
-augroup END
+" highlight long lines
+highlight ColorColumn ctermfg=DarkYellow
+let s:pattern='\%' . string(&textwidth+1) . 'v'
+call matchadd('ColorColumn', s:pattern, 100)
 
 if system('python --version') =~# '^Python 2.'
     Python2Syntax
