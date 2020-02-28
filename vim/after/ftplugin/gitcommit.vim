@@ -6,3 +6,6 @@ nnoremap <leader>d :DiffGitCached<CR>
 
 " Activate spell checking
 setlocal spell spelllang=en_us
+
+" Avoid indenting when inserting newline (e.g. after multi-line in bulleted list)
+setlocal noautoindent
