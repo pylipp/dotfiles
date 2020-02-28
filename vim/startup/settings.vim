@@ -50,6 +50,9 @@ set softtabstop=4 "tab key indent
 set shiftwidth=4  "autoindent width, used for >>, << etc.
 set expandtab     "convert tabs to whitespace
 set autoindent  "indent if previous line is indented
+set formatoptions+=j  "remove comment leader when joining lines
+set formatoptions+=n  "preserve numbered lists when formatting text
+set nojoinspaces  "insert one space instead of two after .!? when joining lines
 
 """ Undo-related Options
 set undofile  "store undo actions in file
