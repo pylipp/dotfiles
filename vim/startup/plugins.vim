@@ -82,6 +82,8 @@ Plug 'blueyed/vim-qf_resize'
 Plug 'aliou/bats.vim', { 'for': 'bats', }
 " Utilities for CSV files
 Plug 'chrisbra/csv.vim', { 'for': 'csv', }
+" Markdown runtime files
+Plug 'tpope/vim-markdown'
 
 " All of your Plugs must be added before the following line
 call plug#end()
