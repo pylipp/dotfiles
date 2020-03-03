@@ -6,6 +6,9 @@ sdd_install() {
     mkdir -p ~/.local/share/zsh/site-functions
     wget -O ~/.local/share/zsh/site-functions/_watson https://raw.githubusercontent.com/TailorDev/Watson/$version/watson.zsh-completion
 
+    mkdir -p ~/.local/share/bash_completion
+    wget -O ~/.local/share/bash_completion/watson https://raw.githubusercontent.com/TailorDev/Watson/$version/watson.completion
+
     mkdir -p ~/.config/watson
     ln -s ~/.files/watson_config ~/.config/watson/config
 }
@@ -20,7 +23,7 @@ sdd_upgrade() {
 
 sdd_uninstall() {
     pipx uninstall td-watson
-    rm -rfv ~/.local/share/zsh/site-functions/_watson ~/.config/watson/config
+    rm -rfv ~/.local/share/zsh/site-functions/_watson ~/.config/watson/config ~/.local/share/bash_completion/watson
     # Not removing ~/.config/watson because it contains data that still
     # might be useful
 }
