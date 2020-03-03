@@ -134,3 +134,12 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
+
+highlight clear DiffAdd
+highlight DiffAdd ctermfg=2 ctermbg=0 cterm=bold
+highlight clear DiffChange
+highlight DiffChange ctermfg=3 ctermbg=0 cterm=bold
+highlight clear DiffDelete
+highlight DiffDelete ctermfg=1 ctermbg=0 cterm=bold
+highlight clear DiffText
+highlight DiffText ctermfg=4 ctermbg=0 cterm=bold
