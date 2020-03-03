@@ -6,7 +6,7 @@ sdd_install() {
     $INSTALL_COMMAND
 }
 
-sdd_update() {
+sdd_upgrade() {
     cd ~/.fzf
     git pull
     $INSTALL_COMMAND

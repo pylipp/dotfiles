@@ -10,7 +10,7 @@ sdd_install() {
     ln -s ~/.files/watson_config ~/.config/watson/config
 }
 
-sdd_update() {
+sdd_upgrade() {
     local version=$1
 
     pipx upgrade td-watson==$version
