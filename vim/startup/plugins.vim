@@ -255,17 +255,6 @@ let g:vim_markdown_preview_toggle=3
 let g:UltiSnipsExpandTrigger='<C-s>'
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'snips']
 
-let g:lightline = {
-    \ 'colorscheme': 'solarized',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste', 'spell' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ 'component_function': {
-    \   'gitbranch': 'fugitive#head'
-    \ },
-    \ }
-
 highlight CurrentWord term=bold cterm=bold
 
 " Force updating of gitgutter symbols in simple terminal

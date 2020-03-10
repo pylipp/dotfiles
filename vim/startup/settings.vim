@@ -124,9 +124,8 @@ if !exists('g:syntax_on')
     syntax enable       "enable syntax highlighting
 endif
 
-let g:solarized_termcolors=16
 set t_Co=16
-colorscheme solarized " an appropriate color scheme
+colorscheme flattened_dark
 
 " highlight errors in bold, underlined red font
 highlight clear SpellBad
