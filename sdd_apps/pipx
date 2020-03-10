@@ -1,0 +1,21 @@
+sdd_install() {
+    command -v python3 >/dev/null 2>&1 || return 1
+    [ -z "$WORKON_HOME" ] && return 2
+
+    # Bootstrap pipx into virtual environment
+    python3.6 -m venv "$WORKON_HOME"/pipx
+    . "$WORKON_HOME"/pipx/bin/activate
+    pip install -U pip
+    pip install pipx=="$1"
+
+    mkdir -p ~/.local/bin
+    ln -s "$WORKON_HOME"/pipx/bin/pipx ~/.local/bin/pipx
+}
+
+sdd_uninstall() {
+    rm -rfv "$WORKON_HOME"/pipx ~/.local/bin/pipx
+}
+
+sdd_fetch_latest_version() {
+    _name_of_latest_github_tag pipxproject pipx
+}
