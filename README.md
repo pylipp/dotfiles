@@ -78,3 +78,8 @@ Setting up the system is distribution-agnostic. | The setup routine is verified 
     - [x] i3
     - [x] core-utils
         - [x] fzf
+- systems are 'pinned'
+    - [ ] sdd apps
+    - [ ] pipx apps
+    - [ ] vim plugins
+    - [ ] venvs (?)

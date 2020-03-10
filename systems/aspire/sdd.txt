@@ -1,0 +1,15 @@
+bat=v0.12.1
+broot=v0.11.7
+diff-so-fancy=v1.2.6
+direnv=v2.20.0
+fd=v7.3.0
+fzf=0.18.0
+hub=v2.13.0
+jq=jq-1.6
+pip=19.1.1
+qutebrowser=v1.9.0
+ripgrep=11.0.2
+sdd=68af419815e8960bdcd93cbb41aef9d2b8fb0eb3
+shellcheck=v0.7.0
+st=0.4
+virtualenvwrapper=4.8.4

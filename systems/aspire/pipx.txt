@@ -1,0 +1,15 @@
+venvs are in /home/philipp/.local/pipx/venvs
+symlinks to binaries are in /home/philipp/.local/bin
+   package docker-compose, 1.24.1
+    - docker-compose
+   package financeager, 0.23.0.0
+    - financeager
+   package pyrummy, 0.1
+    - pyrummy
+   package qr-filetransfer, 2.7
+    - qr-filetransfer
+   package td-watson==1.8.0, 1.8.0
+    - watson
+   package tox, 3.14.0
+    - tox
+    - tox-quickstart

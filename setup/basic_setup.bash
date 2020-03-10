@@ -30,6 +30,7 @@ vim +qa
 # vim +PlugInstall +qa < /dev/tty
 
 # sdd install bat diff-so-fancy direnv fd fzf hub jq pipx=0.15.1.3 ripgrep shellcheck symlinks tmux virtualenvwrapper
+# sdd install $(cat ~/.files/systems/aspire/sdd.txt | xargs)
 # pipx install docker-compose qr-filetransfer==2.7 tox==3.14.0 watson==1.8.0 financeager==0.23.1.0
 
 echo "Set up .files/global_gituser!"
