@@ -27,10 +27,19 @@ rm -f ~/.vimrc ~/.vim
 ln -s ~/.files/vimrc ~/.vimrc
 ln -s ~/.files/vim ~/.vim
 vim +qa
-# vim +PlugInstall +qa < /dev/tty
 
-# sdd install bat diff-so-fancy direnv fd fzf hub jq pipx=0.15.1.3 ripgrep shellcheck symlinks tmux virtualenvwrapper
-# sdd install $(cat ~/.files/systems/aspire/sdd.txt | xargs)
+systems=(aspire)
+if printf '%s\n' "${systems[@]}" | grep -q -P "$(hostname)"; then
+    vim +PlugInstall +qa < /dev/tty
+
+    command -v wget bash 2>&1 || { echo "sdd dependencies not installed"; exit 1; }
+    sdd install $(xargs < ~/.files/systems/"$(hostname)"/sdd.txt)
+else
+    echo "Unknown system..."
+    echo "Skipping installation of vim plugins, sdd apps, and pipx apps"
+    # sdd install bat diff-so-fancy direnv fd fzf hub jq pipx=0.15.1.3 ripgrep shellcheck symlinks tmux virtualenvwrapper
+fi
+
 # pipx install docker-compose qr-filetransfer==2.7 tox==3.14.0 watson==1.8.0 financeager==0.23.1.0
 
 echo "Set up .files/global_gituser!"
