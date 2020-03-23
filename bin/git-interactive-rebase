@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Start interactive rebasing by fuzzy-selecting the commit to start with
+
+# Check the current working directory for changes, and stash if required
+git diff-index --quiet HEAD --
+DIRTY=$?
+[ $DIRTY -eq 1 ] && git stash save 'Enable interactive rebase'
+
+START_COMMIT=$(git rev-list HEAD | head -n40 | \
+    fzf --no-multi --ansi --no-sort --preview 'git show --color=always {1} | diff-so-fancy')
+
+if [ -z "$START_COMMIT" ]; then
+    printf "User aborted interactive rebase\n" >&2
+    [ $DIRTY -eq 1 ] && git stash pop
+    exit 1
+fi
+
+PARENT_COMMIT=$(git rev-parse "$START_COMMIT"^)
+
+printf "Rebasing onto %s...\n" "$PARENT_COMMIT" >&2
+
+if git rebase -i "$PARENT_COMMIT"; then
+    [ $DIRTY -eq 1 ] && git stash pop
+    RC=0
+else
+    printf "Error during interactive rebase" >&2
+    [ $DIRTY -eq 1 ] && printf ". Not applying stash" >&2
+    printf "\n" >&2
+    RC=1
+fi
+
+exit $RC
