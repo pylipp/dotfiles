@@ -91,6 +91,30 @@ wy() {
     watson report --from $yesterdate --to $yesterdate --no-pager | tail -n1
 }
 
+wa() {
+    # Watson Add frames for multiple full days
+    if [ $# -lt 2 ]; then
+        echo "Usage: wa holiday|illness MONTH DAY [DAY...]" >&2
+        return 1
+    fi
+
+    local year project month date rc
+    year=$(date +%Y)
+    project=$1
+    shift
+    month=$1
+    shift
+
+    rc=0
+    for day in "$@"; do
+        date=$year-$month-$day
+        watson add "$project" --from "$date 08:00:00" --to "$date 16:00:00"
+        rc=$((rc + $?))
+    done
+
+    return $rc
+}
+
 dcleanup(){
     # Cleanup unused Docker resources, https://stackoverflow.com/a/32723127/3865876
     docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
