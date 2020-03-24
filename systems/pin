@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+main() {
+    local host_dir
+    host_dir="$SCRIPTDIR"/"$(hostname)"
+    mkdir -p "$host_dir"
+
+    echo "Recording apps installed on $(hostname)..."
+
+    echo ""
+    sdd list --installed | tee "$host_dir"/sdd.txt
+
+    echo ""
+    pipx list | tee "$host_dir"/pipx.txt
+
+    echo ""
+    git diff -- "$SCRIPTDIR"
+}
+
+main
