@@ -33,7 +33,7 @@ export BORG_PASSPHRASE
 #   - configs
 #   - mail/browser stuff
 #   - Python virtualenvs
-#   - ZSH history
+#   - shell history
 # excluding binary and build files created by latex or python
 
 CONFIGDIR=~/.config/borg
@@ -68,12 +68,14 @@ borg create --verbose --stats --compression lz4 \
     \
     .virtualenvs \
     \
+    .bash_history \
     .zsh_history \
     >> $LOGFILE 2>&1
 
 if [[ $? -ne 0 ]]; then
     echo Error backing up!
     unset BORG_PASSPHRASE
+    cat "$LOGFILE"
     exit 1
 fi
 
