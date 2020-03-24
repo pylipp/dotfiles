@@ -1,0 +1,10 @@
+bat=v0.12.1
+broot=v0.11.8
+direnv=v2.20.0
+fd=v7.5.0
+gh=v0.6.2
+hub=v2.11.2
+jq=jq-1.6
+ripgrep=11.0.2
+sdd=03abd1750b37ea636f196d50d5f6567d5591690b
+shellcheck=v0.7.0
