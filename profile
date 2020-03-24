@@ -7,7 +7,7 @@ export BROWSER=qutebrowser
 
 export PYTHONSTARTUP=~/.files/pythonrc
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=$WORKON_HOME/virtualenvwrapper/bin/python
+export VIRTUALENVWRAPPER_PYTHON=~/.local/pipx/venvs/virtualenvwrapper/bin/python
 
 # https://github.com/junegunn/fzf.vim/issues/732#issuecomment-437379194
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
