@@ -1,15 +1,21 @@
 venvs are in /home/philipp/.local/pipx/venvs
-symlinks to binaries are in /home/philipp/.local/bin
-   package docker-compose, 1.24.1
+apps are exposed on your $PATH at /home/philipp/.local/bin
+   package docker-compose 1.25.4, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+[GCC 5.5.0]
     - docker-compose
-   package financeager, 0.23.0.0
+   package financeager 0.23.1.0, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+[GCC 5.5.0]
     - financeager
-   package pyrummy, 0.1
-    - pyrummy
-   package qr-filetransfer, 2.7
+   package qr-filetransfer 2.7, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+[GCC 5.5.0]
     - qr-filetransfer
-   package td-watson==1.8.0, 1.8.0
+   package td-watson==1.8.0 1.8.0, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+[GCC 5.5.0]
     - watson
-   package tox, 3.14.0
+   package tox 3.14.5, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+[GCC 5.5.0]
     - tox
     - tox-quickstart
+   package youtube-dl 2020.3.8, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+[GCC 5.5.0]
+    - youtube-dl
