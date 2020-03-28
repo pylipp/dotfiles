@@ -1,19 +1,6 @@
-#! /bin/bash
-
 sdd_install() {
-    # https://github.com/sharkdp/bat/issues/34#issuecomment-385634632
-    # Get theme
-    mkdir -p ~/.config/bat/themes
-    cd ~/.config/bat/themes
-    git clone https://github.com/braver/Solarized
-    cd Solarized
-    # https://github.com/sharkdp/bat/issues/34#issuecomment-448783715
-    git checkout 1.6.0
-    cd ..
-    ln -sf "Solarized/Solarized (dark).tmTheme" Default.tmTheme
-
+    mkdir -p ~/.config/bat
     ln -s ~/.files/bat_config ~/.config/bat/config
-    bat cache --build
 }
 
 sdd_uninstall() {
