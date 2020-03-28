@@ -11,6 +11,8 @@ main() {
 
     echo ""
     sdd list --installed | tee "$host_dir"/sdd.txt
+    # Trim trailing whitespace to avoid git complaining
+    sed -i 's/ *$//g' "$host_dir"/sdd.txt
 
     echo ""
     pipx list | tee "$host_dir"/pipx.txt
