@@ -20,6 +20,7 @@ export FZF_COMPLETION_OPTS="--preview '[[ ! -f {} ]] && \
 
 [ -e ~/.local/bin ] && export PATH=~/.local/bin:$PATH
 [ -e ~/.files/bin ] && export PATH=~/.files/bin:$PATH
+[ -e ~/.guix-profile/bin ] && export PATH=~/.guix-profile/bin:$PATH
 
 [ -e ~/.files/local_profile ] && . ~/.files/local_profile
 
