@@ -16,6 +16,9 @@ main() {
     pipx list | tee "$host_dir"/pipx.txt
 
     echo ""
+    vim "+PlugSnapshot! $host_dir/vim.txt" +qa < /dev/tty
+
+    echo ""
     git diff -- "$SCRIPTDIR"
 }
 
