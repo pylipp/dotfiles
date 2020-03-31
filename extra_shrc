@@ -153,4 +153,22 @@ scrot() {
     /usr/bin/scrot --exec 'mv $f ~/Pictures' "$@"
 }
 
+fj() {
+    # Find Jira items. Any command line options are passed to 'jira list'
+    case "$1" in
+        ''|-h|--help|help )
+            jira list --help; return 0 ;;
+    esac
+
+    local item
+    item="$(jira list "$@" | \
+        fzf --preview 'jira view $(echo {} | cut -d: -f1) | bat --color=always --plain --language YAML' \
+            --preview-window=:$([ $(tput cols) -gt $(($(tput lines) * 2)) ] && echo right || echo down)
+    )"
+
+    if [ "$item" != "" ]; then
+        jira browse $(echo "$item" | cut -d: -f1)
+    fi
+}
+
 [ -e ~/.files/liquidprompt ] && . ~/.files/liquidprompt || true
