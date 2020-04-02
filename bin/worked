@@ -28,7 +28,7 @@ class Worked:
 
         :return: report (dict)
         """
-        command = "watson report "\
+        command = "watson report --current "\
             "--json --from {y}-{m:02d}-01 --to {y}-{m:02d}-{d}".format(
                 y=self.year, m=self.month, d=self.nr_of_days_in_month)
         process = subprocess.run(command.split(), stdout=subprocess.PIPE)
