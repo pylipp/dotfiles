@@ -21,6 +21,8 @@ sdd_install() {
     ln -s ~/.files/local/share/applications ~/.local/share/applications
     rm -f ~/.config/liquidpromptrc
     ln -s ~/.files/liquidpromptrc ~/.config/liquidpromptrc
+    mkdir -p ~/.config/mpv
+    ln -s ~/.files/mpv_input.conf ~/.config/mpv/input.conf
 }
 
 sdd_uninstall() {
@@ -30,8 +32,8 @@ sdd_uninstall() {
         vintrc.yaml
     do
         link_path=~/.$rcfile
-        rm -f "$link_path"
+        rm -fv "$link_path"
     done
 
-    rm -f ~/.config/zathura/zathurarc ~/.ptpython/config.py ~/.config/pudb/pudb.cfg ~/.config/feh ~/.local/share/applications
+    rm -rvf ~/.config/zathura/zathurarc ~/.ptpython/config.py ~/.config/pudb/pudb.cfg ~/.config/feh ~/.local/share/applications ~/.config/mpv
 }
