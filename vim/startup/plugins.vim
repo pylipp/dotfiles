@@ -84,6 +84,8 @@ Plug 'aliou/bats.vim', { 'for': 'bats', }
 Plug 'chrisbra/csv.vim', { 'for': 'csv', }
 " Markdown runtime files
 Plug 'tpope/vim-markdown'
+" Indentation highlighting
+Plug 'nathanaelkane/vim-indent-guides'
 
 " All of your Plugs must be added before the following line
 call plug#end()
@@ -276,3 +278,8 @@ let g:caser_prefix='cr'
 
 " Highlight cursor column in CSV file
 let g:csv_highlight_column = 'y'
+
+" vim-indent-guides settings
+let g:indent_guides_start_level=2
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=4
