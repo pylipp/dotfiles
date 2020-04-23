@@ -86,6 +86,8 @@ nnoremap <leader>N :Vexplore<CR>
 nnoremap <leader>n :noh<CR><Esc>
 " jump to previous buffer
 nnoremap <leader><Space> <C-^>
+" change current word; next occurrences with .
+nnoremap <leader>x *``cgn
 
 " paste from most recent used register in insert mode
 " overrides built-in i_Ctrl-V behaviour which can be achieved by C-q, too
@@ -104,7 +106,7 @@ command! Xmlify %!xmllint --format %
 nnoremap g= mmgg=G''
 
 " Copy File to clipboard
-nnoremap <leader>cf gg"+yG<CR>
+nnoremap <leader>cf gg"+yG<CR>``
 
 " Substitute Umlaute in current buffer
 nnoremap <leader>su :%S/oe/ö/ge<CR>:%S/ae/ä/ge<CR>:%S/ue/ü/ge<CR>:%S/eü/eue/ge<CR>:%S/aü/aue/ge<CR>:%S/qü/que/ge<CR>:%S/aktüll/aktuell/ge<CR>:%S/söben/soeben/ge<CR>:nohlsearch<CR>
