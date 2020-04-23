@@ -29,6 +29,8 @@ Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 Plug 'tpope/vim-surround'
 " enable repeating of plugin commands by .
 Plug 'tpope/vim-repeat'
+" end certain control structures wisely
+Plug 'tpope/vim-endwise'
 " Support for editing latex files
 Plug 'lervag/vimtex', {'for': 'tex' }
 " Show git status of lines
@@ -86,6 +88,8 @@ Plug 'chrisbra/csv.vim', { 'for': 'csv', }
 Plug 'tpope/vim-markdown'
 " Indentation highlighting
 Plug 'nathanaelkane/vim-indent-guides'
+" Split single-line instructions into multiline; and join again
+Plug 'AndrewRadev/splitjoin.vim'
 
 " All of your Plugs must be added before the following line
 call plug#end()
@@ -283,3 +287,6 @@ let g:csv_highlight_column = 'y'
 let g:indent_guides_start_level=2
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=4
+
+" splitjoin settings
+let g:splitjoin_trailing_comma = 1
