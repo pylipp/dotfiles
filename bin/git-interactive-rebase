@@ -8,7 +8,7 @@ DIRTY=$?
 [ $DIRTY -eq 1 ] && git stash save 'Enable interactive rebase'
 
 START_COMMIT=$(git rev-list HEAD | head -n40 | \
-    fzf --no-multi --ansi --no-sort --preview 'git show --color=always {1} | diff-so-fancy')
+    fzf --no-multi --ansi --no-sort --preview 'git show --color=always {1} | diffy')
 
 if [ -z "$START_COMMIT" ]; then
     printf "User aborted interactive rebase\n" >&2

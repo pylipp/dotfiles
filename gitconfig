@@ -2,7 +2,9 @@
 	editor = /usr/bin/vim
 	excludesfile = ~/.files/gitignore_global
 	autocrlf = input
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = diffy
+[interactive]
+    diffFilter = diffy --color-only
 # [branch]
 #     autosetupmerge = true
 [push]
@@ -40,7 +42,7 @@
     untracked = cyan
 [alias]
     co = checkout
-    cob = !"git checkout $(git branch --all | fzf --no-multi --ansi --no-sort --preview 'git show --color=always {1} | diff-so-fancy')"
+    cob = !"git checkout $(git branch --all | fzf --no-multi --ansi --no-sort --preview 'git show --color=always {1} | diffy' | sed 's#remotes/origin/##')"
     ci = commit -v
     st = status
     br = branch
