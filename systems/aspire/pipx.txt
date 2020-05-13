@@ -16,6 +16,10 @@ apps are exposed on your $PATH at /home/philipp/.local/bin
 [GCC 5.5.0]
     - tox
     - tox-quickstart
+   package virtualenvwrapper 4.8.5.dev6, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+[GCC 5.5.0]
+    - virtualenvwrapper.sh
+    - virtualenvwrapper_lazy.sh
    package youtube-dl 2020.3.8, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
     - youtube-dl
