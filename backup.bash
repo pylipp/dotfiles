@@ -58,7 +58,6 @@ borg create --verbose --stats --compression lz4 \
     .config \
     .files/local_* \
     .files/global_gituser \
-    .screenlayout \
     .ssh \
     \
     .mozilla/firefox \
