@@ -1,10 +1,15 @@
-bat=v0.12.1
+bat=v0.15.1
 broot=v0.11.8
+delta=0.1.1
 direnv=v2.20.0
 fd=v7.5.0
+fzf=0.21.0
 gh=v0.6.2
 hub=v2.11.2
+jira=v1.0.23
 jq=jq-1.6
+qrcp=0.6.1
 ripgrep=11.0.2
-sdd=03abd1750b37ea636f196d50d5f6567d5591690b
+sdd=e3f0ed4a5bdddf30689eb35db6d8a5fd4599b00f
 shellcheck=v0.7.0
+zoom=

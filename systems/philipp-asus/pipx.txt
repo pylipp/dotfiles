@@ -1,11 +1,15 @@
 venvs are in /home/philipp/.local/pipx/venvs
 apps are exposed on your $PATH at /home/philipp/.local/bin
-   package ckp 0.2, Python 3.6.10
+   package ckp 0.3.0, Python 3.6.10
     - ckp
    package financeager 0.23.0.0, Python 3.6.10
     - financeager
+   package pypyp 0.2.1, Python 3.6.10
+    - pyp
    package qr-filetransfer 2.7, Python 3.6.10
     - qr-filetransfer
+   package smdv 0.1.1, Python 3.6.10
+    - smdv
    package td-watson 1.8.0, Python 3.6.10
     - watson
    package tldr 0.5, Python 3.6.10
