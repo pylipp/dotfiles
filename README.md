@@ -33,7 +33,7 @@ Functionality | Program name | Notes
 ------------- | ------------ | -----
 Window manager | `i3` | using `i3status`, `i3lock` and additional scripts in `i3/`
 Terminal | `st` | solarized color scheme
-Shell | `zsh` | themes and goodies from `oh-my-zsh`
+Shell | `bash` | forked theme from `liquidprompt`
 Terminal multiplexer | `tmux` | plugins loaded by `tpm`
 VCS | `git` | additionally using `hub` for managing GitHub workflows from the CL and `tig` for a git-log TUI. Improved diff using `delta`
 Editor | `vim` | built from source, see [vim/startup](https://github.com/pylipp/dotfiles/tree/master/vim/startup) for personal settings
@@ -65,21 +65,3 @@ Requirement | Specification
 It is straightforward to set up a new system. | A setup routine exists.
 It is straightforward to update the system. | An update routine exists.
 Setting up the system is distribution-agnostic. | The setup routine is verified in a containerized environment.
-
-### Dependencies
-
-- [`sdd`](https://github.com/pylipp/sdd) is feature-complete
-- `sdd` app management files exist for
-    - [x] vim (at least config setup)
-    - [x] qutebrowser
-    - [x] Python dev environment
-    - [x] ckp (use pipx)
-    - [x] symlinks
-    - [x] i3
-    - [x] core-utils
-        - [x] fzf
-- systems are 'pinned'
-    - [ ] sdd apps
-    - [ ] pipx apps
-    - [ ] vim plugins
-    - [ ] venvs (?)
