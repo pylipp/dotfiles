@@ -2,6 +2,30 @@
 
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+_collect_versions() {
+    _print() {
+        local program option
+        program="$1"
+        option="$2"
+
+        # Abort if not installed
+        command -v "$program" >/dev/null 2>&1 || return
+
+        printf "%s\n" "$program"
+        "$program" "$option"
+        printf "\n"
+    }
+
+    for program in arandr bash borg cmake curl dunst feh g++ gawk gcc git htop i3 i3lock make nmcli pulseaudio python3 scrot tig vim wget xss-lock zathura zip zsh;
+    do
+        _print $program --version
+    done
+    for program in convert latexmk xclip; do
+        _print $program -version
+    done
+    _print tmux -V
+}
+
 main() {
     local host_dir
     host_dir="$SCRIPTDIR"/"$(hostname)"
@@ -19,6 +43,9 @@ main() {
 
     echo ""
     vim "+PlugSnapshot! $host_dir/vim.txt" +qa < /dev/tty
+
+    echo ""
+    _collect_versions > "$host_dir"/programs.txt 2>&1
 
     echo ""
     git diff -- "$SCRIPTDIR"
