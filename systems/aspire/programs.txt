@@ -246,3 +246,13 @@ Distributed under the terms of the GNU GPL
 tmux
 tmux 2.6
 
+
+X.Org X Server 1.19.2
+Release Date: 2017-03-02
+X Protocol Version 11, Revision 0
+Build Operating System: Linux 4.9.0-4-amd64 x86_64 Debian
+Current Operating System: Linux aspire 4.13.0-1-amd64 #1 SMP Debian 4.13.13-1 (2017-11-16) x86_64
+Kernel command line: BOOT_IMAGE=/boot/vmlinuz-4.13.0-1-amd64 root=UUID=359768ea-4eb3-4d61-9128-16a3b9cf5ec4 ro quiet
+Build Date: 16 October 2017  08:19:45AM
+xorg-server 2:1.19.2-1+deb9u2 (https://www.debian.org/support) 
+Current version of pixman: 0.34.0

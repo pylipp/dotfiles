@@ -24,6 +24,10 @@ _collect_versions() {
         _print $program -version
     done
     _print tmux -V
+
+    # XServer version; using `Xorg -version` shows
+    #   /usr/lib/xorg/Xorg.wrap: Only console users are allowed to run the X server
+    head /var/log/Xorg.0.log | sed 's/^\[.*\] //'
 }
 
 main() {
