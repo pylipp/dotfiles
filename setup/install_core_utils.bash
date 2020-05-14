@@ -5,7 +5,7 @@
 set -e
 
 install_packages() {
-    sudo apt-get install --yes "$@"
+    sudo apt-get install --yes --no-install-recommends "$@"
 }
 
 main() {
