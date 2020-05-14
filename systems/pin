@@ -39,7 +39,8 @@ main() {
     sed -i 's/ *$//g' "$host_dir"/sdd.txt
 
     echo ""
-    pipx list | tee "$host_dir"/pipx.txt
+    pipx --version > "$host_dir"/pipx.txt
+    pipx list | tee -a "$host_dir"/pipx.txt
 
     echo ""
     vim "+PlugSnapshot! $host_dir/vim.txt" +qa < /dev/tty
