@@ -46,6 +46,11 @@ main() {
     vim "+PlugSnapshot! $host_dir/vim.txt" +qa < /dev/tty
 
     echo ""
+    while IFS= read -r repo; do
+        ( printf "%s: " "$(basename "$repo")"; cd "$repo"; git rev-parse HEAD; )
+    done < <(find ~/.tmux/plugins/ -maxdepth 1 -mindepth 1 -type d) > "$host_dir"/tmux.txt
+
+    echo ""
     _collect_versions > "$host_dir"/programs.txt 2>&1
 
     echo ""
