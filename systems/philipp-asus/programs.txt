@@ -1,0 +1,256 @@
+arandr
+arandr 0.1.9
+
+bash
+GNU bash, version 4.3.48(1)-release (x86_64-pc-linux-gnu)
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+borg
+borg 1.0.12
+
+cmake
+cmake version 3.5.1
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+curl
+curl 7.47.0 (x86_64-pc-linux-gnu) libcurl/7.47.0 GnuTLS/3.4.10 zlib/1.2.8 libidn/1.32 librtmp/2.3
+Protocols: dict file ftp ftps gopher http https imap imaps ldap ldaps pop3 pop3s rtmp rtsp smb smbs smtp smtps telnet tftp 
+Features: AsynchDNS IDN IPv6 Largefile GSS-API Kerberos SPNEGO NTLM NTLM_WB SSL libz TLS-SRP UnixSockets 
+
+dunst
+Dunst - A customizable and lightweight notification-daemon 1.1.0
+
+feh
+feh version 2.14
+Compile-time switches: curl exif xinerama 
+
+g++
+g++ (Ubuntu 5.5.0-12ubuntu1~16.04) 5.5.0 20171010
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+gawk
+GNU Awk 4.1.3, API: 1.1 (GNU MPFR 3.1.4, GNU MP 6.1.0)
+Copyright (C) 1989, 1991-2015 Free Software Foundation.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see http://www.gnu.org/licenses/.
+
+gcc
+gcc (Ubuntu 5.5.0-12ubuntu1~16.04) 5.5.0 20171010
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+git
+git version 2.25.0
+
+htop
+htop 2.0.1 - (C) 2004-2016 Hisham Muhammad
+Released under the GNU GPL.
+
+
+i3
+i3 version 4.11 (2015-09-30, branch "4.11") © 2009 Michael Stapelberg and contributors
+
+i3lock
+i3lock: version 2.10 (2017-11-25) © 2010 Michael Stapelberg
+
+make
+GNU Make 4.1
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+nmcli
+nmcli tool, version 1.2.6
+
+pulseaudio
+pulseaudio 8.0
+
+python3
+Python 3.5.2
+
+scrot
+scrot version 0.8
+
+tig
+tig version 2.4.1
+ncursesw version 6.0.20160213
+readline version 6.3
+
+vim
+VIM - Vi IMproved 8.2 (2019 Dec 12, compiled Feb 20 2020 15:10:27)
+Included patches: 1-285
+Compiled by philipp@philipp-asus
+Huge version without GUI.  Features included (+) or not (-):
++acl               -farsi             -mouse_sysmouse    -tag_old_static
++arabic            +file_in_path      +mouse_urxvt       -tag_any_white
++autocmd           +find_in_path      +mouse_xterm       -tcl
++autochdir         +float             +multi_byte        +termguicolors
+-autoservername    +folding           +multi_lang        +terminal
+-balloon_eval      -footer            -mzscheme          +terminfo
++balloon_eval_term +fork()            +netbeans_intg     +termresponse
+-browse            +gettext           +num64             +textobjects
+++builtin_terms    -hangul_input      +packages          +textprop
++byte_offset       +iconv             +path_extra        +timers
++channel           +insert_expand     -perl              +title
++cindent           +job               +persistent_undo   -toolbar
++clientserver      +jumplist          +popupwin          +user_commands
++clipboard         +keymap            +postscript        +vartabs
++cmdline_compl     +lambda            +printer           +vertsplit
++cmdline_hist      +langmap           +profile           +virtualedit
++cmdline_info      +libcall           -python            +visual
++comments          +linebreak         +python3           +visualextra
++conceal           +lispindent        +quickfix          +viminfo
++cryptv            +listcmds          +reltime           +vreplace
++cscope            +localmap          +rightleft         +wildignore
++cursorbind        -lua               -ruby              +wildmenu
++cursorshape       +menu              +scrollbind        +windows
++dialog_con        +mksession         +signs             +writebackup
++diff              +modify_fname      +smartindent       +X11
++digraphs          +mouse             -sound             +xfontset
+-dnd               -mouseshape        +spell             -xim
+-ebcdic            +mouse_dec         +startuptime       +xpm
++emacs_tags        -mouse_gpm         +statusline        +xsmp_interact
++eval              -mouse_jsbterm     -sun_workshop      +xterm_clipboard
++ex_extra          +mouse_netterm     +syntax            -xterm_save
++extra_search      +mouse_sgr         +tag_binary        
+   system vimrc file: "$VIM/vimrc"
+     user vimrc file: "$HOME/.vimrc"
+ 2nd user vimrc file: "~/.vim/vimrc"
+      user exrc file: "$HOME/.exrc"
+       defaults file: "$VIMRUNTIME/defaults.vim"
+  fall-back for $VIM: "/home/philipp/.local/share/vim"
+Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H     -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1       
+Linking: gcc   -L/usr/local/lib -Wl,--as-needed -o vim    -lSM -lICE -lXpm -lXt -lX11 -lXdmcp -lSM -lICE  -lm -ltinfo -lnsl   -ldl     -L/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu -lpython3.5m -lpthread -ldl -lutil -lm      
+
+wget
+GNU Wget 1.17.1 built on linux-gnu.
+
++digest -gpgme +https +ipv6 +iri +large-file -metalink +nls +ntlm 
++opie -psl +ssl/openssl 
+
+Wgetrc: 
+    /etc/wgetrc (system)
+Locale: 
+    /usr/share/locale 
+Compile: 
+    gcc -DHAVE_CONFIG_H -DSYSTEM_WGETRC="/etc/wgetrc" 
+    -DLOCALEDIR="/usr/share/locale" -I. -I../../src -I../lib 
+    -I../../lib -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include 
+    -DHAVE_LIBSSL -DNDEBUG -g -O2 -fPIE -fstack-protector-strong 
+    -Wformat -Werror=format-security -DNO_SSLv2 -D_FILE_OFFSET_BITS=64 
+    -g -Wall 
+Link: 
+    gcc -DHAVE_LIBSSL -DNDEBUG -g -O2 -fPIE -fstack-protector-strong 
+    -Wformat -Werror=format-security -DNO_SSLv2 -D_FILE_OFFSET_BITS=64 
+    -g -Wall -Wl,-Bsymbolic-functions -fPIE -pie -Wl,-z,relro 
+    -Wl,-z,now -L/usr/lib -lpcre -luuid -lssl -lcrypto -lz -lidn 
+    ftp-opie.o openssl.o http-ntlm.o ../lib/libgnu.a 
+
+Copyright (C) 2015 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later
+<http://www.gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Originally written by Hrvoje Niksic <hniksic@xemacs.org>.
+Please send bug reports and questions to <bug-wget@gnu.org>.
+
+xss-lock
+0.3.0
+
+zathura
+zathura 0.3.5
+(plugin) pdf-poppler (0.2.6) (/usr/lib/zathura/pdf.so)
+
+zip
+Copyright (c) 1990-2008 Info-ZIP - Type 'zip "-L"' for software license.
+This is Zip 3.0 (July 5th 2008), by Info-ZIP.
+Currently maintained by E. Gordon.  Please send bug reports to
+the authors using the web page at www.info-zip.org; see README for details.
+
+Latest sources and executables are at ftp://ftp.info-zip.org/pub/infozip,
+as of above date; see http://www.info-zip.org/ for other sites.
+
+Compiled with gcc 5.2.1 20150808 for Unix (Linux ELF).
+
+Zip special compilation options:
+	USE_EF_UT_TIME       (store Universal Time)
+	BZIP2_SUPPORT        (bzip2 library version 1.0.6, 6-Sept-2010)
+	    bzip2 code and library copyright (c) Julian R Seward
+	    (See the bzip2 license for terms of use)
+	SYMLINK_SUPPORT      (symbolic links supported)
+	LARGE_FILE_SUPPORT   (can read and write large files on file system)
+	ZIP64_SUPPORT        (use Zip64 to store large files in archives)
+	UNICODE_SUPPORT      (store and read UTF-8 Unicode paths)
+	STORE_UNIX_UIDs_GIDs (store UID/GID sizes/values using new extra field)
+	UIDGID_NOT_16BIT     (old Unix 16-bit UID/GID extra field not used)
+	[encryption, version 2.91 of 05 Jan 2007] (modified for Zip 3)
+
+Encryption notice:
+	The encryption code of this program is not copyrighted and is
+	put in the public domain.  It was originally written in Europe
+	and, to the best of our knowledge, can be freely distributed
+	in both source and object forms from any country, including
+	the USA under License Exception TSU of the U.S. Export
+	Administration Regulations (section 740.13(e)) of 6 June 2002.
+
+Zip environment options:
+             ZIP:  [none]
+          ZIPOPT:  [none]
+
+zsh
+zsh 5.1.1 (x86_64-ubuntu-linux-gnu)
+
+convert
+Version: ImageMagick 6.8.9-9 Q16 x86_64 2019-11-12 http://www.imagemagick.org
+Copyright: Copyright (C) 1999-2014 ImageMagick Studio LLC
+Features: DPC Modules OpenMP
+Delegates: bzlib cairo djvu fftw fontconfig freetype jbig jng jpeg lcms lqr ltdl lzma openexr pangocairo png rsvg tiff wmf x xml zlib
+
+
+latexmk
+Subroutine makeglossaries redefined at (eval 9) line 3, <GEN1> chunk 1.
+
+Latexmk, John Collins, 19 Jan. 2017. Version 4.52c
+
+xclip
+xclip version 0.12
+Copyright (C) 2001-2008 Kim Saunders et al.
+Distributed under the terms of the GNU GPL
+
+tmux
+tmux 2.6
+
+
+X.Org X Server 1.19.6
+Release Date: 2017-12-20
+X Protocol Version 11, Revision 0
+Build Operating System: Linux 4.4.0-138-generic x86_64 Ubuntu
+Current Operating System: Linux philipp-asus 4.15.0-96-generic #97~16.04.1-Ubuntu SMP Wed Apr 1 03:03:31 UTC 2020 x86_64
+Kernel command line: BOOT_IMAGE=/boot/vmlinuz-4.15.0-96-generic root=UUID=6c9c766f-2cc1-4cd6-9f72-eb500ee9e48d ro quiet splash vt.handoff=7
+Build Date: 25 October 2018  04:13:49PM
+xorg-server 2:1.19.6-1ubuntu4.1~16.04.2 (For technical support please see http://www.ubuntu.com/support) 
+Current version of pixman: 0.33.6

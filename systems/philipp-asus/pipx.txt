@@ -1,3 +1,4 @@
+0.15.1.3
 venvs are in /home/philipp/.local/pipx/venvs
 apps are exposed on your $PATH at /home/philipp/.local/bin
    package ckp 0.3.0, Python 3.6.10
