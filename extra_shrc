@@ -95,13 +95,20 @@ wy() {
 wa() {
     # Watson Add frames for multiple full days
     if [ $# -lt 2 ]; then
-        echo "Usage: wa holiday|illness MONTH DAY [DAY...]" >&2
+        echo "Usage: wa holiday[+vacation|+name]|illness MONTH DAY [DAY...]" >&2
         return 1
     fi
 
-    local year project month date rc
+    local year project_tag project tag month date rc
     year=$(date +%Y)
-    project=$1
+    project_tag=$1
+    project=$(echo "$project_tag" | cut -d+ -f1)
+    tag=$(echo "$project_tag" | cut -d+ -f2)
+    if [ "$tag" = "$project_tag" ]; then
+        tag=""
+    else
+        tag=+"$tag"
+    fi
     shift
     month=$1
     shift
@@ -109,7 +116,7 @@ wa() {
     rc=0
     for day in "$@"; do
         date=$year-$month-$day
-        watson add "$project" --from "$date 08:00:00" --to "$date 16:00:00"
+        watson add "$project" "$tag" --from "$date 08:00:00" --to "$date 16:00:00"
         rc=$((rc + $?))
     done
 
