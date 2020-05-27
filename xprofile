@@ -13,7 +13,7 @@ xset s 600
 xss-lock -- ~/.i3/system_control lock &
 
 # apply screenlayout
-~/.files/"$(hostname)"/screenlayout.sh
+~/.files/systems/"$(hostname)"/screenlayout.sh
 
 # notification daemon
 dunst &
