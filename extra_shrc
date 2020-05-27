@@ -80,16 +80,14 @@ gu() {
 }
 
 wt() {
-    # Watson log of Today incl. summary
+    # Watson log of Today
     watson log --day --no-pager --current "$@"
-    watson report --day --no-pager --current "$@" | tail -n1
 }
 
 wy() {
-    # Watson log of Yesterday incl. summary
+    # Watson log of Yesterday
     local yesterdate=$(date --date yesterday +%F)
     watson log --from $yesterdate --to $yesterdate --no-pager
-    watson report --from $yesterdate --to $yesterdate --no-pager | tail -n1
 }
 
 wa() {
