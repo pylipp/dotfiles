@@ -11,7 +11,7 @@ if [[ $# -ne 1 ]]; then
     exit 1
 fi
 
-stores=(lidl rewe aldi "dm fil" denns kaufland tengelmann edeka denn.s alnatura bioladen vollcorner "bio company" netto rossmann "fraulein lose" vitalia nahkauf vollcorner)
+stores=(lidl rewe aldi "dm fil" denns kaufland tengelmann edeka denn.s alnatura bioladen vollcorner "bio company" netto rossmann "fraulein lose" vitalia nahkauf vollcorner wiesender feneberg)
 
 tmp_rest_file=/tmp/add_auszug_rest
 rm -f $tmp_rest_file
