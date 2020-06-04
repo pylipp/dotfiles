@@ -81,6 +81,9 @@ set pastetoggle=<F12>
 
 " open netrw file browser
 nnoremap <leader>N :Vexplore<CR>
+" open URL under cursor
+" https://github.com/vim/vim/issues/4738#issuecomment-521506447
+nmap gx yiW:!xdg-open <cWORD><CR> <C-r>" & <CR><CR>
 
 " clear search hightlighting
 nnoremap <leader>n :noh<CR><Esc>
@@ -107,6 +110,8 @@ nnoremap g= mmgg=G''
 
 " Copy File to clipboard
 nnoremap <leader>cf gg"+yG<CR>``
+" Yank absolute Path of current buffer to clipboard
+nmap <leader>yp :let @" = expand("%")<CR>
 
 " Substitute Umlaute in current buffer
 nnoremap <leader>su :%S/oe/ö/ge<CR>:%S/ae/ä/ge<CR>:%S/ue/ü/ge<CR>:%S/eü/eue/ge<CR>:%S/aü/aue/ge<CR>:%S/qü/que/ge<CR>:%S/aktüll/aktuell/ge<CR>:%S/söben/soeben/ge<CR>:nohlsearch<CR>
