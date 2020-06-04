@@ -45,7 +45,7 @@ sdd_install() {
 
     python3 -m venv ~/.virtualenvs/qute-keepass
     source ~/.virtualenvs/qute-keepass/bin/activate
-    pip install -U pip==20.1.1 PyQt5==5.12.3 pykeepass==3.2.0
+    pip install -U tldextract==2.2.2 PyQt5==5.12.3 pykeepass==3.2.0
     deactivate
 }
 

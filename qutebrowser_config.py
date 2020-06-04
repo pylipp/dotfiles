@@ -86,3 +86,4 @@ config.bind('gT', 'set-cmd-text -s :open -t !dcc')
 
 # Bindings for insert mode
 config.bind('<Ctrl+k>', 'spawn --userscript ~/.files/qute-userscripts/qute-keepass -p ~/.database.kdbx', mode='insert')
+config.bind('<Ctrl+p>', "spawn --userscript ~/.files/qute-userscripts/qute-pass -d 'dmenu -l 5 -b' -u '(.+)@.*'", mode='insert')
