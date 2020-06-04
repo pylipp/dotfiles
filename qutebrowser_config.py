@@ -6,6 +6,21 @@
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
+# Always restore open sites when qutebrowser is reopened.
+# Type: Bool
+c.auto_save.session = True
+
+# User agent to send. Unset to send the default. Note that the value
+# read from JavaScript is always the global value.
+# Type: String
+config.set('content.headers.user_agent', 'Mozilla/5.0 (X11; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0', 'https://accounts.google.com/*')
+
+# Allow JavaScript to read from or write to the clipboard. With
+# QtWebEngine, writing the clipboard as response to a user interaction
+# is always allowed.
+# Type: Bool
+c.content.javascript.can_access_clipboard = True
+
 # Enable JavaScript.
 # Type: Bool
 config.set('content.javascript.enabled', True, 'file://*')
@@ -78,3 +93,6 @@ config.bind('<Ctrl+\\>', 'tab-focus last')
 config.bind('<Ctrl+r>', 'reload')
 config.bind('gD', 'spawn --userscript ~/.files/local/share/qutebrowser/userscripts/getbib')
 config.bind('gT', 'set-cmd-text -s :open -t !dcc')
+
+# Bindings for insert mode
+config.bind('<Ctrl+k>', 'spawn --userscript ~/.files/qute-userscripts/qute-keepass -p ~/.database.kdbx', mode='insert')
