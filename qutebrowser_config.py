@@ -81,7 +81,7 @@ c.fonts.monospace = 'Inconsolata'
 # Bindings for normal mode
 config.bind('<Ctrl+\\>', 'tab-focus last')
 config.bind('<Ctrl+r>', 'reload')
-config.bind('gD', 'spawn --userscript ~/.files/local/share/qutebrowser/userscripts/getbib')
+config.bind('gD', 'spawn --userscript ~/.files/qute-userscripts/getbib')
 config.bind('gT', 'set-cmd-text -s :open -t !dcc')
 
 # Bindings for insert mode
