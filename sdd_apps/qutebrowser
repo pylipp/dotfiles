@@ -1,7 +1,6 @@
 # sdd app management file for qutebrowser webbrowser
 #
 # Dependencies:
-# - tox
 # - python3
 
 SOFTWARE_DIR=~/software
@@ -21,15 +20,13 @@ sdd_install() {
         printf 'Assuming Debian 9 (stretch)...\n' >&2
     fi
 
+    # https://qutebrowser.org/INSTALL.html#_additional_hints
+    sudo apt-get install --yes --no-install-recommends asciidoc source-highlight
+
     git clone https://github.com/qutebrowser/qutebrowser
     cd qutebrowser
     git checkout "$1"
-    tox -v -e mkvenv-pypi
-
-    # generate docs
-    # https://qutebrowser.org/INSTALL.html#_additional_hints
-    sudo apt-get install --yes --no-install-recommends asciidoc source-highlight
-    python3 scripts/asciidoc2html.py
+    python3 scripts/mkvenv.py --venv-dir "$WORKON_HOME"/qutebrowser --pyqt-version 5.12
 
     ln -s ~/.files/qutebrowser_config.py ~/.config/qutebrowser/config.py
 
@@ -43,20 +40,18 @@ sdd_install() {
     # then thunderbird asks for a new default application to open links etc.
     # see also: http://kb.mozillazine.org/Setting_Your_Default_Browser#Setting_the_browser_that_opens_in_Thunderbird_-_Linux
 
-    python3 -m venv ~/.virtualenvs/qute-keepass
-    source ~/.virtualenvs/qute-keepass/bin/activate
-    pip install -U tldextract==2.2.2 PyQt5==5.12.3 pykeepass==3.2.0
+    source ~/.virtualenvs/qutebrowser/bin/activate
+    pip install -U tldextract==2.2.2 pykeepass==3.2.0
     deactivate
 }
 
 sdd_upgrade() {
     mkcdswdir
-    
+
     cd qutebrowser
     git fetch
     git checkout "$1"
-    tox -v -r -e mkvenv-pypi
-    python3 scripts/asciidoc2html.py
+    python3 scripts/mkvenv.py --venv-dir "$WORKON_HOME"/qutebrowser --pyqt-version 5.12 --keep
 }
 
 sdd_uninstall() {

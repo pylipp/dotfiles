@@ -1,2 +1,2 @@
 #!/bin/bash
-~/software/qutebrowser/.venv/bin/python3 -m qutebrowser "$@"
+"$WORKON_HOME"/qutebrowser/bin/python3 -m qutebrowser "$@"

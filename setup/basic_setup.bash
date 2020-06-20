@@ -40,6 +40,6 @@ else
     # sdd install bat delta diff-so-fancy direnv fd fzf hub jq pipx=0.15.1.3 ripgrep shellcheck symlinks tmux
 fi
 
-# pipx install docker-compose qr-filetransfer==2.7 tox==3.14.0 watson==1.8.0 financeager==0.23.1.0 git+https://github.com/pylipp/virtualenvwrapper@96ecc8afe3d9fb059bf16babbe16a7af1dc4dd3c
+# pipx install docker-compose qr-filetransfer==2.7 watson==1.8.0 financeager==0.23.1.0 git+https://github.com/pylipp/virtualenvwrapper@96ecc8afe3d9fb059bf16babbe16a7af1dc4dd3c
 
 echo "Set up .files/global_gituser!"
