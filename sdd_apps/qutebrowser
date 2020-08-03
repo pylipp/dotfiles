@@ -26,7 +26,7 @@ sdd_install() {
     git clone https://github.com/qutebrowser/qutebrowser
     cd qutebrowser
     git checkout "$1"
-    python3 scripts/mkvenv.py --venv-dir "$WORKON_HOME"/qutebrowser --pyqt-version 5.12
+    python3 scripts/mkvenv.py --venv-dir "$WORKON_HOME"/qutebrowser --pyqt-version 5.14
 
     ln -s ~/.files/qutebrowser_config.py ~/.config/qutebrowser/config.py
 
@@ -51,7 +51,7 @@ sdd_upgrade() {
     cd qutebrowser
     git fetch
     git checkout "$1"
-    python3 scripts/mkvenv.py --venv-dir "$WORKON_HOME"/qutebrowser --pyqt-version 5.12 --keep
+    python3 scripts/mkvenv.py --venv-dir "$WORKON_HOME"/qutebrowser --pyqt-version 5.14 --keep
 }
 
 sdd_uninstall() {
