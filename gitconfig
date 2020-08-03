@@ -40,6 +40,8 @@
     added = yellow
     changed = red
     untracked = cyan
+[delta]
+    syntax-theme = Solarized (light)
 [alias]
     co = checkout
     cob = !"git checkout $(git branch --all | fzf --no-multi --ansi --no-sort --preview 'git show --color=always {1} | diffy' | sed 's#remotes/origin/##')"
