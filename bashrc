@@ -118,11 +118,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -d ~/.local/share/bash_completion ]; then
+if [ -d ~/.local/share/bash-completion ]; then
     # Source custom completion files
     while IFS= read -r -d '' f; do
         . "$f"
-    done < <(find ~/.local/share/bash_completion -type f -print0)
+    done < <(find ~/.local/share/bash-completion -type f -print0)
 fi
 
 export SHELL=/bin/bash 
