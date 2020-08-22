@@ -14,6 +14,9 @@
 	historybrowser = gitk
 [diff]
 	tool = vimdiff
+[diff "hex"]
+    textconv = hexdump -v -C
+    binary = true
 [difftool]
     prompt = false
     trustExitCode = true

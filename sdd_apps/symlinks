@@ -23,6 +23,8 @@ sdd_install() {
     ln -s ~/.files/liquidpromptrc ~/.config/liquidpromptrc
     mkdir -p ~/.config/mpv
     ln -s ~/.files/mpv_input.conf ~/.config/mpv/input.conf
+    mkdir -p ~/.config/git
+    ln -s ~/.files/gitattributes ~/.config/git/attributes
 }
 
 sdd_uninstall() {
@@ -35,5 +37,5 @@ sdd_uninstall() {
         rm -fv "$link_path"
     done
 
-    rm -rvf ~/.config/zathura/zathurarc ~/.ptpython/config.py ~/.config/pudb/pudb.cfg ~/.config/feh ~/.local/share/applications ~/.config/mpv
+    rm -rvf ~/.config/zathura/zathurarc ~/.ptpython/config.py ~/.config/pudb/pudb.cfg ~/.config/feh ~/.local/share/applications ~/.config/mpv ~/.config/git
 }

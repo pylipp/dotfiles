@@ -1,0 +1,3 @@
+# Diff pickle files with hex option (see gitconfig)
+# from https://superuser.com/a/1251397
+*.pkl binary diff=hex
