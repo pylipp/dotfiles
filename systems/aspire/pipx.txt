@@ -10,7 +10,10 @@ apps are exposed on your $PATH at /home/philipp/.local/bin
    package qr-filetransfer 2.7, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
     - qr-filetransfer
-   package td-watson==1.8.0 1.8.0, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+   package smdv 0.1.1, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+[GCC 5.5.0]
+    - smdv
+   package td-watson 1.10.0, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
     - watson
    package tox 3.14.5, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
