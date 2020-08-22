@@ -1,8 +1,8 @@
 ## General information
 
-This is a collection of setup scripts, configuration files and notes that I find useful for my daily workflow and my choice of tools and environments. 
+This is a collection of setup scripts, configuration files and notes that I find useful for my daily workflow and my choice of tools and environments.
 
-## Installation 
+## Installation
 
 ### Development utilities
 
@@ -15,7 +15,7 @@ When setting up a vanilla system (Debian based, i.e. Ubuntu 14.04 and 16.04 as w
 
 ### Desktop environment
 
-My DE of choice is i3. After some experiments, I decided to strive for a minimalistic configuration using package-built-in tools (i3status, i3lock). Additional scripts for system interaction (screen locking, shutdown, volume control, sensor information) can be found in `i3/`. 
+My DE of choice is i3. After some experiments, I decided to strive for a minimalistic configuration using package-built-in tools (i3status, i3lock). Additional scripts for system interaction (screen locking, shutdown, volume control, sensor information) can be found in `i3/`.
 
 For installation, run
 
@@ -43,7 +43,7 @@ Python REPL | `ptpython` | vi-like editing; usually installing it in venvs
 Python Debugger | `pudb` | vi-like editing; usually installing it in venvs
 Auto environment loading | `direnv` | handy for activating venvs
 Webbrowser | `qutebrowser` | vi-like key bindings
-PDF reader | `zathura` | 
+PDF reader | `zathura` |
 In-file search | `ripgrep` |
 Command-line utility | `fzf` |
 Tex utility | `latexmk` |
