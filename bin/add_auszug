@@ -11,6 +11,21 @@ if [[ $# -ne 1 ]]; then
     exit 1
 fi
 
+# Set parsing parameters acc. to source of CSV
+if head -n1 "$1" | grep -q Kontonummer:; then
+    # DKB
+    skip_rows=8
+    # Buchungstag,Auftraggeber / Begnstigter,Betrag (EUR)
+    fields=1,4,8
+    year_prefix=
+else
+    # Sparkasse
+    skip_rows=2
+    # Buchungstag,Beguenstigter/Zahlungspflichtiger,Betrag
+    fields=2,12,15
+    year_prefix=20
+fi
+
 stores=(lidl rewe aldi "dm fil" denns kaufland tengelmann edeka denn.s alnatura bioladen vollcorner "bio company" netto rossmann "fraulein lose" vitalia nahkauf vollcorner wiesender feneberg)
 
 tmp_rest_file=/tmp/add_auszug_rest
@@ -22,7 +37,7 @@ while IFS="\;" read -r raw_date receiver raw_value; do
     month_day=$(echo "$raw_date" | { IFS=. read -r d m y && echo "$m-$d"; })
 
     # Extract year to form 20XX
-    year=20$(echo "$raw_date" | cut -d. -f 3)
+    year=$year_prefix$(echo "$raw_date" | cut -d. -f 3)
 
     # Convert comma in value to period
     value=$(echo "$raw_value" | tr , .)
@@ -45,7 +60,7 @@ while IFS="\;" read -r raw_date receiver raw_value; do
     if [[ $found -eq 0 ]]; then
         echo "$month_day $receiver $value" >> $tmp_rest_file
     fi
-done < <(tail -n+2 "$1" | cut -d \; -f 2,12,15 | tr -d \")
+done < <(tail -n+$skip_rows "$1" | cut -d \; -f $fields | tr -d \")
 #<(csvtool namedcol Buchungstag,Beguenstigter/Zahlungspflichtiger,Betrag -t \; -u \; "$1")
 
 echo =================================================================
