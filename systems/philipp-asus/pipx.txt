@@ -11,7 +11,7 @@ apps are exposed on your $PATH at /home/philipp/.local/bin
     - qr-filetransfer
    package smdv 0.1.1, Python 3.6.10
     - smdv
-   package td-watson 1.8.0, Python 3.6.10
+   package td-watson 1.10.0, Python 3.6.10
     - watson
    package tldr 0.5, Python 3.6.10
     - tldr
@@ -19,12 +19,14 @@ apps are exposed on your $PATH at /home/philipp/.local/bin
    package tox 3.14.5, Python 3.6.10
     - tox
     - tox-quickstart
+   package ttrv 1.27.1, Python 3.6.10
+    - ttrv
    package vim-vint 0.3.21, Python 3.6.10
     - vint
    package virtualenvwrapper 4.8.5.dev6, Python 3.6.10
     - virtualenvwrapper.sh
     - virtualenvwrapper_lazy.sh
-   package youtube-dl 2020.3.24, Python 3.6.10
+   package youtube-dl 2020.6.6, Python 3.6.10
     - youtube-dl
    package yq 2.10.0, Python 3.6.10
     - xq

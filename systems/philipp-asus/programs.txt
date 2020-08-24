@@ -249,8 +249,8 @@ X.Org X Server 1.19.6
 Release Date: 2017-12-20
 X Protocol Version 11, Revision 0
 Build Operating System: Linux 4.4.0-138-generic x86_64 Ubuntu
-Current Operating System: Linux philipp-asus 4.15.0-96-generic #97~16.04.1-Ubuntu SMP Wed Apr 1 03:03:31 UTC 2020 x86_64
-Kernel command line: BOOT_IMAGE=/boot/vmlinuz-4.15.0-96-generic root=UUID=6c9c766f-2cc1-4cd6-9f72-eb500ee9e48d ro quiet splash vt.handoff=7
+Current Operating System: Linux philipp-asus 4.15.0-112-generic #113~16.04.1-Ubuntu SMP Fri Jul 10 04:37:08 UTC 2020 x86_64
+Kernel command line: BOOT_IMAGE=/boot/vmlinuz-4.15.0-112-generic root=UUID=6c9c766f-2cc1-4cd6-9f72-eb500ee9e48d ro quiet splash vt.handoff=7
 Build Date: 25 October 2018  04:13:49PM
 xorg-server 2:1.19.6-1ubuntu4.1~16.04.2 (For technical support please see http://www.ubuntu.com/support) 
 Current version of pixman: 0.33.6
