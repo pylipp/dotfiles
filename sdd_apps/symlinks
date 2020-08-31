@@ -25,6 +25,8 @@ sdd_install() {
     ln -s ~/.files/mpv_input.conf ~/.config/mpv/input.conf
     mkdir -p ~/.config/git
     ln -s ~/.files/gitattributes ~/.config/git/attributes
+    mkdir -p ~/.config/htop
+    ln -s ~/.files/htoprc ~/.config/htop
 }
 
 sdd_uninstall() {
