@@ -17,3 +17,4 @@ bind main I !@sh -c "echo -n %(commit) | xclip -selection c"
 bind main c !git checkout %(commit)
 
 bind stash A !git stash apply %(stash)
+bind stash P >git stash pop %(stash)
