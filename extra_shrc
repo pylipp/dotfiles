@@ -16,11 +16,8 @@ done
 
 #http://askubuntu.com/questions/362280/enter-ssh-passphrase-once
 SSH_ENV=$HOME/.ssh/env
-if [ ! -e "$SSH_ENV" ]; then
-    mkdir -p $HOME/.ssh
-    touch "$SSH_ENV"
-fi
-function start_agent {
+mkdir -p ~/.ssh
+start_agent() {
     # spawn ssh-agent
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
     chmod 600 "${SSH_ENV}"
@@ -28,14 +25,20 @@ function start_agent {
     /usr/bin/ssh-add
 }
 
+_ssh_cleanup() {
+    pkill ssh-agent
+    rm "$SSH_ENV"
+}
+trap _ssh_cleanup SIGINT
 if [ -f "${SSH_ENV}" ]; then
      . "${SSH_ENV}" > /dev/null
      ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
         start_agent;
     }
 else
-    start_agent;
+    start_agent
 fi
+trap - SIGINT
 
 man() {
     # Colored man pages
