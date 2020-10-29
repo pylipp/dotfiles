@@ -11,8 +11,8 @@ sdd_install() {
     
     mkdir -p ~/.config/zathura
     ln -s ~/.files/zathurarc ~/.config/zathura/zathurarc
-    mkdir -p ~/.ptpython 
-    ln -s ~/.files/ptpython_config.py ~/.ptpython/config.py
+    mkdir -p ~/.config/ptpython
+    ln -s ~/.files/ptpython_config.py ~/.config/ptpython/config.py
     mkdir -p ~/.config/pudb
     ln -s ~/.files/pudb.cfg ~/.config/pudb/pudb.cfg
     mkdir -p ~/.config/feh
@@ -41,5 +41,5 @@ sdd_uninstall() {
         rm -fv "$link_path"
     done
 
-    rm -rvf ~/.config/zathura/zathurarc ~/.ptpython/config.py ~/.config/pudb/pudb.cfg ~/.config/feh ~/.local/share/applications ~/.config/mpv ~/.config/git ~/.config/htop ~/.config/gitui
+    rm -rvf ~/.config/zathura/zathurarc ~/.config/ptpython/config.py ~/.config/pudb/pudb.cfg ~/.config/feh ~/.local/share/applications ~/.config/mpv ~/.config/git ~/.config/htop ~/.config/gitui
 }
