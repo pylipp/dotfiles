@@ -19,7 +19,9 @@ xss-lock -- ~/.i3/system_control lock &
 dunst &
 
 # network manager trayicon
-nm-applet &
+# Avoid accessibility bus warning: https://unix.stackexchange.com/a/230442
+# Actually display icon: https://askubuntu.com/a/1001864
+NO_AT_BRIDGE=1 dbus-launch nm-applet &
 
 # utility scripts
 ~/.i3/reload_keyboard &
