@@ -27,6 +27,13 @@ set index-fg                 "#93a1a1"
 set index-active-bg          "#859900"
 set index-active-fg          "#002b36"
 
+# Gap between pages
+set page-padding 10
+# Display current page number in window title
+set window-title-page true
+# Display command-line and vertical scrollbar
+set guioptions vc
+
 # key bindings
 map w adjust_window width
 map z adjust_window bestfit
@@ -35,5 +42,5 @@ map r rotate
 
 map <C-p> print
 
-# toggle color scheme: solarized <-> white
+# toggle color scheme: solarized <-> default
 map <F6> recolor
