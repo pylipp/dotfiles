@@ -197,6 +197,8 @@ bindsym XF86AudioMute exec --no-startup-id ~/.i3/volume_control mute
 bindsym $mod+Prior exec --no-startup-id ~/.i3/volume_control raise
 bindsym $mod+Next exec --no-startup-id ~/.i3/volume_control lower
 bindsym $mod+End exec --no-startup-id ~/.i3/volume_control mute
+bindsym $mod+Shift+Prior exec --no-startup-id ~/.i3/brightness_control raise
+bindsym $mod+Shift+Next exec --no-startup-id ~/.i3/brightness_control lower
 
 # System control key bindings from
 # https://faq.i3wm.org/question/239/how-do-i-suspendlockscreen-and-logout.1.html

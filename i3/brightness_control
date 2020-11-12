@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Utility to increase or decrease screen brightness. All connected screens are
+# adjusted to the same requested brightness. The shift in brightness can
+# optionally be specified as second argument (default: 0.1)
+
+brightness=$(xrandr --verbose | grep -m1 Brightness | cut -d" " -f2)
+
+case "$1" in
+    raise )
+        operation=+
+        ;;
+    lower )
+        operation=-
+        ;;
+    * )
+        printf "Invalid command: %s\n" "$1" >&2
+        printf "Usage: %s lower|raise [shift]" "$(basename "$0")" >&2
+        exit 1
+        ;;
+esac
+
+# Set brightness shift
+[ -n "$2" ] && shift="$2" || shift=0.1
+
+# Threshold brightness below 0 because it looks funky otherwise
+brightness="$(bc -l <<< "scale=1;$brightness $operation $shift")"
+if (( $(bc -l <<< "$brightness < 0") )); then
+    brightness=0.1
+fi
+
+# Apply brightness change for all screens
+for output in $(xrandr | grep " connected" | cut -d" " -f1); do
+    xrandr --output "$output" --brightness "$brightness"
+done
