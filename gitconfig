@@ -85,3 +85,5 @@
 	smudge = git-lfs smudge -- %f
 [advice]
 	detachedHead = false
+[pull]
+	rebase = true
