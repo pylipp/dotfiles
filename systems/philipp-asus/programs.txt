@@ -61,12 +61,10 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 
 git
-git version 2.25.0
+git version 2.29.0
 
 htop
-htop 2.0.1 - (C) 2004-2016 Hisham Muhammad
-Released under the GNU GPL.
-
+htop 3.0.0
 
 i3
 i3 version 4.11 (2015-09-30, branch "4.11") © 2009 Michael Stapelberg and contributors
@@ -248,9 +246,9 @@ tmux 2.6
 X.Org X Server 1.19.6
 Release Date: 2017-12-20
 X Protocol Version 11, Revision 0
-Build Operating System: Linux 4.4.0-138-generic x86_64 Ubuntu
-Current Operating System: Linux philipp-asus 4.15.0-112-generic #113~16.04.1-Ubuntu SMP Fri Jul 10 04:37:08 UTC 2020 x86_64
-Kernel command line: BOOT_IMAGE=/boot/vmlinuz-4.15.0-112-generic root=UUID=6c9c766f-2cc1-4cd6-9f72-eb500ee9e48d ro quiet splash vt.handoff=7
-Build Date: 25 October 2018  04:13:49PM
-xorg-server 2:1.19.6-1ubuntu4.1~16.04.2 (For technical support please see http://www.ubuntu.com/support) 
+Build Operating System: Linux 4.15.0-115-generic x86_64 Ubuntu
+Current Operating System: Linux philipp-asus 4.15.0-123-generic #126~16.04.1-Ubuntu SMP Wed Oct 21 13:48:05 UTC 2020 x86_64
+Kernel command line: BOOT_IMAGE=/boot/vmlinuz-4.15.0-123-generic root=UUID=6c9c766f-2cc1-4cd6-9f72-eb500ee9e48d ro recovery nomodeset
+Build Date: 04 September 2020  03:37:12PM
+xorg-server 2:1.19.6-1ubuntu4.1~16.04.4 (For technical support please see http://www.ubuntu.com/support) 
 Current version of pixman: 0.33.6
