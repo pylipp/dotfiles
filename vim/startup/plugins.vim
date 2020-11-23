@@ -282,6 +282,7 @@ let g:caser_prefix='cr'
 
 " Highlight cursor column in CSV file
 let g:csv_highlight_column = 'y'
+let g:csv_delim=';'
 
 " vim-indent-guides settings
 let g:indent_guides_start_level=2
