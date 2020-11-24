@@ -74,3 +74,5 @@
     detachedHead = false
 [pull]
     rebase = true
+[trim]
+    bases = develop,master
