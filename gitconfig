@@ -1,19 +1,19 @@
 [core]
-	editor = /usr/bin/vim
-	excludesfile = ~/.files/gitignore_global
-	autocrlf = input
+    editor = /usr/bin/vim
+    excludesfile = ~/.files/gitignore_global
+    autocrlf = input
     pager = diffy
 [interactive]
     diffFilter = diffy --color-only
 # [branch]
 #     autosetupmerge = true
 [push]
-	default = simple
+    default = simple
 [gui]
-	editor = gvim
-	historybrowser = gitk
+    editor = gvim
+    historybrowser = gitk
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [diff "hex"]
     textconv = hexdump -v -C
     binary = true
@@ -21,15 +21,15 @@
     prompt = false
     trustExitCode = true
 [difftool "vimdiff"]
-	cmd = vim -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\"
+    cmd = vim -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\"
 # [difftool "meld"]
 #     cmd = meld \"$LOCAL\" \"$REMOTE\"
 [cola]
-	savewindowsettings = true
-	browserdockable = true
-	tabwidth = 4
+    savewindowsettings = true
+    browserdockable = true
+    tabwidth = 4
 [color]
-	ui = true
+    ui = true
 [color "branch"]
     current = yellow reverse
     local = yellow
@@ -57,33 +57,33 @@
     amend = commit --amend --no-edit
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate --all
-    df = diff 
+    df = diff
     dc = diff --cached
     do = diff --name-status master origin/master
     dt = difftool
     ign = ls-files -o -i --exclude-standard
     ri = interactive-rebase
-    # view Diff in File After Pull 
+    # view Diff in File After Pull
     dfap = "!b=$(git rev-parse --abbrev-ref HEAD); git difftool $b@{1} $b"
-	chp = cherry-pick
-	ssp = stash show -p
+    chp = cherry-pick
+    ssp = stash show -p
     # display fixme and todo; requires helper script ~/.files/bin/notes (https://wynnnetherland.com/journal/a-stylesheet-author-s-guide-to-terminal-colors/)
     n = !"git ls-files | xargs notes | awk -F: '{ print $1,$2; print $3,$4; print $5}' | grcat conf.notes "
     sha = !"rev=${1:-HEAD}; for i in $(seq 1 $#); do shift; done; git rev-parse --short $rev | tee /dev/stderr | xclip -selection clipboard"
-	please = push --force-with-lease
+    please = push --force-with-lease
 [merge]
-    tool = vimdiff 
-    conflictstyle = diff3 
+    tool = vimdiff
+    conflictstyle = diff3
 [mergetool]
     prompt = false
 [include]
     path = ~/.files/global_gituser
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
 [advice]
-	detachedHead = false
+    detachedHead = false
 [pull]
-	rebase = true
+    rebase = true
