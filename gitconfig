@@ -12,6 +12,7 @@
     historybrowser = gitk
 [diff]
     tool = vimdiff
+    colorMoved = default
 [diff "hex"]
     textconv = hexdump -v -C
     binary = true
