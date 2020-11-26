@@ -31,8 +31,8 @@ set index-active-fg          "#002b36"
 set page-padding 10
 # Display current page number in window title
 set window-title-page true
-# Display command-line and vertical scrollbar
-set guioptions vc
+# Display command-line, status bar, and vertical scrollbar
+set guioptions csv
 
 # key bindings
 map w adjust_window width
