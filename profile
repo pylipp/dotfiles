@@ -23,3 +23,7 @@ export FZF_COMPLETION_OPTS="--preview '~/.vim/bundle/fzf.vim/bin/preview.sh {} |
 [ -e ~/.files/local_profile ] && . ~/.files/local_profile
 
 [ -e ~/.config/broot/launcher/bash/br ] && . ~/.config/broot/launcher/bash/br
+
+export GOROOT=~/.local/go
+export GOPATH=~/.local/share/goprojects
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
