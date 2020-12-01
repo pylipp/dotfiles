@@ -176,4 +176,28 @@ fj() {
     fi
 }
 
+bbpp() {
+    # Select and run target from Bitbucket pipelines config
+    # Requires: yq, fzf, bibu
+    local gitroot pipeline ppconfig
+    if ! gitroot="$(git rev-parse --show-toplevel 2>/dev/null)"; then
+        echo "Can only run from inside git repo!" >&2
+        return 1
+    fi
+
+    ppconfig="$gitroot"/bitbucket-pipelines.yml
+    if [ ! -f "$ppconfig" ]; then
+        echo "Repo root does not contain bitbucket-pipelines.yml" >&2
+        return 1
+    fi
+
+    # Select custom pipeline using fzf
+    pipeline=$(yq -r ".pipelines.custom | keys[]" "$ppconfig" | fzf --no-multi --height=30%)
+
+    # Quit if user aborted search
+    [ "$pipeline" = "" ] && return 0
+
+    bibu pipeline run -n "$pipeline"
+}
+
 [ -e ~/.files/liquidprompt ] && . ~/.files/liquidprompt || true
