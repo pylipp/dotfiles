@@ -160,6 +160,7 @@ scrot() {
 
 fj() {
     # Find Jira items. Any command line options are passed to 'jira list'
+    # Requires: go-jira, fzf, bat
     case "$1" in
         ''|-h|--help|help )
             jira list --help; return 0 ;;
