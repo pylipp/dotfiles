@@ -6,10 +6,15 @@ import subprocess
 from calendar import monthrange, month_name
 import json
 import argparse
+import logging
 
 WORK_DAYS_PER_WEEK = 4
 LAST_WORK_DAY_IN_WEEK = 3  # Thursday
 WORK_HOURS_PER_DAY = 8
+
+LOGGER = logging.getLogger(__name__)
+LOGGER.setLevel(logging.WARNING)
+LOGGER.addHandler(logging.StreamHandler())
 
 
 class Worked:
@@ -49,6 +54,7 @@ class Worked:
                 y=self.year, ms=self.month or 1, me=self.month or 12,
                 d=monthrange(self.year, self.month)[1] if self.month else 31)
 
+        LOGGER.debug("Running '{}'".format(command))
         process = subprocess.run(command.split(), stdout=subprocess.PIPE,
                                  stderr=subprocess.PIPE)
         if process.returncode != 0:
@@ -122,12 +128,18 @@ def parse_command_line():
         "--in", metavar="TIME", dest="time", default=dt.today().month,
         help="Period of interest for report. Format: YYYY-MM, YYYY, or MM",
     )
+    parser.add_argument(
+        "-v", "--verbosity", default="warning", help="Logging verbosity",
+        choices=["debug", "info", "warning", "error", "critical"])
     return vars(parser.parse_args())
 
 
 if __name__ == "__main__":
-    i_worked = Worked(**parse_command_line())
+    options = parse_command_line()
+    LOGGER.setLevel(options.pop("verbosity").upper())
+
+    i_worked = Worked(**options)
     try:
         print(i_worked.how_much())
-    except RuntimeError as e:
-        print(e)
+    except RuntimeError:
+        LOGGER.exception("Internal error: ")
