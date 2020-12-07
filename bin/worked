@@ -48,7 +48,12 @@ class Worked:
             "--to {y}-{me:02d}-{d}".format(
                 y=self.year, ms=self.month or 1, me=self.month or 12,
                 d=monthrange(self.year, self.month)[1] if self.month else 31)
-        process = subprocess.run(command.split(), stdout=subprocess.PIPE)
+
+        process = subprocess.run(command.split(), stdout=subprocess.PIPE,
+                                 stderr=subprocess.PIPE)
+        if process.returncode != 0:
+            raise RuntimeError(process.stderr.decode())
+
         return json.loads(process.stdout.decode())
 
     def _compute_work_days_of_month(self, month):
@@ -122,4 +127,7 @@ def parse_command_line():
 
 if __name__ == "__main__":
     i_worked = Worked(**parse_command_line())
-    print(i_worked.how_much())
+    try:
+        print(i_worked.how_much())
+    except RuntimeError as e:
+        print(e)
