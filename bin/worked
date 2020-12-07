@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Utility to compare actual and target working hours based on watson report"""
+"""Utility to compare actual and target working hours in a single month, or a
+full year, based on watson report"""
 from datetime import date as dt
 import subprocess
 from calendar import monthrange, month_name
 import json
-import sys
+import argparse
 
 WORK_DAYS_PER_WEEK = 4
 LAST_WORK_DAY_IN_WEEK = 3  # Thursday
@@ -15,38 +16,66 @@ class Worked:
     """Helper to read watson time tracking report and compute relevant
     quantities."""
 
-    def __init__(self, month=None, year=None):
-        """Initialize time frame for comparison of working hours. Month and year
-        default to the current ones."""
-        today = dt.today()
-        self.month = int(month or today.month)
-        self.year = int(year or today.year)
-        self.nr_of_days_in_month = monthrange(self.year, self.month)[1]
+    def __init__(self, *, time=None):
+        """Parse month and year info from given time string.
+        If the time is given in format YYYY-MM, year and month are set
+        accordingly. If the time indicator is a single integer between 1 and 12,
+        it is used as value for month in the current year. Otherwise it is used
+        as year value.
+        """
+        try:
+            self.year, self.month = time.split("-")
+            self.year = int(self.year)
+            self.month = int(self.month)
+
+        except (ValueError, AttributeError):
+            time = int(time)
+            if 1 <= time <= 12:
+                self.month = time
+                self.year = dt.today().year
+            else:
+                self.month = None
+                self.year = time
 
     def _read_report_from_watson(self):
-        """Read watson report of specified time frame in JSON format.
+        """Read watson report of specified time frame (single month or entire
+        year) in JSON format.
 
         :return: report (dict)
         """
-        command = "watson report --current "\
-            "--json --from {y}-{m:02d}-01 --to {y}-{m:02d}-{d}".format(
-                y=self.year, m=self.month, d=self.nr_of_days_in_month)
+        command = "watson report --current --json "\
+            "--from {y}-{ms:02d}-01 "\
+            "--to {y}-{me:02d}-{d}".format(
+                y=self.year, ms=self.month or 1, me=self.month or 12,
+                d=monthrange(self.year, self.month)[1] if self.month else 31)
         process = subprocess.run(command.split(), stdout=subprocess.PIPE)
         return json.loads(process.stdout.decode())
 
-    def _compute_work_days_of_month(self):
+    def _compute_work_days_of_month(self, month):
         """Compute the number of work days in the month of interest. Every month
         of the year has at least 28 days, i.e. four full weeks. The remaining
         days are relevant if they are not on the weekend.
 
         :return: number of work days (int)
         """
+        nr_of_days_in_month = monthrange(self.year, month)[1]
+
         nr_work_days = 4 * WORK_DAYS_PER_WEEK
-        for day in range(29, self.nr_of_days_in_month + 1):
-            date = dt(self.year, self.month, day)
+        for day in range(29, nr_of_days_in_month + 1):
+            date = dt(self.year, month, day)
             if date.weekday() <= LAST_WORK_DAY_IN_WEEK:
                 nr_work_days += 1
         return nr_work_days
+
+    def _compute_work_days(self):
+        """Compute the number of work days in the period of interest.
+
+        :return: number of work days (int)
+        """
+        if self.month:
+            return self._compute_work_days_of_month(self.month)
+        else:
+            return sum(self._compute_work_days_of_month(m) for m in range(1, 13))
 
     def _extract_hours_on_break(self, report):
         """Return the number of hours spent on non-work related projects by
@@ -70,7 +99,7 @@ class Worked:
         :return: work hours information (str)
         """
         report = self._read_report_from_watson()
-        nr_work_days = self._compute_work_days_of_month()
+        nr_work_days = self._compute_work_days()
         hours_on_break = self._extract_hours_on_break(report)
 
         actual_working_hours = report["time"] / 3600 - hours_on_break
@@ -79,9 +108,18 @@ class Worked:
         return "{:.2f} of {} hours ({:.2f}%) done in {} of {}!".format(
             actual_working_hours, target_working_hours,
             100 * actual_working_hours / target_working_hours, month_name[int(
-                self.month)], self.year)
+                self.month)] if self.month else "all", self.year)
+
+
+def parse_command_line():
+    parser = argparse.ArgumentParser(description=globals()["__doc__"])
+    parser.add_argument(
+        "--in", metavar="TIME", dest="time", default=dt.today().month,
+        help="Period of interest for report. Format: YYYY-MM, YYYY, or MM",
+    )
+    return vars(parser.parse_args())
 
 
 if __name__ == "__main__":
-    i_worked = Worked(*sys.argv[1:])
+    i_worked = Worked(**parse_command_line())
     print(i_worked.how_much())
