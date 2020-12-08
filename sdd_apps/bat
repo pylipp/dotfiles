@@ -1,6 +1,8 @@
 sdd_install() {
     mkdir -p ~/.config/bat
     ln -s ~/.files/bat_config ~/.config/bat/config
+    ln -s ~/.files/bat_syntaxes ~/.config/bat/syntaxes
+    bat cache --build
 }
 
 sdd_uninstall() {

@@ -1,0 +1,81 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: Behat Features
+comment: SublimeText2 Syntax Definition for Behat
+file_extensions:
+  - feature
+scope: source.feature.generic
+contexts:
+  main:
+    - match: "(@[A-Za-z0-9_]+)"
+      comment: Behat scenario tags
+      scope: storage.type.class.behat
+    - match: "#"
+      comment: Behat comment
+      push:
+        - meta_scope: comment.line.number-sign.behat
+        - match: \n
+          pop: true
+    - match: '"'
+      comment: Behat strings
+      push:
+        - meta_scope: string.quoted.double.behat
+        - match: '"'
+          pop: true
+    - match: <
+      comment: Behat placeholders
+      push:
+        - meta_scope: string.interpolated.behat
+        - match: ">"
+          pop: true
+    - match: ^\s*\|
+      comment: Behat outline examples
+      push:
+        - meta_scope: string.quoted.examples.behat
+        - match: \|\s*$
+          pop: true
+        - match: \w+
+          scope: constant.other.examples.behat
+    - match: ^\s*((?:Feature|Business Need|Ability|Examples|Scenario|Scenarios|Scenario Outline|Scenario Template|Background):)
+      comment: '"Source" translations: EN'
+      scope: keyword.control.source.behat
+    - match: ^\s*(Given|When|And|But|Then)\b
+      comment: '"Steps" translations: EN'
+      scope: keyword.operator.step.behat
+    - match: ^\s*((?:Fonctionnalité|Exemples|Scénario|Plan du scénario|Plan du Scénario|Contexte):)
+      comment: '"Source" translations: FR'
+      scope: keyword.control.source.behat
+    - match: ^\s*(Lorsqu(?:'|’)|Soit|Etant donné|Etant donnée|Etant donnés|Etant données|Étant donné|Étant donnée|Étant donnés|Étant données|Quand|Lorsque|Alors|Et|Mais)\b
+      comment: '"Steps" translations: FR'
+      scope: keyword.operator.step.behat
+    - match: ^\s*((?:Funzionalità|Esempi|Scenario|Schema dello scenario|Contesto):)
+      comment: '"Source" translations: IT'
+      scope: keyword.control.source.behat
+    - match: ^\s*(Dato|Data|Dati|Date|Quando|Allora|E|Ma)\b
+      comment: '"Steps" translations: IT'
+      scope: keyword.operator.step.behat
+    - match: ^\s*((?:Característica|Ejemplos|Escenario|Esquema del escenario|Antecedentes):)
+      comment: '"Source" translations: ES'
+      scope: keyword.control.source.behat
+    - match: ^\s*(Dado|Dada|Dados|Dadas|Cuando|Entonces|Y|Pero)\b
+      comment: '"Steps" translations: ES'
+      scope: keyword.operator.step.behat
+    - match: ^\s*((?:Funcionalidade|Característica|Caracteristica|Exemplos|Cenário|Cenario|Esquema do Cenário|Esquema do Cenario|Delineação do Cenário|Delineacao do Cenario|Contexto|Cenário de Fundo|Cenario de Fundo|Fundo):)
+      comment: '"Source" translations: PT'
+      scope: keyword.control.source.behat
+    - match: ^\s*(Dado|Dada|Dados|Dadas|Quando|Então|Entao|E|Mas)\b
+      comment: '"Steps" translations: PT'
+      scope: keyword.operator.step.behat
+    - match: ^\s*((?:Funktionalität|Beispiele|Szenario|Szenariogrundriss|Grundlage):)
+      comment: '"Source" translations: DE'
+      scope: keyword.control.source.behat
+    - match: ^\s*(Angenommen|Gegeben sei|Wenn|Dann|Und|Aber)\b
+      comment: '"Steps" translations: DE'
+      scope: keyword.operator.step.behat
+    - match: ^\s*((?:Функция|Функционал|Свойство|Примеры|Сценарий|Структура сценария|Предыстория|Контекст):)
+      comment: '"Source" translations: RU'
+      scope: keyword.control.source.behat
+    - match: ^\s*(Допустим|Пусть|Дано|К тому же|Также|И|Когда|Если|Тогда|То|Но|А)\b
+      comment: '"Steps" translations: RU'
+      scope: keyword.operator.step.behat
