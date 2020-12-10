@@ -8,7 +8,7 @@ augroup filetypes
     autocmd BufNewFile,BufRead *.gl,*.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 
     "xml syntax highlighting
-    autocmd BufNewFile,BufRead *.xml,*.imf,*.iws setf xml
+    autocmd BufNewFile,BufRead *.xml,*.imf,*.iws,*.qrc setf xml
 
     autocmd BufNewFile,BufRead *.ino,*.pde setf cpp
 
