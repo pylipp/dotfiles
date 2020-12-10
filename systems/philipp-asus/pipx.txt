@@ -7,8 +7,6 @@ apps are exposed on your $PATH at /home/philipp/.local/bin
     - financeager
    package pypyp 0.2.1, Python 3.6.10
     - pyp
-   package qr-filetransfer 2.7, Python 3.6.10
-    - qr-filetransfer
    package smdv 0.1.1, Python 3.6.10
     - smdv
    package td-watson 1.10.0, Python 3.6.10
@@ -26,7 +24,7 @@ apps are exposed on your $PATH at /home/philipp/.local/bin
    package virtualenvwrapper 4.8.5.dev6, Python 3.6.10
     - virtualenvwrapper.sh
     - virtualenvwrapper_lazy.sh
-   package youtube-dl 2020.11.1.1, Python 3.6.10
+   package youtube-dl 2020.11.24, Python 3.6.10
     - youtube-dl
    package yq 2.10.0, Python 3.6.10
     - xq
