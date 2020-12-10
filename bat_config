@@ -1,1 +1,3 @@
 --theme='Solarized (dark)'
+--map-syntax '*shrc:Bourne Again Shell (bash)'
+--map-syntax '*vimrc:VimL'
