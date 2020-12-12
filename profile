@@ -9,12 +9,11 @@ export PYTHONSTARTUP=~/.files/pythonrc
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=~/.local/pipx/venvs/virtualenvwrapper/bin/python
 
-# https://github.com/junegunn/fzf.vim/issues/732#issuecomment-437379194
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --color=never'
+export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git --color=never'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_COMPLETION_TRIGGER='+'
-export FZF_CTRL_T_OPTS='--preview "bat --style=numbers --color=always {} || coderay {} || head -200"'
-export FZF_COMPLETION_OPTS="--preview '~/.vim/bundle/fzf.vim/bin/preview.sh {} || cat {}'"
+export FZF_CTRL_T_OPTS='--preview "bat --style=numbers --color=always {} || coderay {} || head -200" --bind "ctrl-alt-j:preview-page-down,ctrl-alt-k:preview-page-up"'
 
 [ -e ~/.local/bin ] && export PATH=~/.local/bin:$PATH
 [ -e ~/.files/bin ] && export PATH=~/.files/bin:$PATH
