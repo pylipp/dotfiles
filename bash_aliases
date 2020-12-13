@@ -7,7 +7,10 @@ alias rg='rg --ignore-file ~/.files/gitignore_global'
 alias z=zathura
 alias s=sxiv
 
-alias mkvenv35="mkvirtualenv --python=/usr/bin/python3.5 "
+alias mkvenv35="mkvirtualenv --python=python3.5 "
+alias mkvenv36="mkvirtualenv --python=python3.6 "
+alias mkvenv37="mkvirtualenv --python=python3.7 "
+alias mkvenv38="mkvirtualenv --python=python3.8 "
 
 alias dotfiles='cd ~/.files'
 
