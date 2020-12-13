@@ -90,6 +90,8 @@ Plug 'tpope/vim-markdown'
 Plug 'nathanaelkane/vim-indent-guides'
 " Split single-line instructions into multiline; and join again
 Plug 'AndrewRadev/splitjoin.vim'
+" Session management
+Plug 'tpope/vim-obsession'
 
 " All of your Plugs must be added before the following line
 call plug#end()

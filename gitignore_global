@@ -4,6 +4,7 @@
 *~
 .~lock.*
 .vimrc
+Session.vim
 
 # Git related
 *.orig
