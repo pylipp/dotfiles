@@ -5,6 +5,7 @@ alias ag='ag --path-to-agignore ~/.files/gitignore_global'
 alias rg='rg --ignore-file ~/.files/gitignore_global'
 
 alias z=zathura
+alias s=sxiv
 
 alias mkvenv35="mkvirtualenv --python=/usr/bin/python3.5 "
 
