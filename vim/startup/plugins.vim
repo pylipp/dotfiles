@@ -92,6 +92,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'AndrewRadev/splitjoin.vim'
 " Session management
 Plug 'tpope/vim-obsession'
+" behave utilities
+Plug 'ea2809/behave.vim'
 
 " All of your Plugs must be added before the following line
 call plug#end()
