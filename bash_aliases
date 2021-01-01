@@ -22,3 +22,5 @@ alias pbcopy='xclip -i -selection c '
 alias pbpaste='xclip -o -selection c '
 
 alias l='ls -alF'
+
+alias fl='fina list --filters date=2021-'
