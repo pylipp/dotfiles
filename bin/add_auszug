@@ -33,11 +33,8 @@ rm -f $tmp_rest_file
 
 while IFS="\;" read -r raw_date receiver raw_value; do
 
-    # Format date from dd.mm.yy to mm-dd
-    month_day=$(echo "$raw_date" | { IFS=. read -r d m y && echo "$m-$d"; })
-
-    # Extract year to form 20XX
-    year=$year_prefix$(echo "$raw_date" | cut -d. -f 3)
+    # Format date from dd.mm.yy to yy-mm-dd
+    date=$(echo "$raw_date" | { IFS=. read -r d m y && echo "$year_prefix$y-$m-$d"; })
 
     # Convert comma in value to period
     value=$(echo "$raw_value" | tr , .)
@@ -48,7 +45,7 @@ while IFS="\;" read -r raw_date receiver raw_value; do
         # Find out whether any store is mentioned in the receiver field (lowercased)
         if [[ "${receiver,,}" = *"$store"* ]]; then
 
-            command="financeager add '$store' $value --date $month_day --category groceries --period $year"
+            command="fina add '$store' $value --date $date --category groceries"
             echo "$command"
             eval "$command"
 
@@ -58,7 +55,7 @@ while IFS="\;" read -r raw_date receiver raw_value; do
     done
 
     if [[ $found -eq 0 ]]; then
-        echo "$month_day $receiver $value" >> $tmp_rest_file
+        echo "$date $receiver $value" >> $tmp_rest_file
     fi
 done < <(tail -n+$skip_rows "$1" | cut -d \; -f $fields | tr -d \")
 #<(csvtool namedcol Buchungstag,Beguenstigter/Zahlungspflichtiger,Betrag -t \; -u \; "$1")
