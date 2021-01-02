@@ -1,0 +1,32 @@
+#! /bin/bash
+
+# https://github.com/muennich/sxiv Simple X Image Viewer
+
+sdd_install() {
+    local version=$1
+    local package=sxiv.tar.gz
+
+    wget -P /tmp https://github.com/pylipp/binaries/releases/download/"$version"/$package
+    cd /tmp || return 1
+    tar xf $package
+
+    mv sxiv "$SDD_INSTALL_PREFIX"/bin
+
+    mkdir -p "$SDD_INSTALL_PREFIX"/share/man/man1
+    mv sxiv.1 "$SDD_INSTALL_PREFIX"/share/man/man1
+
+    mkdir -p "$SDD_INSTALL_PREFIX"/share/sxiv
+    mv exec "$SDD_INSTALL_PREFIX"/share/sxiv
+
+    rm -rf $package
+}
+
+sdd_uninstall() {
+    rm -vf "$SDD_INSTALL_PREFIX"/bin/sxiv
+    rm -vf "$SDD_INSTALL_PREFIX"/share/man/man1/sxiv.1
+    rm -rvf "$SDD_INSTALL_PREFIX"/share/sxiv
+}
+
+sdd_fetch_latest_version() {
+    _tag_name_of_latest_github_release pylipp binaries
+}
