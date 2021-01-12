@@ -14,6 +14,7 @@ Session.vim
 
 # Tags
 tags
+qmltags
 .notags
 .gutctags
 GPATH
@@ -23,3 +24,4 @@ GTAGS
 
 # Miscellaneous
 .envrc
+.ignore
