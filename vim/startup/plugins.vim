@@ -67,7 +67,7 @@ Plug 'arthurxavierx/vim-caser'
 " more [ ] mappings for navigation etc.
 Plug 'tpope/vim-unimpaired'
 " highlight all occurences of word under cursor
-Plug 'dominikduda/vim_current_word', { 'for': ['python', 'cpp', 'qml'], }
+Plug 'RRethy/vim-illuminate', { 'for': ['python', 'cpp', 'qml'], }
 " Python indents acc. to PEP8
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python', }
 " Python code folding
@@ -276,7 +276,10 @@ let g:lightline = {
     \ },
     \ }
 
-highlight CurrentWord term=bold cterm=bold
+highlight illuminatedWord term=bold cterm=bold
+let g:Illuminate_ftHighlightGroups = {
+    \ 'python:blacklist': ['pythonStatement', 'pythonImport'],
+    \ }
 
 " Force updating of gitgutter symbols in simple terminal
 let g:gitgutter_terminal_reports_focus=0
