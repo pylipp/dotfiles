@@ -60,6 +60,7 @@
     sha = !"rev=${1:-HEAD}; for i in $(seq 1 $#); do shift; done; git rev-parse --short $rev | tee /dev/stderr | xclip -selection clipboard"
     please = push --force-with-lease
     mt = mergetool
+    fixup = commit -m Fixup
 [merge]
     tool = vimdiff
     conflictstyle = diff3
