@@ -108,6 +108,10 @@ command! Xmlify %!xmllint --format %
 
 nnoremap g= mmgg=G''
 
+" Open file under cursor without blocking vim
+nnoremap gX :silent :execute
+            \ "!xdg-open" expand('%:p:h') . "/" . expand("<cfile>") " &"<cr>
+
 " Copy File to clipboard
 nnoremap <leader>cf gg"+yG<CR>``
 " Yank absolute Path of current buffer to clipboard
