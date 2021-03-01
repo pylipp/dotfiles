@@ -61,6 +61,7 @@
     please = push --force-with-lease
     mt = mergetool
     fixup = commit -m Fixup
+    ap = add -p
 [merge]
     tool = vimdiff
     conflictstyle = diff3
