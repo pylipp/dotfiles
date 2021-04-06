@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#  Decription
+#  -----------
+#  Simple timer with sound and dialog window notification. To remind you to turn stove off :).
+
+#  Requirements
+#  ------------
+#      sudo apt-get install dunst aplay
+
+#  Usage
+#  -----
+#      timer 6 # i.e. notify after 6 minutes
+
+echo "$(date +"%H:%M") Will notify you in $1 minutes!"
+sleep $1m && (notify-send -u critical "Timer done $1" & aplay -q ~/Music/romans.wav) &
