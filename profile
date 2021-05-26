@@ -11,7 +11,7 @@ export VIRTUALENVWRAPPER_PYTHON=~/.local/pipx/venvs/virtualenvwrapper/bin/python
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --color=never'
 export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git --color=never'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 export FZF_COMPLETION_TRIGGER='+'
 export FZF_CTRL_T_OPTS='--preview "bat --style=numbers --color=always {} || coderay {} || head -200" --bind "ctrl-alt-j:preview-page-down,ctrl-alt-k:preview-page-up"'
 
