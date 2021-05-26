@@ -201,4 +201,19 @@ bbpp() {
     bibu pipeline run -n "$pipeline"
 }
 
+
+observe() {
+    # Print lines in growing CSV file
+    # Usage:
+    #     observe FILE [COLUMN-SELECTION]
+
+    [ $# -lt 1 ] && return 1
+
+    local selection
+    selection=${2:-3,5}
+
+    # https://github.com/BurntSushi/xsv/issues/192#issuecomment-778585631
+    tail -f "$1"  | (while read -r line; do echo "$line" | xsv select -d \; "$selection"; done )
+}
+
 [ -e ~/.files/liquidprompt ] && . ~/.files/liquidprompt || true
