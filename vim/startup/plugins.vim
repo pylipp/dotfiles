@@ -254,7 +254,7 @@ nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 let g:grepper = {}
 let g:grepper.tools = ['rg', 'ag', 'ack', 'ack-grep', 'grep', 'findstr',]
-let g:grepper.prompt_mapping_tool = '<leader>t'
+let g:grepper.prompt_mapping_tool = '<c-t>'
 
 " vim-markdown-preview settings (requires see, ~/.mailcap)
 let g:vim_markdown_preview_hotkey='<leader>mp'
