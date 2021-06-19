@@ -23,6 +23,9 @@ dunst &
 # Actually display icon: https://askubuntu.com/a/1001864
 NO_AT_BRIDGE=1 dbus-launch nm-applet &
 
+# apt install caffeine
+command -v caffeine-indicator >/dev/null 2>&1 && dbus-launch caffeine-indicator &
+
 # utility scripts
 ~/.i3/reload_keyboard &
 ~/.i3/check_battery &
