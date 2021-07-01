@@ -266,13 +266,20 @@ let g:vim_markdown_preview_toggle=3
 let g:UltiSnipsExpandTrigger='<C-s>'
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'snips']
 
+function! LightlineObsession()
+    return '%{ObsessionStatus()}'
+endfunction
+
 let g:lightline = {
     \ 'active': {
     \   'left': [ [ 'mode', 'paste', 'spell' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'obsession' ] ]
     \ },
     \ 'component_function': {
     \   'gitbranch': 'fugitive#head'
+    \ },
+    \ 'component_expand': {
+    \   'obsession': 'LightlineObsession'
     \ },
     \ }
 
