@@ -1,5 +1,5 @@
 bat=v0.15.1
-delta=0.4.4
+delta=0.6.0
 direnv=v2.20.0
 fd=v7.5.0
 fzf=0.23.1

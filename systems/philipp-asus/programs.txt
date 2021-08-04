@@ -223,7 +223,7 @@ zsh
 zsh 5.1.1 (x86_64-ubuntu-linux-gnu)
 
 convert
-Version: ImageMagick 6.8.9-9 Q16 x86_64 2019-11-12 http://www.imagemagick.org
+Version: ImageMagick 6.8.9-9 Q16 x86_64 2020-12-04 http://www.imagemagick.org
 Copyright: Copyright (C) 1999-2014 ImageMagick Studio LLC
 Features: DPC Modules OpenMP
 Delegates: bzlib cairo djvu fftw fontconfig freetype jbig jng jpeg lcms lqr ltdl lzma openexr pangocairo png rsvg tiff wmf x xml zlib

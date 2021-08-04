@@ -9,7 +9,7 @@ apps are exposed on your $PATH at /home/philipp/.local/bin
     - pyp
    package smdv 0.1.1, Python 3.6.10
     - smdv
-   package td-watson 1.10.0, Python 3.6.10
+   package td-watson 2.0.1, Python 3.6.10
     - watson
    package tldr 0.5, Python 3.6.10
     - tldr
@@ -24,7 +24,7 @@ apps are exposed on your $PATH at /home/philipp/.local/bin
    package virtualenvwrapper 4.8.5.dev6, Python 3.6.10
     - virtualenvwrapper.sh
     - virtualenvwrapper_lazy.sh
-   package youtube-dl 2020.11.24, Python 3.6.10
+   package youtube-dl 2021.4.7, Python 3.6.10
     - youtube-dl
    package yq 2.10.0, Python 3.6.10
     - xq
