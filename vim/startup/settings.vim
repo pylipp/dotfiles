@@ -56,7 +56,7 @@ set nojoinspaces  "insert one space instead of two after .!? when joining lines
 
 """ Undo-related Options
 set undofile  "store undo actions in file
-if has("unix")
+if has('unix')
     " put backup, swp, and undo files into central location
     silent !mkdir -p ~/.vim/{backup,swp,undo}/
 endif
@@ -79,8 +79,8 @@ let g:xml_syntax_folding = 1
 let g:tex_flavor = 'latex'
 let g:tex_comment_nospell=1
 
-let g:mapleader=" "
-let g:maplocalleader=" "
+let g:mapleader=' '
+let g:maplocalleader=' '
 
 " Tweak builtin file browser: hide banner, shrink size, display tree
 " structure, open selected file in previous window
