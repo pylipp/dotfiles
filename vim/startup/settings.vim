@@ -33,6 +33,7 @@ set showcmd     " show incomplete cmds at the bottom
 set showmode    " show current mode at the bottom
 set wildmenu "show completion options for command line
 set wildmode=list:longest
+set scrolloff=5 " some lines visible around cursor when moving around
 " set statusline+=%#warningmsg#
 " set statusline+=%*
 
