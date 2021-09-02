@@ -1,5 +1,5 @@
 [core]
-    editor = /usr/bin/vim
+    editor = vim
     excludesfile = ~/.files/gitignore_global
     autocrlf = input
     pager = diffy
