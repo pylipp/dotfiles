@@ -3,7 +3,7 @@ sdd_install() {
     [ -z "$WORKON_HOME" ] && return 2
 
     # Bootstrap pipx into virtual environment
-    python3.6 -m venv "$WORKON_HOME"/pipx
+    python3 -m venv "$WORKON_HOME"/pipx
     . "$WORKON_HOME"/pipx/bin/activate
     pip install -U pip
     pip install pipx=="$1"
