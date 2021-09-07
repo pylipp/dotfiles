@@ -1,9 +1,6 @@
-# set for i3-sensible-terminal
-export TERMINAL="st"
-
+export TERMINAL=st  # set for i3-sensible-terminal
 export EDITOR=vim
-
-export BROWSER=qutebrowser
+export BROWSER=firefox
 
 export PYTHONSTARTUP=~/.files/pythonrc
 export WORKON_HOME=$HOME/.virtualenvs
