@@ -15,8 +15,6 @@ Plug 'majutsushi/tagbar'
 " Git integration https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
-" Ultisnips
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " Lightline statusline plugin
 Plug 'itchyny/lightline.vim'
 " filetype dependent commenting
@@ -262,9 +260,6 @@ let g:vim_markdown_preview_browser='qutebrowser'
 let g:vim_markdown_preview_colorscheme='solarized-dark'
 " update preview on BufWrite
 let g:vim_markdown_preview_toggle=3
-
-let g:UltiSnipsExpandTrigger='<C-s>'
-let g:UltiSnipsSnippetDirectories=['UltiSnips', 'snips']
 
 function! LightlineObsession()
     return '%{ObsessionStatus()}'
