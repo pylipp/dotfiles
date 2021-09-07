@@ -18,10 +18,10 @@ xss-lock -- ~/.i3/system_control lock &
 # notification daemon
 dunst &
 
-# network manager trayicon
+# network manager trayicon, if not already displayed
 # Avoid accessibility bus warning: https://unix.stackexchange.com/a/230442
 # Actually display icon: https://askubuntu.com/a/1001864
-NO_AT_BRIDGE=1 dbus-launch nm-applet &
+pgrep -x nm-applet >/dev/null || NO_AT_BRIDGE=1 dbus-launch nm-applet &
 
 # apt install caffeine
 command -v caffeine-indicator >/dev/null 2>&1 && dbus-launch caffeine-indicator &
