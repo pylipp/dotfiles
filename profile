@@ -18,8 +18,6 @@ export FZF_CTRL_T_OPTS='--preview "bat --style=numbers --color=always {} || code
 
 [ -e ~/.files/local_profile ] && . ~/.files/local_profile
 
-[ -e ~/.config/broot/launcher/bash/br ] && . ~/.config/broot/launcher/bash/br
-
 export GOROOT=~/.local/go
 export GOPATH=~/.local/share/goprojects
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
