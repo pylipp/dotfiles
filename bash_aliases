@@ -26,3 +26,6 @@ alias l='ls -alF'
 alias fl='fina list --filters date=2021-'
 
 alias nc="nmtui connect"
+
+# Watson Restart Previous
+alias wrp="watson restart -2"
