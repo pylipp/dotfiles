@@ -92,6 +92,8 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-obsession'
 " behave utilities
 Plug 'ea2809/behave.vim'
+" GraphQL syntax files
+Plug 'jparise/vim-graphql'
 
 " All of your Plugs must be added before the following line
 call plug#end()
