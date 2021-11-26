@@ -10,7 +10,7 @@ import logging
 
 WORK_DAYS_PER_WEEK = 4
 LAST_WORK_DAY_IN_WEEK = 3  # Thursday
-WORK_HOURS_PER_DAY = 6
+WORK_HOURS_PER_DAY = 5
 
 LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.WARNING)
