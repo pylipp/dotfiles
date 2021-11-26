@@ -4,7 +4,7 @@ endif
 let b:custom_python=1
 
 if &textwidth==0
-    setlocal textwidth=80
+    setlocal textwidth=88
 endif
 
 " highlight long lines
