@@ -1,15 +1,16 @@
-0.15.1.3
+0.16.4
 venvs are in /home/philipp/.local/pipx/venvs
 apps are exposed on your $PATH at /home/philipp/.local/bin
+   package ckp 0.3.0, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+[GCC 5.5.0]
+    - ckp
    package docker-compose 1.25.4, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
     - docker-compose
-   package financeager 0.23.1.0, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+   package financeager 0.26.3.0, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
+    - fina
     - financeager
-   package qr-filetransfer 2.7, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
-[GCC 5.5.0]
-    - qr-filetransfer
    package smdv 0.1.1, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
     - smdv
@@ -24,6 +25,6 @@ apps are exposed on your $PATH at /home/philipp/.local/bin
 [GCC 5.5.0]
     - virtualenvwrapper.sh
     - virtualenvwrapper_lazy.sh
-   package youtube-dl 2020.3.8, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+   package youtube-dl 2021.6.6, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
     - youtube-dl
