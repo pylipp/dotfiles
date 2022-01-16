@@ -5,6 +5,7 @@ command -v bat >/dev/null 2>&1 && alias cat=bat
 
 # General, safe setup for bash/zsh acc. to https://direnv.net/ (section Setup)
 command -v direnv >/dev/null 2>&1 && eval "$(direnv hook "$(basename "$SHELL")")"
+command -v thefuck >/dev/null 2>&1 && eval "$(thefuck --alias)"
 
 for dir in ~/.local/pipx/venvs; do
     file="$dir"/virtualenvwrapper/bin/virtualenvwrapper.sh
