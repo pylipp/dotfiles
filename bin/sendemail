@@ -38,7 +38,7 @@
 use strict;
 use IO::Socket;
 use IO::Socket::INET6;
-use Term::ReadKey;
+use Term::ReadKey; # libterm-readkey-perl
 
 
 ########################
