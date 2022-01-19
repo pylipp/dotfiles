@@ -2,7 +2,7 @@ sdd_install() {
     for rcfile in ycm_extra_conf.py gitconfig bashrc bash_profile \
         i3 xinitrc dir_colors latexmkrc tigrc direnvrc inputrc \
         mailcap profile zprofile xprofile \
-        vintrc.yaml pypirc
+        vintrc.yaml pypirc dialogrc
     do
         link_path=~/.$rcfile
         rm -f "$link_path"
@@ -37,7 +37,7 @@ sdd_uninstall() {
     for rcfile in ycm_extra_conf.py gitconfig bashrc bash_profile \
         i3 xinitrc dir_colors latexmkrc tigrc direnvrc \
         mailcap profile zprofile xprofile \
-        vintrc.yaml
+        vintrc.yaml dialogrc
     do
         link_path=~/.$rcfile
         rm -fv "$link_path"
