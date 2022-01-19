@@ -5,32 +5,31 @@ sdd_install() {
         vintrc.yaml pypirc dialogrc
     do
         link_path=~/.$rcfile
-        rm -f "$link_path"
-        ln -s ~/.files/$rcfile "$link_path"
+        ln -fs ~/.files/$rcfile "$link_path"
     done
     
     mkdir -p ~/.config/zathura
-    ln -s ~/.files/zathurarc ~/.config/zathura/zathurarc
+    ln -fs ~/.files/zathurarc ~/.config/zathura/zathurarc
     mkdir -p ~/.config/ptpython
-    ln -s ~/.files/ptpython_config.py ~/.config/ptpython/config.py
+    ln -fs ~/.files/ptpython_config.py ~/.config/ptpython/config.py
     mkdir -p ~/.config/pudb
-    ln -s ~/.files/pudb.cfg ~/.config/pudb/pudb.cfg
+    ln -fs ~/.files/pudb.cfg ~/.config/pudb/pudb.cfg
     mkdir -p ~/.config/feh
-    ln -s ~/.files/feh ~/.config/feh
+    ln -fs ~/.files/feh ~/.config/feh
     mkdir -p ~/.local/share
-    ln -s ~/.files/local/share/applications ~/.local/share/applications
+    ln -fs ~/.files/local/share/applications ~/.local/share/applications
     rm -f ~/.config/liquidpromptrc
-    ln -s ~/.files/liquidpromptrc ~/.config/liquidpromptrc
+    ln -fs ~/.files/liquidpromptrc ~/.config/liquidpromptrc
     mkdir -p ~/.config/mpv
-    ln -s ~/.files/mpv_input.conf ~/.config/mpv/input.conf
+    ln -fs ~/.files/mpv_input.conf ~/.config/mpv/input.conf
     mkdir -p ~/.config/git
-    ln -s ~/.files/gitattributes ~/.config/git/attributes
+    ln -fs ~/.files/gitattributes ~/.config/git/attributes
     mkdir -p ~/.config/htop
-    ln -s ~/.files/htoprc ~/.config/htop
+    ln -fs ~/.files/htoprc ~/.config/htop
     mkdir -p ~/.config/gitui
-    ln -s ~/.files/gitui_key_config.ron ~/.config/gitui/key_config.ron
+    ln -fs ~/.files/gitui_key_config.ron ~/.config/gitui/key_config.ron
     mkdir -p ~/.config/gh
-    ln -s ~/.files/gh_config.yml ~/.config/gh/config.yml
+    ln -fs ~/.files/gh_config.yml ~/.config/gh/config.yml
 }
 
 sdd_uninstall() {
