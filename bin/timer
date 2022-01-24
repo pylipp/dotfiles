@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #  Decription
 #  -----------
@@ -12,5 +12,10 @@
 #  -----
 #      timer 6 # i.e. notify after 6 minutes
 
+if [[ $# -lt 1 ]]; then
+    echo "Usage: timer MINUTES" >&2
+    exit 1
+fi
+
 echo "$(date +"%H:%M") Will notify you in $1 minutes!"
-sleep $1m && (notify-send -u critical "Timer done $1" & aplay -q ~/Music/romans.wav) &
+sleep "$1m" && (notify-send -u critical "Timer done $1" & speaker-test -t sine -f 500 -l 1) &
