@@ -3,7 +3,10 @@
 sdd_install() {
     cd /tmp || return 1
     git clone https://github.com/pylipp/dzr
-    cp -v dzr/dzr dzr/dzr-url dzr/dzr-dec "$SDD_INSTALL_PREFIX"/bin
+    cd dzr || return 1
+    git checkout fca867b0adb78b9cc9de239a324f12f293e401f0
+    cp -v dzr dzr-url dzr-dec "$SDD_INSTALL_PREFIX"/bin
+    cd ..
     rm -rfv dzr
 }
 
