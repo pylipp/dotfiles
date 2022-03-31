@@ -171,7 +171,7 @@ let g:ale_sign_error = 'E>'
 let g:ale_sign_warning = 'W>'
 let g:ale_echo_msg_format = '[%linter%] %s'
 let g:ale_linters = {
-    \'python': ['flake8',],
+    \'python': ['flake8','mypy',],
     \'tex': ['chktex',],
     \'qml': ['qmlfmt',],
     \}
