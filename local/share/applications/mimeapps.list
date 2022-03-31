@@ -3,7 +3,7 @@
 application/pdf=zathura.desktop
 image/jpeg=feh.desktop
 image/png=feh.desktop
-text/html=qutebrowser.desktop
+text/html=firefox.desktop
 x-scheme-handler/tg=telegramdesktop.desktop
 x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/zoommtg=Zoom.desktop

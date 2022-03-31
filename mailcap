@@ -1,4 +1,4 @@
-text/html; qutebrowser %s; description=HTML Text; test=test -n "$DISPLAY";  nametemplate=%s.html
+text/html; "$BROWSER" %s; description=HTML Text; test=test -n "$DISPLAY";  nametemplate=%s.html
 # Example mailcap file for Terminal Viewer for Reddit
 # https://github.com/tildeclub/ttrv/
 #
