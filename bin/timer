@@ -18,4 +18,4 @@ if [[ $# -lt 1 ]]; then
 fi
 
 echo "$(date +"%H:%M") Will notify you in $1 minutes!"
-sleep "$1m" && (notify-send -u critical "Timer done $1" & speaker-test -t sine -f 500 -l 1) &
+sleep "$1m" && (notify-send -u critical "Timer done $1" & speaker-test -t sine -f 500 -l 1 >/dev/null) &
