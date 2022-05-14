@@ -34,31 +34,31 @@
 [delta]
     syntax-theme = Solarized (light)
 [alias]
-    co = checkout
-    cob = !"git checkout $(git branch --all | fzf --no-multi --ansi --no-sort --preview 'git show --color=always {1} | diffy' | sed 's#remotes/origin/##')"
-    ci = commit -v
-    st = status
+    amend = commit --amend --no-edit
+    ap = add -p
     br = branch
     # mnemonic: Branches RECently checked-out
     brec = !"git reflog | egrep -io 'moving from ([^[:space:]]+)' | awk '{ print $3 }' | awk ' !x[$0]++' | head -n8"
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    amend = commit --amend --no-edit
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate --all
-    df = diff
+    chp = cherry-pick
+    ci = commit -v
+    co = checkout
+    cob = !"git checkout $(git branch --all | fzf --no-multi --ansi --no-sort --preview 'git show --color=always {1} | diffy' | sed 's#remotes/origin/##')"
     dc = diff --cached
-    dt = difftool
-    ign = ls-files -o -i --exclude-standard
-    ri = interactive-rebase
+    df = diff
     # view Diff in File After Pull
     dfap = "!b=$(git rev-parse --abbrev-ref HEAD); git difftool $b@{1} $b"
-    chp = cherry-pick
-    ssp = !"stash_id=${1:-0}; [ $# -gt 0 ] && shift; git stash show -p stash@{$stash_id}"
-    sha = !"rev=${1:-HEAD}; for i in $(seq 1 $#); do shift; done; git rev-parse --short $rev | tr -d '\n' | tee /dev/stderr | xclip -selection clipboard"
-    please = push --force-with-lease
-    mt = mergetool
+    dt = difftool
     fixup = commit -m Fixup
-    ap = add -p
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    ign = ls-files -o -i --exclude-standard
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate --all
+    mt = mergetool
+    please = push --force-with-lease
+    ri = interactive-rebase
+    sha = !"rev=${1:-HEAD}; for i in $(seq 1 $#); do shift; done; git rev-parse --short $rev | tr -d '\n' | tee /dev/stderr | xclip -selection clipboard"
+    ssp = !"stash_id=${1:-0}; [ $# -gt 0 ] && shift; git stash show -p stash@{$stash_id}"
+    st = status
 [merge]
     tool = vimdiff
     conflictstyle = diff3
