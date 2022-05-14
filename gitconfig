@@ -49,6 +49,7 @@
     dfap = "!b=$(git rev-parse --abbrev-ref HEAD); git difftool $b@{1} $b"
     dt = difftool
     fixup = commit -m Fixup
+    fo ="!b=$(git rev-parse --abbrev-ref HEAD); git fetch origin $b"
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     ign = ls-files -o -i --exclude-standard
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
