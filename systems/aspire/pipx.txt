@@ -1,4 +1,5 @@
 0.16.4
+upgrading shared libraries...
 venvs are in /home/philipp/.local/pipx/venvs
 apps are exposed on your $PATH at /home/philipp/.local/bin
    package ckp 0.3.0, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
@@ -7,24 +8,27 @@ apps are exposed on your $PATH at /home/philipp/.local/bin
    package docker-compose 1.25.4, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
     - docker-compose
-   package financeager 0.26.3.0, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+   package financeager 1.0.1, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
     - fina
     - financeager
+   package jc 1.18.1, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+[GCC 5.5.0]
+    - jc
    package smdv 0.1.1, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
     - smdv
    package td-watson 1.10.0, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
     - watson
-   package tox 3.14.5, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+   package thefuck 3.32, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
-    - tox
-    - tox-quickstart
+    - fuck
+    - thefuck
    package virtualenvwrapper 4.8.5.dev6, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
     - virtualenvwrapper.sh
     - virtualenvwrapper_lazy.sh
-   package youtube-dl 2021.6.6, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
+   package wik 1.2.0, Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
 [GCC 5.5.0]
-    - youtube-dl
+    - wik

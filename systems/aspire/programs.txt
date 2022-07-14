@@ -18,7 +18,7 @@ cmake version 3.7.2
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
 
 curl
-curl 7.52.1 (x86_64-pc-linux-gnu) libcurl/7.52.1 OpenSSL/1.0.2l zlib/1.2.8 libidn2/0.16 libpsl/0.17.0 (+libidn2/0.16) libssh2/1.7.0 nghttp2/1.18.1 librtmp/2.3
+curl 7.52.1 (x86_64-pc-linux-gnu) libcurl/7.52.1 OpenSSL/1.0.2u zlib/1.2.8 libidn2/0.16 libpsl/0.17.0 (+libidn2/0.16) libssh2/1.7.0 nghttp2/1.18.1 librtmp/2.3
 Protocols: dict file ftp ftps gopher http https imap imaps ldap ldaps pop3 pop3s rtmp rtsp scp sftp smb smbs smtp smtps telnet tftp 
 Features: AsynchDNS IDN IPv6 Largefile GSS-API Kerberos SPNEGO NTLM NTLM_WB SSL libz TLS-SRP HTTP2 UnixSockets HTTPS-proxy PSL 
 
@@ -30,7 +30,7 @@ feh version 2.18
 Compile-time switches: curl exif xinerama 
 
 g++
-g++ (Debian 6.3.0-18) 6.3.0 20170516
+g++ (Debian 6.3.0-18+deb9u1) 6.3.0 20170516
 Copyright (C) 2016 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
@@ -54,7 +54,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see http://www.gnu.org/licenses/.
 
 gcc
-gcc (Debian 6.3.0-18) 6.3.0 20170516
+gcc (Debian 6.3.0-18+deb9u1) 6.3.0 20170516
 Copyright (C) 2016 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
@@ -160,16 +160,16 @@ Compile:
     -DLOCALEDIR="/usr/share/locale" -I. -I../../src -I../lib 
     -I../../lib -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include 
     -I/usr/include/p11-kit-1 -DHAVE_LIBGNUTLS -DNDEBUG -g -O2 
-    -fdebug-prefix-map=/build/wget-1.18=. -fstack-protector-strong 
-    -Wformat -Werror=format-security -DNO_SSLv2 -D_FILE_OFFSET_BITS=64 
-    -g -Wall 
+    -fdebug-prefix-map=/build/wget-71Tie0/wget-1.18=. 
+    -fstack-protector-strong -Wformat -Werror=format-security 
+    -DNO_SSLv2 -D_FILE_OFFSET_BITS=64 -g -Wall 
 Link: 
     gcc -I/usr/include/p11-kit-1 -DHAVE_LIBGNUTLS -DNDEBUG -g -O2 
-    -fdebug-prefix-map=/build/wget-1.18=. -fstack-protector-strong 
-    -Wformat -Werror=format-security -DNO_SSLv2 -D_FILE_OFFSET_BITS=64 
-    -g -Wall -Wl,-z,relro -Wl,-z,now -L/usr/lib -lpcre -luuid -lnettle 
-    -lgnutls -lz -lpsl -lidn ftp-opie.o gnutls.o http-ntlm.o 
-    ../lib/libgnu.a 
+    -fdebug-prefix-map=/build/wget-71Tie0/wget-1.18=. 
+    -fstack-protector-strong -Wformat -Werror=format-security 
+    -DNO_SSLv2 -D_FILE_OFFSET_BITS=64 -g -Wall -Wl,-z,relro -Wl,-z,now 
+    -L/usr/lib -lpcre -luuid -lnettle -lgnutls -lz -lpsl -lidn 
+    ftp-opie.o gnutls.o http-ntlm.o ../lib/libgnu.a 
 
 Copyright (C) 2015 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later
