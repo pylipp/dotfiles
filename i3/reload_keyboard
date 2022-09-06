@@ -4,13 +4,13 @@
 # This script periodically checks the layout and updates it if necessary
 
 if [[ $(pgrep -f "$0" | grep -c -v $$) -gt 1 ]]; then
-    # abort if another process already running
+    echo "Another process already running, aborting" >&2
     exit 1
 fi
 
 KBMAP_FILEPATH=/usr/share/X11/xkb/symbols/pylipp
 if [[ ! -e $KBMAP_FILEPATH ]]; then
-    echo "$KBMAP_FILEPATH does not exist."
+    echo "$KBMAP_FILEPATH does not exist." >&2
     exit 1
 fi
 
