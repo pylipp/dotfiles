@@ -30,6 +30,7 @@ sdd_install() {
     ln -fs ~/.files/gitui_key_config.ron ~/.config/gitui/key_config.ron
     mkdir -p ~/.config/gh
     ln -fs ~/.files/gh_config.yml ~/.config/gh/config.yml
+    ln -fs ~/.files/ctags ~/.ctags.d
 }
 
 sdd_uninstall() {
@@ -42,5 +43,5 @@ sdd_uninstall() {
         rm -fv "$link_path"
     done
 
-    rm -rvf ~/.config/zathura/zathurarc ~/.config/ptpython/config.py ~/.config/pudb/pudb.cfg ~/.config/feh ~/.local/share/applications ~/.config/mpv ~/.config/git ~/.config/htop ~/.config/gitui ~/.config/gh
+    rm -rvf ~/.config/zathura/zathurarc ~/.config/ptpython/config.py ~/.config/pudb/pudb.cfg ~/.config/feh ~/.local/share/applications ~/.config/mpv ~/.config/git ~/.config/htop ~/.config/gitui ~/.config/gh ~/.ctags.d
 }
