@@ -21,3 +21,5 @@ export FZF_CTRL_T_OPTS='--preview "bat --style=numbers --color=always {} || code
 export GOROOT=~/.local/go
 export GOPATH=~/.local/share/goprojects
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+export NVM_DIR="$HOME"/.config/nvm
