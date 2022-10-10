@@ -94,6 +94,7 @@ Plug 'tpope/vim-obsession'
 Plug 'ea2809/behave.vim'
 " GraphQL syntax files
 Plug 'jparise/vim-graphql'
+Plug 'wellle/context.vim'
 
 " All of your Plugs must be added before the following line
 call plug#end()
