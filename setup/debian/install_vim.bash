@@ -5,7 +5,7 @@
 # Requires: - make
 #           - git
 #           - pip
-#           - python3-dev or python-dev
+#           - python3-dev
 
 set -e
 
@@ -19,7 +19,7 @@ install_vim() {
     if [[ $method = "global" ]]; then
         sudo apt-get remove -y vim vim-runtime gvim vim-tiny vim-common
         install_packages libncurses5-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev \
-            python-dev python3-dev \
+            python3-dev \
             build-essential git \
             shellcheck xdotool markdown
 
@@ -53,7 +53,7 @@ build_vim() {
 
     VIM_PYTHON3_CONFIG_DIR=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu
     while [[ ! -e $VIM_PYTHON3_CONFIG_DIR ]]; do
-        echo -n "Path to Python3 config dir: "
+        echo -n "Path to Python3 config dir (similar to $VIM_PYTHON3_CONFIG_DIR): "
         read VIM_PYTHON3_CONFIG_DIR
     done
 
