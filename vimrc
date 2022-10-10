@@ -1,3 +1,7 @@
+" https://robertbasic.com/blog/force-python-version-in-vim/
+if has('python3')
+endif
+
 source ~/.vim/startup/settings.vim
 source ~/.vim/startup/functions.vim
 source ~/.vim/startup/mappings.vim
