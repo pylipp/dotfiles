@@ -95,6 +95,8 @@ Plug 'ea2809/behave.vim'
 " GraphQL syntax files
 Plug 'jparise/vim-graphql'
 Plug 'wellle/context.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'cespare/vim-toml', { 'branch': 'main' }
 
 " All of your Plugs must be added before the following line
 call plug#end()
