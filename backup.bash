@@ -47,6 +47,7 @@ BORGARCHIVE=$BACKUPDIR::$BACKUPDATE
 borg create --verbose --stats --compression lz4 \
     --exclude "sh:**/build" \
     --exclude "*__pycache__*" \
+    --exclude "*node_modules*" \
     --exclude "*.pyc" \
     $BORGARCHIVE \
     \
@@ -58,6 +59,7 @@ borg create --verbose --stats --compression lz4 \
     .config \
     .files/local_* \
     .files/global_gituser \
+    .gnupg \
     .ssh \
     \
     .mozilla/firefox \
