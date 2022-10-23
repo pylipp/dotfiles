@@ -18,10 +18,14 @@ import pathlib
 # - LISTS: list of list names
 # - LABELS: dict of label IDs and names
 # - DEFAULT_BOARD: str with default board name
+# - MOVE_LISTS: dict of list aliases and list IDs
 SCRIPT_DIR = pathlib.Path(__file__).absolute().parent
 sys.path.insert(0, SCRIPT_DIR)
 
-from trl_config import LISTS, LABELS, DEFAULT_BOARD
+try:
+    from trl_config import LISTS, LABELS, DEFAULT_BOARD, MOVE_LISTS
+except ImportError:
+    raise SystemExit("trl_config.py not found or incomplete.")
 
 
 WORKSPACE_COMMANDS = [
@@ -29,6 +33,7 @@ WORKSPACE_COMMANDS = [
     "show-boards",
     "card-assign",  # card ID/name/URL
     "card-details",  # card ID/name/URL
+    "move-card",  # card list
 ]
 BOARD_COMMANDS = [
     "add-list",
@@ -37,7 +42,6 @@ BOARD_COMMANDS = [
 ]
 LIST_COMMANDS = [
     "add-card",  # -l LIST(name) -g LABELS
-    "move-card",  # card list
     "show-cards",  # -l LIST(name)
     "delete-card",  # -l LIST(name)
 ]
@@ -64,6 +68,15 @@ def construct_trello_command(command, options):
 
     if "-h" in options or "--help" in options:
         pass
+
+    elif command == "move-card":
+        for flag, list_id in MOVE_LISTS.items():
+            try:
+                options.remove(flag)
+                options.append(list_id)
+                break
+            except ValueError:
+                pass
 
     elif command in BOARD_COMMANDS:
         trello_cmd.extend(["-b", DEFAULT_BOARD])
