@@ -91,15 +91,16 @@ def construct_trello_command(command, options):
     return trello_cmd
 
 
-def select_list():
+def select_list(prompt="Select list: "):
     try:
-        proc = subprocess.run(["fzf"], input=bytes("\n".join(LISTS), encoding="utf-8"),
+        proc = subprocess.run(["fzf", f"--prompt={prompt}"],
+                              input=bytes("\n".join(LISTS), encoding="utf-8"),
                               stdout=subprocess.PIPE)
         return proc.stdout.decode().strip()
     except Exception as e:
         print(e)
         list_names = "\n".join([f"{i:2d}: {name}" for i, name in enumerate(LISTS)])
-        list_rank = input(f"{list_names}\nPlease select a list: ")
+        list_rank = input(f"{list_names}\n{prompt}")
         return LISTS[int(list_rank)]
 
 
