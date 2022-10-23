@@ -103,9 +103,11 @@ def construct_trello_command(command, options):
 
 def select_list(prompt="Select list: "):
     try:
-        proc = subprocess.run(["fzf", f"--prompt={prompt}"],
-                              input=bytes("\n".join(LISTS), encoding="utf-8"),
-                              stdout=subprocess.PIPE)
+        proc = subprocess.run(
+            ["fzf", f"--prompt={prompt}"],
+            input=bytes("\n".join(LISTS), encoding="utf-8"),
+            stdout=subprocess.PIPE,
+        )
         return proc.stdout.decode().strip()
     except Exception as e:
         print(e)
