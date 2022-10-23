@@ -16,13 +16,14 @@ _collect_versions() {
         printf "\n"
     }
 
-    for program in arandr bash borg cmake curl dunst feh g++ gawk gcc git htop i3 i3lock make nmcli pulseaudio python3 scrot tig vim wget xss-lock zathura zip zsh;
+    for program in arandr bash borg cmake curl dunst feh g++ gawk gcc git htop i3 i3lock make mpv nmcli pulseaudio python3 scrot tig vim wget xss-lock zathura zip zsh;
     do
         _print $program --version
     done
     for program in convert latexmk xclip; do
         _print $program -version
     done
+    _print sxiv -v
     _print tmux -V
 
     # XServer version; using `Xorg -version` shows
@@ -45,6 +46,9 @@ main() {
     echo ""
     pipx --version > "$host_dir"/pipx.txt
     pipx list | tee -a "$host_dir"/pipx.txt
+
+    echo ""
+    yarn global list | tee -a "$host_dir"/yarn.txt
 
     echo ""
     vim "+PlugSnapshot! $host_dir/vim.txt" +qa < /dev/tty
