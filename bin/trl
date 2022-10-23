@@ -78,6 +78,11 @@ def construct_trello_command(command, options):
             except ValueError:
                 pass
 
+    elif command == "move-all-cards":
+        trello_cmd.extend(["-b", DEFAULT_BOARD, "-c", DEFAULT_BOARD])
+        trello_cmd.extend(["-l", select_list("Select source list: ")])
+        trello_cmd.extend(["-d", select_list("Select destination list: ")])
+
     elif command in BOARD_COMMANDS:
         trello_cmd.extend(["-b", DEFAULT_BOARD])
 
