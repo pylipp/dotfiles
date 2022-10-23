@@ -1,4 +1,5 @@
 bat=v0.13.0
+borg=1.1.18
 delta=0.4.0
 diff-so-fancy=v1.2.6
 direnv=v2.20.0
@@ -17,7 +18,7 @@ pip=19.1.1
 qrcp=0.6.1
 qutebrowser=v1.12.0
 ripgrep=11.0.2
-sdd=451d38c6a0ae2ae501d023502821d182e52ee11a
+sdd=11d3e4350844c75d9fc49c6e9eaf2850dea6da0e
 shellcheck=v0.7.0
 st=0.4
 sxiv=0.10
