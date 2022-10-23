@@ -11,4 +11,4 @@ local_vimrc
 
 global_gituser
 
-__pycache__/*
+__pycache__
