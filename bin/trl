@@ -12,6 +12,7 @@ Setup trello-cli
 import subprocess
 import sys
 import pathlib
+import webbrowser
 
 # Enable loading trl_config module from same directory
 # Module content:
@@ -91,6 +92,10 @@ def construct_trello_command(command, options):
         list_name = select_list()
         label_options = select_labels() if command == "add-card" else []
         trello_cmd.extend(["-b", DEFAULT_BOARD, "-l", list_name] + label_options)
+
+    elif command == "browse-card":
+        webbrowser.open(f"https://trello.com/c/{options[0]}")
+        sys.exit(0)
 
     trello_cmd.extend(options)
     return trello_cmd
