@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 #makes some shortcuts available for vim instead for shell
 stty -ixon
 
@@ -72,13 +74,6 @@ backup_reminder() {
     fi
 }
 backup_reminder
-
-gu() {
-    # Git clone URL from clipboard, then change into directory
-    local repo
-    repo=$(xclip -selection clipboard -o)
-    git clone $repo && cd $(basename $repo)
-}
 
 wt() {
     # Watson log of Today
