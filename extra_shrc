@@ -159,6 +159,35 @@ scrot() {
     /usr/bin/scrot --exec 'mv $f ~/Pictures' "$@"
 }
 
+merge_pr() {
+    # Merge a boxtribute Github pull request and move the associated trello card to
+    # 'Merged to master | v2-staging' column
+    # Dependencies: gh, jq, ripgrep, trl, trello-cli
+    # Arguments:
+    # 1. Github PR ID (optional)
+    local card_id
+    local pr_id
+    pr_id="$1"
+
+    # Display PR title
+    gh pr view "$pr_id" --json title | jq -r .title
+    echo
+
+    # Find card ID from PR comments (first match)
+    # matching cf. https://stackoverflow.com/a/67068668/3865876
+    card_id=$(gh pr view "$pr_id" --json comments | jq -r .comments[].body | rg --max-count 1 'trello.com/c/([a-zA-Z0-9]+)' -or '$1')
+
+    # Abort if no card found
+    trl card-details "$card_id" || return 1
+
+    read -p "Do you want to merge the PR and move the trello card (YyNn)?  " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        # Attempt to merge the PR; move trello card only when successful
+        gh pr merge "$pr_id" --delete-branch --merge && trl move-card "$card_id" merged
+    fi
+}
+
 fj() {
     # Find Jira items. Any command line options are passed to 'jira list'
     # Requires: go-jira, fzf, bat
