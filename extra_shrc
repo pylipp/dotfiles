@@ -188,6 +188,20 @@ merge_pr() {
     fi
 }
 
+delete_gae_versions() {
+    # Delete Google App Engine versions of staging services if version name begins with PATTERN
+    # Requires previous configuration via `gcloud config set project <PROJECT>`
+    if [[ $# -ne 1 ]]; then
+        echo "Usage: delete_gae_versions PATTERN" >&2
+        return 1
+    fi
+
+    pattern="$1"
+    for service in v2-staging api-staging; do
+        gcloud app versions delete $(gcloud app versions list --service $service | cut -d' ' -f3 | grep "^$pattern" | xargs)
+    done
+}
+
 fj() {
     # Find Jira items. Any command line options are passed to 'jira list'
     # Requires: go-jira, fzf, bat
