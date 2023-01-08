@@ -1,4 +1,4 @@
 yarn global v1.22.19
 info "trello-cli@0.6.2" has binaries:
    - trello
-Done in 0.31s.
+Done in 0.30s.
