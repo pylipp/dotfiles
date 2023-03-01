@@ -13,19 +13,24 @@ import sys
 import pathlib
 import webbrowser
 
-# Enable loading trl_config module from same directory
+# Enable loading trl_config module from current working directory or above
+directory = pathlib.Path.cwd()
+while not (directory / "trl_config.py").exists():
+    if directory == pathlib.Path("/"):
+        raise SystemExit("trl_config.py not found.")
+    directory = directory.parent
+sys.path.insert(0, directory)
+
 # Module content:
 # - LISTS: list of list names
 # - LABELS: dict of label IDs and names
 # - DEFAULT_BOARD: str with default board name
 # - MOVE_LISTS: dict of list aliases and list IDs
-SCRIPT_DIR = pathlib.Path(__file__).absolute().parent
-sys.path.insert(0, SCRIPT_DIR)
-
 try:
     from trl_config import LISTS, LABELS, DEFAULT_BOARD, MOVE_LISTS
-except ImportError:
-    raise SystemExit("trl_config.py not found or incomplete.")
+except ImportError as e:
+    print(e)
+    raise SystemExit("trl_config.py found but incomplete.")
 
 
 WORKSPACE_COMMANDS = [
