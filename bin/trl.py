@@ -12,25 +12,24 @@ import subprocess
 import sys
 import pathlib
 import webbrowser
+import json
+import os
 
-# Enable loading trl_config module from current working directory or above
-directory = pathlib.Path.cwd()
-while not (directory / "trl_config.py").exists():
-    if directory == pathlib.Path("/"):
-        raise SystemExit("trl_config.py not found.")
-    directory = directory.parent
-sys.path.insert(0, directory)
-
-# Module content:
-# - LISTS: list of list names
-# - LABELS: dict of label IDs and names
-# - DEFAULT_BOARD: str with default board name
-# - MOVE_LISTS: dict of list aliases and list IDs
+# Config content (board names are keys)
+# - lists: list of list names
+# - labels: dict of label IDs and names
+# - move_lists: dict of list aliases and list IDs
 try:
-    from trl_config import LISTS, LABELS, DEFAULT_BOARD, MOVE_LISTS
-except ImportError as e:
+    with open(pathlib.Path.home() / ".config" / "trl_config.json") as config_file:
+        config = json.load(config_file)["boards"]
+        DEFAULT_BOARD = os.getenv("TRL_BOARD")
+        board_config = config[DEFAULT_BOARD]
+        LABELS = board_config["labels"]
+        LISTS = board_config["lists"]
+        MOVE_LISTS = board_config["move_lists"]
+except KeyError as e:
     print(e)
-    raise SystemExit("trl_config.py found but incomplete.")
+    raise SystemExit("trl_config.json found but incomplete.")
 
 
 WORKSPACE_COMMANDS = [
