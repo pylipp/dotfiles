@@ -1,0 +1,82 @@
+{
+    "boards": {
+        "Übrig Vorstand und MA": {
+            "lists": ["Dringend", "Erledigt", "Langfristige To Dos", "In Bearbeitung", "Zu erledigen"],
+            "move_lists": {
+                "erledigt": "63fdf1f1e4f4129d7f477e34",
+                "in-progress": "63fdf1ed93c1366545a3d5d3"
+            },
+            "labels": {
+                "63fdf1b22f36f2348a652b17": "Finanzen",
+                "63fdf1b22f36f2348a652b18": "Cafe-Betrieb",
+                "63fdf1b22f36f2348a652b26": "Förderungen",
+                "63ff7278b72a75c917b782c7": "Ausstattung",
+                "63fdf1b22f36f2348a652b1e": "Bildung",
+                "63fdf1b22f36f2348a652b22": "Mitarbeitende",
+                "63fdf1b22f36f2348a652b29": "Veranstaltungen",
+                "64075edf719664ac66870706": "Vereinsverwaltung",
+                "63fdf52b90cc0fa30862e477": "Behörden"
+            }
+        },
+        "Boxtribute Product Development - Fully Public": {
+            "lists": [
+                "Active Epics",
+                "Product Backlog",
+                "Next Up",
+                "Accepted (In Progress)",
+                "Pending Review",
+                "Boxtribute 2.0 || Merged to Master [v2-staging.boxtribute.org]",
+                "Boxtribute 2.0 || Merged to Production 2022/08/24 (v2.0.0)",
+                "Boxtribute 2.0 || Merged to Production 2022/08/27 (v2.0.1)",
+                "Boxtribute 2.0 || merged to production 2022-09-09 (v2.0.2)",
+                "Boxtribute 2.0 || merged to production 2022-09-10 (v2.0.3)",
+                "Boxtribute 2.0 || merged to production 2022-09-13 (v2.0.4)",
+                "Boxtribute 2.0 || merged to production 2022-09-19 (v2.0.5)",
+                "Boxtribute 2.0 || merged to production 2022-10-12 (v2.0.6)",
+                "Boxtribute 2.0 || merged to production 2022-11-25 (v2.0.7)",
+                "Boxtribute 2.0 || merged to production 2022-12-21 (v2.0.8)",
+                "Boxtribute 2.0 || merged to production 2023-01-17 (v2.1.2)",
+                "Done 2022/04/02",
+                "Dropapp || Merge to Production 2022/06/27 (v1.18.1)",
+                "Dropapp || Merge to Production 2022/08/24 (v1.19.0)",
+                "Dropapp || Merged to Master [staging.boxtribute.org]",
+                "Dropapp || Merged to Production 2022/06/05 (Release 1.17.0)",
+                "Dropapp || Merged to Production 2022/06/16 (v1.18.0)",
+                "Feature Requests / Ideas (Check Icebox 1st!)",
+                "Icebox",
+                "Information",
+                "Merged to Production 2021/05/09 (v1.13.0)",
+                "Merged to Production 2021/05/15 (v1.13.1)",
+                "Merged to Production 2021/07/17 (DB edit)",
+                "Merged to Production 2021/09/18 (Release 1.14.0)",
+                "Merged to Production 2021/09/27 (Release 1.14.2)",
+                "Merged to Production 2021/11/28 (Release 1.15.0)",
+                "Merged to Production 2021/11/30 (Release 1.15.1)",
+                "Merged to Production 2021/12/06 (Release 1.15.2)",
+                "Merged to Production 2022/02/26 (Release 1.15.3)",
+                "Merged to Production 2022/04/08 (Release 1.16.0)"
+            ],
+            "labels": {
+                "5cf6e2e297c240547b1e29b8": "Infrastructure & Performance",
+                "5cf6e2e297c240547b1e29b7": "User Flow",
+                "5cf6e2e297c240547b1e29ba": "BUG",
+                "5d00a3a71502643ecaa43605": "Warehouse",
+                "5f943dedf77be95cae1a7e92": "New App",
+                "5d00a3a352a6aa80d18f6a62": "Shop",
+                "5dc3642c5823de632992cfed": "Security",
+                "5cf6e2e297c240547b1e29bb": "Epic!",
+                "5cf6e2e297c240547b1e29b9": "Boxtribute God Feature",
+                "5d47f49326625070feda559f": "Admin Coordinator Features",
+                "5ef328633a49535687235351": "Beneficiary",
+                "5e4640e069efb032cb167e4e": "Successfully Anticipated Features",
+                "631c93eb1b5d450149ab73f7": "Landing Page"
+            },
+            "move_lists": {
+                "next-up": "5cf6e2e297c240547b1e2998",
+                "in-progress": "5cf6e2e297c240547b1e2999",
+                "review": "5cf6e2e297c240547b1e299a",
+                "merged": "63468246448d8e008cb36448"
+            }
+        }
+    }
+}
