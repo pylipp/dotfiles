@@ -65,7 +65,7 @@ Plug 'arthurxavierx/vim-caser'
 " more [ ] mappings for navigation etc.
 Plug 'tpope/vim-unimpaired'
 " highlight all occurences of word under cursor
-Plug 'RRethy/vim-illuminate', { 'for': ['python', 'cpp', 'qml', 'javascript'], }
+Plug 'RRethy/vim-illuminate', { 'for': ['python', 'cpp', 'qml', 'javascript', 'typescript'], }
 " Python indents acc. to PEP8
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python', }
 " Python code folding
