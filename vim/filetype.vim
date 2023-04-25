@@ -24,5 +24,7 @@ augroup filetypes
     autocmd FileType tex setlocal spell spelllang=en_us complete+=k
     autocmd FileType markdown setlocal spell spelllang=en_us complete+=k
 
+    autocmd FileType requirements setlocal nospell
+
     autocmd BufNewFile,BufRead *.log setlocal nowrap
 augroup END

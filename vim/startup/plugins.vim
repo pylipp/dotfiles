@@ -97,6 +97,7 @@ Plug 'jparise/vim-graphql'
 Plug 'wellle/context.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'cespare/vim-toml', { 'branch': 'main' }
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 " All of your Plugs must be added before the following line
 call plug#end()
