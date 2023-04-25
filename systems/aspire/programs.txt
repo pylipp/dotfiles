@@ -102,8 +102,7 @@ pulseaudio
 pulseaudio 10.0
 
 python3
-Python 3.7.0 (default, Jan  1 1970, 00:00:01) 
-[GCC 5.5.0]
+Python 3.10.9
 
 scrot
 scrot version 0.8
@@ -247,6 +246,7 @@ Features: Cipher DPC Modules OpenMP
 Delegates (built-in): bzlib djvu fftw fontconfig freetype jbig jng jp2 jpeg lcms lqr ltdl lzma openexr pangocairo png tiff wmf x xml zlib
 
 latexmk
+Subroutine makeglossaries redefined at (eval 10) line 3, <GEN1> chunk 1.
 
 Latexmk, John Collins, 19 Jan. 2017. Version 4.52c
 
