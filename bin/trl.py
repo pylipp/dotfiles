@@ -68,6 +68,9 @@ def main():
 
 
 def construct_trello_command(command, options):
+    if command == "assign-card":
+        command = "card-assign"
+
     trello_cmd = ["trello", command]
 
     if "-h" in options or "--help" in options:
