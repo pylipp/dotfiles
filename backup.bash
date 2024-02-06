@@ -48,6 +48,7 @@ borg create --verbose --stats --compression lz4 \
     --exclude "sh:**/build" \
     --exclude "*__pycache__*" \
     --exclude "*node_modules*" \
+    --exclude "*.docker*" \
     --exclude "*.pyc" \
     $BORGARCHIVE \
     \
