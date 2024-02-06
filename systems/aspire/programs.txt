@@ -98,6 +98,12 @@ ffmpeg version: 4.1.3
 nmcli
 nmcli tool, version 1.6.2
 
+node
+v16.17.0
+
+npm
+8.15.0
+
 pulseaudio
 pulseaudio 10.0
 

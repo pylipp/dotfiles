@@ -16,7 +16,7 @@ _collect_versions() {
         printf "\n"
     }
 
-    for program in arandr bash borg cmake curl dunst feh g++ gawk gcc git htop i3 i3lock make mpv nmcli pulseaudio python3 scrot tig vim wget xss-lock zathura zip zsh;
+    for program in arandr bash borg cmake curl dunst feh g++ gawk gcc git htop i3 i3lock make mpv nmcli node npm pulseaudio python3 scrot tig vim wget xss-lock zathura zip zsh;
     do
         _print $program --version
     done
