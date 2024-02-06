@@ -179,7 +179,7 @@ merge_pr() {
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         # Attempt to merge the PR; move trello card only when successful
-        gh pr merge "$pr_id" --delete-branch --merge && trl move-card "$card_id" merged
+        gh pr merge "$pr_id" --delete-branch --merge --admin && trl move-card "$card_id" merged
     fi
 }
 
