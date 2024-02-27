@@ -91,11 +91,20 @@ wb() {
     local month lastday
     month=${1:-$(date +%m)}
     lastday=$(date -d "$month/1 + 1 month - 1 day" "+%d")
-    watson report --no-pager --from 2024-$month-01 --to 2024-$month-$lastday --project boxtribute --tag 2024
+    watson report --no-pager --from 2024-"$month"-01 --to 2024-"$month-$lastday" --project boxtribute --tag 2024
     printf "\n"
-    watson report --no-pager --json --from 2024-$month-01 --to 2024-$month-$lastday --project boxtribute --tag general-consolidation --tag assort --tag aid-sending --tag viz | jq -r '.projects[].tags[] | "\(.name)=\(.time / 36 | round * 0.01)"'
+    watson report --no-pager --json --from 2024-"$month"-01 --to 2024-"$month-$lastday" --project boxtribute \
+        --tag general-consolidation \
+        --tag assort \
+        --tag aid-sending \
+        --tag viz | jq -r '.projects[].tags[] | "\(.name)=\(.time / 36 | round * 0.01)"'
     printf "\n"
-    watson report --no-pager --json --from 2024-$month-01 --to 2024-$month-$lastday --project boxtribute --ignore-tag general-consolidation --ignore-tag assort --ignore-tag aid-sending --ignore-tag viz --ignore-tag dsee-hermine | jq -r '.projects[].tags[] | "\(.name)=\(.time / 36 | round * 0.01)"'
+    watson report --no-pager --json --from 2024-"$month"-01 --to 2024-"$month-$lastday" --project boxtribute \
+        --ignore-tag general-consolidation \
+        --ignore-tag assort \
+        --ignore-tag aid-sending \
+        --ignore-tag viz \
+        --ignore-tag dsee-hermine | jq -r '.projects[].tags[] | "\(.name)=\(.time / 36 | round * 0.01)"'
 }
 
 wa() {
