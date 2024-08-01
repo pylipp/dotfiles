@@ -46,8 +46,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 " swap between eponymous files with different extensions (C++ header/src)
 Plug 'kana/vim-altr'
-" instant markdown preview in browser
-Plug 'pylipp/vim-markdown-preview', { 'for': 'markdown', 'branch': 'feature/colorscheme' }
 " manage tag files
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'joereynolds/gtags-scope', { 'for': ['c', 'cpp'], }
@@ -260,13 +258,6 @@ xmap gs <plug>(GrepperOperator)
 let g:grepper = {}
 let g:grepper.tools = ['rg', 'ag', 'ack', 'ack-grep', 'grep', 'findstr',]
 let g:grepper.prompt_mapping_tool = '<c-t>'
-
-" vim-markdown-preview settings (requires see, ~/.mailcap)
-let g:vim_markdown_preview_hotkey='<leader>mp'
-let g:vim_markdown_preview_browser='firefox'
-let g:vim_markdown_preview_colorscheme='solarized-dark'
-" update preview on BufWrite
-let g:vim_markdown_preview_toggle=3
 
 function! LightlineObsession()
     return '%{ObsessionStatus()}'
