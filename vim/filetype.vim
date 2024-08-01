@@ -14,7 +14,7 @@ augroup filetypes
 
     autocmd BufNewFile,BufRead qutebrowser-editor-* setf text
 
-    autocmd BufNewFile,BufRead *_shrc,*profile setf sh
+    autocmd BufNewFile,BufRead *_shrc,*profile,.env.* setf sh
 
     " Options for text-like files. Global defaults should suffice
     autocmd BufRead,BufNewFile *.html,*.xml,*.txt,README*,*.tex,*.md setlocal linebreak
