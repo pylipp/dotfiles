@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# https://bugzilla.mozilla.org/show_bug.cgi?id=1426679#c17
+if ! pulseaudio --check; then
+    pulseaudio --start -v
+fi
+
+~/software/firefox/firefox "$@"
