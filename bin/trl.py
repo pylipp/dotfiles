@@ -18,37 +18,21 @@ import os
 # Config content (board names are keys)
 # - lists: list of list names
 # - labels: dict of label IDs and names
-# - move_lists: dict of list aliases and list IDs
-try:
-    with open(pathlib.Path.home() / ".config" / "trl_config.json") as config_file:
-        config = json.load(config_file)["boards"]
-        DEFAULT_BOARD = os.getenv("TRL_BOARD")
-        board_config = config[DEFAULT_BOARD]
-        LABELS = board_config["labels"]
-        LISTS = board_config["lists"]
-        MOVE_LISTS = board_config["move_lists"]
-except KeyError as e:
-    print(e)
-    raise SystemExit("trl_config.json found but incomplete.")
-
-
-WORKSPACE_COMMANDS = [
-    "add-board",
-    "show-boards",
-    "card-assign",  # card ID/name/URL
-    "card-details",  # card ID/name/URL
-    "move-card",  # card list
-]
-BOARD_COMMANDS = [
-    "add-list",
-    "show-labels",
-    "show-lists",
-]
-LIST_COMMANDS = [
-    "add-card",  # -l LIST(name) -g LABELS
-    "show-cards",  # -l LIST(name)
-    "delete-card",  # -l LIST(name)
-]
+with open(pathlib.Path.home() / ".config" / "trl_config.json") as config_file:
+    DEFAULT_BOARD = os.getenv("TRL_BOARD")
+    if DEFAULT_BOARD is None:
+        print("DEFAULT_BOARD not set")
+        LABELS = []
+        LISTS = []
+    else:
+        try:
+            config = json.load(config_file)["boards"]
+            board_config = config[DEFAULT_BOARD]
+            LABELS = board_config["labels"]
+            LISTS = board_config["lists"]
+        except KeyError as e:
+            print(e)
+            raise SystemExit("trl_config.json found but incomplete.")
 
 
 def parse_cli():
@@ -68,67 +52,72 @@ def main():
 
 
 def construct_trello_command(command, options):
-    if command == "assign-card":
-        command = "card-assign"
-
-    trello_cmd = ["trello", command]
+    trello_cmd = ["trellod", command]
 
     if "-h" in options or "--help" in options:
         pass
 
-    elif command == "move-card":
-        for flag, list_id in MOVE_LISTS.items():
-            try:
-                options.remove(flag)
-                options.append(list_id)
-                break
-            except ValueError:
-                pass
+    elif command in ["card:assigned-to", "list:archive"]:
+        # no --board nor --list option
+        pass
 
-    elif command == "move-all-cards":
-        trello_cmd.extend(["-b", DEFAULT_BOARD, "-c", DEFAULT_BOARD])
-        trello_cmd.extend(["-l", select_list("Select source list: ")])
-        trello_cmd.extend(["-d", select_list("Select destination list: ")])
+    elif command == "card:browse":
+        # not implemented
+        pass
 
-    elif command in BOARD_COMMANDS:
-        trello_cmd.extend(["-b", DEFAULT_BOARD])
+    elif command.startswith("list"):
+        trello_cmd.extend(["--board", DEFAULT_BOARD])
 
-    elif command in LIST_COMMANDS:
-        # Select list and add default board
-        list_name = select_list()
-        label_options = select_labels() if command == "add-card" else []
-        trello_cmd.extend(["-b", DEFAULT_BOARD, "-l", list_name] + label_options)
+    elif command.startswith("card"):  # create, delete, move, show, list, assign
+        trello_cmd.extend(["--board", DEFAULT_BOARD])
+        source_list = select(elements=LISTS, prompt="From list: ")
+        trello_cmd.extend(["--list", source_list])
 
-    elif command == "browse-card":
-        webbrowser.open(f"https://trello.com/c/{options[0]}")
-        sys.exit(0)
+        if command == "card:move":
+            trello_cmd.extend(["--to", select(elements=LISTS, prompt="To list: ")])
+        elif command == "card:create":
+            title = input("Card title: ").strip()
+            trello_cmd.extend(["--name", title])
+            for label in select(
+                elements=LABELS.values(), prompt="Label(s): ", multi=True
+            ):
+                trello_cmd.extend(["--label", label])
+
+        if command in ["card:create", "card:list"]:
+            trello_cmd.extend(options)
+            return trello_cmd
+
+        # move, show, assign, delete must also select card name
+        proc = subprocess.run(
+            ["trellod", "card:list", "--board", DEFAULT_BOARD, "--list", source_list],
+            capture_output=True,
+        )
+        # Output are lines of "<CARD NAME> (ID: ...)"
+        cards = [line.split(" (ID:")[0] for line in proc.stdout.decode().splitlines()]
+        trello_cmd.extend(["--card", select(elements=cards, prompt="Card: ")])
 
     trello_cmd.extend(options)
     return trello_cmd
 
 
-def select_list(prompt="Select list: "):
+def select(*, elements, prompt="Select list: ", multi=False):
     try:
+        command = ["fzf", "--height=20", f"--prompt={prompt}"]
+        if multi:
+            command.append("--multi")
+
         proc = subprocess.run(
-            ["fzf", f"--prompt={prompt}"],
-            input=bytes("\n".join(LISTS), encoding="utf-8"),
+            command,
+            input=bytes("\n".join(elements), encoding="utf-8"),
             stdout=subprocess.PIPE,
         )
-        return proc.stdout.decode().strip()
+        raw_output = proc.stdout.decode()
+        if multi:
+            return [line.strip() for line in raw_output.splitlines()]
+        return raw_output.strip()
+
     except Exception as e:
         print(e)
-        list_names = "\n".join([f"{i:2d}: {name}" for i, name in enumerate(LISTS)])
+        list_names = "\n".join([f"{i:2d}: {name}" for i, name in enumerate(elements)])
         list_rank = input(f"{list_names}\n{prompt}")
-        return LISTS[int(list_rank)]
-
-
-def select_labels():
-    label_ids = sorted(LABELS.keys())
-    label_names = "\n".join([f"{i:2d}: {LABELS[id]}" for i, id in enumerate(label_ids)])
-    raw_label_ranks = input(f"{label_names}\nPlease select labels, comma-separated: ")
-    try:
-        label_ranks = [int(r) for r in raw_label_ranks.split(",")]
-        return ["-g", ",".join([label_ids[r] for r in label_ranks])]
-    except ValueError:
-        # Fallback if no or invalid selection made
-        return []
+        return elements[int(list_rank)]
