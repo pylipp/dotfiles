@@ -26,7 +26,9 @@ with open(pathlib.Path.home() / ".config" / "trl_config.json") as config_file:
         LISTS = []
     else:
         try:
-            config = json.load(config_file)["boards"]
+            full_config = json.load(config_file)
+            USER = full_config.get("default_user")
+            config = full_config["boards"]
             board_config = config[DEFAULT_BOARD]
             LABELS = board_config["labels"]
             LISTS = board_config["lists"]
@@ -95,6 +97,9 @@ def construct_trello_command(command, options):
         # Output are lines of "<CARD NAME> (ID: ...)"
         cards = [line.split(" (ID:")[0] for line in proc.stdout.decode().splitlines()]
         trello_cmd.extend(["--card", select(elements=cards, prompt="Card: ")])
+
+        if command == "card:assign" and "--user" not in options and USER is not None:
+            trello_cmd.extend(["--user", USER])
 
     trello_cmd.extend(options)
     return trello_cmd
