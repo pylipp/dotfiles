@@ -1,11 +1,19 @@
 {
+    "default_user": "philippm6",
     "boards": {
+        "Permakultur-Verein": {
+            "lists": [
+                "Termine",
+                "To Do",
+                "Doing",
+                "Waiting for response / decision",
+                "Done",
+                "Parked for now"
+            ],
+            "labels": {}
+        },
         "Übrig Vorstand und MA": {
             "lists": ["Dringend", "Erledigt", "Langfristige To Dos", "In Bearbeitung", "Zu erledigen"],
-            "move_lists": {
-                "erledigt": "63fdf1f1e4f4129d7f477e34",
-                "in-progress": "63fdf1ed93c1366545a3d5d3"
-            },
             "labels": {
                 "63fdf1b22f36f2348a652b17": "Finanzen",
                 "63fdf1b22f36f2348a652b18": "Cafe-Betrieb",
@@ -82,12 +90,6 @@
                 "5ef328633a49535687235351": "Beneficiary",
                 "5e4640e069efb032cb167e4e": "Successfully Anticipated Features",
                 "631c93eb1b5d450149ab73f7": "Landing Page"
-            },
-            "move_lists": {
-                "next-up": "5cf6e2e297c240547b1e2998",
-                "in-progress": "5cf6e2e297c240547b1e2999",
-                "review": "5cf6e2e297c240547b1e299a",
-                "merged": "63468246448d8e008cb36448"
             }
         }
     }
