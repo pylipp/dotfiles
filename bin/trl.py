@@ -106,6 +106,8 @@ def construct_trello_command(command, options):
 
 
 def select(*, elements, prompt="Select list: ", multi=False):
+    if not elements:
+        return [] if multi else None
     try:
         command = ["fzf", "--height=20", f"--prompt={prompt}"]
         if multi:
