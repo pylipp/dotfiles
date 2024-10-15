@@ -26,7 +26,7 @@ else
     year_prefix=20
 fi
 
-stores=(lidl biomarkt fleischmann ihle "dm drogerie"rewe aldi "dm fil" denns kaufland tengelmann edeka denn.s alnatura bioladen vollcorner "bio company" netto rossmann vitalia nahkauf vollcorner geisenhofer wiesender feneberg tagwerk ludwigsmarkt)
+stores=(lidl biomarkt fleischmann ihle "dm drogerie" rewe aldi "dm fil" denns kaufland tengelmann edeka denn.s alnatura bioladen vollcorner "bio company" netto rossmann vitalia nahkauf vollcorner geisenhofer wiesender feneberg tagwerk ludwigsmarkt)
 
 tmp_rest_file=/tmp/add_auszug_rest
 rm -f $tmp_rest_file
