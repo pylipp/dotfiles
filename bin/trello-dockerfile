@@ -2,7 +2,8 @@ FROM node:20.9.0-bullseye
 
 # docker build -t trello-cli -f trello-dockerfile \
 #    --build-arg TRELLO_TOKEN=$TRELLO_TOKEN \
-#    --build-arg TRELLO_API_KEY=$TRELLO_API_KEY .
+#    --build-arg TRELLO_API_KEY=$TRELLO_API_KEY \
+#    --build-arg TRELLO_SYNC=1 .
 ARG TRELLO_TOKEN
 ARG TRELLO_API_KEY
 
@@ -10,6 +11,8 @@ RUN npm install -g trello-cli@1.0.7
 
 RUN trello auth:token ${TRELLO_TOKEN}
 RUN trello auth:api-key ${TRELLO_API_KEY}
-RUN trello sync
+
+ARG TRELLO_SYNC=0
+RUN [ ${TRELLO_SYNC} -eq 1 ] && trello sync || true
 
 ENTRYPOINT ["trello"]
