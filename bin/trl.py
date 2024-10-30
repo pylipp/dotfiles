@@ -116,7 +116,7 @@ def select(*, elements, prompt="Select list: ", multi=False):
     if not elements:
         return [] if multi else None
     try:
-        command = ["fzf", "--height=20", f"--prompt={prompt}"]
+        command = ["fzf", "--tac", "--height=20", f"--prompt={prompt}"]
         if multi:
             command.append("--multi")
 
