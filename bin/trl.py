@@ -72,7 +72,14 @@ def construct_trello_command(command, options):
 
     elif command.startswith("card"):  # create, delete, move, show, list, assign
         trello_cmd.extend(["--board", DEFAULT_BOARD])
-        source_list = select(elements=LISTS, prompt="From list: ")
+
+        if command == "card:move" or command == "card:delete":
+            prompt = "From list: "
+        elif command == "card:list":
+            prompt = "List: "
+        else:
+            prompt = "In list: "
+        source_list = select(elements=LISTS, prompt=prompt)
         trello_cmd.extend(["--list", source_list])
 
         if command == "card:move":
