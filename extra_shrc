@@ -220,10 +220,9 @@ delete_gae_versions() {
         return 1
     fi
 
-    # v2-staging and api-staging versions have the same ID (commit hash); hence using the list of v2-staging versions
-    # is sufficient to also delete the api-staging versions of same ID
     pattern="$1"
-    gcloud app versions delete $(gcloud app versions list --service v2-staging | grep " $pattern" | cut -d' ' -f3 | xargs)
+    gcloud app versions delete --service v2-staging $(gcloud app versions list --service v2-staging | grep " $pattern" | cut -d' ' -f3 | xargs)
+    gcloud app versions delete --service api-staging $(gcloud app versions list --service api-staging | grep " $pattern" | cut -d' ' -f3 | xargs)
 }
 
 fj() {
