@@ -81,3 +81,5 @@
 [url "git@github.com:"]
     # Enforce SSH, see https://stackoverflow.com/a/36500841/3865876
     insteadOf = https://github.com/
+[user]
+    # signingkey is stored in global_gituser file
