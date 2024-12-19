@@ -66,7 +66,6 @@ borg create --verbose --stats --compression lz4 \
     \
     .mozilla/firefox \
     .cache/thunderbird \
-    .local/share/qutebrowser \
     .thunderbird \
     \
     .virtualenvs \
