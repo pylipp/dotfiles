@@ -32,6 +32,8 @@ sdd_install() {
     ln -fs ~/.files/gh_config.yml ~/.config/gh/config.yml
     mkdir -p ~/.config/direnv
     ln -fs ~/.files/direnv.toml ~/.config/direnv/direnv.toml
+    mkdir -p ~/.gnupg
+    ln -fs ~/.files/gpg-agent.conf ~/.gnupg
     ln -fs ~/.files/direnvrc ~/.config/direnv/direnvrc
     ln -fs ~/.files/ctags ~/.ctags.d
     ln -fs ~/.files/trl_config.json ~/.config/trl_config.json
