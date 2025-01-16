@@ -17,6 +17,14 @@ cmake version 3.7.2
 
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
 
+ctags
+Universal Ctags 0.0.0(3fdf28bc), Copyright (C) 2015 Universal Ctags Team
+Universal Ctags is derived from Exuberant Ctags.
+Exuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert
+  Compiled: Jun  8 2019, 14:52:02
+  URL: https://ctags.io/
+  Optional compiled features: +wildcards, +regex, +iconv, +option-directory, +xpath, +yaml, +packcc
+
 curl
 curl 7.52.1 (x86_64-pc-linux-gnu) libcurl/7.52.1 OpenSSL/1.0.2u zlib/1.2.8 libidn2/0.16 libpsl/0.17.0 (+libidn2/0.16) libssh2/1.7.0 nghttp2/1.18.1 librtmp/2.3
 Protocols: dict file ftp ftps gopher http https imap imaps ldap ldaps pop3 pop3s rtmp rtsp scp sftp smb smbs smtp smtps telnet tftp 
