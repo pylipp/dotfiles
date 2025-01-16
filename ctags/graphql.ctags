@@ -7,4 +7,5 @@
 --regex-graphql=/^[ \t]*type[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/t,type/
 --regex-graphql=/^[ \t]*input[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/i,input/
 --regex-graphql=/^[ \t]*mutation[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/m,mutation/
---regex-graphql=/^[ \t]*interface[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/i,interface/
+--regex-graphql=/^[ \t]*interface[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/n,interface/
+--regex-graphql=/^[ \t]*union[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/u,union/
