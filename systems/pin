@@ -51,6 +51,7 @@ main() {
     yarn global list | tee "$host_dir"/yarn.txt
 
     echo ""
+    vim +PlugClean +qa < /dev/tty
     vim "+PlugSnapshot! $host_dir/vim.txt" +qa < /dev/tty
 
     echo ""
