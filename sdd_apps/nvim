@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# sdd app management file for neovim editor
+
+SOFTWARE_DIR=~/software
+
+sdd_install() {
+    local version archive directory
+    version=$1
+
+    directory=nvim-linux-x86_64
+    archive=$directory.tar.gz
+    wget -P /tmp https://github.com/neovim/neovim-releases/releases/download/"$version"/"$archive"
+
+    cd /tmp || return 1
+    tar xfv "$archive"
+
+    mkdir -p $SOFTWARE_DIR
+    rm -rfv $SOFTWARE_DIR/nvim
+    mv -v $directory $SOFTWARE_DIR/nvim
+
+    ln -s $SOFTWARE_DIR/nvim/bin/nvim "$SDD_INSTALL_PREFIX"/bin/nvim
+    rm /tmp/"$archive"
+
+    mkdir -p "$SDD_INSTALL_PREFIX"/share/man/man1
+    ln -fs $SOFTWARE_DIR/nvim/share/man/man1/nvim.1 "$SDD_INSTALL_PREFIX"/share/man/man1
+
+    mkdir -p ~/.config
+    ln -fs ~/.files/nvim ~/.config/nvim
+}
+
+sdd_uninstall() {
+    rm -rfv $SOFTWARE_DIR/nvim
+    rm -rfv "$SDD_INSTALL_PREFIX"/bin/nvim
+    rm -rfv "$SDD_INSTALL_PREFIX"/share/man/man1/nvim.1
+    rm -rfv ~/.config/nvim
+}
+
+sdd_fetch_latest_version() {
+    _tag_name_of_latest_github_release neovim neovim-releases
+}
