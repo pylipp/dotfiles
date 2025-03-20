@@ -1,0 +1,17 @@
+{
+  "name": "lib",
+  "dependencies": {
+    "auth0-deploy-cli": {
+      "version": "7.15.2"
+    },
+    "corepack": {
+      "version": "0.12.1"
+    },
+    "npm": {
+      "version": "8.15.0"
+    },
+    "yarn": {
+      "version": "1.22.19"
+    }
+  }
+}

@@ -51,6 +51,9 @@ main() {
     yarn global list | tee "$host_dir"/yarn.txt
 
     echo ""
+    npm list --global --parseable | tee "$host_dir"/npm.json
+
+    echo ""
     vim +PlugClean +qa < /dev/tty
     vim "+PlugSnapshot! $host_dir/vim.txt" +qa < /dev/tty
 
