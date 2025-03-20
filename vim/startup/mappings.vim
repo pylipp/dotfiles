@@ -77,7 +77,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " enter paste mode when pasting
-set pastetoggle=<F12>
+" set pastetoggle=<F12>
 
 " open netrw file browser
 nnoremap <leader>N :Vexplore<CR>

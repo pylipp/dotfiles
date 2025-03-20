@@ -2,6 +2,10 @@
 if has('python3')
 endif
 
+if has('nvim')
+    let g:python3_host_prog = $WORKON_HOME . '/pynvim/bin/python'
+endif
+
 source ~/.vim/startup/settings.vim
 source ~/.vim/startup/functions.vim
 source ~/.vim/startup/mappings.vim

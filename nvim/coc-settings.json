@@ -1,0 +1,17 @@
+{
+    "floatFactory.floatConfig": {
+        "border": true
+    },
+    "signature.floatConfig": {
+        "border": true
+    },
+    "suggest.floatConfig": {
+        "border": true
+    },
+    "dialog.floatConfig": {
+        "border": true
+    },
+    "hover.floatConfig": {
+        "border": true
+    }
+}
