@@ -8,6 +8,10 @@ if [[ $(pgrep -f "$0" | grep -c -v $$) -gt 1 ]]; then
     exit 1
 fi
 
+if [[ ! -e /sys/class/power_supply/BAT0 ]]; then
+    exit 1
+fi
+
 while true; do
     capacity=$(cat /sys/class/power_supply/BAT0/capacity)
     status_=$(cat /sys/class/power_supply/BAT0/status)
