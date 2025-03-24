@@ -224,6 +224,7 @@ delete_gae_versions() {
     pattern="$1"
     gcloud app versions delete --service v2-staging $(gcloud app versions list --service v2-staging | grep " $pattern" | cut -d' ' -f3 | xargs)
     gcloud app versions delete --service api-staging $(gcloud app versions list --service api-staging | grep " $pattern" | cut -d' ' -f3 | xargs)
+    gcloud app versions delete --service shared-staging $(gcloud app versions list --service shared-staging | grep " $pattern" | cut -d' ' -f3 | xargs)
 }
 
 fj() {
