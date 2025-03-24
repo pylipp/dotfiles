@@ -31,18 +31,19 @@ See `setup/` for specific installation scripts.
 
 Functionality | Program name | Notes
 ------------- | ------------ | -----
-Window manager | `i3` | using `i3status`, `i3lock` and additional scripts in `i3/`
+Window manager | `i3` | using `i3status`, `i3lock`, `dunst` and additional scripts in `i3/`
 Terminal | `st` | solarized color scheme
 Shell | `bash` | forked theme from `liquidprompt`
 Terminal multiplexer | `tmux` | plugins loaded by `tpm`
 VCS | `git` | additionally using `hub` for managing GitHub workflows from the CL and `tig` for a git-log TUI. Improved diff using `delta`
-Editor | `vim` | built from source, see [vim/startup](https://github.com/pylipp/dotfiles/tree/master/vim/startup) for personal settings
+Editor | `vim` | built from source, see [personal settings](./vim/startup)
+Editor | `nvim` | installed from binaries via [SDD](./sdd_apps/nvim)
 Python development | [`virtualenvwrapper` fork](https://github.com/pylipp/virtualenvwrapper/tree/use-venv-module) |
 Python app managment | [`pipx`](https://pipxproject.github.io/pipx/)
 Python REPL | `ptpython` | vi-like editing; usually installing it in venvs
 Python Debugger | `pudb` | vi-like editing; usually installing it in venvs
 Auto environment loading | `direnv` | handy for activating venvs
-Webbrowser | `qutebrowser` | vi-like key bindings
+Webbrowser | `google-chrome` | https://unix.stackexchange.com/a/777984
 PDF reader | `zathura` |
 In-file search | `ripgrep` |
 Command-line utility | `fzf` |
@@ -51,7 +52,7 @@ Time tracking | `watson` |
 Backup | `borg`
 Pager | `bat`
 File finder | `fd`
-Image Viewer | `feh`
+Image Viewer | `feh` and `sxiv`
 JSON processing | `jq`
 
 ## TODOs
