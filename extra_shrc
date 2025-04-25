@@ -98,6 +98,10 @@ wb() {
         --tag general-consolidation \
         --tag assort \
         --tag aid-sending \
+        --tag prototyping \
+        --tag release-coordination \
+        --tag basic-maintenance \
+        --tag cisco-data \
         --tag viz | jq -r '.projects[].tags[] | "\(.name)=\(.time / 36 | round * 0.01)"'
     printf "\n"
     watson report --no-pager --json --from "$year"-"$month"-01 --to "$year"-"$month-$lastday" --project boxtribute \
@@ -105,7 +109,10 @@ wb() {
         --ignore-tag assort \
         --ignore-tag aid-sending \
         --ignore-tag viz \
-        --ignore-tag dsee-hermine | jq -r '.projects[].tags[] | "\(.name)=\(.time / 36 | round * 0.01)"'
+        --ignore-tag prototyping \
+        --ignore-tag release-coordination \
+        --ignore-tag cisco-data \
+        --ignore-tag basic-maintenance | jq -r '.projects[].tags[] | "\(.name)=\(.time / 36 | round * 0.01)"'
 }
 
 wa() {
