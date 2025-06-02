@@ -1,21 +1,26 @@
 #!/usr/bin/env bash
 
 sdd_install() {
-    cd /tmp || return 1
-    git clone https://github.com/pylipp/dzr
-    cd dzr || return 1
-    git checkout fca867b0adb78b9cc9de239a324f12f293e401f0
-    cp -v dzr dzr-url dzr-dec "$SDD_INSTALL_PREFIX"/bin
-    cd ..
-    rm -rfv dzr
+    local version
+    version=$1
+    wget -P "$SDD_INSTALL_PREFIX"/bin https://github.com/yne/dzr/releases/download/"$version"/dzr
+    wget -P "$SDD_INSTALL_PREFIX"/bin https://github.com/yne/dzr/releases/download/"$version"/dzr-dec
+    wget -P "$SDD_INSTALL_PREFIX"/bin https://github.com/yne/dzr/releases/download/"$version"/dzr-id3
+    wget -P "$SDD_INSTALL_PREFIX"/bin https://github.com/yne/dzr/releases/download/"$version"/dzr-srt
+    wget -P "$SDD_INSTALL_PREFIX"/bin https://github.com/yne/dzr/releases/download/"$version"/dzr-url
+    chmod u+x "$SDD_INSTALL_PREFIX"/bin/dzr
+    chmod u+x "$SDD_INSTALL_PREFIX"/bin/dzr-dec
+    chmod u+x "$SDD_INSTALL_PREFIX"/bin/dzr-url
 }
 
 sdd_uninstall() {
     rm -fv "$SDD_INSTALL_PREFIX"/bin/dzr
     rm -fv "$SDD_INSTALL_PREFIX"/bin/dzr-dec
+    rm -fv "$SDD_INSTALL_PREFIX"/bin/dzr-id3
+    rm -fv "$SDD_INSTALL_PREFIX"/bin/dzr-srt
     rm -fv "$SDD_INSTALL_PREFIX"/bin/dzr-url
 }
 
 sdd_fetch_latest_version() {
-    _sha_of_github_master pylipp dzr
+    _name_of_latest_github_tag yne dzr
 }
