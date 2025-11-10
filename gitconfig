@@ -65,6 +65,9 @@
     conflictstyle = diff3
 [mergetool]
     prompt = false
+[mergetool "vimdiff"]
+    # https://github.com/neovim/neovim/issues/2377#issuecomment-126092442
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [include]
     path = ~/.files/global_gituser
 [filter "lfs"]
