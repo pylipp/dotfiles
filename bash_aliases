@@ -6,6 +6,7 @@ alias rg='rg --ignore-file ~/.files/gitignore_global'
 
 alias z=zathura
 alias s=sxiv
+alias ss='scrot -s'
 
 alias mkvenv35="mkvirtualenv --python=python3.5 "
 alias mkvenv36="mkvirtualenv --python=python3.6 "
