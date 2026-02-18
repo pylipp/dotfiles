@@ -1,2 +1,3 @@
 aliases:
     apr: pr review --approve
+version: "1"
