@@ -12,6 +12,11 @@ Session.vim
 # Qt related
 *.user
 
+# aider
+.aider.chat.history.md
+.aider.input.history
+.aider.tags.cache.v4/
+
 # Tags
 tags
 qmltags
