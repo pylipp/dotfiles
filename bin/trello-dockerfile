@@ -7,7 +7,7 @@ FROM node:20.9.0-bullseye
 ARG TRELLO_TOKEN
 ARG TRELLO_API_KEY
 
-RUN npm install -g trello-cli@1.0.7
+RUN npm install -g trello-cli@1.4.0
 
 RUN trello auth:token ${TRELLO_TOKEN}
 RUN trello auth:api-key ${TRELLO_API_KEY}
