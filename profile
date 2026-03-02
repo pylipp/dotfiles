@@ -3,7 +3,7 @@ export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_DATA_HOME="$HOME"/.local/share
 
 export TERMINAL=st  # set for i3-sensible-terminal
-export EDITOR=vim
+export EDITOR=nvim
 export BROWSER=firefox
 GPG_TTY=$(tty)
 export GPG_TTY  # for gpg-preset-passphrase and pinentry
