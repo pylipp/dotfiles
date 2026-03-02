@@ -70,7 +70,7 @@ def construct_trello_command(command, options):
     elif command.startswith("list"):
         trello_cmd.extend(["--board", DEFAULT_BOARD])
 
-    elif command.startswith("card"):  # create, delete, move, show, list, assign
+    elif command.startswith("card"):  # create, delete, move, show, list, assign, attach
         trello_cmd.extend(["--board", DEFAULT_BOARD])
 
         if command == "card:move" or command == "card:delete":
@@ -96,7 +96,7 @@ def construct_trello_command(command, options):
             trello_cmd.extend(options)
             return trello_cmd
 
-        # move, show, assign, delete must also select card name
+        # move, show, assign, attach, delete must also select card name
         proc = subprocess.run(
             ["trellod", "card:list", "--board", DEFAULT_BOARD, "--list", source_list],
             capture_output=True,
