@@ -107,10 +107,10 @@ nmcli
 nmcli tool, version 1.6.2
 
 node
-v16.17.0
+v16.18.0
 
 npm
-8.15.0
+8.19.2
 
 pulseaudio
 pulseaudio 10.0
