@@ -113,7 +113,7 @@ call plug#end()
 "Exuberant ctags - tag generation for language objects
 "look for next tags file from current path up to Home
 set tags=./tags,./qmltags;$HOME
-let g:gutentags_ctags_exclude = ['.mypy_cache/**/*.json']
+let g:gutentags_ctags_exclude = ['.mypy_cache/**/*.json', 'node_modules/**']
 
 " GNU Global integration using cscope interface
 "   's'   symbol: find all references to the token under cursor
