@@ -103,6 +103,8 @@ wb() {
         --tag basic-maintenance \
         --tag cisco-data \
         --tag cisco-sheets \
+        --tag cisco-coord \
+        --tag cisco-usertraining \
         --tag viz | jq -r '.projects[].tags[] | "\(.name)=\(.time / 36 | round * 0.01)"'
     printf "\n"
     watson report --no-pager --json --from "$year"-"$month"-01 --to "$year"-"$month-$lastday" --project boxtribute \
@@ -114,6 +116,8 @@ wb() {
         --ignore-tag release-coordination \
         --ignore-tag cisco-data \
         --ignore-tag cisco-sheets \
+        --ignore-tag cisco-coord \
+        --ignore-tag cisco-usertraining \
         --ignore-tag basic-maintenance | jq -r '.projects[].tags[] | "\(.name)=\(.time / 36 | round * 0.01)"'
 }
 
